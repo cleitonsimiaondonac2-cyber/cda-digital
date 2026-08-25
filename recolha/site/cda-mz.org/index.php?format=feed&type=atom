@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<feed xmlns="http://www.w3.org/2005/Atom"  xml:lang="pt-pt">
+	<title type="text">CDA - Câmara dos Despachantes Aduaneiros de Moçambique</title>
+	<subtitle type="text">Câmara dos Despachantes Aduaneiros de Moçambique</subtitle>
+	<link rel="alternate" type="text/html" href="https://cda-mz.org"/>
+	<id>https://cda-mz.org/index.php</id>
+	<updated>2026-08-18T13:42:19+00:00</updated>
+	<generator uri="https://www.joomla.org">Joomla! - Open Source Content Management</generator>
+	<link rel="self" type="application/atom+xml" href="https://cda-mz.org/index.php?format=feed&amp;type=atom"/>
+</feed>

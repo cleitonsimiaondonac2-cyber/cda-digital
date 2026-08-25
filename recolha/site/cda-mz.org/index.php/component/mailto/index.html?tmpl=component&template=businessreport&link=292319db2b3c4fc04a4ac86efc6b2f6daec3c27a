@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" xml:lang="pt-pt" lang="pt-pt" dir="ltr" class="bootstrap3 itemid- com_mailto view-mailto top_menu_flexible">
+<head>
+<base href="https://cda-mz.org/index.php/component/mailto/" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="description" content="Câmara dos Despachantes Aduaneiros de Moçambique" />
+	<title>CDA</title>
+	<link href="/templates/businessreport/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+	<link href="/components/com_k2/css/k2.css" rel="stylesheet" type="text/css" />
+	<link href="/plugins/system/yjsg/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link href="/templates/businessreport/css_compiled/bootstrap-brick.css" rel="stylesheet" type="text/css" />
+	<link href="/plugins/system/yjsg/legacy/css/template.css" rel="stylesheet" type="text/css" />
+	<link href="/templates/businessreport/css/menus.css" rel="stylesheet" type="text/css" />
+	<link href="/templates/businessreport/css/layout.css" rel="stylesheet" type="text/css" />
+	<link href="/templates/businessreport/css/brick.css" rel="stylesheet" type="text/css" />
+	<link href="/plugins/system/yjsg/legacy/css/yjresponsive.css" rel="stylesheet" type="text/css" />
+	<link href="/templates/businessreport/css/custom_responsive.css" rel="stylesheet" type="text/css" />
+	<link href="/templates/businessreport/css/fontfacekits/PTSansNarrowBold/stylesheet.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">
+body{font-size:12px;}#logo{width:36%;height:95px;}#logo a{height:95px;}.yjsgsitew{width:1200px;}.yjsgheadergw{width:64%;}#midblock{width:100%;}#insetsholder_2t,#insetsholder_2b{width:0%;}#logo{background: url(https://cda-mz.org/images/headers/logo-Site-v3.png)  no-repeat 0px 0px; !important;}.horiznav li li,.horiznav ul ul a, .horiznav li ul,.YJSG_listContainer{width:210px;}.horiznav li ul ul,.subul_main.group_holder ul.subul_main ul.subul_main, .subul_main.group_holder ul.subul_main ul.subul_main ul.subul_main, .subul_main.group_holder ul.subul_main ul.subul_main ul.subul_main ul.subul_main,.horiznav li li li:hover ul.dropline{margin-top: -32px!important;margin-left:95%!important;}.top_menu ul.subul_main.dropline.group_holder li.holdsgroup > ul.subul_main{margin:0!important;padding-top:10px!important;padding-bottom:10px!important;}a{color:#727d91;}[class*='yjsg-button-color']{background:#727d91;}[class*='yjsg-button-color']:hover{background:#667183;}#typosticky.yjsg-sticky.fixed{max-width:1200px;margin:0 auto;padding:15px;}.yjsg-sub-heading,.yjsg-sticky-menu a.active-scroll,[data-sticky-block] a.active-scroll:before{border-color:#727d91;}[class*='facolor'].fa:before{color:#727d91;}
+	</style>
+	<script type="application/json" class="joomla-script-options new">{"csrf.token":"cdeb2aa340644548140483c7b5c20cce","system.paths":{"root":"","base":""},"system.keepalive":{"interval":840000,"uri":"\/index.php\/component\/ajax\/?format=json"}}</script>
+	<script src="/media/system/js/mootools-core.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/media/system/js/core.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery.min.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-noconflict.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/media/jui/js/jquery-migrate.min.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/components/com_k2/js/k2.js?v2.6.8&amp;sitepath=/" type="text/javascript"></script>
+	<!--[if lt IE 9]><script src="/media/system/js/polyfill.event.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script><![endif]-->
+	<script src="/media/system/js/keepalive.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/media/system/js/mootools-more.js?e9d40ec2b211f4420a3ea5cfbae557f1" type="text/javascript"></script>
+	<script src="/plugins/system/yjsg/assets/src/yjsg.jquicustom.min.js" type="text/javascript"></script>
+	<script src="/plugins/system/yjsg/assets/bootstrap3/js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="/plugins/system/yjsg/legacy/src/yjresponsive.js" type="text/javascript"></script>
+	<script src="/plugins/system/yjsg/assets/src/yjsg.site.plugins.js" type="text/javascript"></script>
+	<script src="/plugins/system/yjsg/assets/src/yjsg.site.js" type="text/javascript"></script>
+	<script src="/plugins/system/yjsg/assets/src/magnific/yjsg.magnific.popup.min.js" type="text/javascript"></script>
+	<script src="/templates/businessreport/src/styles.js" type="text/javascript"></script>
+</head>
+<body id="stylef4" class="contentpane">
+	
+	<script type="text/javascript">
+	Joomla.submitbutton = function(pressbutton) {
+		var form = document.getElementById('mailtoForm');
+
+		// do field validation
+		if (form.mailto.value == "" || form.from.value == "") {
+			alert('Por favor, introduza um endereço de email válido.');
+			return false;
+		}
+		form.submit();
+	}
+</script>
+
+<div id="mailto-window">
+	<form action="https://cda-mz.org/index.php" id="mailtoForm"  class="well form-form" method="post">
+	<h2>
+		Envie esta ligação a um amigo.	</h2>
+	<div class="mailto-close">
+		<a href="javascript: void window.close()" title="Fechar Janela">
+		 <span>Fechar Janela </span></a>
+	</div>    
+		<div class="formelm">
+			<label for="mailto_field">Email para</label>
+			<input type="text" id="mailto_field" name="mailto" class="inputbox form-field" size="25" value=""/>
+		</div>
+		<div class="formelm">
+			<label for="sender_field">
+			Enviado por</label>
+			<input type="text" id="sender_field" name="sender" class="inputbox form-field" value="" size="25" />
+		</div>
+		<div class="formelm">
+			<label for="from_field">
+			O seu email</label>
+			<input type="text" id="from_field" name="from" class="inputbox form-field" value="" size="25" />
+		</div>
+		<div class="formelm">
+			<label for="subject_field">
+			Assunto</label>
+			<input type="text" id="subject_field" name="subject" class="inputbox form-field" value="" size="25" />
+		</div>
+		<p>
+			<button class="btn button" onclick="return Joomla.submitbutton('send');">
+				Enviar			</button>
+			<button class="btn button" onclick="window.close();return false;">
+				Cancelar			</button>
+		</p>
+		<input type="hidden" name="layout" value="default" />
+		<input type="hidden" name="option" value="com_mailto" />
+		<input type="hidden" name="task" value="send" />
+		<input type="hidden" name="tmpl" value="component" />
+		<input type="hidden" name="link" value="" />
+		<input type="hidden" name="cdeb2aa340644548140483c7b5c20cce" value="1" />
+	</form>
+</div>
+
+	<script type="text/javascript"> var logo_w = '432'; var site_w = '1200'; var site_f = '12px'; var sp='https://cda-mz.org/'; var tp ='businessreport'; var compileme =0; var fontc ='businessreport_174851458261500'; var bootstrapv='bootstrap3'; var yver='3'; var yjsglegacy='1'; var yjsgrtl='2'; var menuanimation='fade';var menuanimationspeed=300; var lgtr = new Object(); lgtr.magnificpopup_close='Close (Esc)'; lgtr.magnificpopup_loading='Loading...'; lgtr.magnificpopup_prev='Previous (Left arrow key)'; lgtr.magnificpopup_next='Next (Right arrow key)'; lgtr.magnificpopup_counter='%curr% of %total%'; lgtr.magnificpopup_errorimage='<a href=%url%>The image</a> could not be loaded.'; lgtr.magnificpopup_errorajax='<a href=%url%>The content</a> could not be loaded.'; </script>
+</body>
+</html>

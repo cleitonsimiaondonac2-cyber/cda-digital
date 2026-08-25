@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-titulo="Centro Documental">Centro Documental — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Centro documental da Câmara dos Despachantes Aduaneiros de Moçambique: legislação, regulamentos, circulares, convocatórias, ordens de serviço, exortações, relatórios, boletins e fichas. Pesquisa com filtros e assistente de IA.">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-page="documentacao">
+
+<div class="topbar">
+  <div class="container">
+    <div>
+      <span class="tb-item">Tel. +258 21 305 504 · +258 21 305 506</span>
+      <span class="tb-item">Maputo · Moçambique</span>
+    </div>
+    <div>
+      <a href="area-membro.html">Área do Membro</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html"><img src="img/logo-site.png" alt="Câmara dos Despachantes Aduaneiros de Moçambique"></a>
+    <button class="menu-btn" id="menu-btn">☰ Menu</button>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html" data-pagina="inicio">Início</a></li>
+        <li><a href="instituicao.html" data-pagina="instituicao">Instituição</a></li>
+        <li><a href="despachantes.html" data-pagina="despachantes">Despachantes</a></li>
+        <li><a href="documentacao.html" data-pagina="documentacao">Centro Documental</a></li>
+        <li><a href="noticias.html" data-pagina="noticias">Notícias</a></li>
+        <li><a href="galeria.html" data-pagina="galeria">Galeria</a></li>
+        <li><a href="parceiros.html" data-pagina="parceiros">Parceiros</a></li>
+        <li><a href="contactos.html" data-pagina="contactos">Contactos</a></li>
+        <li><a class="btn-nav" href="area-membro.html">Área do Membro</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Centro Documental</h1>
+    <p>Todo o acervo oficial da CDA — legislação, regulamentos, convocatórias, circulares, ordens de serviço, exortações, relatórios, boletins e fichas — pesquisável por tipo, ano, entidade e palavra-chave.</p>
+  </div>
+</section>
+
+<div class="breadcrumb"><div class="container">Centro Documental</div></div>
+
+<section class="section">
+  <div class="container">
+    <div class="filtros">
+      <div>
+        <label for="q">Pesquisar</label>
+        <input id="q" type="search" placeholder="Palavra-chave, número, assunto…" aria-label="Pesquisar documentos">
+      </div>
+      <div>
+        <label for="f-tipo">Tipo</label>
+        <select id="f-tipo"><option value="Todos">Todos</option></select>
+      </div>
+      <div>
+        <label for="f-ano">Ano</label>
+        <select id="f-ano"><option value="Todos">Todos</option></select>
+      </div>
+      <div>
+        <label for="f-ent">Entidade</label>
+        <select id="f-ent"><option value="Todas">Todas</option></select>
+      </div>
+      <div>
+        <button class="btn btn-red" id="f-limpar">Limpar</button>
+      </div>
+    </div>
+    <p class="resultado-cont" id="doc-cont"></p>
+    <div class="doc-list" id="doc-lista"></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h4>CDA</h4>
+        <p>Câmara dos Despachantes Aduaneiros de Moçambique — instituição de direito público criada pela Lei n.º 4/2011, de 11 de Janeiro.</p>
+      </div>
+      <div>
+        <h4>Documentação</h4>
+        <a href="documentacao.html">Legislação</a>
+        <a href="documentacao.html">Regulamentos</a>
+        <a href="documentacao.html">Circulares</a>
+        <a href="documentacao.html">Convocatórias</a>
+        <a href="documentacao.html">Boletins</a>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="instituicao.html">Quem somos</a>
+        <a href="instituicao.html">Missão e valores</a>
+        <a href="instituicao.html">Órgãos sociais</a>
+        <a href="instituicao.html">Histórico</a>
+        <a href="parceiros.html">Parceiros e links</a>
+      </div>
+      <div>
+        <h4>Contactos</h4>
+        <p>Edifício Central<br>Rua João Carlos Raposo Beirão, n.º 508, R/C<br>Maputo — Moçambique</p>
+        <p>+258 21 305 504 · +258 21 305 506</p>
+        <a href="contactos.html">Formulário de contacto</a>
+        <a href="area-membro.html">Área do Membro</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Câmara dos Despachantes Aduaneiros de Moçambique. Todos os direitos reservados.</span>
+      <span>Portal CDA Digital 2.0 — Lamo Projectos / Skylayer</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+<script src="js/assistente.js"></script>
+<script>
+  document.getElementById("f-limpar").addEventListener("click", () => {
+    ["q", "f-tipo", "f-ano", "f-ent"].forEach((id) => { document.getElementById(id).value = id === "f-ano" ? "Todos" : id === "f-ent" ? "Todas" : id === "f-tipo" ? "Todos" : ""; });
+    document.getElementById("q").dispatchEvent(new Event("input"));
+  });
+</script>
+</body>
+</html>

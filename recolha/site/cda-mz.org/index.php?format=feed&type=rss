@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>CDA - Câmara dos Despachantes Aduaneiros de Moçambique</title>
+		<description><![CDATA[Câmara dos Despachantes Aduaneiros de Moçambique]]></description>
+		<link>https://cda-mz.org/index.php</link>
+		<lastBuildDate>Tue, 18 Aug 2026 13:42:18 +0000</lastBuildDate>
+		<generator>Joomla! - Open Source Content Management</generator>
+		<atom:link rel="self" type="application/rss+xml" href="https://cda-mz.org/index.php?format=feed&amp;type=rss"/>
+		<language>pt-pt</language>
+	</channel>
+</rss>

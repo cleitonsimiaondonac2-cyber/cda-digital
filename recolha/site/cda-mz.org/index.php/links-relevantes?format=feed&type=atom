@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- generator="Joomla! - Open Source Content Management" -->
+<feed xmlns="http://www.w3.org/2005/Atom"  xml:lang="pt-pt">
+	<title type="text">Links Relevantes</title>
+	<subtitle type="text">Câmara dos Despachantes Aduaneiros de Moçambique</subtitle>
+	<link rel="alternate" type="text/html" href="https://cda-mz.org"/>
+	<id>https://cda-mz.org/index.php/links-relevantes</id>
+	<updated>2026-08-18T13:47:41+00:00</updated>
+	<author>
+		<name>CDA</name>
+	</author>
+	<generator uri="https://www.joomla.org">Joomla! - Open Source Content Management</generator>
+	<link rel="self" type="application/atom+xml" href="https://cda-mz.org/index.php/links-relevantes?format=feed&amp;type=atom"/>
+	<entry>
+		<title>Ministério da Indústria e Comércio</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/4"/>
+		<published>2016-03-23T00:54:00+00:00</published>
+		<updated>2016-03-23T00:54:00+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/4</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+	<entry>
+		<title>Autoridade Tributária de Moçambique</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/5"/>
+		<published>2016-03-23T00:54:45+00:00</published>
+		<updated>2016-03-23T00:54:45+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/5</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+	<entry>
+		<title>Legislação Aduaneira</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/6"/>
+		<published>2016-03-23T00:56:47+00:00</published>
+		<updated>2016-03-23T00:56:47+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/6</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+	<entry>
+		<title>Janela Única Electrónica - JUE</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/7"/>
+		<published>2016-03-23T00:58:49+00:00</published>
+		<updated>2016-03-23T00:58:49+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/7</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+	<entry>
+		<title>Câmada dos Despachantes Oficiais de Angola</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/8"/>
+		<published>2016-03-23T01:01:07+00:00</published>
+		<updated>2016-03-23T01:01:07+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/8</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+	<entry>
+		<title>Órdem dos Despachantes Oficiais de Portugal</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/9"/>
+		<published>2016-03-23T01:02:34+00:00</published>
+		<updated>2016-03-23T01:02:34+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/9</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+	<entry>
+		<title>Federacao Mundial dos Despachantes Oficiais</title>
+		<link rel="alternate" type="text/html" href="https://cda-mz.org/index.php/links-relevantes/10"/>
+		<published>2016-03-23T01:03:18+00:00</published>
+		<updated>2016-03-23T01:03:18+00:00</updated>
+		<id>https://cda-mz.org/index.php/links-relevantes/10</id>
+		<author>
+			<name>Super User</name>
+			<email>cirilo.macanze@gmail.co</email>
+		</author>
+		<category term="Links Relevantes" />
+	</entry>
+</feed>
