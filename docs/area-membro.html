@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-titulo="Área do Membro">Área do Membro — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Área do membro da Câmara dos Despachantes Aduaneiros de Moçambique: carteira profissional, quotas, requerimentos e documentos exclusivos.">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-page="membro">
+
+<div class="topbar">
+  <div class="container">
+    <div>
+      <span class="tb-item">Tel. +258 21 305 504 · +258 21 305 506</span>
+      <span class="tb-item">Maputo · Moçambique</span>
+    </div>
+    <div>
+      <a href="area-membro.html">Área do Membro</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html"><img src="img/logo-site.png" alt="Câmara dos Despachantes Aduaneiros de Moçambique"></a>
+    <button class="menu-btn" id="menu-btn">☰ Menu</button>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html" data-pagina="inicio">Início</a></li>
+        <li><a href="instituicao.html" data-pagina="instituicao">Instituição</a></li>
+        <li><a href="despachantes.html" data-pagina="despachantes">Despachantes</a></li>
+        <li><a href="documentacao.html" data-pagina="documentacao">Centro Documental</a></li>
+        <li><a href="noticias.html" data-pagina="noticias">Notícias</a></li>
+        <li><a href="galeria.html" data-pagina="galeria">Galeria</a></li>
+        <li><a href="parceiros.html" data-pagina="parceiros">Parceiros</a></li>
+        <li><a href="contactos.html" data-pagina="contactos">Contactos</a></li>
+        <li><a class="btn-nav" href="area-membro.html">Área do Membro</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Área do Membro</h1>
+    <p>Serviços digitais exclusivos para os despachantes aduaneiros registados na CDA.</p>
+  </div>
+</section>
+
+<div class="breadcrumb"><div class="container">Área do Membro</div></div>
+
+<section class="section">
+  <div class="container">
+    <div id="login-view">
+      <div class="login-box">
+        <h2 style="text-align:center">Iniciar sessão</h2>
+        <p style="color:var(--text-soft);font-size:.9rem;text-align:center">Acesso reservado aos membros da CDA.</p>
+        <form id="form-login">
+          <label for="l-user">Número de carteira ou e-mail</label>
+          <input id="l-user" type="text" required placeholder="ex.: 000100010912">
+          <label for="l-pass">Senha</label>
+          <input id="l-pass" type="password" required placeholder="••••••••">
+          <button class="btn btn-red" type="submit">Entrar</button>
+        </form>
+        <p class="aviso">Demonstração: introduza quaisquer dados para visualizar o painel do membro.<br>Em produção: autenticação Joomla com recuperação de senha por e-mail.</p>
+        <a href="index.html" style="display:block;text-align:center;margin-top:12px;font-size:.88rem">Voltar ao portal</a>
+      </div>
+    </div>
+
+    <div id="dash-view" style="display:none">
+      <div class="section-head">
+        <div>
+          <span class="sub">Bem-vindo</span>
+          <h2 id="dash-nome">Painel do membro</h2>
+        </div>
+      </div>
+      <div class="dash">
+        <div class="dash-card">
+          <h4>Carteira profissional <span class="estado estado-ok">Activa</span></h4>
+          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">N.º 000100010912 · Cédula DESP/001/DGA/03<br>Validade: 2026</p>
+          <p style="margin-top:10px"><a class="btn btn-navy" href="#" onclick="alert('Em produção: emissão do PDF da carteira.')">Emitir PDF</a></p>
+        </div>
+        <div class="dash-card">
+          <h4>Quotas <span class="estado estado-atrasado">1 em atraso</span></h4>
+          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Quota 2026: <strong>em atraso</strong><br>Quota 2025: <strong>paga</strong></p>
+          <p style="margin-top:10px"><a class="btn btn-navy" href="#" onclick="alert('Em produção: pagamento/registo de quotas (M-Pesa ou referência bancária).')">Regularizar quota</a></p>
+        </div>
+        <div class="dash-card">
+          <h4>Requerimentos <span class="estado estado-ok">1 em análise</span></h4>
+          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Renovação de carteira — submetido em 02/08/2026<br>Estado: <strong>em análise</strong></p>
+          <p style="margin-top:10px"><a class="btn btn-navy" href="#" onclick="alert('Em produção: novos requerimentos com acompanhamento de estado.')">Novo requerimento</a></p>
+        </div>
+        <div class="dash-card">
+          <h4>Comunicados e documentos</h4>
+          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Documentos exclusivos para membros e comunicados recentes da CDA.</p>
+          <p style="margin-top:10px"><a class="btn btn-navy" href="documentacao.html">Centro Documental</a></p>
+        </div>
+        <div class="dash-card">
+          <h4>Formação e eventos</h4>
+          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Próximas acções de formação contínua e eventos da classe.</p>
+          <p style="margin-top:10px"><a class="btn btn-navy" href="noticias.html">Ver notícias</a></p>
+        </div>
+        <div class="dash-card">
+          <h4>Assistente pessoal</h4>
+          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">"Mostre-me os documentos publicados esta semana", "Encontre a última circular sobre…".</p>
+          <p style="margin-top:10px"><a class="btn btn-navy" href="documentacao.html">Perguntar à IA</a></p>
+        </div>
+      </div>
+      <p style="margin-top:16px"><a href="area-membro.html" onclick="location.reload()">Terminar sessão</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h4>CDA</h4>
+        <p>Câmara dos Despachantes Aduaneiros de Moçambique — instituição de direito público criada pela Lei n.º 4/2011, de 11 de Janeiro.</p>
+      </div>
+      <div>
+        <h4>Documentação</h4>
+        <a href="documentacao.html">Legislação</a>
+        <a href="documentacao.html">Regulamentos</a>
+        <a href="documentacao.html">Circulares</a>
+        <a href="documentacao.html">Convocatórias</a>
+        <a href="documentacao.html">Boletins</a>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="instituicao.html">Quem somos</a>
+        <a href="instituicao.html">Missão e valores</a>
+        <a href="instituicao.html">Órgãos sociais</a>
+        <a href="instituicao.html">Histórico</a>
+        <a href="parceiros.html">Parceiros e links</a>
+      </div>
+      <div>
+        <h4>Contactos</h4>
+        <p>Edifício Central<br>Rua João Carlos Raposo Beirão, n.º 508, R/C<br>Maputo — Moçambique</p>
+        <p>+258 21 305 504 · +258 21 305 506</p>
+        <a href="contactos.html">Formulário de contacto</a>
+        <a href="area-membro.html">Área do Membro</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Câmara dos Despachantes Aduaneiros de Moçambique. Todos os direitos reservados.</span>
+      <span>Portal CDA Digital 2.0 — Lamo Projectos / Skylayer</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+<script src="js/assistente.js"></script>
+</body>
+</html>

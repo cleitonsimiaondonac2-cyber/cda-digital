@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-titulo="Despachantes">Despachantes — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Como ser despachante aduaneiro em Moçambique: âmbito da profissão, legislação, requisitos para a carteira profissional, fichas de inscrição e lista de membros da CDA.">
+<link rel="stylesheet" href="css/estilo.css">
+</head>
+<body data-page="despachantes">
+
+<div class="topbar">
+  <div class="container">
+    <div>
+      <span class="tb-item">Tel. +258 21 305 504 · +258 21 305 506</span>
+      <span class="tb-item">Maputo · Moçambique</span>
+    </div>
+    <div>
+      <a href="area-membro.html">Área do Membro</a>
+    </div>
+  </div>
+</div>
+
+<header class="header">
+  <div class="container header-inner">
+    <a class="logo" href="index.html"><img src="img/logo-site.png" alt="Câmara dos Despachantes Aduaneiros de Moçambique"></a>
+    <button class="menu-btn" id="menu-btn">☰ Menu</button>
+    <nav class="nav" id="nav">
+      <ul>
+        <li><a href="index.html" data-pagina="inicio">Início</a></li>
+        <li><a href="instituicao.html" data-pagina="instituicao">Instituição</a></li>
+        <li><a href="despachantes.html" data-pagina="despachantes">Despachantes</a></li>
+        <li><a href="documentacao.html" data-pagina="documentacao">Centro Documental</a></li>
+        <li><a href="noticias.html" data-pagina="noticias">Notícias</a></li>
+        <li><a href="galeria.html" data-pagina="galeria">Galeria</a></li>
+        <li><a href="parceiros.html" data-pagina="parceiros">Parceiros</a></li>
+        <li><a href="contactos.html" data-pagina="contactos">Contactos</a></li>
+        <li><a class="btn-nav" href="area-membro.html">Área do Membro</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1>Despachantes Aduaneiros</h1>
+    <p>Como ser membro da CDA, requisitos para a carteira profissional, fichas de inscrição e a lista de membros registados.</p>
+  </div>
+</section>
+
+<div class="breadcrumb"><div class="container">Despachantes</div></div>
+
+<section class="section">
+  <div class="container conteudo">
+    <h2>Como ser Membro</h2>
+
+    <h3>a) Âmbito de actuação</h3>
+    <p>Entidade autorizada a agir na qualidade de declarante e a apresentar às autoridades aduaneiras qualquer tipo de documento para o desembaraço aduaneiro de mercadorias sujeitas ou não a direitos e demais imposições cobradas pelas Alfândegas, salvo nos casos de desembaraço directo.</p>
+
+    <h3>b) Legislação</h3>
+    <ul>
+      <li><strong>Lei n.º 4/2011, de 11 de Janeiro</strong> — Cria a Câmara dos Despachantes Aduaneiros de Moçambique;</li>
+      <li><strong>Decreto n.º 16/2011, de 26 de Maio</strong> — Aprova o Estatuto da Câmara dos Despachantes Aduaneiros de Moçambique;</li>
+      <li><strong>Decreto n.º 18/2011, de 26 de Maio</strong> — Regulamento do exercício da actividade de despacho aduaneiro de mercadorias.</li>
+    </ul>
+
+    <h3>c) Requisitos para a obtenção da carteira profissional</h3>
+    <p>Participar de um concurso público e ser aprovado, reunindo os seguintes requisitos:</p>
+    <ul>
+      <li>Ter nacionalidade moçambicana e ser maior de idade;</li>
+      <li>Possuir qualificações académicas mínimas correspondentes ao curso médio de técnico aduaneiro ou formação superior;</li>
+      <li>Ou ser ajudante de despachante em exercício efectivo de funções há mais de cinco anos, com habilitações académicas mínimas correspondentes ao nível médio;</li>
+      <li>Ou ser cidadão estrangeiro que reúna os requisitos previstos no Estatuto da Câmara dos Despachantes Aduaneiros, desde que observado o princípio da reciprocidade.</li>
+    </ul>
+    <p>Mais informações: consulte a <a href="docs/estatuto-da-cda.pdf" target="_blank">Estatuto da CDA</a> e a <a href="docs/lei-n-4-2011.pdf" target="_blank">Lei n.º 4/2011</a>.</p>
+
+    <h3>d) Fichas de inscrição</h3>
+    <p>Descarregue a ficha correspondente e entregue-a nos escritórios da CDA (sede ou delegações regionais):</p>
+    <div class="doc-list" id="fichas"></div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="sub">Registo nacional</span>
+        <h2>Lista de Membros</h2>
+      </div>
+    </div>
+    <div class="busca">
+      <input id="busca-membros" type="search" placeholder="Pesquisar por nome, carteira ou cédula…" aria-label="Pesquisar membros">
+    </div>
+    <p class="resultado-cont" id="membros-cont"></p>
+    <div class="tabela-wrap">
+      <table id="tabela-membros">
+        <thead><tr><th>Carteira profissional</th><th>Nome do despachante</th><th>Cédula</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="cols">
+      <div>
+        <h4>CDA</h4>
+        <p>Câmara dos Despachantes Aduaneiros de Moçambique — instituição de direito público criada pela Lei n.º 4/2011, de 11 de Janeiro.</p>
+      </div>
+      <div>
+        <h4>Documentação</h4>
+        <a href="documentacao.html">Legislação</a>
+        <a href="documentacao.html">Regulamentos</a>
+        <a href="documentacao.html">Circulares</a>
+        <a href="documentacao.html">Convocatórias</a>
+        <a href="documentacao.html">Boletins</a>
+      </div>
+      <div>
+        <h4>Institucional</h4>
+        <a href="instituicao.html">Quem somos</a>
+        <a href="instituicao.html">Missão e valores</a>
+        <a href="instituicao.html">Órgãos sociais</a>
+        <a href="instituicao.html">Histórico</a>
+        <a href="parceiros.html">Parceiros e links</a>
+      </div>
+      <div>
+        <h4>Contactos</h4>
+        <p>Edifício Central<br>Rua João Carlos Raposo Beirão, n.º 508, R/C<br>Maputo — Moçambique</p>
+        <p>+258 21 305 504 · +258 21 305 506</p>
+        <a href="contactos.html">Formulário de contacto</a>
+        <a href="area-membro.html">Área do Membro</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Câmara dos Despachantes Aduaneiros de Moçambique. Todos os direitos reservados.</span>
+      <span>Portal CDA Digital 2.0 — Lamo Projectos / Skylayer</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/dados.js"></script>
+<script src="js/app.js"></script>
+<script src="js/assistente.js"></script>
+<script>
+  if (typeof CDA !== "undefined") {
+    const alvo = document.getElementById("fichas");
+    CDA.DOCUMENTOS.filter((d) => d.tipo === "Fichas de Inscrição").forEach((d) => {
+      const el = document.createElement("div");
+      el.className = "doc-item";
+      el.innerHTML = '<div class="meta"><span>' + d.titulo + '</span></div><a class="baixar" href="' + d.url + '" target="_blank" rel="noopener">Descarregar</a>';
+      alvo.appendChild(el);
+    });
+  }
+</script>
+</body>
+</html>
