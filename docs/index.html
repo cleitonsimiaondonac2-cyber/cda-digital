@@ -41,65 +41,78 @@
   </div>
 </header>
 
+<!-- ❚ HERO PORTAL -->
 <section class="hero">
-  <div class="container">
+  <div class="container hero-inner">
     <div>
-      <span class="pill">Representação · Regulação · Formação · Desenvolvimento da profissão</span>
-      <h1>Câmara dos Despachantes Aduaneiros de Moçambique</h1>
-      <p class="lead">Instituição de direito público que representa os despachantes aduaneiros, fiscaliza o exercício da profissão, promove o aperfeiçoamento profissional e defende os interesses da classe junto das autoridades e parceiros.</p>
-      <div class="hero-search">
-        <input id="hero-q" type="search" placeholder="Pesquise na CDA — legislação, circulares, regulamentos…" aria-label="Pesquisar">
-        <button id="hero-buscar">Pesquisar</button>
-      </div>
-      <div class="hero-actions">
-        <a class="btn btn-light" href="instituicao.html">Conheça a CDA</a>
-        <a class="btn btn-outline" href="documentacao.html">Centro Documental</a>
+      <span class="pill">CDA Digital · Portal da comunidade aduaneira</span>
+      <h1>O ponto de acesso à<br><em>Câmara dos Despachantes Aduaneiros</em></h1>
+      <p class="lead">Legislação, documentos oficiais, membros e serviços — tudo num só lugar, com respostas fundamentadas na base documental da CDA.</p>
+
+      <div class="hero-tools">
+        <div class="hero-search">
+          <span class="hero-search-ic" aria-hidden="true">🔍</span>
+          <input id="hero-q" type="search" placeholder="Pesquise no acervo — legislação, circulares, regulamentos…" aria-label="Pesquisar documentos">
+          <button id="hero-buscar">Pesquisar</button>
+        </div>
+        <div class="hero-ai">
+          <span class="hero-ai-badge">✦ Assistente CDA</span>
+          <input id="hero-ai-q" type="text" placeholder="Pergunte: quais os requisitos para ser despachante?" aria-label="Perguntar ao Assistente">
+          <button id="hero-ai-btn" type="button">Perguntar</button>
+        </div>
       </div>
     </div>
-    <div class="hero-side">
-      <h3>Acesso rápido</h3>
-      <ul>
-        <li><a href="documentacao.html" style="color:#fff">Legislação aduaneira</a></li>
-        <li><a href="documentacao.html" style="color:#fff">Circulares e comunicados</a></li>
-        <li><a href="despachantes.html" style="color:#fff">Lista de membros</a></li>
-        <li><a href="despachantes.html" style="color:#fff">Como ser membro</a></li>
-        <li><a href="documentacao.html" style="color:#fff">Boletins "O Despachante"</a></li>
-      </ul>
+
+    <div class="hero-quick">
+      <h3>O que procura?</h3>
+      <a href="despachantes.html"><span>Membros</span>Encontrar um despachante →</a>
+      <a href="documentacao.html"><span>Acervo</span>Consultar legislação e circulares →</a>
+      <a href="despachantes.html"><span>Adesão</span>Como ser membro →</a>
+      <a href="area-membro.html"><span>Conta</span>Aceder à minha área →</a>
     </div>
   </div>
 </section>
 
-<section class="section">
+<!-- ❚ LAUNCHER -->
+<section class="pin-launch">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="sub">O que procura?</span>
-        <h2>Acesso rápido</h2>
-      </div>
-    </div>
-    <div class="quick">
-      <div class="card"><a href="instituicao.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6"/><path d="M4 21h16M5 10v8M9.5 10v8M14.5 10v8M19 10v8"/></svg></span><h3>A Instituição</h3><p>Quem somos, missão, valores, órgãos sociais e histórico.</p></a></div>
-      <div class="card"><a href="despachantes.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg></span><h3>Como ser Membro</h3><p>Requisitos, legislação e fichas de inscrição.</p></a></div>
-      <div class="card"><a href="despachantes.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.5 3.4-5.5 6.5-5.5s5.7 2 6.5 5.5"/><circle cx="17" cy="9" r="2.8"/><path d="M17.5 14.6c2.3.5 3.7 2.4 4 5.4"/></svg></span><h3>Lista de Membros</h3><p>Consulte a lista de despachantes registados.</p></a></div>
-      <div class="card"><a href="documentacao.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7l-3 6a3 3 0 0 0 6 0z"/><path d="M19 7l-3 6a3 3 0 0 0 6 0z"/><path d="M8 21h8"/></svg></span><h3>Centro Documental</h3><p>Legislação, circulares, convocatórias, relatórios e mais.</p></a></div>
-      <div class="card"><a href="documentacao.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 10v4a1 1 0 0 0 1 1h2l4 4V5l-4 4H4a1 1 0 0 0-1 1z"/><path d="M14 8a4 4 0 0 1 0 8"/><path d="M17 5a8 8 0 0 1 0 14"/></svg></span><h3>Circulares e Comunicados</h3><p>Informações oficiais para a classe.</p></a></div>
-      <div class="card"><a href="area-membro.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="11" width="16" height="10"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span><h3>Área do Membro</h3><p>Carteira, quotas, requerimentos e documentos exclusivos.</p></a></div>
-      <div class="card"><a href="noticias.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h13v16H4z"/><path d="M17 8h3v10a2 2 0 0 1-2 2h-1"/><path d="M7 8h7M7 12h7M7 16h4"/></svg></span><h3>Notícias</h3><p>Acompanhe a actualidade da CDA e do sector.</p></a></div>
-      <div class="card"><a href="galeria.html"><span class="icone"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h3l2-3h6l2 3h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"/><circle cx="12" cy="13" r="4"/></svg></span><h3>Galeria</h3><p>Fotografias dos eventos e assembleias.</p></a></div>
+    <div class="pin-launch-grid">
+      <a class="pin-launch-item" href="instituicao.html"><b>A Instituição</b><span>Quem somos, órgãos e histórico</span></a>
+      <a class="pin-launch-item" href="despachantes.html"><b>Despachantes</b><span>Profissão e requisitos</span></a>
+      <a class="pin-launch-item" href="documentacao.html"><b>Centro Documental</b><span>Toda a legislação da CDA</span></a>
+      <a class="pin-launch-item" href="noticias.html"><b>Actualidade</b><span>Notícias e comunicados</span></a>
+      <a class="pin-launch-item" href="galeria.html"><b>Galeria</b><span>Eventos e assembleias</span></a>
+      <a class="pin-launch-item" href="contactos.html"><b>Contactos</b><span>Fale com a CDA</span></a>
     </div>
   </div>
 </section>
 
-<section class="section section-alt">
+<!-- ❚ CENTRO DOCUMENTAL — PRINCIPAL -->
+<section class="section pin-doc">
   <div class="container">
     <div class="section-head">
       <div>
         <span class="sub">Centro Documental</span>
-        <h2>Documentos em destaque</h2>
+        <h2>O acervo oficial da CDA, pesquisável</h2>
       </div>
       <a class="more" href="documentacao.html">Ver todo o acervo ›</a>
     </div>
-    <div class="doc-list">
+
+    <div class="pin-doc-tool">
+      <input id="doc-q" type="search" placeholder="Pesquise por palavra-chave... ex.: inspeção, desembaraço, quota" aria-label="Pesquisar no centro documental">
+      <button id="doc-q-btn" type="button">Procurar</button>
+    </div>
+
+    <div class="pin-doc-chips">
+      <a class="chip" href="documentacao.html">Legislação</a>
+      <a class="chip" href="documentacao.html">Regulamentos</a>
+      <a class="chip" href="documentacao.html">Circulares</a>
+      <a class="chip" href="documentacao.html">Convocatórias</a>
+      <a class="chip" href="documentacao.html">Boletins</a>
+      <a class="chip" href="documentacao.html">Relatórios</a>
+    </div>
+
+    <div class="doc-list pin-doc-list">
       <div class="doc-item"><div class="meta"><span class="tipo">Legislação</span><span>Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros</span><span class="ano">Assembleia da República · 2011</span></div><a class="baixar" href="docs/lei-n-4-2011.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
       <div class="doc-item"><div class="meta"><span class="tipo">Regulamentos</span><span>Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)</span><span class="ano">CDA · 2017</span></div><a class="baixar" href="docs/regulamento-interno-da-cda.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
       <div class="doc-item"><div class="meta"><span class="tipo">Convocatórias</span><span>Convocatória — 19.ª Sessão da Assembleia Geral Ordinária</span><span class="ano">CDA · 2023</span></div><a class="baixar" href="docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
@@ -110,12 +123,35 @@
   </div>
 </section>
 
+<!-- ❚ ASSISTENTE CDA — FEATURE -->
+<section class="section section-alt pin-ai">
+  <div class="container pin-ai-grid">
+    <div>
+      <span class="sub">✦ Assistente CDA</span>
+      <h2>Pergunte à base documental oficial</h2>
+      <p>O assistente responde com base no site e <strong>apenas nos documentos oficiais</strong> da instituição, indicando sempre as fontes. Quando não encontra fundamento, diz que não sabe — sem inventar.</p>
+      <ul class="pin-ai-lista">
+        <li>Respostas fundamentadas e com fontes</li>
+        <li>Baseado na legislação e acervo da CDA</li>
+        <li>Disponível em todas as páginas, canto inferior direito</li>
+      </ul>
+    </div>
+    <div class="pin-ai-box">
+      <label for="assist-q">Faça uma pergunta à CDA</label>
+      <textarea id="assist-q" rows="3" placeholder="Ex.: Quais os requisitos para me tornar despachante aduaneiro?"></textarea>
+      <button class="btn btn-navy" id="assist-btn" type="button">Fazer pergunta ao Assistente ✦</button>
+      <p class="pin-ai-nota">Respostas baseadas em documentos oficiais. Via <em>Assistente CDA</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ❚ ACTUALIDADE — editorial -->
 <section class="section">
-  <div class="container">
-    <div class="section-head">
+  <div class="container pin-news-grid">
+    <div class="section-head pin-news-head">
       <div>
-        <span class="sub">Notícias</span>
-        <h2>Últimas notícias</h2>
+        <span class="sub">Actualidade</span>
+        <h2>Notícias e comunicados</h2>
       </div>
       <a class="more" href="noticias.html">Todas as notícias ›</a>
     </div>
@@ -127,6 +163,7 @@
   </div>
 </section>
 
+<!-- ❚ NÚMEROS -->
 <section class="section section-alt">
   <div class="container">
     <span class="sub" style="color:var(--red);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.5px;display:block;margin-bottom:14px;text-align:center">A CDA em números</span>
@@ -139,6 +176,7 @@
   </div>
 </section>
 
+<!-- ❚ DELEGAÇÕES -->
 <section class="section">
   <div class="container">
     <div class="section-head">
@@ -164,19 +202,6 @@
         <p><strong>+258 21 305 504</strong> · <strong>+258 21 305 506</strong></p>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="sub">Assistente CDA</span>
-        <h2>Pergunte à base documental oficial</h2>
-      </div>
-    </div>
-    <p style="color:var(--slate);max-width:760px;margin-bottom:18px">O Assistente CDA está sempre disponível no canto inferior direito. Responde com base no site e <strong>apenas nos documentos oficiais</strong> publicados pela instituição, indicando sempre as fontes. Quando não encontra fundamento, diz que não sabe.</p>
-    <button class="btn btn-navy" id="assist-abre" type="button">Conversar com o Assistente</button>
   </div>
 </section>
 
@@ -222,14 +247,41 @@
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
 <script>
-  // Interacções da homepage (destaques e notícias são conteúdo estático)
+  // Interacções da homepage (conteúdo editorial é estático)
   (function () {
-    document.getElementById("hero-buscar").addEventListener("click", () => {
+    const irPesquisar = () => {
       const q = document.getElementById("hero-q").value;
       location.href = "documentacao.html?q=" + encodeURIComponent(q);
-    });
+    };
+    document.getElementById("hero-buscar").addEventListener("click", irPesquisar);
     document.getElementById("hero-q").addEventListener("keydown", (e) => {
-      if (e.key === "Enter") document.getElementById("hero-buscar").click();
+      if (e.key === "Enter") irPesquisar();
+    });
+
+    // Centro documental — pesquisa rápida
+    const docQuery = () => {
+      const q = document.getElementById("doc-q").value;
+      location.href = "documentacao.html?q=" + encodeURIComponent(q);
+    };
+    document.getElementById("doc-q-btn").addEventListener("click", docQuery);
+    document.getElementById("doc-q").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") docQuery();
+    });
+
+    // Assistente CDA — hero e bloco de pergunta
+    const perguntar = (texto) => {
+      if (window.CDA_IA && typeof window.CDA_IA.perguntar === "function") {
+        window.CDA_IA.perguntar(texto);
+      }
+    };
+    document.getElementById("hero-ai-btn").addEventListener("click", () => {
+      perguntar(document.getElementById("hero-ai-q").value);
+    });
+    document.getElementById("hero-ai-q").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") perguntar(document.getElementById("hero-ai-q").value);
+    });
+    document.getElementById("assist-btn").addEventListener("click", () => {
+      perguntar(document.getElementById("assist-q").value);
     });
   })();
 </script>

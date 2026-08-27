@@ -207,6 +207,14 @@
           input.value = "Sobre o documento «" + titulo + "»: ";
         }
       },
+      perguntar: function (texto) {
+        const q = (texto || "").trim();
+        abrir();
+        if (q) {
+          input.value = "";
+          enviarMensagem(q);
+        }
+      },
       fechar: fecharBox,
     };
   }

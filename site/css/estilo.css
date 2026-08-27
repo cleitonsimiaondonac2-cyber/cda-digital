@@ -430,3 +430,76 @@ tr:hover td { background: var(--bg-alt); }
   .assist-btn span { display: none; }
   .assist-box { right: 14px; bottom: 74px; left: 14px; width: auto; max-width: none; }
 }
+/* ============================================================
+   PORTAL — Homepage (hero + launcher + centro documental + IA)
+   ============================================================ */
+
+/* --- Hero portal: conteúdo à esquerda, "O que procura?" à direita --- */
+.hero h1 em { font-style: normal; color: var(--red-soft); }
+.hero-tools { display: flex; flex-direction: column; gap: 10px; max-width: 600px; }
+.hero .hero-search { max-width: none; }
+.hero-search-ic { display: none; }
+
+/* Caixa "Perguntar ao Assistente" no hero */
+.hero-ai { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2); border-radius: var(--radius); padding: 6px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.hero-ai-badge { color: var(--red-soft); font-weight: 700; font-size: .7rem; text-transform: uppercase; letter-spacing: .8px; padding: 0 6px; }
+.hero-ai input { flex: 1; min-width: 180px; border: none; outline: none; background: transparent; color: #fff; font-size: .95rem; padding: 10px 4px; }
+.hero-ai input::placeholder { color: #9fb0c2; }
+.hero-ai button { border: none; background: var(--red); color: #fff; padding: 10px 20px; border-radius: var(--radius); font-weight: 700; cursor: pointer; font-size: .8rem; text-transform: uppercase; letter-spacing: .6px; }
+.hero-ai button:hover { background: var(--red-dark); }
+
+/* "O que procura?" — painel lateral do hero */
+.hero-quick { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.18); border-top: 3px solid var(--red); border-radius: 4px; padding: 22px; }
+.hero-quick h3 { color: #fff; font-size: 1rem; margin-bottom: 12px; }
+.hero-quick a { display: flex; flex-direction: column; gap: 2px; color: #fff; text-decoration: none; padding: 11px 10px; border-radius: 3px; }
+.hero-quick a:hover { background: rgba(255,255,255,.08); color: #fff; }
+.hero-quick a span { font-size: .68rem; text-transform: uppercase; letter-spacing: .8px; color: var(--red-soft); font-weight: 700; }
+.hero-quick a { font-weight: 600; }
+
+/* --- Launcher (faixa de destinos principais) --- */
+.pin-launch { background: var(--white); border-bottom: 1px solid var(--line); }
+.pin-launch-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.pin-launch-item { background: var(--white); padding: 22px 18px; display: flex; flex-direction: column; gap: 3px; text-decoration: none; color: var(--navy); }
+.pin-launch-item:hover { background: var(--bg-alt); }
+.pin-launch-item b { font-family: var(--font-serif); font-size: 1.02rem; }
+.pin-launch-item span { color: var(--text-soft); font-size: .84rem; }
+.pin-launch-item:hover b { color: var(--red); }
+
+/* --- Centro documental em destaque --- */
+.pin-doc-tool { display: flex; gap: 8px; max-width: 640px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); padding: 6px; }
+.pin-doc-tool input { flex: 1; min-width: 0; border: none; outline: none; font-size: .95rem; padding: 10px 12px; color: var(--text); background: transparent; }
+.pin-doc-tool button { border: none; background: var(--navy); color: #fff; padding: 0 22px; border-radius: var(--radius); font-weight: 700; cursor: pointer; font-size: .8rem; text-transform: uppercase; letter-spacing: .6px; }
+.pin-doc-tool button:hover { background: var(--red); }
+.pin-doc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.chip { border: 1px solid var(--line); color: var(--navy-3); border-radius: 999px; padding: 6px 15px; font-size: .8rem; font-weight: 700; text-decoration: none; }
+.chip:hover { background: var(--navy); border-color: var(--navy); color: #fff; }
+
+/* --- Assistente CDA — bloco de destaque --- */
+.pin-ai-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+.pin-ai-lista { list-style: none; margin-top: 14px; }
+.pin-ai-lista li { padding: 6px 0 6px 26px; position: relative; color: var(--slate); }
+.pin-ai-lista li::before { content: "✓"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+.pin-ai-box { background: var(--white); border: 1px solid var(--line); border-top: 3px solid var(--navy); border-radius: 4px; padding: 24px; box-shadow: 0 10px 30px rgba(29,43,58,.08); }
+.pin-ai-box label { display: block; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+.pin-ai-box textarea { width: 100%; border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; font: inherit; color: var(--text); resize: vertical; }
+.pin-ai-box textarea:focus { outline: none; border-color: var(--navy-3); }
+.pin-ai-box .btn-navy { width: 100%; margin-top: 12px; }
+.pin-ai-nota { font-size: .78rem; color: var(--slate); margin-top: 10px; text-align: center; }
+
+/* --- Actualidade --- */
+.pin-news-head { width: 100%; }
+
+/* --- Responsivo: portal --- */
+@media (max-width: 992px) {
+  .pin-launch-grid { grid-template-columns: repeat(3, 1fr); }
+  .pin-ai-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 680px) {
+  .pin-launch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .hero-ai { flex-direction: column; align-items: stretch; }
+  .hero-ai button { padding: 12px 0; }
+  .pin-doc-tool { flex-direction: column; }
+  .pin-doc-tool button { padding: 12px 0; }
+}
