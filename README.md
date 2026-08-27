@@ -60,18 +60,43 @@ API em `http://127.0.0.1:8765`:
 
 ---
 
-## ✅ Checklist de entrega (state)
+## ✅ Checklist de entrega — RELEASE 1.0
 
-| Área | Estado |
+| Item | Estado |
 |---|---|
-| Frontend (9 páginas, navegação, IA responsiva) | CONCLUÍDO |
-| Centro documental + pesquisa | PARCIAL (falta gestão/CMS) |
-| OCR + indexação + RAG + fallback | CONCLUÍDO (evolução: pesquisa híbrida) |
-| API (CORS, rate limit, validação, health) | PARCIAL (falta deploy/proxy) |
-| Autenticação / BD / gestão de membros | FALTA |
-| Administração (CMS de conteúdos) | FALTA |
-| Testes automáticos | PARCIAL (test_links.py) |
+| Homepage | CONCLUÍDO (conteúdo estático, sem depender de JS) |
+| Instituição | CONCLUÍDO |
+| Órgãos sociais | CONCLUÍDO |
+| Delegações | PARCIAL (visual a melhorar — mapa) |
+| Despachantes | CONCLUÍDO (verificar referências jurídicas com a CDA) |
+| Lista de membros | PARCIAL (rever privacidade de campos) |
+| Centro documental | PARCIAL (falta gestão/CMS) |
+| Pesquisa | PARCIAL (lexical+BM25; evolução: híbrida) |
+| OCR | CONCLUÍDO (5 PDFs corrompidos fora do acervo) |
+| IA (RAG + fallback honesto) | CONCLUÍDO |
+| Notícias | PARCIAL (homepage estática; falta CMS) |
+| Galeria | CONCLUÍDO |
+| Contactos | PARCIAL (formulário é mailto — falta backend) |
+| Área de membro | PRECISA DE DECISÃO (é demonstração/mock) |
+| Login/Autenticação | FALTA |
+| Administração | FALTA |
+| Segurança | PARCIAL (hardening P0 feito; falta auth/BD/HTTPS) |
+| SEO | PARCIAL |
+| Mobile/Responsivo | CONCLUÍDO |
+| Backup | FALTA |
+| Deploy | PARCIAL (estático OK; falta API/proxy em produção) |
+| Testes | PARCIAL (tests/ básicos) |
 | Documentação | PARCIAL |
+
+### Estado — build de hardening (esta fase)
+
+- **Fix P0**: `site/` é a única fonte; `docs/` gerado por `build.sh` (elimina divergência). 
+- **API**: rate limiting (20/60s, overridable), `/health` público, `/ia/status` protegível por token, `k` limitado a 20, validação de `pergunta`/`histórico`.
+- **Fallback honesto**: o modo local indica claramente "sem modelo de linguagem" na resposta e na UI (`.assist-status`); timeout de 30 s.
+- **Bootstrap**: `setup.sh`, `ia/requirements.txt`, `ia/.env.example`, `README.md`.
+- **Testes**: `tests/test_links.py`, `tests/test_indice.py`, `tests/test_api.py`.
+
+> ⚠️ **Contexto da auditoria**: a alegação de que OCR/indexador apontam para pasta errada era falsa — `site/` é a fonte de desenvolvimento e `docs/` a de deploy; ambas existem e a divergência é resolvida por `build.sh`. A referência jurídica "Decreto 16/2011 (Estatuto)" **está correta** (verificado por OCR do PDF); "Diploma Ministerial 16/2012" é um documento distinto (Regulamento do Desembaraço Aduaneiro).
 
 ---
 
