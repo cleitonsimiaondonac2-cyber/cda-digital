@@ -85,7 +85,7 @@
       if (e.key === "Escape" && aberto) fecharBox();
     });
 
-    function mostrarBot(mensagem, fontes) {
+    function mostrarBot(mensagem, fontes, modo) {
       const bot = document.createElement("div");
       bot.className = "assist-msg bot";
       bot.textContent = mensagem;
@@ -102,6 +102,12 @@
           f.innerHTML = "<strong>Fontes:</strong> " + links;
           bot.appendChild(f);
         }
+      }
+      if (modo === "local") {
+        const n = document.createElement("div");
+        n.className = "assist-status";
+        n.textContent = "Nota: assistente em modo de pesquisa local (sem modelo de linguagem).";
+        bot.appendChild(n);
       }
       msgs.appendChild(bot);
       msgs.scrollTop = msgs.scrollHeight;
@@ -158,7 +164,7 @@
       const corpo = { pergunta: texto, ficheiro: docFoco, historico: historico.slice(-HIST_MAX) };
       try {
         const ctl = new AbortController();
-        const t = setTimeout(() => ctl.abort(), 90000);
+        const t = setTimeout(() => ctl.abort(), 30000);
         const r = await fetch(IA_API + "/ia/perguntar", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -169,13 +175,13 @@
         if (!r.ok) throw new Error("http " + r.status);
         const d = await r.json();
         ind.remove();
-        mostrarBot(d.resposta, d.fontes);
+        mostrarBot(d.resposta, d.fontes, d.modo);
         historico.push({ papel: "user", conteudo: texto });
         historico.push({ papel: "assistant", conteudo: d.resposta });
       } catch (e) {
         ind.remove();
         const local = iaRespondeLocal(texto);
-        mostrarBot(local.txt, local.fontes);
+        mostrarBot(local.txt, local.fontes, "local");
         historico.push({ papel: "user", conteudo: texto });
         historico.push({ papel: "assistant", conteudo: local.txt });
       }

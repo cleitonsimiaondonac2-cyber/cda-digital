@@ -383,6 +383,7 @@ tr:hover td { background: var(--bg-alt); }
 }
 .assist-fontes { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: .78rem; }
 .assist-fontes a { color: var(--red); font-weight: 700; }
+.assist-status { margin-top: 6px; font-size: .72rem; font-style: italic; color: var(--slate); }
 
 .assist-docfoco {
   font-size: .74rem;
