@@ -99,7 +99,14 @@
       </div>
       <a class="more" href="documentacao.html">Ver todo o acervo ›</a>
     </div>
-    <div class="doc-list" id="doc-destaque"></div>
+    <div class="doc-list">
+      <div class="doc-item"><div class="meta"><span class="tipo">Legislação</span><span>Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros</span><span class="ano">Assembleia da República · 2011</span></div><a class="baixar" href="docs/lei-n-4-2011.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+      <div class="doc-item"><div class="meta"><span class="tipo">Regulamentos</span><span>Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)</span><span class="ano">CDA · 2017</span></div><a class="baixar" href="docs/regulamento-interno-da-cda.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+      <div class="doc-item"><div class="meta"><span class="tipo">Convocatórias</span><span>Convocatória — 19.ª Sessão da Assembleia Geral Ordinária</span><span class="ano">CDA · 2023</span></div><a class="baixar" href="docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+      <div class="doc-item"><div class="meta"><span class="tipo">Circulares</span><span>Circular n.º 005/CDA/2014</span><span class="ano">CDA · 2014</span></div><a class="baixar" href="docs/circular-n-005-cda-2014.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+      <div class="doc-item"><div class="meta"><span class="tipo">Boletins</span><span>Boletim Informativo da CDA — Edição 04</span><span class="ano">CDA · 2015</span></div><a class="baixar" href="docs/boletim-informativo-da-cda-edicao-04.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+      <div class="doc-item"><div class="meta"><span class="tipo">Relatórios</span><span>Relatório de Balanço e Contas do exercício de 2016</span><span class="ano">CDA · 2017</span></div><a class="baixar" href="docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+    </div>
   </div>
 </section>
 
@@ -112,7 +119,11 @@
       </div>
       <a class="more" href="noticias.html">Todas as notícias ›</a>
     </div>
-    <div class="news-grid" id="news-home"></div>
+    <div class="news-grid">
+      <article class="news-card"><div class="corpo"><span class="data">2025-10-27</span><span class="cat">Institucional</span><h3>Visita de cortesia do Tribunal Aduaneiro de Sofala aos escritórios da CDA Beira</h3><p>No dia 27 de outubro de 2025, a CDA Região Centro recebeu uma visita de cortesia do Tribunal Aduaneiro de Sofala nos seus escritórios na Beira, reforçando a cooperação entre as instituições.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
+      <article class="news-card"><div class="corpo"><span class="data">2026-01-28</span><span class="cat">Internacional</span><h3>Semana destacada para líderes femininas aduaneiras — ASAPRA</h3><p>Salmate Chuaibo, Presidente da CDA, destaca que a sua ascensão à presidência da Câmara dos Despachantes Aduaneiros de Moçambique reflete não apenas um compromisso, mas o reconhecimento do valor da liderança feminina.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
+      <article class="news-card"><div class="corpo"><span class="data">2023-11-20</span><span class="cat">Eleições</span><h3>Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026</h3><p>Publicado o edital da lista única de candidatura às eleições dos órgãos sociais da CDA para o triénio 2024-2026, nos termos do n.º 2 do artigo 9.º do Regulamento Eleitoral.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
+    </div>
   </div>
 </section>
 
@@ -211,27 +222,8 @@
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
 <script>
-  // Destaques na homepage (um por tipo principal)
+  // Interacções da homepage (destaques e notícias são conteúdo estático)
   (function () {
-    const destaques = ["Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros", "Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)", "Convocatória — 19.ª Sessão da Assembleia Geral Ordinária", "Circular n.º 005/CDA/2014", "Boletim Informativo da CDA — Edição 04", "Relatório de Balanço e Contas do exercício de 2016"];
-    const alvo = document.getElementById("doc-destaque");
-    if (alvo && typeof CDA !== "undefined") {
-      CDA.DOCUMENTOS.filter((d) => destaques.includes(d.titulo)).forEach((d) => {
-        const el = document.createElement("div");
-        el.className = "doc-item";
-        el.innerHTML = '<div class="meta"><span class="tipo">' + d.tipo + '</span><span>' + d.titulo + '</span><span class="ano">' + d.entidade + " · " + d.ano + '</span></div><a class="baixar" href="' + d.url + '" target="_blank" rel="noopener">Abrir PDF</a>';
-        alvo.appendChild(el);
-      });
-    }
-    const news = document.getElementById("news-home");
-    if (news && typeof CDA !== "undefined") {
-      CDA.NOTICIAS.slice(0, 3).forEach((n, i) => {
-        const el = document.createElement("article");
-        el.className = "news-card";
-        el.innerHTML = '<div class="corpo"><span class="data">' + n.data + '</span><span class="cat">' + n.categoria + '</span><h3>' + n.titulo + '</h3><p>' + n.texto.slice(0, 160) + "…" + '</p><a class="ler" href="noticias.html">Ler mais</a></div>';
-        news.appendChild(el);
-      });
-    }
     document.getElementById("hero-buscar").addEventListener("click", () => {
       const q = document.getElementById("hero-q").value;
       location.href = "documentacao.html?q=" + encodeURIComponent(q);
