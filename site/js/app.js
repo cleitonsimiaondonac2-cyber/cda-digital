@@ -56,25 +56,58 @@
     renderDocs(res);
   }
 
+  function esc(s) {
+    return String(s == null ? "" : s);
+  }
+
   function renderDocs(list) {
     if (!lista) return;
     if (contador) contador.textContent = list.length + " documento(s) encontrado(s)";
-    lista.innerHTML = "";
+    lista.textContent = "";
     if (!list.length) {
-      lista.innerHTML = '<div class="doc-item"><span>Nenhum documento corresponde aos filtros seleccionados.</span></div>';
+      const vazio = document.createElement("div");
+      vazio.className = "doc-item";
+      const sp = document.createElement("span");
+      sp.textContent = "Nenhum documento corresponde aos filtros seleccionados.";
+      vazio.appendChild(sp);
+      lista.appendChild(vazio);
       return;
     }
     list.forEach((d) => {
       const el = document.createElement("div");
       el.className = "doc-item";
-      el.innerHTML =
-        '<div class="meta">' +
-        '<span class="tipo">' + d.tipo + "</span>" +
-        "<span>" + d.titulo + "</span>" +
-        '<span class="ano">' + d.entidade + " · " + d.ano + "</span>" +
-        "</div>" +
-        '<a class="baixar" href="' + d.url + '" target="_blank" rel="noopener">Abrir PDF</a>' +
-        '<button class="ia-doc" data-ficheiro="' + d.ficheiro + '" data-titulo="' + d.titulo + '">Perguntar à IA</button>';
+
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      const tipo = document.createElement("span");
+      tipo.className = "tipo";
+      tipo.textContent = esc(d.tipo);
+      const titulo = document.createElement("span");
+      titulo.textContent = esc(d.titulo);
+      const ano = document.createElement("span");
+      ano.className = "ano";
+      ano.textContent = esc(d.entidade) + " · " + esc(d.ano);
+      meta.appendChild(tipo);
+      meta.appendChild(titulo);
+      meta.appendChild(ano);
+      el.appendChild(meta);
+
+      const baixar = document.createElement("a");
+      baixar.className = "baixar";
+      baixar.href = esc(d.url);
+      baixar.target = "_blank";
+      baixar.rel = "noopener";
+      baixar.textContent = "Abrir PDF";
+      el.appendChild(baixar);
+
+      const iaBtn = document.createElement("button");
+      iaBtn.className = "ia-doc";
+      iaBtn.type = "button";
+      iaBtn.dataset.ficheiro = esc(d.ficheiro);
+      iaBtn.dataset.titulo = esc(d.titulo);
+      iaBtn.textContent = "Perguntar à IA";
+      el.appendChild(iaBtn);
+
       lista.appendChild(el);
     });
   }
@@ -127,10 +160,18 @@
         return normaliza(m.nome + " " + m.carteira + " " + m.cedula).includes(q);
       });
       if (cMembros) cMembros.textContent = res.length + " de " + CDA.MEMBROS.length + " membros";
-      corpo.innerHTML = "";
+      corpo.textContent = "";
       res.forEach((m) => {
         const tr = document.createElement("tr");
-        tr.innerHTML = "<td>" + m.carteira + "</td><td>" + m.nome + "</td><td>" + m.cedula + "</td>";
+        const td1 = document.createElement("td");
+        td1.textContent = esc(m.carteira);
+        const td2 = document.createElement("td");
+        td2.textContent = esc(m.nome);
+        const td3 = document.createElement("td");
+        td3.textContent = esc(m.cedula);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
         corpo.appendChild(tr);
       });
     }
