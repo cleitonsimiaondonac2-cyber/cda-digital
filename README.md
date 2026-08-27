@@ -103,10 +103,14 @@ API em `http://127.0.0.1:8765`:
 ## 🧪 Testes
 
 ```bash
-python3 tests/test_links.py      # valida links/acessibilidade de ficheiros e PDFs
+tests/run_tests.sh        # corre toda a suíte (links, índice, lógica IA, API)
 ```
 
-(Estrutura de testes a alargar: API, OCR, indexação, pesquisa.)
+Suíte:
+- `tests/test_links.py` — valida links/âncoras de todas as páginas e existencia de PDFs.
+- `tests/test_indice.py` — integridade do `indice.json` (chunks × PDFs).
+- `tests/test_ia_logic.py` — normalização, busca, fallback honesto e prompt (sem rede).
+- `tests/test_api.py` — smoke da API via TestClient (health, validação, rate-limit, clamp).
 
 ## 📄 Documentos
 
