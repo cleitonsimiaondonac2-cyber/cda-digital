@@ -1919,4 +1919,68 @@ const CDA = {
 "orgao": "Conselho Directivo"
 }
 ]
+,
+  "ACTIVIDADES": [
+  {
+    "id": "assembleia-geral-2024",
+    "titulo": "XXVI.ª Sessão da Assembleia Geral Ordinária",
+    "categoria": "Reuniões",
+    "data": "2024-11-17",
+    "local": "Maputo",
+    "descricao": "Momentos da XXVI.ª Sessão da Assembleia Geral Ordinária da CDA, que reuniu os membros da classe para debate dos assuntos da profissão aduaneira.",
+    "destaque": true,
+    "capas": [
+      "01-01-100_thumb.jpg",
+      "02-01-156_thumb.jpg",
+      "03-01-184_thumb.jpg",
+      "04-01-216_thumb.jpg",
+      "05-01-227_thumb.jpg",
+      "06-01-238_thumb.jpg",
+      "07-01-242_thumb.jpg",
+      "08-01-311_thumb.jpg",
+      "09-01-359_thumb.jpg",
+      "10-01-99_thumb.jpg"
+    ],
+    "noticia": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026",
+    "documentos": []
+  },
+  {
+    "id": "tomada-posse-2024",
+    "titulo": "Tomada de posse dos órgãos sociais 2024–2026",
+    "categoria": "Institucional",
+    "data": "2024-10-29",
+    "local": "Maputo",
+    "descricao": "Cerimónia de tomada de posse dos órgãos sociais da CDA para o triénio 2024-2026.",
+    "destaque": false,
+    "capas": [
+      "11-screenshot-2024-10-29-130534_thumb.png",
+      "12-screenshot-2024-10-29-130947_thumb.png"
+    ],
+    "noticia": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026",
+    "documentos": []
+  },
+  {
+    "id": "actividades-final-2024",
+    "titulo": "Actividades e encontros institucionais",
+    "categoria": "Eventos",
+    "data": "2024-12-16",
+    "local": "Moçambique",
+    "descricao": "Registo de actividades e encontros institucionais da CDA no último trimestre de 2024.",
+    "destaque": false,
+    "capas": [
+      "13-whatsapp-image-2024-11-11-at-15.21.14-1.jpg",
+      "14-whatsapp-image-2024-11-11-at-15.21.14-2.jpg",
+      "15-whatsapp-image-2024-11-13-at-11.40.32.jpg",
+      "16-whatsapp-image-2024-11-17-at-11.34.52.jpg",
+      "17-whatsapp-image-2024-11-17-at-11.34.57.jpg",
+      "18-whatsapp-image-2024-12-16-at-15.50.57-1.jpg",
+      "19-whatsapp-image-2024-12-16-at-15.50.57.jpg",
+      "20-whatsapp-image-2024-12-16-at-15.56.29.jpg",
+      "21-whatsapp-image-2024-12-16-at-15.56.44.jpg",
+      "22-whatsapp-image-2024-12-16-at-15.57.08.jpg"
+    ],
+    "noticia": "",
+    "documentos": []
+  }
+]
 };

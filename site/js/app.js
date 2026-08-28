@@ -10,7 +10,7 @@
   }
 
   // ---- Marcador de página activa ----
-  const SUBPAGE = { galeria: "noticias", parceiros: "noticias", membro: "despachantes" };
+  const SUBPAGE = { galeria: "noticias", actividades: "noticias", parceiros: "noticias", membro: "despachantes" };
   document.querySelectorAll("#nav a").forEach((a) => {
     const page = document.body.dataset.page;
     if (page && (a.dataset.pagina === page || a.dataset.pagina === SUBPAGE[page])) {

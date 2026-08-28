@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-titulo="Notícias">Notícias — Câmara dos Despachantes Aduaneiros de Moçambique</title>
-<meta name="description" content="Notícias e comunicados da Câmara dos Despachantes Aduaneiros de Moçambique: eleições dos órgãos sociais, eventos, acções internacionais e avisos à classe.">
+<title data-titulo="Actividades">Actividades — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Arquivo de actividades da Câmara dos Despachantes Aduaneiros de Moçambique: assembleias gerais, tomadas de posse, eventos, formação e reuniões da classe.">
 <link rel="stylesheet" href="css/estilo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
-<body data-page="noticias">
+<body data-page="actividades">
 
 <div class="topbar">
   <div class="container">
@@ -72,18 +72,27 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>Notícias</h1>
-    <p>Actualidade da CDA e do sector do despacho aduaneiro em Moçambique e no mundo.</p>
+    <h1>CDA em Actividade</h1>
+    <p>Arquivo de actividades, eventos, formação e reuniões da Câmara dos Despachantes Aduaneiros — a memória institucional da classe.</p>
   </div>
 </section>
 
-<div class="breadcrumb"><div class="container">Notícias</div></div>
+<div class="breadcrumb"><div class="container">Actividades</div></div>
 
 <section class="section">
   <div class="container">
-    <div class="news-grid" id="news-lista"></div>
+    <div class="act-filtros" id="act-filtros"></div>
+    <div id="act-destaque"></div>
+    <div class="act-lista" id="act-lista"></div>
   </div>
 </section>
+
+<div class="act-detail" id="act-detail" hidden></div>
+
+<div class="lightbox" id="lightbox">
+  <button class="fechar" id="lb-fechar">✕</button>
+  <img id="lightbox-img" alt="Fotografia ampliada">
+</div>
 
 <footer class="footer">
   <div class="container">
@@ -126,24 +135,6 @@
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
-<script>
-  if (typeof CDA !== "undefined") {
-    const lista = document.getElementById("news-lista");
-    CDA.NOTICIAS.forEach((n, i) => {
-      const art = document.createElement("article");
-      art.className = "news-card";
-      art.innerHTML =
-        '<div class="corpo">' +
-        '<span class="data">' + n.data + '</span>' +
-        '<span class="cat">' + n.categoria + '</span>' +
-        '<h3>' + n.titulo + '</h3>' +
-        '<p>' + n.texto + '</p>' +
-        '<button class="ler" style="background:none;border:none;text-align:left;cursor:pointer" data-noticia="' + i + '">Ler mais</button>' +
-        '<div class="noticia-full" id="noticia-' + i + '"><p style="color:var(--text-soft);margin-top:8px">Texto completo disponível no portal em produção. A CDA publica os seus comunicados oficiais com datas e categorias originais.</p></div>' +
-        "</div>";
-      lista.appendChild(art);
-    });
-  }
-</script>
+<script src="js/actividades.js"></script>
 </body>
 </html>
