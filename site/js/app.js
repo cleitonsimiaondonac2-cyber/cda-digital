@@ -108,7 +108,7 @@
       iaBtn.type = "button";
       iaBtn.dataset.ficheiro = esc(d.ficheiro);
       iaBtn.dataset.titulo = esc(d.titulo);
-      iaBtn.textContent = "Perguntar à IA";
+      iaBtn.textContent = "Perguntar à CDA ✦";
       el.appendChild(iaBtn);
 
       lista.appendChild(el);

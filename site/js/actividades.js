@@ -256,23 +256,36 @@
       ctx.appendChild(db);
     }
 
-    var ib = document.createElement("div");
-    ib.className = "act-ctx-bloco";
-    var it = document.createElement("h4");
-    it.textContent = "Perguntar sobre esta actividade";
-    var btnIA = document.createElement("button");
-    btnIA.type = "button";
-    btnIA.className = "btn btn-navy";
-    btnIA.textContent = "Perguntar à CDA ✦";
-    btnIA.addEventListener("click", function () {
-      var fich = act.capas && act.capas.length ? "galeria/" + act.capas[0] : null;
-      if (window.CDA_IA && typeof window.CDA_IA.abrir === "function") {
-        window.CDA_IA.abrir(fich, act.titulo);
-      }
-    });
-    ib.appendChild(it);
-    ib.appendChild(btnIA);
-    ctx.appendChild(ib);
+    if (act.documentos && act.documentos.length) {
+      var ib = document.createElement("div");
+      ib.className = "act-ctx-bloco";
+      var it2 = document.createElement("h4");
+      it2.textContent = "Perguntar sobre esta actividade";
+      var btnIA = document.createElement("button");
+      btnIA.type = "button";
+      btnIA.className = "btn btn-navy";
+      btnIA.textContent = "Perguntar sobre os documentos desta actividade ✦";
+      btnIA.addEventListener("click", function () {
+        var d0 = DOCS.find(function (d) { return d.ficheiro === act.documentos[0] || d.url === act.documentos[0]; });
+        var fich = d0 && d0.ficheiro ? d0.ficheiro : null;
+        if (window.CDA_IA && typeof window.CDA_IA.abrir === "function") {
+          window.CDA_IA.abrir(fich, d0 && d0.titulo ? d0.titulo : act.titulo);
+        }
+      });
+      ib.appendChild(it2);
+      ib.appendChild(btnIA);
+      ctx.appendChild(ib);
+    } else {
+      var nb2 = document.createElement("div");
+      nb2.className = "act-ctx-bloco";
+      var nt3 = document.createElement("h4");
+      nt3.textContent = "Consultar";
+      var np = document.createElement("p");
+      np.textContent = "Para mais informações sobre esta actividade, contacte a CDA através do formulário.";
+      nb2.appendChild(nt3);
+      nb2.appendChild(np);
+      ctx.appendChild(nb2);
+    }
 
     detailEl.appendChild(ctx);
 

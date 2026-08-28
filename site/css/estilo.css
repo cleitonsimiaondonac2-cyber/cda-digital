@@ -65,8 +65,8 @@ h3 { font-size: 1.1rem; margin-bottom: .4rem; }
 .menu-btn { display: none; background: none; border: 1px solid var(--navy); color: var(--navy); border-radius: var(--radius); padding: 8px 14px; font-size: .8rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; cursor: pointer; }
 
 /* ---- Hero ---- */
-.hero { background: var(--navy); color: #fff; padding: 62px 0 54px; border-bottom: 3px solid var(--red); }
-.hero .container { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
+.hero { position: relative; overflow: hidden; background: var(--navy); color: #fff; padding: 64px 0 120px; border-bottom: 3px solid var(--red); }
+.hero .container { position: relative; z-index: 2; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
 .hero h1 { color: #fff; font-size: 2.35rem; margin-bottom: 14px; font-weight: 600; }
 .hero p.lead { font-size: 1.05rem; color: #c7d0da; margin-bottom: 22px; }
 .hero .pill { color: var(--red-soft); font-weight: 700; letter-spacing: 1.2px; margin-bottom: 12px; display: block; text-transform: uppercase; font-size: .74rem; }
@@ -665,3 +665,40 @@ tr:hover td { background: var(--bg-alt); }
 .cdaact-cta { font-weight: 700; color: #fff; font-size: .82rem; text-transform: uppercase; letter-spacing: .5px; }
 .section-cdaact .cdaact-destaque:hover .cdaact-cta { color: var(--red-soft); }
 @media (max-width: 992px) { .section-cdaact .cdaact-destaque { grid-template-columns: 1fr; } .cdaact-media { min-height: 220px; } }
+
+/* ===== Hero fotográfico editorial (homepage) ===== */
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease; will-change: opacity, transform; }
+.hero-slide.active { opacity: 1; }
+.hero-slide.zoom { animation: hero-kenburns 8s ease-out forwards; }
+@keyframes hero-kenburns { from { transform: scale(1); } to { transform: scale(1.04); } }
+
+/* Overlay: azul institucional -> transparente, garante legibilidade */
+.hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, rgba(16,28,41,.94) 0%, rgba(16,28,41,.82) 42%, rgba(16,28,41,.42) 100%); pointer-events: none; }
+
+/* Rodapé do hero: legenda "CDA em Actividade" + navegação */
+.hero-foot { position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; padding: 18px 40px 26px; }
+.hero-foot-cap { display: flex; flex-direction: column; gap: 2px; }
+.hero-foot-label { font-size: .64rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.6px; color: var(--red-soft); }
+.hero-foot-cap a { color: #fff; text-decoration: none; display: flex; flex-direction: column; }
+.hero-foot-cap a:hover b { color: var(--red-soft); }
+.hero-foot-cap b { font-size: 1.05rem; font-weight: 700; transition: color .15s ease; }
+.hero-foot-cap a span { font-size: .78rem; color: #c7d0da; }
+.hero-foot-nav { display: flex; align-items: center; gap: 12px; }
+.hero-foot-nav button { background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.25); color: #fff; width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1.05rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: background .15s ease; }
+.hero-foot-nav button:hover { background: var(--red); border-color: var(--red); }
+.hero-dots { display: flex; gap: 7px; }
+.hero-dot { width: 9px; height: 9px; padding: 0; border-radius: 50%; border: none; background: rgba(255,255,255,.42); cursor: pointer; transition: background .2s ease, transform .2s ease; }
+.hero-dot.active { background: #fff; transform: scale(1.25); }
+
+/* O conteúdo do hero fica acima das camadas de fundo */
+.hero-inner { position: relative; z-index: 2; }
+
+@media (max-width: 992px) {
+  .hero-foot { padding: 16px 22px 20px; }
+  .hero-foot-cap b { font-size: .92rem; }
+}
+@media (max-width: 680px) {
+  .hero-foot { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .hero-foot-nav { align-self: flex-end; }
+}
