@@ -6,6 +6,10 @@
 <title>CDA — Câmara dos Despachantes Aduaneiros de Moçambique</title>
 <meta name="description" content="Portal oficial da Câmara dos Despachantes Aduaneiros de Moçambique — legislação, documentação, membros e serviços. Representação, regulação, formação e desenvolvimento da profissão.">
 <link rel="stylesheet" href="css/estilo.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 </head>
 <body data-page="inicio">
 
@@ -27,31 +31,55 @@
     <button class="menu-btn" id="menu-btn">☰ Menu</button>
     <nav class="nav" id="nav">
       <ul>
-        <li><a href="index.html" data-pagina="inicio">Início</a></li>
-        <li><a href="instituicao.html" data-pagina="instituicao">Instituição</a></li>
-        <li><a href="despachantes.html" data-pagina="despachantes">Despachantes</a></li>
-        <li><a href="documentacao.html" data-pagina="documentacao">Centro Documental</a></li>
-        <li><a href="noticias.html" data-pagina="noticias">Notícias</a></li>
-        <li><a href="galeria.html" data-pagina="galeria">Galeria</a></li>
-        <li><a href="parceiros.html" data-pagina="parceiros">Parceiros</a></li>
-        <li><a href="contactos.html" data-pagina="contactos">Contactos</a></li>
-        <li><a class="btn-nav" href="area-membro.html">Área do Membro</a></li>
+        <li class="has-sub">
+          <a href="instituicao.html" data-pagina="instituicao">Instituição<span class="caret">▾</span></a>
+          <ul class="sub">
+            <li><a href="instituicao.html">Quem somos</a></li>
+            <li><a href="instituicao.html">Órgãos e delegações</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="despachantes.html" data-pagina="despachantes">Membros<span class="caret">▾</span></a>
+          <ul class="sub">
+            <li><a href="despachantes.html">Despachantes</a></li>
+            <li><a href="despachantes.html">Tornar-se membro</a></li>
+            <li><a href="area-membro.html">Área do Membro</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="documentacao.html" data-pagina="documentacao">Documentos<span class="caret">▾</span></a>
+          <ul class="sub">
+            <li><a href="documentacao.html">Centro Documental</a></li>
+            <li><a href="documentacao.html">Legislação</a></li>
+            <li><a href="documentacao.html">Circulares</a></li>
+            <li><a href="documentacao.html">Boletins</a></li>
+          </ul>
+        </li>
+        <li class="has-sub">
+          <a href="noticias.html" data-pagina="noticias">Actualidade<span class="caret">▾</span></a>
+          <ul class="sub">
+            <li><a href="noticias.html">Notícias</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="parceiros.html">Parceiros</a></li>
+          </ul>
+        </li>
+        <li><a href="contactos.html" data-pagina="contactos">Contacto</a></li>
+        <li class="nav-cta"><a class="btn-nav" href="area-membro.html">Área do Membro</a></li>
       </ul>
     </nav>
-  </div>
+</div>
 </header>
-
-<!-- ❚ HERO PORTAL -->
+<!-- HERO PORTAL -->
 <section class="hero">
   <div class="container hero-inner">
-    <div>
+    <div class="hero-copy">
       <span class="pill">CDA Digital · Portal da comunidade aduaneira</span>
-      <h1>O ponto de acesso à<br><em>Câmara dos Despachantes Aduaneiros</em></h1>
-      <p class="lead">Legislação, documentos oficiais, membros e serviços — tudo num só lugar, com respostas fundamentadas na base documental da CDA.</p>
+      <h1>A informação aduaneira da<br><em>CDA, num só lugar.</em></h1>
+      <p class="lead">Legislação, documentos oficiais, membros e serviços. Pesquise no acervo ou pergunte ao assistente — com as fontes sempre à vista.</p>
 
       <div class="hero-tools">
         <div class="hero-search">
-          <span class="hero-search-ic" aria-hidden="true">🔍</span>
+          <span class="hero-search-ic" aria-hidden="true">⌕</span>
           <input id="hero-q" type="search" placeholder="Pesquise no acervo — legislação, circulares, regulamentos…" aria-label="Pesquisar documentos">
           <button id="hero-buscar">Pesquisar</button>
         </div>
@@ -63,31 +91,19 @@
       </div>
     </div>
 
-    <div class="hero-quick">
-      <h3>O que procura?</h3>
-      <a href="despachantes.html"><span>Membros</span>Encontrar um despachante →</a>
-      <a href="documentacao.html"><span>Acervo</span>Consultar legislação e circulares →</a>
-      <a href="despachantes.html"><span>Adesão</span>Como ser membro →</a>
-      <a href="area-membro.html"><span>Conta</span>Aceder à minha área →</a>
-    </div>
+    <aside class="hero-quick">
+      <h3>O que pretende fazer?</h3>
+      <a href="despachantes.html"><span>Pessoas</span>Encontrar um despachante →</a>
+      <a href="documentacao.html"><span>Acervo</span>Consultar legislação →</a>
+      <a href="documentacao.html"><span>Arquivo</span>Consultar documentos →</a>
+      <a href="despachantes.html"><span>Adesão</span>Tornar-se membro →</a>
+      <a href="area-membro.html"><span>Conta</span>Aceder à minha conta →</a>
+      <a href="#" class="quick-ia" data-accionar-ia="1"><span>Assistente</span>Perguntar à CDA ✦</a>
+    </aside>
   </div>
 </section>
 
-<!-- ❚ LAUNCHER -->
-<section class="pin-launch">
-  <div class="container">
-    <div class="pin-launch-grid">
-      <a class="pin-launch-item" href="instituicao.html"><b>A Instituição</b><span>Quem somos, órgãos e histórico</span></a>
-      <a class="pin-launch-item" href="despachantes.html"><b>Despachantes</b><span>Profissão e requisitos</span></a>
-      <a class="pin-launch-item" href="documentacao.html"><b>Centro Documental</b><span>Toda a legislação da CDA</span></a>
-      <a class="pin-launch-item" href="noticias.html"><b>Actualidade</b><span>Notícias e comunicados</span></a>
-      <a class="pin-launch-item" href="galeria.html"><b>Galeria</b><span>Eventos e assembleias</span></a>
-      <a class="pin-launch-item" href="contactos.html"><b>Contactos</b><span>Fale com a CDA</span></a>
-    </div>
-  </div>
-</section>
-
-<!-- ❚ CENTRO DOCUMENTAL — PRINCIPAL -->
+<!-- CENTRO DOCUMENTAL -->
 <section class="section pin-doc">
   <div class="container">
     <div class="section-head">
@@ -112,94 +128,146 @@
       <a class="chip" href="documentacao.html">Relatórios</a>
     </div>
 
-    <div class="doc-list pin-doc-list">
-      <div class="doc-item"><div class="meta"><span class="tipo">Legislação</span><span>Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros</span><span class="ano">Assembleia da República · 2011</span></div><a class="baixar" href="docs/lei-n-4-2011.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
-      <div class="doc-item"><div class="meta"><span class="tipo">Regulamentos</span><span>Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)</span><span class="ano">CDA · 2017</span></div><a class="baixar" href="docs/regulamento-interno-da-cda.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
-      <div class="doc-item"><div class="meta"><span class="tipo">Convocatórias</span><span>Convocatória — 19.ª Sessão da Assembleia Geral Ordinária</span><span class="ano">CDA · 2023</span></div><a class="baixar" href="docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
-      <div class="doc-item"><div class="meta"><span class="tipo">Circulares</span><span>Circular n.º 005/CDA/2014</span><span class="ano">CDA · 2014</span></div><a class="baixar" href="docs/circular-n-005-cda-2014.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
-      <div class="doc-item"><div class="meta"><span class="tipo">Boletins</span><span>Boletim Informativo da CDA — Edição 04</span><span class="ano">CDA · 2015</span></div><a class="baixar" href="docs/boletim-informativo-da-cda-edicao-04.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
-      <div class="doc-item"><div class="meta"><span class="tipo">Relatórios</span><span>Relatório de Balanço e Contas do exercício de 2016</span><span class="ano">CDA · 2017</span></div><a class="baixar" href="docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf" target="_blank" rel="noopener">Abrir PDF</a></div>
+    <div class="doc-grid">
+      <article class="doc-novo">
+        <div class="doc-novo-top"><span class="tipo-b">Legislação</span><span class="ano-b">2011</span></div>
+        <h3>Lei n.º 4/2011</h3>
+        <p class="doc-novo-sub">Cria a Câmara dos Despachantes Aduaneiros</p>
+        <p class="doc-novo-ent">Assembleia da República</p>
+        <div class="doc-novo-acoes">
+          <a class="doc-consultar" href="docs/lei-n-4-2011.pdf" target="_blank" rel="noopener">Consultar</a>
+          <button class="doc-ia" type="button" data-doc-fich="docs/lei-n-4-2011.pdf" data-doc-tit="Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros">Perguntar à CDA ✦</button>
+        </div>
+      </article>
+      <article class="doc-novo">
+        <div class="doc-novo-top"><span class="tipo-b">Regulamento</span><span class="ano-b">2017</span></div>
+        <h3>Regulamento Interno da CDA</h3>
+        <p class="doc-novo-sub">Aprovado na III Assembleia Geral, de 18-08-2017</p>
+        <p class="doc-novo-ent">CDA</p>
+        <div class="doc-novo-acoes">
+          <a class="doc-consultar" href="docs/regulamento-interno-da-cda.pdf" target="_blank" rel="noopener">Consultar</a>
+          <button class="doc-ia" type="button" data-doc-fich="docs/regulamento-interno-da-cda.pdf" data-doc-tit="Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)">Perguntar à CDA ✦</button>
+        </div>
+      </article>
+      <article class="doc-novo">
+        <div class="doc-novo-top"><span class="tipo-b">Convocatória</span><span class="ano-b">2023</span></div>
+        <h3>19.ª Sessão da Assembleia Geral</h3>
+        <p class="doc-novo-sub">Convocatória para a Assembleia Geral Ordinária</p>
+        <p class="doc-novo-ent">CDA</p>
+        <div class="doc-novo-acoes">
+          <a class="doc-consultar" href="docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf" target="_blank" rel="noopener">Consultar</a>
+          <button class="doc-ia" type="button" data-doc-fich="docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf" data-doc-tit="Convocatória — 19.ª Sessão da Assembleia Geral Ordinária">Perguntar à CDA ✦</button>
+        </div>
+      </article>
+      <article class="doc-novo">
+        <div class="doc-novo-top"><span class="tipo-b">Circular</span><span class="ano-b">2014</span></div>
+        <h3>Circular n.º 005/CDA/2014</h3>
+        <p class="doc-novo-sub">Comunicado oficial da CDA</p>
+        <p class="doc-novo-ent">CDA</p>
+        <div class="doc-novo-acoes">
+          <a class="doc-consultar" href="docs/circular-n-005-cda-2014.pdf" target="_blank" rel="noopener">Consultar</a>
+          <button class="doc-ia" type="button" data-doc-fich="docs/circular-n-005-cda-2014.pdf" data-doc-tit="Circular n.º 005/CDA/2014">Perguntar à CDA ✦</button>
+        </div>
+      </article>
+      <article class="doc-novo">
+        <div class="doc-novo-top"><span class="tipo-b">Boletim</span><span class="ano-b">2015</span></div>
+        <h3>Boletim Informativo da CDA</h3>
+        <p class="doc-novo-sub">Edição 04</p>
+        <p class="doc-novo-ent">CDA</p>
+        <div class="doc-novo-acoes">
+          <a class="doc-consultar" href="docs/boletim-informativo-da-cda-edicao-04.pdf" target="_blank" rel="noopener">Consultar</a>
+          <button class="doc-ia" type="button" data-doc-fich="docs/boletim-informativo-da-cda-edicao-04.pdf" data-doc-tit="Boletim Informativo da CDA — Edição 04">Perguntar à CDA ✦</button>
+        </div>
+      </article>
+      <article class="doc-novo">
+        <div class="doc-novo-top"><span class="tipo-b">Relatório</span><span class="ano-b">2017</span></div>
+        <h3>Balanço e Contas 2016</h3>
+        <p class="doc-novo-sub">Relatório do exercício de 2016</p>
+        <p class="doc-novo-ent">CDA</p>
+        <div class="doc-novo-acoes">
+          <a class="doc-consultar" href="docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf" target="_blank" rel="noopener">Consultar</a>
+          <button class="doc-ia" type="button" data-doc-fich="docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf" data-doc-tit="Relatório de Balanço e Contas do exercício de 2016">Perguntar à CDA ✦</button>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
-<!-- ❚ ASSISTENTE CDA — FEATURE -->
-<section class="section section-alt pin-ai">
+<!-- ACTUALIDADE -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head pin-news-head">
+      <div>
+        <span class="sub">Actualidade</span>
+        <h2>Últimas notícias</h2>
+      </div>
+      <a class="more" href="noticias.html">Todas as notícias ›</a>
+    </div>
+    <div class="news-grid">
+      <article class="news-card"><div class="corpo"><span class="data">2026-01-28</span><span class="cat">Internacional</span><h3>Semana destacada para líderes femininas aduaneiras — ASAPRA</h3><p>Salmate Chuaibo, Presidente da CDA, destaca que a sua ascensão à presidência da Câmara reflete não apenas um compromisso, mas o reconhecimento do valor da liderança feminina.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
+      <article class="news-card"><div class="corpo"><span class="data">2025-10-27</span><span class="cat">Institucional</span><h3>Visita de cortesia do Tribunal Aduaneiro de Sofala aos escritórios da CDA Beira</h3><p>No dia 27 de outubro de 2025, a CDA Região Centro recebeu uma visita de cortesia do Tribunal Aduaneiro de Sofala nos seus escritórios na Beira, reforçando a cooperação institucional.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
+      <article class="news-card"><div class="corpo"><span class="data">2023-12-01</span><span class="cat">Eleições</span><h3>Lista única — candidatura à Presidência da CDA</h3><p>Publicada a lista única de candidatura à Presidência da CDA, nos termos do Regulamento Eleitoral, para o triénio 2024-2026.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ASSISTENTE CDA INTELLIGENCE -->
+<section class="section pin-ai">
   <div class="container pin-ai-grid">
     <div>
-      <span class="sub">✦ Assistente CDA</span>
+      <span class="sub pin-ai-badge">✦ CDA Intelligence</span>
       <h2>Pergunte à base documental oficial</h2>
-      <p>O assistente responde com base no site e <strong>apenas nos documentos oficiais</strong> da instituição, indicando sempre as fontes. Quando não encontra fundamento, diz que não sabe — sem inventar.</p>
+      <p>O assistente responde <strong>apenas com base nos documentos oficiais</strong> da CDA, indicando sempre as fontes. Quando não encontra fundamento, diz que não sabe — sem inventar.</p>
       <ul class="pin-ai-lista">
         <li>Respostas fundamentadas e com fontes</li>
-        <li>Baseado na legislação e acervo da CDA</li>
+        <li>Baseado na legislação e no acervo da CDA</li>
         <li>Disponível em todas as páginas, canto inferior direito</li>
       </ul>
     </div>
     <div class="pin-ai-box">
-      <label for="assist-q">Faça uma pergunta à CDA</label>
+      <label for="assist-q">Faça uma pergunta à base documental</label>
       <textarea id="assist-q" rows="3" placeholder="Ex.: Quais os requisitos para me tornar despachante aduaneiro?"></textarea>
-      <button class="btn btn-navy" id="assist-btn" type="button">Fazer pergunta ao Assistente ✦</button>
+      <button class="btn btn-navy" id="assist-btn" type="button">Perguntar ✦</button>
       <p class="pin-ai-nota">Respostas baseadas em documentos oficiais. Via <em>Assistente CDA</em>.</p>
     </div>
   </div>
 </section>
 
-<!-- ❚ ACTUALIDADE — editorial -->
-<section class="section">
-  <div class="container pin-news-grid">
-    <div class="section-head pin-news-head">
-      <div>
-        <span class="sub">Actualidade</span>
-        <h2>Notícias e comunicados</h2>
-      </div>
-      <a class="more" href="noticias.html">Todas as notícias ›</a>
-    </div>
-    <div class="news-grid">
-      <article class="news-card"><div class="corpo"><span class="data">2025-10-27</span><span class="cat">Institucional</span><h3>Visita de cortesia do Tribunal Aduaneiro de Sofala aos escritórios da CDA Beira</h3><p>No dia 27 de outubro de 2025, a CDA Região Centro recebeu uma visita de cortesia do Tribunal Aduaneiro de Sofala nos seus escritórios na Beira, reforçando a cooperação entre as instituições.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
-      <article class="news-card"><div class="corpo"><span class="data">2026-01-28</span><span class="cat">Internacional</span><h3>Semana destacada para líderes femininas aduaneiras — ASAPRA</h3><p>Salmate Chuaibo, Presidente da CDA, destaca que a sua ascensão à presidência da Câmara dos Despachantes Aduaneiros de Moçambique reflete não apenas um compromisso, mas o reconhecimento do valor da liderança feminina.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
-      <article class="news-card"><div class="corpo"><span class="data">2023-11-20</span><span class="cat">Eleições</span><h3>Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026</h3><p>Publicado o edital da lista única de candidatura às eleições dos órgãos sociais da CDA para o triénio 2024-2026, nos termos do n.º 2 do artigo 9.º do Regulamento Eleitoral.</p><a class="ler" href="noticias.html">Ler mais</a></div></article>
-    </div>
-  </div>
-</section>
-
-<!-- ❚ NÚMEROS -->
-<section class="section section-alt">
-  <div class="container">
-    <span class="sub" style="color:var(--red);font-weight:700;text-transform:uppercase;font-size:.78rem;letter-spacing:.5px;display:block;margin-bottom:14px;text-align:center">A CDA em números</span>
-    <div class="stats">
-      <div class="stat"><div class="num" id="stat-membros">221</div><div class="lbl">Membros registados</div></div>
-      <div class="stat accent"><div class="num" id="stat-docs">57</div><div class="lbl">Documentos no acervo</div></div>
-      <div class="stat"><div class="num">7</div><div class="lbl">Edições do boletim</div></div>
-      <div class="stat"><div class="num">3</div><div class="lbl">Delegações regionais</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ❚ DELEGAÇÕES -->
+<!-- A CDA INSTITUICAO -->
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <div>
-        <span class="sub">Delegações</span>
-        <h2>A CDA junto de si</h2>
+    <div class="cdacadastro">
+      <div class="cdacadastro-texto">
+        <span class="sub">A CDA</span>
+        <h2>Uma instituição, três regiões, um acervo vivo.</h2>
+        <p class="cdacadastro-desde">Desde 2011 — a Câmara dos Despachantes Aduaneiros representa e regula a profissão em Moçambique.</p>
+        <dl class="cdacadastro-stats">
+          <div><dt>221</dt><dd>membros registados</dd></div>
+          <div><dt>3</dt><dd>regiões representadas</dd></div>
+          <div><dt>+57</dt><dd>documentos públicos</dd></div>
+        </dl>
+      </div>
+      <div class="cdacadastro-mapa">
+        <div class="mapa">
+          <span class="ponto p-norte" data-deleg="norte"><i></i>Nampula<span class="zona">Norte</span></span>
+          <span class="ponto p-centro" data-deleg="centro"><i></i>Beira<span class="zona">Centro</span></span>
+          <span class="ponto p-sul" data-deleg="sul"><i></i>Maputo<span class="zona">Sul</span></span>
+        </div>
       </div>
     </div>
-    <div class="delegacoes">
-      <div class="delegacao">
-        <h3>Norte</h3>
+    <div class="delegacoes compacta">
+      <div class="delegacao" data-cell="norte">
+        <h3>Norte — Nampula</h3>
         <p>Vice-presidência para a Zona Norte: <strong>Albino Sebastião Grumor Dimene</strong>.</p>
-        <p>Delegação Regional Norte — Nampula, Moçambique.</p>
       </div>
-      <div class="delegacao">
-        <h3>Centro</h3>
+      <div class="delegacao" data-cell="centro">
+        <h3>Centro — Beira</h3>
         <p>Vice-presidência para a Zona Centro: <strong>Nelson Caetano Coutinho Luís</strong>.</p>
-        <p>Delegação Regional Centro — Beira, Moçambique.</p>
       </div>
-      <div class="delegacao">
-        <h3>Sul</h3>
+      <div class="delegacao" data-cell="sul">
+        <h3>Sul — Maputo</h3>
         <p>Sede nacional: Edifício Central, Rua João Carlos Raposo Beirão, n.º 508, R/C, Maputo.</p>
-        <p><strong>+258 21 305 504</strong> · <strong>+258 21 305 506</strong></p>
+        <p class="tel"><strong>+258 21 305 504</strong> · <strong>+258 21 305 506</strong></p>
       </div>
     </div>
   </div>
@@ -282,6 +350,29 @@
     });
     document.getElementById("assist-btn").addEventListener("click", () => {
       perguntar(document.getElementById("assist-q").value);
+    });
+
+    // Tarefa "Perguntar à CDA" abre o assistente
+    document.querySelectorAll("[data-accionar-ia]").forEach((el) => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (window.CDA_IA && typeof window.CDA_IA.abrir === "function") {
+          window.CDA_IA.abrir();
+          const q = document.querySelector("#assist-input");
+          if (q) q.focus();
+        }
+      });
+    });
+
+    // "Perguntar sobre este documento" — abre o assistente com foco no documento
+    document.querySelectorAll("[data-doc-fich]").forEach((el) => {
+      el.addEventListener("click", () => {
+        if (window.CDA_IA && typeof window.CDA_IA.abrir === "function") {
+          window.CDA_IA.abrir(el.dataset.docFich, el.dataset.docTit);
+        } else {
+          alert("O Assistente CDA está disponível na versão completa do portal.");
+        }
+      });
     });
   })();
 </script>

@@ -10,9 +10,12 @@
   }
 
   // ---- Marcador de página activa ----
+  const SUBPAGE = { galeria: "noticias", parceiros: "noticias", membro: "despachantes" };
   document.querySelectorAll("#nav a").forEach((a) => {
     const page = document.body.dataset.page;
-    if (page && a.dataset.pagina === page) a.classList.add("active");
+    if (page && (a.dataset.pagina === page || a.dataset.pagina === SUBPAGE[page])) {
+      if (a.dataset.pagina) a.classList.add("active");
+    }
   });
 
   // ---- Título + metas dinâmicos ----
