@@ -258,8 +258,11 @@ tr:hover td { background: var(--bg-alt); }
   .footer .cols { grid-template-columns: 1fr 1fr; }
   .dash { grid-template-columns: 1fr; }
   .contactos { grid-template-columns: 1fr; }
+  .section { padding: 44px 0; }
 }
-@media (max-width: 680px) {
+/* Navegação passa a menu móvel a partir de ecrãs menores (evita faixa
+   intermédia em que a navegação horizontal fica apertada) */
+@media (max-width: 900px) {
   .menu-btn { display: block; }
   .nav { display: none; width: 100%; }
   .nav.aberto { display: block; border-top: 1px solid var(--line); margin-top: 12px; }
@@ -273,6 +276,8 @@ tr:hover td { background: var(--bg-alt); }
   .nav .nav-cta { margin-left: 0; }
   .header-inner { flex-wrap: wrap; }
   .logo img { height: 44px; }
+}
+@media (max-width: 680px) {
   .quick, .news-grid, .stats, .filtros, .footer .cols, .dash { grid-template-columns: 1fr; }
   .galeria { grid-template-columns: repeat(2, 1fr); }
   .galeria img { height: 140px; }
@@ -701,4 +706,14 @@ tr:hover td { background: var(--bg-alt); }
 @media (max-width: 680px) {
   .hero-foot { flex-direction: column; align-items: flex-start; gap: 6px; }
   .hero-foot-nav { align-self: flex-end; }
+  /* Em ecrãs pequenos o overlay fica mais uniforme para garantir a legibilidade
+     do texto mesmo sobre zonas claras da fotografia */
+  .hero-overlay { background: linear-gradient(180deg, rgba(13,23,34,.82) 0%, rgba(13,23,34,.88) 55%, rgba(13,23,34,.94) 100%); }
+  .hero { padding-bottom: 96px; }
+  .hero-foot-cap b { font-size: .9rem; }
+}
+@media (max-width: 480px) {
+  .hero-foot { padding: 12px 16px 16px; }
+  .hero-foot-nav button { width: 34px; height: 34px; }
+  .hero-foot-cap a span { line-height: 1.4; }
 }
