@@ -8,10 +8,10 @@ import os
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "ia"))
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from fastapi.testclient import TestClient  # noqa: E402
-import api  # noqa: E402
+from ia import api  # noqa: E402
 
 client = TestClient(api.app)
 falhas = 0

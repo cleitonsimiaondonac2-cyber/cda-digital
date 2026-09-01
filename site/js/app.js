@@ -215,28 +215,113 @@
     });
   }
 
-  // ---- Formulário de contacto (demo: abre o mail) ----
+  // ---- Formulário de contacto (real → /api/contacto) ----
   const fContato = document.getElementById("form-contacto");
   if (fContato) {
     fContato.addEventListener("submit", (e) => {
       e.preventDefault();
-      const nome = document.getElementById("c-nome").value;
-      const email = document.getElementById("c-email").value;
-      const msg = document.getElementById("c-msg").value;
-      const link = "mailto:cda@cda-mz.org?subject=" + encodeURIComponent("Contacto via site — " + nome) + "&body=" + encodeURIComponent(msg + "\n\nDe: " + nome + " <" + email + ">");
-      window.location.href = link;
-      fContato.querySelector(".aviso-ok").style.display = "block";
+      const btn = fContato.querySelector("button[type=submit]");
+      const aviso = fContato.querySelector(".aviso-ok");
+      const avisoErro = fContato.querySelector(".aviso-erro");
+      if (aviso) aviso.style.display = "none";
+      if (avisoErro) avisoErro.style.display = "none";
+      if (btn) btn.disabled = true;
+      const base = (window.CDA_API_BASE || "");
+      fetch(base + "/api/contacto", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: document.getElementById("c-nome").value,
+          email: document.getElementById("c-email").value,
+          assunto: document.getElementById("c-assunto")
+            ? document.getElementById("c-assunto").value : "",
+          mensagem: document.getElementById("c-msg").value,
+        }),
+      }).then((r) => r.json().then((d) => {
+        if (!r.ok) throw new Error(d.detail || "falha no envio");
+        if (aviso) aviso.style.display = "block";
+        fContato.reset();
+      })).catch((err) => {
+        if (avisoErro) { avisoErro.textContent = "Erro ao enviar: " + err.message; avisoErro.style.display = "block"; }
+        else alert("Erro ao enviar: " + err.message);
+      }).finally(() => { if (btn) btn.disabled = false; });
     });
   }
 
-  // ---- Login demo ----
+  // ---- Login real (área do membro → /api/auth) ----
   const fLogin = document.getElementById("form-login");
   if (fLogin) {
     fLogin.addEventListener("submit", (e) => {
       e.preventDefault();
-      document.getElementById("login-view").style.display = "none";
-      const dash = document.getElementById("dash-view");
-      if (dash) dash.style.display = "block";
+      const base = (window.CDA_API_BASE || "");
+      const aviso = document.getElementById("login-aviso");
+      if (aviso) aviso.textContent = "";
+      fetch(base + "/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: document.getElementById("l-user").value.trim(),
+          senha: document.getElementById("l-pass").value,
+        }),
+      }).then((r) => r.json().then((d) => {
+        if (!r.ok) throw new Error(d.detail || "credenciais inválidas");
+        const loginView = document.getElementById("login-view");
+        const dash = document.getElementById("dash-view");
+        if (loginView) loginView.style.display = "none";
+        if (dash) {
+          const nome = document.getElementById("dash-nome");
+          if (nome) nome.textContent = d.nome || "Painel do membro";
+          dash.style.display = "block";
+        }
+      })).catch((err) => {
+        if (aviso) aviso.textContent = err.message;
+        else alert(err.message);
+      });
+    });
+  }
+
+  // ---- Registo (área do membro → /api/auth/registar) ----
+  const fRegisto = document.getElementById("form-registo");
+  if (fRegisto) {
+    fRegisto.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const base = (window.CDA_API_BASE || "");
+      const msg = document.getElementById("registo-msg");
+      const btn = fRegisto.querySelector("button[type=submit]");
+      if (btn) btn.disabled = true;
+      if (msg) msg.textContent = "";
+      fetch(base + "/api/auth/registar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nome: document.getElementById("r-nome").value,
+          email: document.getElementById("r-email").value,
+          entidade: document.getElementById("r-entidade")
+            ? document.getElementById("r-entidade").value : "",
+          telefone: document.getElementById("r-telefone")
+            ? document.getElementById("r-telefone").value : "",
+          senha: document.getElementById("r-senha").value,
+        }),
+      }).then((r) => r.json().then((d) => {
+        if (!r.ok) throw new Error(d.detail || "falha no registo");
+        if (msg) { msg.textContent = d.mensagem || "Conta criada. Já pode iniciar sessão."; msg.style.color = "#1c7c2f"; }
+        fRegisto.reset();
+      })).catch((err) => {
+        if (msg) msg.textContent = err.message;
+        else alert(err.message);
+      }).finally(() => { if (btn) btn.disabled = false; });
+    });
+  }
+
+  // ---- Terminar sessão ----
+  const terminSessao = document.getElementById("terminar-sessao");
+  if (terminSessao) {
+    terminSessao.addEventListener("click", (e) => {
+      e.preventDefault();
+      const base = (window.CDA_API_BASE || "");
+      fetch(base + "/api/auth/logout", { method: "POST" }).catch(function () {}).finally(function () {
+        location.reload();
+      });
     });
   }
 })();

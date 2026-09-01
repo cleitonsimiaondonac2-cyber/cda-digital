@@ -12,6 +12,8 @@ Thumbs.db
 tmp/
 ia/venv/
 ia/.env
+ia/.auth_secret
+*.db
 ia/indice.json
 ia/texto/
 ia/ocr_relatorio.json

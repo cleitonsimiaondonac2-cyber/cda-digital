@@ -22,6 +22,7 @@ import httpx
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from snowballstemmer import PortugueseStemmer
 
@@ -195,7 +196,7 @@ def resposta_rag(pergunta: str, chunks: list[dict],
             "modo": "rag", "modelo": IA_MODELO}
 
 
-app = FastAPI(title="Assistente CDA — IA", version="1.0.0")
+app = FastAPI(title="Assistente CDA — IA", version="2.0.0")
 _ORIGENS_EXTRA = [o.strip() for o in os.getenv("IA_ORIGINS", "").split(",") if o.strip()]
 app.add_middleware(
     CORSMiddleware,
@@ -206,7 +207,26 @@ app.add_middleware(
     ],
     allow_methods=["*"],
     allow_headers=["*"],
+    allow_credentials=True,
 )
+
+
+# ——— Backend CDA (Fase 3): BD + autenticação + contacto + painel admin ———
+from .admin import router as admin_router  # noqa: E402
+from .auth import criar_admin  # noqa: E402
+from .db import criar_tabelas  # noqa: E402
+
+app.include_router(admin_router)
+
+_ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "admin@cda-mz.org")
+_ADMIN_SENHA = os.getenv("ADMIN_SENHA", "")
+
+
+@app.on_event("startup")
+def _inicio() -> None:
+    criar_tabelas()
+    if _ADMIN_SENHA:
+        criar_admin(_ADMIN_EMAIL, _ADMIN_SENHA, "Administrador CDA")
 
 
 class Mensagem(BaseModel):
@@ -275,6 +295,18 @@ def status(req: Request) -> dict:
 
 @app.get("/")
 def raiz() -> dict:
-    return {"servico": "Assistente CDA — IA", "endpoints": [
-        "GET /health", "POST /ia/perguntar", "GET /ia/pesquisar?q=",
-        "GET /ia/documento?f=&q=", "GET /ia/status"]}
+    return {
+        "servico": "CDA Digital 2.0 — Portal + API + Painel Admin",
+        "site": "/index.html", "painel_admin": "/admin.html",
+        "endpoints": [
+            "GET /health", "POST /ia/perguntar", "GET /ia/pesquisar?q=",
+            "GET /ia/documento?f=&q=", "GET /ia/status",
+            "POST /api/contacto", "POST /api/auth/login", "GET /api/auth/me",
+            "GET /api/admin/documentos", "GET /api/admin/noticias",
+            "GET /api/admin/actividades", "GET /api/admin/membros",
+            "POST /api/admin/publicar"]}
+
+
+_SITE_DIR = RAIZ / "site"
+if _SITE_DIR.is_dir():
+    app.mount("/", StaticFiles(directory=_SITE_DIR, html=False), name="site")

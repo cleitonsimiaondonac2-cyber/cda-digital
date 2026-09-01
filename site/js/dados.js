@@ -1,518 +1,64 @@
-// Dados do portal CDA — gerados a partir do acervo oficial (18-08-2026)
+// Dados do portal CDA — gerados pelo backend (painel admin)
+// Ficheiro gerado automaticamente em 2026-08-28 16:17
 const CDA = {
 "DOCUMENTOS": [
-{
-"tipo": "Legislação",
-"titulo": "Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros",
-"entidade": "Assembleia da República",
-"ano": 2011,
-"ficheiro": "lei-n-4-2011.pdf",
-"url": "docs/lei-n-4-2011.pdf"
-},
-{
-"tipo": "Legislação",
-"titulo": "Lei n.º 6/2009, de 10 de Março — Alteração à Lei Aduaneira",
-"entidade": "Assembleia da República",
-"ano": 2009,
-"ficheiro": "lei-n-6-2009-de-10-de-marco.pdf",
-"url": "docs/lei-n-6-2009-de-10-de-marco.pdf"
-},
-{
-"tipo": "Legislação",
-"titulo": "Decreto n.º 18/2011, de 26 de Maio — Regulamento do exercício da actividade de despacho aduaneiro",
-"entidade": "Conselho de Ministros",
-"ano": 2011,
-"ficheiro": "decreto-n-18-2011.pdf",
-"url": "docs/decreto-n-18-2011.pdf"
-},
-{
-"tipo": "Legislação",
-"titulo": "Diploma Ministerial n.º 16/2012, de 1 de Fevereiro",
-"entidade": "Ministério das Finanças",
-"ano": 2012,
-"ficheiro": "diploma-ministerial-n-16-2012-de-1-de-fevereiro.pdf",
-"url": "docs/diploma-ministerial-n-16-2012-de-1-de-fevereiro.pdf"
-},
-{
-"tipo": "Legislação",
-"titulo": "Estatuto da CDA",
-"entidade": "CDA",
-"ano": 2011,
-"ficheiro": "estatuto-da-cda.pdf",
-"url": "docs/estatuto-da-cda.pdf"
-},
-{
-"tipo": "Regulamentos",
-"titulo": "Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "regulamento-interno-da-cda.pdf",
-"url": "docs/regulamento-interno-da-cda.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Comunicado n.º 01/CDA/2017",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "comunicado-n-01-cda-2017.pdf",
-"url": "docs/comunicado-n-01-cda-2017.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 3.ª Sessão da Assembleia Geral Extraordinária",
-"entidade": "CDA",
-"ano": 2013,
-"ficheiro": "convocatoria-da-3-sessao-da-assembleia-geral-extraordinaria.pdf",
-"url": "docs/convocatoria-da-3-sessao-da-assembleia-geral-extraordinaria.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 12.ª Sessão da Assembleia Geral Ordinária",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "convocatoria-12-sessao-da-assembleia-geral-ordinaria.pdf",
-"url": "docs/convocatoria-12-sessao-da-assembleia-geral-ordinaria.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 13.ª Sessão da Assembleia Geral Ordinária",
-"entidade": "CDA",
-"ano": 2018,
-"ficheiro": "convocatoria-13-sessao-da-assembleia-geral-ordinaria.pdf",
-"url": "docs/convocatoria-13-sessao-da-assembleia-geral-ordinaria.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 14.ª Sessão da Assembleia Geral Ordinária",
-"entidade": "CDA",
-"ano": 2018,
-"ficheiro": "14-sessao-da-assembleia-geral-ordinaria.pdf",
-"url": "docs/14-sessao-da-assembleia-geral-ordinaria.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 16.ª Sessão da Assembleia Geral Ordinária",
-"entidade": "CDA",
-"ano": 2019,
-"ficheiro": "convocatoria-da-16-sessao-da-assembleia-geral-ordinaria.pdf",
-"url": "docs/convocatoria-da-16-sessao-da-assembleia-geral-ordinaria.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 17.ª Sessão da Assembleia Geral",
-"entidade": "CDA",
-"ano": 2021,
-"ficheiro": "convocatoria-da-17-assembleia-geral.pdf",
-"url": "docs/convocatoria-da-17-assembleia-geral.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 18.ª Assembleia Geral Ordinária, Tete",
-"entidade": "CDA",
-"ano": 2022,
-"ficheiro": "18-assembleia-geral-ordinaria-tete.pdf",
-"url": "docs/18-assembleia-geral-ordinaria-tete.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 19.ª Sessão da Assembleia Geral Ordinária",
-"entidade": "CDA",
-"ano": 2023,
-"ficheiro": "convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf",
-"url": "docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — 5.ª Assembleia Geral Extraordinária da CDA",
-"entidade": "CDA",
-"ano": 2023,
-"ficheiro": "convocatoria-5-assembleia-geral-extraordinaria-da-cda.pdf",
-"url": "docs/convocatoria-5-assembleia-geral-extraordinaria-da-cda.pdf"
-},
-{
-"tipo": "Convocatórias",
-"titulo": "Convocatória — Assembleia Geral (documento unificado)",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "convocatoria.pdf",
-"url": "docs/convocatoria.pdf"
-},
-{
-"tipo": "Circulares",
-"titulo": "Circular n.º 005/CDA/2014",
-"entidade": "CDA",
-"ano": 2014,
-"ficheiro": "circular-n-005-cda-2014.pdf",
-"url": "docs/circular-n-005-cda-2014.pdf"
-},
-{
-"tipo": "Circulares",
-"titulo": "Circular n.º 006/CDA/2014",
-"entidade": "CDA",
-"ano": 2014,
-"ficheiro": "circular-n-006-cda-2014.pdf",
-"url": "docs/circular-n-006-cda-2014.pdf"
-},
-{
-"tipo": "Circulares",
-"titulo": "Circular n.º 5/DGA/2014 — Levantamento da pena de suspensão",
-"entidade": "DGA",
-"ano": 2014,
-"ficheiro": "circular-n-5-dga-2014-levantamento-da-pena-de-suspensao-decretada-contra-despachante-aduaneiro-rogerio-rafael-tembe.pdf",
-"url": "docs/circular-n-5-dga-2014-levantamento-da-pena-de-suspensao-decretada-contra-despachante-aduaneiro-rogerio-rafael-tembe.pdf"
-},
-{
-"tipo": "Circulares",
-"titulo": "Requisitos para registo e cadastro de agentes transitários",
-"entidade": "DGA",
-"ano": 2014,
-"ficheiro": "requisitos-para-registo-e-cadastro-de-agentes-transitarios.pdf",
-"url": "docs/requisitos-para-registo-e-cadastro-de-agentes-transitarios.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 10/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "ordem-de-servico-numero-10-dga-2016.pdf",
-"url": "docs/ordem-de-servico-numero-10-dga-2016.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 11/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "ordem-de-servico-numero-11-dga-2016.pdf",
-"url": "docs/ordem-de-servico-numero-11-dga-2016.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 13/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "os-n-13-dga-16.pdf",
-"url": "docs/os-n-13-dga-16.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 14/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "ordem-de-servic-o-n-14-dga-2016.pdf",
-"url": "docs/ordem-de-servic-o-n-14-dga-2016.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 19/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "os-n-19-dga-2016.pdf",
-"url": "docs/os-n-19-dga-2016.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 19/DGA/2016 (2.ª versão)",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "ordem-de-servic-o-n-19-dga-20160001.pdf",
-"url": "docs/ordem-de-servic-o-n-19-dga-20160001.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 20/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "os-n-20-dga-16.pdf",
-"url": "docs/os-n-20-dga-16.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 21/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "os-n-21-dga-16.pdf",
-"url": "docs/os-n-21-dga-16.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Ordem de Serviço n.º 29/DGA/2016",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "ordem-de-servico-n-29-dga-2016.pdf",
-"url": "docs/ordem-de-servico-n-29-dga-2016.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Certificação de Operador Económico Autorizado",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "certificacao-de-operador-economico-autorizado.pdf",
-"url": "docs/certificacao-de-operador-economico-autorizado.pdf"
-},
-{
-"tipo": "Ordens de Serviço",
-"titulo": "Regularização da situação de viaturas importadas com benefício fiscal",
-"entidade": "DGA",
-"ano": 2016,
-"ficheiro": "regularizacao-da-situacao-de-viaturas-importadas-com-beneficio-fiscal.pdf",
-"url": "docs/regularizacao-da-situacao-de-viaturas-importadas-com-beneficio-fiscal.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação do Presidente da CDA",
-"entidade": "CDA",
-"ano": 2014,
-"ficheiro": "exortacao-do-presidente-cda.pdf",
-"url": "docs/exortacao-do-presidente-cda.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação do Presidente — Dia Nacional do Despachante (14-09-2018)",
-"entidade": "CDA",
-"ano": 2018,
-"ficheiro": "exortacao-do-presidente-dia-nacional-do-despachante-14-09-2018.pdf",
-"url": "docs/exortacao-do-presidente-dia-nacional-do-despachante-14-09-2018.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação do Presidente por ocasião do fim do ano",
-"entidade": "CDA",
-"ano": 2018,
-"ficheiro": "exortacao-do-presidente-por-ocasiao-do-fim-do-ano.pdf",
-"url": "docs/exortacao-do-presidente-por-ocasiao-do-fim-do-ano.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação por ocasião do fim de ano",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "exortacao-por-ocasiao-do-fim-de-ano.pdf",
-"url": "docs/exortacao-por-ocasiao-do-fim-de-ano.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação por ocasião do início de ano 2018",
-"entidade": "CDA",
-"ano": 2018,
-"ficheiro": "exortacao-por-ocasiao-do-inicio-de-ano-2018.pdf",
-"url": "docs/exortacao-por-ocasiao-do-inicio-de-ano-2018.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação do Presidente — Ciclone Idai",
-"entidade": "CDA",
-"ano": 2019,
-"ficheiro": "ciclone-idai.pdf",
-"url": "docs/ciclone-idai.pdf"
-},
-{
-"tipo": "Exortações",
-"titulo": "Exortação — Encontro de Reflexão",
-"entidade": "CDA",
-"ano": 2019,
-"ficheiro": "encontro-de-reflexao.pdf",
-"url": "docs/encontro-de-reflexao.pdf"
-},
-{
-"tipo": "Relatórios",
-"titulo": "Relatório de Balanço e Contas do exercício de 2016",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf",
-"url": "docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf"
-},
-{
-"tipo": "Relatórios",
-"titulo": "Balanço — Dezembro 2016",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "bal-dez-2016.pdf",
-"url": "docs/bal-dez-2016.pdf"
-},
-{
-"tipo": "Relatórios",
-"titulo": "Amortizações da CDA — 2016",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "amort-cda-2017.pdf",
-"url": "docs/amort-cda-2017.pdf"
-},
-{
-"tipo": "Relatórios",
-"titulo": "Controle de execução orçamental — despesas e receitas 2016",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "controle-de-execucao-orcamental-despesas-e-receitas-2016.pdf",
-"url": "docs/controle-de-execucao-orcamental-despesas-e-receitas-2016.pdf"
-},
-{
-"tipo": "Relatórios",
-"titulo": "Mapa de Despesas e Receitas (MDR) — Dezembro 2016",
-"entidade": "CDA",
-"ano": 2017,
-"ficheiro": "mdr-dez-2016.pdf",
-"url": "docs/mdr-dez-2016.pdf"
-},
-{
-"tipo": "Relatórios",
-"titulo": "Relatório de Auditoria",
-"entidade": "CDA",
-"ano": 2015,
-"ficheiro": "relatorio-de-auditoria.pdf",
-"url": "docs/relatorio-de-auditoria.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "O Despachante — Edição 01",
-"entidade": "CDA",
-"ano": 2014,
-"ficheiro": "o-despachante-edicao-01.pdf",
-"url": "docs/o-despachante-edicao-01.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "O Despachante — Edição 02",
-"entidade": "CDA",
-"ano": 2014,
-"ficheiro": "o-despachante-edicao-02.pdf",
-"url": "docs/o-despachante-edicao-02.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "O Despachante — Edição 03",
-"entidade": "CDA",
-"ano": 2015,
-"ficheiro": "o-despachante-edicao-03.pdf",
-"url": "docs/o-despachante-edicao-03.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "Boletim Informativo da CDA — Edição 04",
-"entidade": "CDA",
-"ano": 2015,
-"ficheiro": "boletim-informativo-da-cda-edicao-04.pdf",
-"url": "docs/boletim-informativo-da-cda-edicao-04.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "O Despachante — Edição 05",
-"entidade": "CDA",
-"ano": 2016,
-"ficheiro": "o-despachante-edicao-05.pdf",
-"url": "docs/o-despachante-edicao-05.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "O Despachante — Edição 06",
-"entidade": "CDA",
-"ano": 2016,
-"ficheiro": "o-despachante-edicao-06.pdf",
-"url": "docs/o-despachante-edicao-06.pdf"
-},
-{
-"tipo": "Boletins",
-"titulo": "O Despachante — Edição especial",
-"entidade": "CDA",
-"ano": 2015,
-"ficheiro": "o-despachante-edicao-00.pdf",
-"url": "docs/o-despachante-edicao-00.pdf"
-},
-{
-"tipo": "Fichas de Inscrição",
-"titulo": "Ficha de inscrição do despachante aduaneiro",
-"entidade": "CDA",
-"ano": 2016,
-"ficheiro": "ficha-de-inscricao-do-despachante-aduaneiro.pdf",
-"url": "docs/ficha-de-inscricao-do-despachante-aduaneiro.pdf"
-},
-{
-"tipo": "Fichas de Inscrição",
-"titulo": "Ficha de registo de sociedades",
-"entidade": "CDA",
-"ano": 2016,
-"ficheiro": "ficha-de-registo-de-sociedades.pdf",
-"url": "docs/ficha-de-registo-de-sociedades.pdf"
-},
-{
-"tipo": "Fichas de Inscrição",
-"titulo": "Ficha de ajudante de despachante",
-"entidade": "CDA",
-"ano": 2016,
-"ficheiro": "ficha-de-ajudante-de-despachante.pdf",
-"url": "docs/ficha-de-ajudante-de-despachante.pdf"
-},
-{
-"tipo": "Fichas de Inscrição",
-"titulo": "Ficha de praticante de despachante",
-"entidade": "CDA",
-"ano": 2016,
-"ficheiro": "ficha-de-praticante-de-despachante.pdf",
-"url": "docs/ficha-de-praticante-de-despachante.pdf"
-},
-{
-"tipo": "Eventos",
-"titulo": "Programa de evento (publicado originalmente em Circulares)",
-"entidade": "CDA",
-"ano": 2015,
-"ficheiro": "programa.pdf",
-"url": "docs/programa.pdf"
-}
-],
-"NOTICIAS": [
-{
-"titulo": "Visita de cortesia do Tribunal Aduaneiro de Sofala aos escritórios da CDA Beira",
-"data": "2025-10-27",
-"categoria": "Institucional",
-"texto": "No dia 27 de outubro de 2025, a CDA Região Centro recebeu uma visita de cortesia do Tribunal Aduaneiro de Sofala nos seus escritórios na Beira, reforçando a cooperação entre as instituições."
-},
-{
-"titulo": "Semana destacada para líderes femininas aduaneiras — ASAPRA",
-"data": "2026-01-28",
-"categoria": "Internacional",
-"texto": "Salmate Chuaibo, Presidente da CDA, destaca que a sua ascensão à presidência da Câmara dos Despachantes Aduaneiros de Moçambique reflete não apenas um compromisso pessoal com o setor do comércio, mas também o papel crescente das mulheres na liderança aduaneira regional e internacional."
-},
-{
-"titulo": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026",
-"data": "2023-11-20",
-"categoria": "Eleições",
-"texto": "Publicado o edital da lista única de candidatura às eleições dos órgãos sociais da CDA para o triénio 2024-2026, nos termos do n.º 2 do artigo 9.º do Regulamento para Eleição dos Órgãos da Câmara dos Despachantes Aduaneiros de Moçambique."
-},
-{
-"titulo": "LISTA ÚNICA — Candidatura à Presidência da CDA",
-"data": "2023-12-01",
-"categoria": "Eleições",
-"texto": "EDITAL — Por meio deste, nos termos do n.º 2 do artigo 9.º do Regulamento para Eleição dos Órgãos da Câmara dos Despachantes Aduaneiros de Moçambique, comunica-se a todos os membros da CDA a lista única de candidatura à Presidência."
-},
-{
-"titulo": "Cabo Delgado Quer Paz",
-"data": "2021-03-01",
-"categoria": "Institucional",
-"texto": "A CDA associa-se ao movimento pela paz na província de Cabo Delgado, expressando solidariedade com as comunidades afetadas."
-},
-{
-"titulo": "O Impacto da Covid-19 no Comércio Internacional",
-"data": "2020-06-01",
-"categoria": "Análise",
-"texto": "Dixon Chongo, Presidente da Câmara dos Despachantes Aduaneiros de Moçambique, analisa o impacto da pandemia de Covid-19 no comércio internacional e na atividade de despacho aduaneiro."
-},
-{
-"titulo": "Dixon Chongo prepara a casa para transformar em Ordem dos Despachantes Aduaneiros de Moçambique",
-"data": "2019-11-01",
-"categoria": "Institucional",
-"texto": "O Presidente da Câmara dos Despachantes Aduaneiros de Moçambique, Dixon Chongo, informou que o ambiente no seio da classe dos despachantes aduaneiros em Moçambique é encorajador e que o país caminha para a transformação da Câmara em Ordem."
-},
-{
-"titulo": "Visão Geral da Economia, Política e Social de Moçambique — ano 2019",
-"data": "2019-12-01",
-"categoria": "Análise",
-"texto": "Visão geral da economia, política e sociedade de Moçambique até 2019, apresentada pelo Presidente da CDA, Dixon Chongo."
-},
-{
-"titulo": "A CDA informa — Férias colectivas de fim de ano",
-"data": "2019-12-19",
-"categoria": "Comunicado",
-"texto": "A CDA informa todos os seus membros e o público em geral que os escritórios da CDA-Sede e as Delegações Regionais Centro e Norte estarão encerrados entre os dias 24 de dezembro de 2019 e 03 de janeiro de 2020, para férias colectivas."
-}
+  {"tipo": "Relatórios", "titulo": "Amortizações da CDA — 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "amort-cda-2017.pdf", "url": "docs/amort-cda-2017.pdf"},
+  {"tipo": "Relatórios", "titulo": "Balanço — Dezembro 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "bal-dez-2016.pdf", "url": "docs/bal-dez-2016.pdf"},
+  {"tipo": "Boletins", "titulo": "Boletim Informativo da CDA — Edição 04", "entidade": "CDA", "ano": 2015, "ficheiro": "boletim-informativo-da-cda-edicao-04.pdf", "url": "docs/boletim-informativo-da-cda-edicao-04.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Certificação de Operador Económico Autorizado", "entidade": "DGA", "ano": 2016, "ficheiro": "certificacao-de-operador-economico-autorizado.pdf", "url": "docs/certificacao-de-operador-economico-autorizado.pdf"},
+  {"tipo": "Circulares", "titulo": "Circular n.º 005/CDA/2014", "entidade": "CDA", "ano": 2014, "ficheiro": "circular-n-005-cda-2014.pdf", "url": "docs/circular-n-005-cda-2014.pdf"},
+  {"tipo": "Circulares", "titulo": "Circular n.º 006/CDA/2014", "entidade": "CDA", "ano": 2014, "ficheiro": "circular-n-006-cda-2014.pdf", "url": "docs/circular-n-006-cda-2014.pdf"},
+  {"tipo": "Circulares", "titulo": "Circular n.º 5/DGA/2014 — Levantamento da pena de suspensão", "entidade": "DGA", "ano": 2014, "ficheiro": "circular-n-5-dga-2014-levantamento-da-pena-de-suspensao-decretada-contra-despachante-aduaneiro-rogerio-rafael-tembe.pdf", "url": "docs/circular-n-5-dga-2014-levantamento-da-pena-de-suspensao-decretada-contra-despachante-aduaneiro-rogerio-rafael-tembe.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Comunicado n.º 01/CDA/2017", "entidade": "CDA", "ano": 2017, "ficheiro": "comunicado-n-01-cda-2017.pdf", "url": "docs/comunicado-n-01-cda-2017.pdf"},
+  {"tipo": "Relatórios", "titulo": "Controle de execução orçamental — despesas e receitas 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "controle-de-execucao-orcamental-despesas-e-receitas-2016.pdf", "url": "docs/controle-de-execucao-orcamental-despesas-e-receitas-2016.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 12.ª Sessão da Assembleia Geral Ordinária", "entidade": "CDA", "ano": 2017, "ficheiro": "convocatoria-12-sessao-da-assembleia-geral-ordinaria.pdf", "url": "docs/convocatoria-12-sessao-da-assembleia-geral-ordinaria.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 13.ª Sessão da Assembleia Geral Ordinária", "entidade": "CDA", "ano": 2018, "ficheiro": "convocatoria-13-sessao-da-assembleia-geral-ordinaria.pdf", "url": "docs/convocatoria-13-sessao-da-assembleia-geral-ordinaria.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 14.ª Sessão da Assembleia Geral Ordinária", "entidade": "CDA", "ano": 2018, "ficheiro": "14-sessao-da-assembleia-geral-ordinaria.pdf", "url": "docs/14-sessao-da-assembleia-geral-ordinaria.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 16.ª Sessão da Assembleia Geral Ordinária", "entidade": "CDA", "ano": 2019, "ficheiro": "convocatoria-da-16-sessao-da-assembleia-geral-ordinaria.pdf", "url": "docs/convocatoria-da-16-sessao-da-assembleia-geral-ordinaria.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 17.ª Sessão da Assembleia Geral", "entidade": "CDA", "ano": 2021, "ficheiro": "convocatoria-da-17-assembleia-geral.pdf", "url": "docs/convocatoria-da-17-assembleia-geral.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 18.ª Assembleia Geral Ordinária, Tete", "entidade": "CDA", "ano": 2022, "ficheiro": "18-assembleia-geral-ordinaria-tete.pdf", "url": "docs/18-assembleia-geral-ordinaria-tete.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 19.ª Sessão da Assembleia Geral Ordinária", "entidade": "CDA", "ano": 2023, "ficheiro": "convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf", "url": "docs/convocatoria-19-sessao-da-assembleia-geral-ordinaria.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 3.ª Sessão da Assembleia Geral Extraordinária", "entidade": "CDA", "ano": 2013, "ficheiro": "convocatoria-da-3-sessao-da-assembleia-geral-extraordinaria.pdf", "url": "docs/convocatoria-da-3-sessao-da-assembleia-geral-extraordinaria.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — 5.ª Assembleia Geral Extraordinária da CDA", "entidade": "CDA", "ano": 2023, "ficheiro": "convocatoria-5-assembleia-geral-extraordinaria-da-cda.pdf", "url": "docs/convocatoria-5-assembleia-geral-extraordinaria-da-cda.pdf"},
+  {"tipo": "Convocatórias", "titulo": "Convocatória — Assembleia Geral (documento unificado)", "entidade": "CDA", "ano": 2017, "ficheiro": "convocatoria.pdf", "url": "docs/convocatoria.pdf"},
+  {"tipo": "Legislação", "titulo": "Decreto n.º 18/2011, de 26 de Maio — Regulamento do exercício da actividade de despacho aduaneiro", "entidade": "Conselho de Ministros", "ano": 2011, "ficheiro": "decreto-n-18-2011.pdf", "url": "docs/decreto-n-18-2011.pdf"},
+  {"tipo": "Legislação", "titulo": "Diploma Ministerial n.º 16/2012, de 1 de Fevereiro", "entidade": "Ministério das Finanças", "ano": 2012, "ficheiro": "diploma-ministerial-n-16-2012-de-1-de-fevereiro.pdf", "url": "docs/diploma-ministerial-n-16-2012-de-1-de-fevereiro.pdf"},
+  {"tipo": "Legislação", "titulo": "Estatuto da CDA", "entidade": "CDA", "ano": 2011, "ficheiro": "estatuto-da-cda.pdf", "url": "docs/estatuto-da-cda.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação do Presidente da CDA", "entidade": "CDA", "ano": 2014, "ficheiro": "exortacao-do-presidente-cda.pdf", "url": "docs/exortacao-do-presidente-cda.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação do Presidente por ocasião do fim do ano", "entidade": "CDA", "ano": 2018, "ficheiro": "exortacao-do-presidente-por-ocasiao-do-fim-do-ano.pdf", "url": "docs/exortacao-do-presidente-por-ocasiao-do-fim-do-ano.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação do Presidente — Ciclone Idai", "entidade": "CDA", "ano": 2019, "ficheiro": "ciclone-idai.pdf", "url": "docs/ciclone-idai.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação do Presidente — Dia Nacional do Despachante (14-09-2018)", "entidade": "CDA", "ano": 2018, "ficheiro": "exortacao-do-presidente-dia-nacional-do-despachante-14-09-2018.pdf", "url": "docs/exortacao-do-presidente-dia-nacional-do-despachante-14-09-2018.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação por ocasião do fim de ano", "entidade": "CDA", "ano": 2017, "ficheiro": "exortacao-por-ocasiao-do-fim-de-ano.pdf", "url": "docs/exortacao-por-ocasiao-do-fim-de-ano.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação por ocasião do início de ano 2018", "entidade": "CDA", "ano": 2018, "ficheiro": "exortacao-por-ocasiao-do-inicio-de-ano-2018.pdf", "url": "docs/exortacao-por-ocasiao-do-inicio-de-ano-2018.pdf"},
+  {"tipo": "Exortações", "titulo": "Exortação — Encontro de Reflexão", "entidade": "CDA", "ano": 2019, "ficheiro": "encontro-de-reflexao.pdf", "url": "docs/encontro-de-reflexao.pdf"},
+  {"tipo": "Fichas de Inscrição", "titulo": "Ficha de ajudante de despachante", "entidade": "CDA", "ano": 2016, "ficheiro": "ficha-de-ajudante-de-despachante.pdf", "url": "docs/ficha-de-ajudante-de-despachante.pdf"},
+  {"tipo": "Fichas de Inscrição", "titulo": "Ficha de inscrição do despachante aduaneiro", "entidade": "CDA", "ano": 2016, "ficheiro": "ficha-de-inscricao-do-despachante-aduaneiro.pdf", "url": "docs/ficha-de-inscricao-do-despachante-aduaneiro.pdf"},
+  {"tipo": "Fichas de Inscrição", "titulo": "Ficha de praticante de despachante", "entidade": "CDA", "ano": 2016, "ficheiro": "ficha-de-praticante-de-despachante.pdf", "url": "docs/ficha-de-praticante-de-despachante.pdf"},
+  {"tipo": "Fichas de Inscrição", "titulo": "Ficha de registo de sociedades", "entidade": "CDA", "ano": 2016, "ficheiro": "ficha-de-registo-de-sociedades.pdf", "url": "docs/ficha-de-registo-de-sociedades.pdf"},
+  {"tipo": "Legislação", "titulo": "Lei n.º 4/2011, de 11 de Janeiro — Cria a Câmara dos Despachantes Aduaneiros", "entidade": "Assembleia da República", "ano": 2011, "ficheiro": "lei-n-4-2011.pdf", "url": "docs/lei-n-4-2011.pdf"},
+  {"tipo": "Legislação", "titulo": "Lei n.º 6/2009, de 10 de Março — Alteração à Lei Aduaneira", "entidade": "Assembleia da República", "ano": 2009, "ficheiro": "lei-n-6-2009-de-10-de-marco.pdf", "url": "docs/lei-n-6-2009-de-10-de-marco.pdf"},
+  {"tipo": "Relatórios", "titulo": "Mapa de Despesas e Receitas (MDR) — Dezembro 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "mdr-dez-2016.pdf", "url": "docs/mdr-dez-2016.pdf"},
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição 01", "entidade": "CDA", "ano": 2014, "ficheiro": "o-despachante-edicao-01.pdf", "url": "docs/o-despachante-edicao-01.pdf"},
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição 02", "entidade": "CDA", "ano": 2014, "ficheiro": "o-despachante-edicao-02.pdf", "url": "docs/o-despachante-edicao-02.pdf"},
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição 03", "entidade": "CDA", "ano": 2015, "ficheiro": "o-despachante-edicao-03.pdf", "url": "docs/o-despachante-edicao-03.pdf"},
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição 05", "entidade": "CDA", "ano": 2016, "ficheiro": "o-despachante-edicao-05.pdf", "url": "docs/o-despachante-edicao-05.pdf"},
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição 06", "entidade": "CDA", "ano": 2016, "ficheiro": "o-despachante-edicao-06.pdf", "url": "docs/o-despachante-edicao-06.pdf"},
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição especial", "entidade": "CDA", "ano": 2015, "ficheiro": "o-despachante-edicao-00.pdf", "url": "docs/o-despachante-edicao-00.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 10/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "ordem-de-servico-numero-10-dga-2016.pdf", "url": "docs/ordem-de-servico-numero-10-dga-2016.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 11/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "ordem-de-servico-numero-11-dga-2016.pdf", "url": "docs/ordem-de-servico-numero-11-dga-2016.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 13/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "os-n-13-dga-16.pdf", "url": "docs/os-n-13-dga-16.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 14/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "ordem-de-servic-o-n-14-dga-2016.pdf", "url": "docs/ordem-de-servic-o-n-14-dga-2016.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 19/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "os-n-19-dga-2016.pdf", "url": "docs/os-n-19-dga-2016.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 19/DGA/2016 (2.ª versão)", "entidade": "DGA", "ano": 2016, "ficheiro": "ordem-de-servic-o-n-19-dga-20160001.pdf", "url": "docs/ordem-de-servic-o-n-19-dga-20160001.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 20/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "os-n-20-dga-16.pdf", "url": "docs/os-n-20-dga-16.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 21/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "os-n-21-dga-16.pdf", "url": "docs/os-n-21-dga-16.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Ordem de Serviço n.º 29/DGA/2016", "entidade": "DGA", "ano": 2016, "ficheiro": "ordem-de-servico-n-29-dga-2016.pdf", "url": "docs/ordem-de-servico-n-29-dga-2016.pdf"},
+  {"tipo": "Eventos", "titulo": "Programa de evento (publicado originalmente em Circulares)", "entidade": "CDA", "ano": 2015, "ficheiro": "programa.pdf", "url": "docs/programa.pdf"},
+  {"tipo": "Regulamentos", "titulo": "Regulamento Interno da CDA (III Assembleia Geral, 18-08-2017)", "entidade": "CDA", "ano": 2017, "ficheiro": "regulamento-interno-da-cda.pdf", "url": "docs/regulamento-interno-da-cda.pdf"},
+  {"tipo": "Ordens de Serviço", "titulo": "Regularização da situação de viaturas importadas com benefício fiscal", "entidade": "DGA", "ano": 2016, "ficheiro": "regularizacao-da-situacao-de-viaturas-importadas-com-beneficio-fiscal.pdf", "url": "docs/regularizacao-da-situacao-de-viaturas-importadas-com-beneficio-fiscal.pdf"},
+  {"tipo": "Relatórios", "titulo": "Relatório de Auditoria", "entidade": "CDA", "ano": 2015, "ficheiro": "relatorio-de-auditoria.pdf", "url": "docs/relatorio-de-auditoria.pdf"},
+  {"tipo": "Relatórios", "titulo": "Relatório de Balanço e Contas do exercício de 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf", "url": "docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf"},
+  {"tipo": "Circulares", "titulo": "Requisitos para registo e cadastro de agentes transitários", "entidade": "DGA", "ano": 2014, "ficheiro": "requisitos-para-registo-e-cadastro-de-agentes-transitarios.pdf", "url": "docs/requisitos-para-registo-e-cadastro-de-agentes-transitarios.pdf"}
 ],
 "MEMBROS": [
 {
@@ -1842,6 +1388,19 @@ const CDA = {
 "email": ""
 }
 ],
+"NOTICIAS": [
+  {"titulo": "Noticia Teste Admin", "categoria": "Institucional", "data": "2026-08-28", "texto": "Corpo da noticia criado pelo painel admin para teste."},
+  {"titulo": "Noticia Teste Admin", "categoria": "Institucional", "data": "2026-08-28", "texto": "Corpo da noticia criado pelo painel admin para teste."},
+  {"titulo": "Semana destacada para líderes femininas aduaneiras — ASAPRA", "categoria": "Internacional", "data": "2026-01-28", "texto": "Salmate Chuaibo, Presidente da CDA, destaca que a sua ascensão à presidência da Câmara dos Despachantes Aduaneiros de Moçambique reflete não apenas um compromisso pessoal com o setor do comércio, mas também o papel crescente das mulheres na liderança aduaneira regional e internacional."},
+  {"titulo": "Visita de cortesia do Tribunal Aduaneiro de Sofala aos escritórios da CDA Beira", "categoria": "Institucional", "data": "2025-10-27", "texto": "No dia 27 de outubro de 2025, a CDA Região Centro recebeu uma visita de cortesia do Tribunal Aduaneiro de Sofala nos seus escritórios na Beira, reforçando a cooperação entre as instituições."},
+  {"titulo": "LISTA ÚNICA — Candidatura à Presidência da CDA", "categoria": "Eleições", "data": "2023-12-01", "texto": "EDITAL — Por meio deste, nos termos do n.º 2 do artigo 9.º do Regulamento para Eleição dos Órgãos da Câmara dos Despachantes Aduaneiros de Moçambique, comunica-se a todos os membros da CDA a lista única de candidatura à Presidência."},
+  {"titulo": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026", "categoria": "Eleições", "data": "2023-11-20", "texto": "Publicado o edital da lista única de candidatura às eleições dos órgãos sociais da CDA para o triénio 2024-2026, nos termos do n.º 2 do artigo 9.º do Regulamento para Eleição dos Órgãos da Câmara dos Despachantes Aduaneiros de Moçambique."},
+  {"titulo": "Cabo Delgado Quer Paz", "categoria": "Institucional", "data": "2021-03-01", "texto": "A CDA associa-se ao movimento pela paz na província de Cabo Delgado, expressando solidariedade com as comunidades afetadas."},
+  {"titulo": "O Impacto da Covid-19 no Comércio Internacional", "categoria": "Análise", "data": "2020-06-01", "texto": "Dixon Chongo, Presidente da Câmara dos Despachantes Aduaneiros de Moçambique, analisa o impacto da pandemia de Covid-19 no comércio internacional e na atividade de despacho aduaneiro."},
+  {"titulo": "A CDA informa — Férias colectivas de fim de ano", "categoria": "Comunicado", "data": "2019-12-19", "texto": "A CDA informa todos os seus membros e o público em geral que os escritórios da CDA-Sede e as Delegações Regionais Centro e Norte estarão encerrados entre os dias 24 de dezembro de 2019 e 03 de janeiro de 2020, para férias colectivas."},
+  {"titulo": "Visão Geral da Economia, Política e Social de Moçambique — ano 2019", "categoria": "Análise", "data": "2019-12-01", "texto": "Visão geral da economia, política e sociedade de Moçambique até 2019, apresentada pelo Presidente da CDA, Dixon Chongo."},
+  {"titulo": "Dixon Chongo prepara a casa para transformar em Ordem dos Despachantes Aduaneiros de Moçambique", "categoria": "Institucional", "data": "2019-11-01", "texto": "O Presidente da Câmara dos Despachantes Aduaneiros de Moçambique, Dixon Chongo, informou que o ambiente no seio da classe dos despachantes aduaneiros em Moçambique é encorajador e que o país caminha para a transformação da Câmara em Ordem."}
+],
 "ORGAOS": [
 {
 "cargo": "Presidente da CDA",
@@ -1918,69 +1477,12 @@ const CDA = {
 "nome": "Pedro Ausêncio Bonifácio Saulosse",
 "orgao": "Conselho Directivo"
 }
-]
-,
-  "ACTIVIDADES": [
-  {
-    "id": "assembleia-geral-2024",
-    "titulo": "XXVI.ª Sessão da Assembleia Geral Ordinária",
-    "categoria": "Reuniões",
-    "data": "2024-11-17",
-    "local": "Maputo",
-    "descricao": "Momentos da XXVI.ª Sessão da Assembleia Geral Ordinária da CDA, que reuniu os membros da classe para debate dos assuntos da profissão aduaneira.",
-    "destaque": true,
-    "capas": [
-      "01-01-100_thumb.jpg",
-      "02-01-156_thumb.jpg",
-      "03-01-184_thumb.jpg",
-      "04-01-216_thumb.jpg",
-      "05-01-227_thumb.jpg",
-      "06-01-238_thumb.jpg",
-      "07-01-242_thumb.jpg",
-      "08-01-311_thumb.jpg",
-      "09-01-359_thumb.jpg",
-      "10-01-99_thumb.jpg"
-    ],
-    "noticia": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026",
-    "documentos": []
-  },
-  {
-    "id": "tomada-posse-2024",
-    "titulo": "Tomada de posse dos órgãos sociais 2024–2026",
-    "categoria": "Institucional",
-    "data": "2024-10-29",
-    "local": "Maputo",
-    "descricao": "Cerimónia de tomada de posse dos órgãos sociais da CDA para o triénio 2024-2026.",
-    "destaque": false,
-    "capas": [
-      "11-screenshot-2024-10-29-130534_thumb.png",
-      "12-screenshot-2024-10-29-130947_thumb.png"
-    ],
-    "noticia": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026",
-    "documentos": []
-  },
-  {
-    "id": "actividades-final-2024",
-    "titulo": "Actividades e encontros institucionais",
-    "categoria": "Eventos",
-    "data": "2024-12-16",
-    "local": "Moçambique",
-    "descricao": "Registo de actividades e encontros institucionais da CDA no último trimestre de 2024.",
-    "destaque": false,
-    "capas": [
-      "13-whatsapp-image-2024-11-11-at-15.21.14-1.jpg",
-      "14-whatsapp-image-2024-11-11-at-15.21.14-2.jpg",
-      "15-whatsapp-image-2024-11-13-at-11.40.32.jpg",
-      "16-whatsapp-image-2024-11-17-at-11.34.52.jpg",
-      "17-whatsapp-image-2024-11-17-at-11.34.57.jpg",
-      "18-whatsapp-image-2024-12-16-at-15.50.57-1.jpg",
-      "19-whatsapp-image-2024-12-16-at-15.50.57.jpg",
-      "20-whatsapp-image-2024-12-16-at-15.56.29.jpg",
-      "21-whatsapp-image-2024-12-16-at-15.56.44.jpg",
-      "22-whatsapp-image-2024-12-16-at-15.57.08.jpg"
-    ],
-    "noticia": "",
-    "documentos": []
-  }
+],
+"ACTIVIDADES": [
+  {"id": "act-4", "titulo": "Seminario de Teste", "categoria": "Formacao", "data": "2026-08-28", "local": "Maputo", "descricao": "Descricao de teste.", "destaque": false, "capas": ["22-whatsapp-image-2024-12-16-at-15.57.08.jpg"], "noticia": "", "documentos": []},
+  {"id": "act-5", "titulo": "Seminario de Teste", "categoria": "Formacao", "data": "2026-08-28", "local": "Maputo", "descricao": "Descricao de teste.", "destaque": false, "capas": ["22-whatsapp-image-2024-12-16-at-15.57.08.jpg"], "noticia": "", "documentos": []},
+  {"id": "act-3", "titulo": "Actividades e encontros institucionais", "categoria": "Eventos", "data": "2024-12-16", "local": "Moçambique", "descricao": "Registo de actividades e encontros institucionais da CDA no último trimestre de 2024.", "destaque": false, "capas": ["13-whatsapp-image-2024-11-11-at-15.21.14-1.jpg", "14-whatsapp-image-2024-11-11-at-15.21.14-2.jpg", "15-whatsapp-image-2024-11-13-at-11.40.32.jpg", "16-whatsapp-image-2024-11-17-at-11.34.52.jpg", "17-whatsapp-image-2024-11-17-at-11.34.57.jpg", "18-whatsapp-image-2024-12-16-at-15.50.57-1.jpg", "19-whatsapp-image-2024-12-16-at-15.50.57.jpg", "20-whatsapp-image-2024-12-16-at-15.56.29.jpg", "21-whatsapp-image-2024-12-16-at-15.56.44.jpg", "22-whatsapp-image-2024-12-16-at-15.57.08.jpg"], "noticia": "", "documentos": []},
+  {"id": "act-1", "titulo": "XXVI.ª Sessão da Assembleia Geral Ordinária", "categoria": "Reuniões", "data": "2024-11-17", "local": "Maputo", "descricao": "Momentos da XXVI.ª Sessão da Assembleia Geral Ordinária da CDA, que reuniu os membros da classe para debate dos assuntos da profissão aduaneira.", "destaque": true, "capas": ["01-01-100_thumb.jpg", "02-01-156_thumb.jpg", "03-01-184_thumb.jpg", "04-01-216_thumb.jpg", "05-01-227_thumb.jpg", "06-01-238_thumb.jpg", "07-01-242_thumb.jpg", "08-01-311_thumb.jpg", "09-01-359_thumb.jpg", "10-01-99_thumb.jpg"], "noticia": "", "documentos": []},
+  {"id": "act-2", "titulo": "Tomada de posse dos órgãos sociais 2024–2026", "categoria": "Institucional", "data": "2024-10-29", "local": "Maputo", "descricao": "Cerimónia de tomada de posse dos órgãos sociais da CDA para o triénio 2024-2026.", "destaque": false, "capas": ["11-screenshot-2024-10-29-130534_thumb.png", "12-screenshot-2024-10-29-130947_thumb.png"], "noticia": "", "documentos": []}
 ]
 };

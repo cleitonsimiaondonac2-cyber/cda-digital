@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  const IA_API = window.CDA_IA_API || "http://127.0.0.1:8765";
+  const IA_API = window.CDA_IA_API || (window.CDA_API_BASE || "http://127.0.0.1:8765");
   const HIST_MAX = 8;
   const BOAS_VINDAS =
     "Olá! Sou o Assistente CDA. Posso esclarecer dúvidas sobre a Câmara dos " +
