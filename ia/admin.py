@@ -82,7 +82,7 @@ class RegistoIn(BaseModel):
 
 
 class LoginIn(BaseModel):
-    email: EmailStr
+    email: str = Field(min_length=1, max_length=200)
     senha: str = Field(min_length=1, max_length=128)
 
 

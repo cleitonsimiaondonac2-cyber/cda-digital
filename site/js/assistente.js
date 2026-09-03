@@ -89,6 +89,9 @@
       const bot = document.createElement("div");
       bot.className = "assist-msg bot";
       bot.textContent = mensagem;
+      const esc = (s) =>
+        String(s == null ? "" : s).replace(/[&<>"']/g, (c) =>
+          ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
       if (fontes && fontes.length) {
         const f = document.createElement("div");
         f.className = "assist-fontes";
@@ -96,7 +99,7 @@
           const url = String(x.url || "");
           if (!/^https?:|^\/|^docs\//i.test(url) || url.indexOf("javascript:") === 0) return "";
           const rotulo = x.titulo + (x.ano ? " (" + x.ano + ")" : " · " + x.tipo);
-          return '<a href="' + url + '" target="_blank" rel="noopener">' + rotulo + "</a>";
+          return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(rotulo) + "</a>";
         }).filter(Boolean).join(" · ");
         if (links) {
           f.innerHTML = "<strong>Fontes:</strong> " + links;

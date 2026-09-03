@@ -96,9 +96,16 @@ def busca(q: str, ficheiro: str | None = None, k: int = K) -> list[dict]:
     termos = [t for t in stem_frase(q) if len(t) > 1]
     if not termos:
         return []
+    # Aceita 'ficheiro' com ou sem o prefixo 'docs/' (a homepage usa o prefixo,
+    # enquanto outros pontos usam só o nome). Normaliza para o formato do índice.
+    f_alvo = None
+    if ficheiro:
+        f_alvo = ficheiro.lstrip("/")
+        if f_alvo.startswith("docs/"):
+            f_alvo = f_alvo[len("docs/"):]
     pontuados = []
     for d in DOCS:
-        if ficheiro and d["ficheiro"] != ficheiro:
+        if f_alvo and d["ficheiro"] != f_alvo:
             continue
         score = 0.0
         for t in set(termos):
@@ -202,6 +209,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:8000", "http://127.0.0.1:8000",
+        "http://localhost:8765", "http://127.0.0.1:8765",
         "https://cleitonsimiaondonac2-cyber.github.io",
         *_ORIGENS_EXTRA,
     ],
