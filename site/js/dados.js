@@ -76,7 +76,7 @@ const CDA = {
 {
 "carteira": "000400720213",
 "nome": "Ester Fátima Magaia Timóteo",
-"cedula": "Este endereço de email está protegido contra piratas. Necessita ativar o JavaScript para o visualizar. document.getElementById('cloak1094e5f17407ed09f3bf704fcc6fca9a').innerHTML = ''; var prefix = '&#109;a' + 'i&#108;' + '&#116;o'; var path = 'hr' + 'ef' + '='; var addy1094e5f17407ed09f3bf704fcc6fca9a = '&#101;st&#101;rm&#97;g&#97;&#105;&#97;' + '&#64;'; addy1094e5f17407ed09f3bf704fcc6fca9a = addy1094e5f17407ed09f3bf704fcc6fca9a + 'h&#111;tm&#97;&#105;l' + '&#46;' + 'c&#111;m'; var addy_text1094e5f17407ed09f3bf704fcc6fca9a = '&#101;st&#101;rm&#97;g&#97;&#105;&#97;' + '&#64;' + 'h&#111;tm&#97;&#105;l' + '&#46;' + 'c&#111;m';document.getElementById('cloak1094e5f17407ed09f3bf704fcc6fca9a').innerHTML += ' '+addy_text1094e5f17407ed09f3bf704fcc6fca9a+' ';",
+"cedula": "",
 "email": ""
 },
 {
@@ -676,7 +676,7 @@ const CDA = {
 {
 "carteira": "011503320221",
 "nome": "Abílio de Lobão Soeiro Júnior",
-"cedula": "Este endereço de email está protegido contra piratas. Necessita ativar o JavaScript para o visualizar. document.getElementById('cloak456f271d75e71646b223dc097986591e').innerHTML = ''; var prefix = '&#109;a' + 'i&#108;' + '&#116;o'; var path = 'hr' + 'ef' + '='; var addy456f271d75e71646b223dc097986591e = '&#97;bs&#111;&#101;&#105;r&#111;' + '&#64;'; addy456f271d75e71646b223dc097986591e = addy456f271d75e71646b223dc097986591e + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m'; var addy_text456f271d75e71646b223dc097986591e = '&#97;bs&#111;&#101;&#105;r&#111;' + '&#64;' + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m';document.getElementById('cloak456f271d75e71646b223dc097986591e').innerHTML += ' '+addy_text456f271d75e71646b223dc097986591e+' ';",
+"cedula": "",
 "email": ""
 },
 {
@@ -1000,7 +1000,7 @@ const CDA = {
 {
 "carteira": "018302970116",
 "nome": "Judite Fernando da Silva",
-"cedula": "Este endereço de email está protegido contra piratas. Necessita ativar o JavaScript para o visualizar. document.getElementById('cloakdeeab966af85d3e04516a6ef990ac85b').innerHTML = ''; var prefix = '&#109;a' + 'i&#108;' + '&#116;o'; var path = 'hr' + 'ef' + '='; var addydeeab966af85d3e04516a6ef990ac85b = 'm&#97;j&#111;ss&#97;n&#101;b&#105;l&#97;' + '&#64;'; addydeeab966af85d3e04516a6ef990ac85b = addydeeab966af85d3e04516a6ef990ac85b + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m'; var addy_textdeeab966af85d3e04516a6ef990ac85b = 'm&#97;j&#111;ss&#97;n&#101;b&#105;l&#97;' + '&#64;' + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m';document.getElementById('cloakdeeab966af85d3e04516a6ef990ac85b').innerHTML += ' '+addy_textdeeab966af85d3e04516a6ef990ac85b+' ';",
+"cedula": "",
 "email": ""
 },
 {
@@ -1378,13 +1378,13 @@ const CDA = {
 {
 "carteira": "026303290920",
 "nome": "Agostinho Alberto Massangaia",
-"cedula": "Este endereço de email está protegido contra piratas. Necessita ativar o JavaScript para o visualizar. document.getElementById('cloak74a83b06077f8085007d898d67ed0bac').innerHTML = ''; var prefix = '&#109;a' + 'i&#108;' + '&#116;o'; var path = 'hr' + 'ef' + '='; var addy74a83b06077f8085007d898d67ed0bac = 'kcd&#101;sp&#97;ch&#111;sld&#97;' + '&#64;'; addy74a83b06077f8085007d898d67ed0bac = addy74a83b06077f8085007d898d67ed0bac + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m'; var addy_text74a83b06077f8085007d898d67ed0bac = 'kcd&#101;sp&#97;ch&#111;sld&#97;' + '&#64;' + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m';document.getElementById('cloak74a83b06077f8085007d898d67ed0bac').innerHTML += ' '+addy_text74a83b06077f8085007d898d67ed0bac+' ';",
+"cedula": "",
 "email": ""
 },
 {
 "carteira": "026403311220",
 "nome": "Marcelo António Vitor dos Santos",
-"cedula": "Este endereço de email está protegido contra piratas. Necessita ativar o JavaScript para o visualizar. document.getElementById('cloakabaee1243e94a14045ebf641f88df22a').innerHTML = ''; var prefix = '&#109;a' + 'i&#108;' + '&#116;o'; var path = 'hr' + 'ef' + '='; var addyabaee1243e94a14045ebf641f88df22a = 'm&#97;rc&#101;l&#111;d&#111;ss&#97;nt&#111;s065' + '&#64;'; addyabaee1243e94a14045ebf641f88df22a = addyabaee1243e94a14045ebf641f88df22a + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m'; var addy_textabaee1243e94a14045ebf641f88df22a = 'm&#97;rc&#101;l&#111;d&#111;ss&#97;nt&#111;s065' + '&#64;' + 'gm&#97;&#105;l' + '&#46;' + 'c&#111;m';document.getElementById('cloakabaee1243e94a14045ebf641f88df22a').innerHTML += ' '+addy_textabaee1243e94a14045ebf641f88df22a+' ';",
+"cedula": "",
 "email": ""
 }
 ],
