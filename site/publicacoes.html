@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-titulo="Área do Membro">Área do Membro — Câmara dos Despachantes Aduaneiros de Moçambique</title>
-<meta name="description" content="Área do membro da Câmara dos Despachantes Aduaneiros de Moçambique: carteira profissional, quotas, requerimentos e documentos exclusivos.">
+<title data-titulo="Publicações">Publicações — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Estudos, artigos, pareceres e documentos oficiais sobre comércio e despacho aduaneiro.">
 <link rel="stylesheet" href="css/estilo.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 </head>
-<body data-page="membro">
+<body data-page="publicacoes">
 
 <div class="topbar">
   <div class="container">
@@ -75,90 +75,89 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>Área do Membro</h1>
-    <p>Serviços digitais exclusivos para os despachantes aduaneiros registados na CDA.</p>
+    <h1>Publicações</h1>
+    <p>Estudos, artigos, pareceres e documentos oficiais sobre comércio e despacho aduaneiro.</p>
   </div>
 </section>
 
-<div class="breadcrumb"><div class="container">Área do Membro</div></div>
+<div class="breadcrumb"><div class="container">Publicações</div></div>
 
 <section class="section">
-  <div class="container">
-    <div id="login-view">
-      <div class="login-box">
-        <h2 style="text-align:center">Iniciar sessão</h2>
-        <p style="color:var(--text-soft);font-size:.9rem;text-align:center">Acesso reservado aos membros da CDA.</p>
-        <form id="form-login">
-          <label for="l-user">Número de carteira ou e-mail</label>
-          <input id="l-user" type="text" required placeholder="ex.: 000100010912">
-          <label for="l-pass">Senha</label>
-          <input id="l-pass" type="password" required placeholder="••••••••">
-          <p id="login-aviso" style="color:var(--red);font-size:.85rem;margin-top:6px"></p>
-          <button class="btn btn-red" type="submit">Entrar</button>
-        </form>
-        <p class="aviso">Acesso real com o backend: primeiro <a href="#registo-box" id="abre-registo">registe-se</a> (ou contacte a CDA para activar a conta).<br>Em produção: autenticação segura com recuperação de senha por e-mail.</p>
-        <a href="index.html" style="display:block;text-align:center;margin-top:12px;font-size:.88rem">Voltar ao portal</a>
-      </div>
-      <div class="login-box" id="registo-box" style="margin-top:18px">
-        <h2 style="text-align:center">Criar conta de acesso</h2>
-        <p style="color:var(--text-soft);font-size:.9rem;text-align:center">Para aceder ao painel do membro.</p>
-        <form id="form-registo">
-          <label for="r-nome">Nome completo</label>
-          <input id="r-nome" type="text" required placeholder="Nome Apelido">
-          <label for="r-email">E-mail</label>
-          <input id="r-email" type="email" required placeholder="membro@exemplo.com">
-          <label for="r-entidade">Entidade / empresa (opcional)</label>
-          <input id="r-entidade" type="text" placeholder="Firma X, Lda.">
-          <label for="r-telefone">Telefone (opcional)</label>
-          <input id="r-telefone" type="text" placeholder="+258 82 000 0000">
-          <label for="r-senha">Senha (mín. 8 caracteres)</label>
-          <input id="r-senha" type="password" required minlength="8">
-          <p id="registo-msg" style="font-size:.85rem;margin-top:6px"></p>
-          <button class="btn btn-navy" type="submit">Registar</button>
-        </form>
-      </div>
-    </div>
+  <div class="container conteudo">
+    <h2>Publicações da CDA</h2>
+    <p>A Câmara dos Despachantes Aduaneiros publica regularmente estudos, artigos de reflexão, pareceres e exortações sobre temas relevantes para o comércio e o despacho aduaneiro em Moçambique.</p>
 
-    <div id="dash-view" style="display:none">
-      <div class="section-head">
+    <div class="doc-list">
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Exortação</span>
+          <span class="ano">2014</span>
+          <h3>Exortação do Presidente da CDA</h3>
+        </div>
         <div>
-          <span class="sub">Bem-vindo</span>
-          <h2 id="dash-nome">Painel do membro</h2>
+          <a href="docs/exortacao-do-presidente-cda.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
         </div>
-      </div>
-      <div class="dash">
-        <div class="dash-card">
-          <h4>Carteira profissional <span class="estado estado-ok">Activa</span></h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">N.º 000100010912 · Cédula DESP/001/DGA/03<br>Validade: 2026</p>
-          <p style="margin-top:10px"><a class="btn btn-navy" href="#" onclick="alert('Em produção: emissão do PDF da carteira.')">Emitir PDF</a></p>
+      </article>
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Exortação</span>
+          <span class="ano">2017</span>
+          <h3>Exortação por ocasião do fim de ano</h3>
         </div>
-        <div class="dash-card">
-          <h4>Quotas <span class="estado estado-atrasado">1 em atraso</span></h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Quota 2026: <strong>em atraso</strong><br>Quota 2025: <strong>paga</strong></p>
-          <p style="margin-top:10px"><a class="btn btn-navy" href="#" onclick="alert('Em produção: pagamento/registo de quotas (M-Pesa ou referência bancária).')">Regularizar quota</a></p>
+        <div>
+          <a href="docs/exortacao-por-ocasiao-do-fim-de-ano.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
         </div>
-        <div class="dash-card">
-          <h4>Requerimentos <span class="estado estado-ok">1 em análise</span></h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Renovação de carteira — submetido em 02/08/2026<br>Estado: <strong>em análise</strong></p>
-          <p style="margin-top:10px"><a class="btn btn-navy" href="#" onclick="alert('Em produção: novos requerimentos com acompanhamento de estado.')">Novo requerimento</a></p>
+      </article>
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Exortação</span>
+          <span class="ano">2019</span>
+          <h3>Exortação — Encontro de Reflexão</h3>
         </div>
-        <div class="dash-card">
-          <h4>Comunicados e documentos</h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Documentos exclusivos para membros e comunicados recentes da CDA.</p>
-          <p style="margin-top:10px"><a class="btn btn-navy" href="documentacao.html">Centro Documental</a></p>
+        <div>
+          <a href="docs/encontro-de-reflexao.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
         </div>
-        <div class="dash-card">
-          <h4>Formação e eventos</h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Próximas acções de formação contínua e eventos da classe.</p>
-          <p style="margin-top:10px"><a class="btn btn-navy" href="noticias.html">Ver notícias</a></p>
+      </article>
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Boletim</span>
+          <span class="ano">2015</span>
+          <h3>Boletim Informativo da CDA — Edição 04</h3>
         </div>
-        <div class="dash-card">
-          <h4>Assistente pessoal</h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">"Mostre-me os documentos publicados esta semana", "Encontre a última circular sobre…".</p>
-          <p style="margin-top:10px"><a class="btn btn-navy" href="documentacao.html">Perguntar à CDA ✦</a></p>
+        <div>
+          <a href="docs/boletim-informativo-da-cda-edicao-04.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
         </div>
-      </div>
-      <p style="margin-top:16px"><a href="#" id="terminar-sessao">Terminar sessão</a></p>
+      </article>
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Boletim</span>
+          <span class="ano">2014</span>
+          <h3>O Despachante — Edição 01</h3>
+        </div>
+        <div>
+          <a href="docs/o-despachante-edicao-01.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
+        </div>
+      </article>
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Relatório</span>
+          <span class="ano">2015</span>
+          <h3>Relatório de Auditoria</h3>
+        </div>
+        <div>
+          <a href="docs/relatorio-de-auditoria.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
+        </div>
+      </article>
+      <article class="doc-item">
+        <div class="meta">
+          <span class="tipo">Relatório</span>
+          <span class="ano">2017</span>
+          <h3>Balanço e Contas 2016</h3>
+        </div>
+        <div>
+          <a href="docs/relatorios-de-balanco-e-contas-do-exercicio-de-2016.pdf" target="_blank" rel="noopener" class="baixar">Consultar</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>

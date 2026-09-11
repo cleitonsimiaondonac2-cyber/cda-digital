@@ -219,4 +219,60 @@
   if (membrosCount && CDA.MEMBROS && CDA.MEMBROS.length) {
     membrosCount.textContent = String(CDA.MEMBROS.length);
   }
+
+  // 4) NEWSLETTER — subscrição simples (feedback local, sem backend)
+  var nlForm = document.getElementById("newsletter-form");
+  var nlOk = document.getElementById("newsletter-ok");
+  if (nlForm) {
+    nlForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var em = document.getElementById("newsletter-email");
+      var valor = (em && em.value || "").trim();
+      if (valor && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor)) {
+        em.value = "";
+        if (nlOk) nlOk.hidden = false;
+        try { localStorage.setItem("cda-newsletter", valor); } catch (_) {}
+      } else {
+        em.focus();
+        em.style.borderColor = "#ff6b6b";
+      }
+    });
+  }
+
+  // 5) PARCEIROS — carrossel contínuo de instituições parceiras
+  var parceirosTrack = document.querySelector(".parceiros-track");
+  if (parceirosTrack) {
+    var parceiros = [
+      "Autoridade Tributária de Moçambique",
+      "Alfândegas de Moçambique",
+      "Ministério da Economia e Finanças",
+      "Ministério da Indústria e Comércio",
+      "Confederação das Associações Económicas",
+      "Câmara de Comércio de Moçambique",
+      "Agência para a Promoção de Investimentos",
+      "Instituto de Gestão de Zonas Económicas Especiais",
+      "Organização Mundial das Alfândegas",
+      "Banco de Moçambique"
+    ];
+    parceiros.forEach(function (nome) {
+      var item = document.createElement("span");
+      item.className = "parceiros-item";
+      item.textContent = nome;
+      parceirosTrack.appendChild(item);
+    });
+    // Duplica para loop contínuo (animation translateX -50%)
+    Array.prototype.slice.call(parceirosTrack.children).forEach(function (item) {
+      parceirosTrack.appendChild(item.cloneNode(true));
+    });
+  }
+
+  // 6) CONTADOR DE VISITAS — persistência local simples
+  var visitEl = document.getElementById("visit-count");
+  if (visitEl) {
+    var n = 0;
+    try { n = parseInt(localStorage.getItem("cda-visitas") || "0", 10) || 0; } catch (_) {}
+    n += 1;
+    try { localStorage.setItem("cda-visitas", String(n)); } catch (_) {}
+    visitEl.textContent = String(n);
+  }
 })();
