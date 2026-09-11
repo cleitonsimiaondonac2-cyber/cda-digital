@@ -736,3 +736,184 @@ tr:hover td { background: var(--bg-alt); }
   transition: color .15s ease, background .15s ease;
 }
 .admin-corner:hover { color: var(--red); background: #fff; }
+
+/* ---- Secções new portal (CTA) ---- */
+
+/* Flash CDA — barra de notícias institucional */
+.flash-cda {
+  background: var(--navy);
+  border-bottom: 3px solid var(--red);
+  padding: 8px 0;
+  color: #fff;
+  overflow: hidden;
+}
+.flash-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.flash-label {
+  flex: none;
+  background: var(--red);
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.flash-track {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.flash-track a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-size: .85rem;
+  margin-right: 32px;
+  white-space: nowrap;
+  opacity: .95;
+  transition: opacity .15s ease;
+}
+.flash-track a:hover { text-decoration: underline; opacity: 1; }
+
+/* Secção Membros — comunidade aduaneira */
+.sec-membros { background: var(--white); }
+.membros-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.membros-stats { display: flex; flex-direction: column; gap: 2px; }
+.membros-stats strong {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.membros-stats span {
+  color: var(--slate);
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.membros-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.membros-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 11px 20px;
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.membros-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.membros-btn-outline {
+  background: transparent;
+  color: var(--navy-3);
+  border-color: var(--navy-3);
+}
+.membros-btn-outline:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+/* Secção Contacto — fale com a CDA */
+.sec-contacto { background: var(--bg-alt); }
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+.contacto-info { min-width: 0; }
+.contacto-map {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacto-map-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.contacto-map-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--red);
+  display: block;
+  animation: contacto-pulse 2.2s ease-out infinite;
+}
+@keyframes contacto-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(192, 24, 24, .35); }
+  100% { box-shadow: 0 0 0 12px rgba(192, 24, 24, 0); }
+}
+.contacto-map-label {
+  color: var(--slate);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.contacto-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contacto-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 11px 20px;
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.contacto-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.contacto-btn-outline {
+  background: transparent;
+  color: var(--navy-3);
+  border-color: var(--navy-3);
+}
+.contacto-btn-outline:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+/* Responsivo — secções novas da homepage */
+@media (max-width: 860px) {
+  .membros-grid { grid-template-columns: 1fr; gap: 20px; }
+  .contacto-grid { grid-template-columns: 1fr; }
+  .contacto-cta { flex-direction: row; flex-wrap: wrap; }
+  .contacto-cta .contacto-btn { flex: 1 1 auto; }
+}
