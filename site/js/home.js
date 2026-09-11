@@ -137,21 +137,30 @@
   if (flashEl && track) {
     var recentes = noticiasOrdenadas().slice(0, 6);
     if (recentes.length > 0) {
+      // flex: 0 0 auto — impede o encolhimento flex dos itens (texto nunca comprimido,
+      // garantindo que o conteúdo excede a largura e o marquee pode correr).
       recentes.forEach(function (n) {
         var a = document.createElement("a");
         a.href = "noticias.html";
+        a.style.flex = "0 0 auto";
         a.textContent = n.titulo + "  ·  " + dataCurta(n.data);
         track.appendChild(a);
       });
 
-      // Se o conteúdo ultrapassar a largura, anima com scroll horizontal contínuo
+      // Largura real de um conjunto (medida antes de duplicar, com itens não encolhidos)
       var largura = track.scrollWidth;
-      var contentor = flashEl;
-      if (largura > contentor.clientWidth) {
+
+      // Só anima se o conteúdo exceder a largura visível da pista
+      if (largura > track.clientWidth) {
+        // Duplica o conteúdo para um loop contínuo sem quebra visível
+        Array.prototype.slice.call(track.children).forEach(function (item) {
+          track.appendChild(item.cloneNode(true));
+        });
+
         var delta = 0;
         var ativo = true;
-        contentor.addEventListener("mouseenter", function () { ativo = false; });
-        contentor.addEventListener("mouseleave", function () { ativo = true; });
+        flashEl.addEventListener("mouseenter", function () { ativo = false; });
+        flashEl.addEventListener("mouseleave", function () { ativo = true; });
         (function passo() {
           if (ativo) {
             delta += 1;
