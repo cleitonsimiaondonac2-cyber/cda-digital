@@ -24,7 +24,11 @@
   var timer = null;
   var DELAY = 6000;
 
-  function imgSrc(nome) { return "galeria/" + nome; }
+  // Versão HD (1400px) em galeria/hd/ — evita upscale da thumb 400px no hero
+  function imgSrc(nome) {
+    var base = String(nome).replace(/\.[a-z0-9]+$/i, "");
+    return "galeria/hd/" + base + ".jpg";
+  }
 
   function metaTexto(a) {
     var out = [];

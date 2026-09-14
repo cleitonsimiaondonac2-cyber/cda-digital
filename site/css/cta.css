@@ -130,6 +130,23 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
   color: #fff;
 }
+
+/* Imagens do hero em HD (galeria/hd/) com foco a 20% do topo —
+   evita o corte das cabeças nas fotos de grupos/pessoas */
+.hero-slide {
+  background-size: cover;
+  background-position: center 20%;
+}
+
+/* Miniaturas e media com object-fit: foco a 30% do topo para
+   preservar as cabeças nas fotos de pessoas (galeria, actividades) */
+.galeria img,
+.act-destaque-media img,
+.act-card-media img,
+.act-det-galeria img,
+.cdaact-media img {
+  object-position: center 30%;
+}
 .pill { background: var(--cta-red); font-family: var(--cta-font-head); font-weight: 600; }
 .hero-quick h3 { color: var(--cta-red); }
 .hero-quick a { background: #fff; border-left: 4px solid var(--cta-red); color: var(--cta-black); }
