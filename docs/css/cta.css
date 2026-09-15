@@ -244,18 +244,17 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Mobile: hero baixo com margens, pesquisa no header em largura total */
 @media (max-width: 640px) {
-  .hero { height: 390px; min-height: 390px; margin: 12px 10px 0; }
-  .hero .container { align-items: flex-end; padding-bottom: 54px; padding-left: 20px; }
+  .hero { height: 360px; min-height: 360px; margin: 12px 10px 0; }
+  .hero .container { align-items: flex-end; justify-content: flex-start; padding-bottom: 24px; padding-left: 18px; }
   .hero-copy { max-width: 100%; }
-  .hero-copy h1 { font-size: 1.22rem; margin-bottom: 0; }
-  .pill { font-size: .62rem; }
+  .hero-copy h1 { font-size: 1.14rem; margin-bottom: 0; }
+  .pill { font-size: .58rem; }
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(16,28,41,.18) 0%, rgba(16,28,41,.34) 55%, rgba(16,28,41,.66) 100%);
+    background: linear-gradient(180deg, rgba(16,28,41,.12) 0%, rgba(16,28,41,.30) 50%, rgba(16,28,41,.62) 100%);
   }
-  .hero-foot { justify-content: space-between; padding: 10px 16px 14px; }
-  .hero-foot-label { display: none; }
-  .hero-foot-cap a > span { display: none; }
-  .hero-foot-cap b { max-width: 52vw; }
+  /* Legenda do slide e setas escondidas: em mobile só fica o texto fixo (pill + título),
+     sem sobreposição com o conteúdo das imagens */
+  .hero-foot-cap, .hero-foot-nav { display: none; }
 
   /* Pesquisa do header: linha própria, largura total */
   .head-search { margin-left: 0; flex: 1 1 100%; order: 5; margin-top: 4px; min-width: 0; padding: 10px 12px; }
