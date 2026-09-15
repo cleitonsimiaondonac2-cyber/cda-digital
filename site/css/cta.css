@@ -122,14 +122,50 @@ h1, h2, h3, h4, h5, h6 {
 }
 .more:hover { color: var(--cta-black); }
 
-/* ---------- Hero (slides de notícias estilo CTA) ---------- */
-.hero { background: #1a1a1a; }
+/* ---------- Hero (slides de notícias estilo CTA) ----------
+   Caixa de altura fixa: a foto preenche sem esticar; conteúdo
+   mínimo e compacto (pill + título + pesquisa). */
+.hero {
+  background: #1a1a1a;
+  padding: 0;
+  height: min(520px, 68vh);
+  min-height: 420px;
+}
+.hero .container {
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.hero-copy { max-width: 580px; }
 .hero-copy h1 {
   font-family: var(--cta-font-head);
   font-weight: 700;
   text-transform: uppercase;
   color: #fff;
+  font-size: clamp(1.45rem, 3.1vw, 2.1rem);
+  line-height: 1.2;
+  margin-bottom: 18px;
 }
+.hero-copy .lead { display: none; }
+.hero .hero-search { max-width: 540px; }
+
+/* Rodapé do hero: faixa com gradiente para legibilidade, caption compacta */
+.hero-foot {
+  padding: 16px 24px 18px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.78));
+  align-items: center;
+}
+.hero-foot-cap b {
+  font-size: .82rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 56vw;
+  display: block;
+}
+.hero-foot-cap a > span { color: #ffd9da; font-size: .72rem; }
 
 /* Imagens do hero em HD (galeria/hd/) com foco a 20% do topo —
    evita o corte das cabeças nas fotos de grupos/pessoas */
@@ -146,6 +182,25 @@ h1, h2, h3, h4, h5, h6 {
 .act-det-galeria img,
 .cdaact-media img {
   object-position: center 30%;
+}
+
+/* Mobile: hero baixo, pesquisa empilhada, caption minimalista */
+@media (max-width: 640px) {
+  .hero { height: 400px; min-height: 400px; }
+  .hero .container { align-items: flex-end; padding-bottom: 60px; }
+  .hero-copy { max-width: 100%; }
+  .hero-copy h1 { font-size: 1.25rem; margin-bottom: 14px; }
+  .pill { font-size: .62rem; }
+  .hero-search { flex-wrap: wrap; padding: 5px; }
+  .hero-search input { flex: 1 1 100%; }
+  .hero-search button { flex: 1 1 100%; padding: 12px; }
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(16,28,41,.45) 0%, rgba(16,28,41,.72) 65%, rgba(16,28,41,.92) 100%);
+  }
+  .hero-foot { justify-content: space-between; padding: 10px 16px 14px; }
+  .hero-foot-label { display: none; }
+  .hero-foot-cap a > span { display: none; }
+  .hero-foot-cap b { max-width: 52vw; }
 }
 .pill { background: var(--cta-red); font-family: var(--cta-font-head); font-weight: 600; }
 .hero-quick h3 { color: var(--cta-red); }
