@@ -123,13 +123,16 @@ h1, h2, h3, h4, h5, h6 {
 .more:hover { color: var(--cta-black); }
 
 /* ---------- Hero (slides de notícias estilo CTA) ----------
-   Caixa de altura fixa: a foto preenche sem esticar; conteúdo
-   mínimo e compacto (pill + título + pesquisa). */
+   Banner estreitado: caixa centrada com largura máxima, altura
+   fixa; conteúdo mínimo (pill + título). A pesquisa vive no header. */
 .hero {
   background: #1a1a1a;
   padding: 0;
-  height: min(520px, 68vh);
-  min-height: 420px;
+  max-width: 1140px;
+  margin: 20px auto 0;
+  height: min(460px, 60vh);
+  min-height: 400px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
 }
 .hero .container {
   height: 100%;
@@ -137,6 +140,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  padding-left: 34px;
 }
 .hero-copy { max-width: 580px; }
 .hero-copy h1 {
@@ -146,10 +150,39 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   font-size: clamp(1.45rem, 3.1vw, 2.1rem);
   line-height: 1.2;
-  margin-bottom: 18px;
+  margin-bottom: 0;
 }
 .hero-copy .lead { display: none; }
-.hero .hero-search { max-width: 540px; }
+
+/* Pesquisa no header (estilo CTA: busca integrada na barra de navegação) */
+.head-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  border: 1px solid #d8d8de;
+  border-bottom: 3px solid var(--cta-red);
+  background: #fff;
+  padding: 7px 12px;
+  min-width: 200px;
+  transition: border-color .2s ease, box-shadow .2s ease;
+}
+.head-search:focus-within {
+  border-color: var(--cta-red);
+  box-shadow: 0 4px 14px rgba(216,35,42,.14);
+}
+.head-search-ic { color: var(--cta-red); font-size: 15px; line-height: 1; }
+.head-search input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-family: var(--cta-font-list);
+  font-size: 14px;
+  width: 100%;
+  min-width: 0;
+  color: var(--cta-black);
+}
+.head-search input::placeholder { color: #999; }
 
 /* Rodapé do hero: faixa com gradiente para legibilidade, caption compacta */
 .hero-foot {
@@ -184,16 +217,13 @@ h1, h2, h3, h4, h5, h6 {
   object-position: center 30%;
 }
 
-/* Mobile: hero baixo, pesquisa empilhada, caption minimalista */
+/* Mobile: hero baixo com margens, pesquisa no header em largura total */
 @media (max-width: 640px) {
-  .hero { height: 400px; min-height: 400px; }
-  .hero .container { align-items: flex-end; padding-bottom: 60px; }
+  .hero { height: 390px; min-height: 390px; margin: 12px 10px 0; }
+  .hero .container { align-items: flex-end; padding-bottom: 54px; padding-left: 20px; }
   .hero-copy { max-width: 100%; }
-  .hero-copy h1 { font-size: 1.25rem; margin-bottom: 14px; }
+  .hero-copy h1 { font-size: 1.22rem; margin-bottom: 0; }
   .pill { font-size: .62rem; }
-  .hero-search { flex-wrap: wrap; padding: 5px; }
-  .hero-search input { flex: 1 1 100%; }
-  .hero-search button { flex: 1 1 100%; padding: 12px; }
   .hero-overlay {
     background: linear-gradient(180deg, rgba(16,28,41,.45) 0%, rgba(16,28,41,.72) 65%, rgba(16,28,41,.92) 100%);
   }
@@ -201,6 +231,10 @@ h1, h2, h3, h4, h5, h6 {
   .hero-foot-label { display: none; }
   .hero-foot-cap a > span { display: none; }
   .hero-foot-cap b { max-width: 52vw; }
+
+  /* Pesquisa do header: linha própria, largura total */
+  .head-search { margin-left: 0; flex: 1 1 100%; order: 5; margin-top: 4px; min-width: 0; padding: 10px 12px; }
+  .header-inner { gap: 10px; }
 }
 .pill { background: var(--cta-red); font-family: var(--cta-font-head); font-weight: 600; }
 .hero-quick h3 { color: var(--cta-red); }

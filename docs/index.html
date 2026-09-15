@@ -87,6 +87,10 @@
         <li class="nav-cta"><a class="btn-nav" href="area-membro.html">Área do Membro</a></li>
       </ul>
     </nav>
+    <form class="head-search" id="head-search" role="search">
+      <span class="head-search-ic" aria-hidden="true">⌕</span>
+      <input id="head-q" type="search" placeholder="Pesquisar no acervo…" aria-label="Pesquisar documentos">
+    </form>
 </div>
 </header>
 
@@ -98,13 +102,6 @@
     <div class="hero-copy">
       <span class="pill">Portal CDA Digital</span>
       <h1>A informação aduaneira da<br><em>CDA, num só lugar.</em></h1>
-      <div class="hero-tools">
-        <div class="hero-search">
-          <span class="hero-search-ic" aria-hidden="true">⌕</span>
-          <input id="hero-q" type="search" placeholder="Pesquise no acervo da CDA…" aria-label="Pesquisar documentos">
-          <button id="hero-buscar">Pesquisar</button>
-        </div>
-      </div>
     </div>
   </div>
   <div class="hero-foot">
@@ -293,11 +290,14 @@
   // Interacções da homepage
   (function () {
     const irPesquisar = () => {
-      const q = document.getElementById("hero-q").value;
+      const q = document.getElementById("head-q").value;
       location.href = "documentacao.html?q=" + encodeURIComponent(q);
     };
-    document.getElementById("hero-buscar").addEventListener("click", irPesquisar);
-    document.getElementById("hero-q").addEventListener("keydown", (e) => {
+    document.getElementById("head-search").addEventListener("submit", (e) => {
+      e.preventDefault();
+      irPesquisar();
+    });
+    document.getElementById("head-q").addEventListener("keydown", (e) => {
       if (e.key === "Enter") irPesquisar();
     });
   })();
