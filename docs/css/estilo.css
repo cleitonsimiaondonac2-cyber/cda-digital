@@ -736,3 +736,260 @@ tr:hover td { background: var(--bg-alt); }
   transition: color .15s ease, background .15s ease;
 }
 .admin-corner:hover { color: var(--red); background: #fff; }
+
+/* ---- Secções new portal (CTA) ---- */
+
+/* Flash CDA — barra de notícias institucional */
+.flash-cda {
+  background: var(--navy);
+  border-bottom: 3px solid var(--red);
+  padding: 8px 0;
+  color: #fff;
+  overflow: hidden;
+}
+.flash-inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.flash-label {
+  flex: none;
+  background: var(--red);
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.flash-track {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.flash-track a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  font-size: .85rem;
+  margin-right: 32px;
+  white-space: nowrap;
+  opacity: .95;
+  transition: opacity .15s ease;
+}
+.flash-track a:hover { text-decoration: underline; opacity: 1; }
+
+/* Secção Membros — comunidade aduaneira */
+.sec-membros { background: var(--white); }
+.membros-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.membros-stats { display: flex; flex-direction: column; gap: 2px; }
+.membros-stats strong {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.membros-stats span {
+  color: var(--slate);
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.membros-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.membros-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 11px 20px;
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.membros-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.membros-btn-outline {
+  background: transparent;
+  color: var(--navy-3);
+  border-color: var(--navy-3);
+}
+.membros-btn-outline:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+/* Secção Contacto — fale com a CDA */
+.sec-contacto { background: var(--bg-alt); }
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+.contacto-info { min-width: 0; }
+.contacto-map {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  min-height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contacto-map-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+.contacto-map-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--red);
+  display: block;
+  animation: contacto-pulse 2.2s ease-out infinite;
+}
+@keyframes contacto-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(192, 24, 24, .35); }
+  100% { box-shadow: 0 0 0 12px rgba(192, 24, 24, 0); }
+}
+.contacto-map-label {
+  color: var(--slate);
+  font-size: .7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+}
+.contacto-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.contacto-btn {
+  display: inline-block;
+  background: var(--navy);
+  color: #fff;
+  border: 1px solid var(--navy);
+  border-radius: var(--radius);
+  padding: 11px 20px;
+  font-size: .74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.contacto-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.contacto-btn-outline {
+  background: transparent;
+  color: var(--navy-3);
+  border-color: var(--navy-3);
+}
+.contacto-btn-outline:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+
+/* Footer — ícones de redes sociais */
+.footer-social { display: flex; gap: 12px; margin-top: 8px; }
+.footer-social a { color: var(--slate); transition: color .15s ease; }
+.footer-social a:hover { color: var(--red); }
+.visit-counter { font-size: .72rem; color: var(--slate); }
+
+/* ---- Newsletter ---- */
+.sec-newsletter { background: var(--navy); color: #dbe3ec; }
+.newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  flex-wrap: wrap;
+  padding-top: 38px;
+  padding-bottom: 38px;
+}
+.newsletter-txt h2 { color: #fff; margin-bottom: 2px; }
+.newsletter-txt p { max-width: 460px; font-size: .93rem; }
+.newsletter-form { display: flex; gap: 0; flex: 1 1 320px; max-width: 460px; }
+.newsletter-form input {
+  flex: 1;
+  border: 1px solid var(--navy-3);
+  border-right: 0;
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  padding: 12px 16px;
+  font-size: .92rem;
+  border-radius: 0;
+  outline: none;
+}
+.newsletter-form input::placeholder { color: #93a3b3; }
+.newsletter-btn {
+  background: var(--red);
+  border: 1px solid var(--red);
+  color: #fff;
+  padding: 12px 22px;
+  font-weight: 700;
+  font-size: .88rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  cursor: pointer;
+}
+.newsletter-btn:hover { background: var(--red-dark); border-color: var(--red-dark); }
+.newsletter-ok { flex-basis: 100%; color: #9fe0b0; font-size: .9rem; }
+
+/* ---- Parceiros (marquee) ---- */
+.sec-parceiros { background: var(--bg-alt); padding: 34px 0 10px; }
+.sec-parceiros h2 { text-align: center; }
+.parceiros-marquee {
+  overflow: hidden;
+  margin-top: 10px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.parceiros-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: parceiros-scroll 28s linear infinite;
+  padding: 8px 0;
+}
+.parceiros-marquee:hover .parceiros-track { animation-play-state: paused; }
+.parceiros-item {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--navy-3);
+  font-weight: 700;
+  font-size: .92rem;
+  padding: 14px 26px;
+  letter-spacing: .3px;
+}
+@keyframes parceiros-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Responsivo — secções novas da homepage */
+@media (max-width: 860px) {
+  .membros-grid { grid-template-columns: 1fr; gap: 20px; }
+  .contacto-grid { grid-template-columns: 1fr; }
+  .contacto-cta { flex-direction: row; flex-wrap: wrap; }
+  .contacto-cta .contacto-btn { flex: 1 1 auto; }
+}

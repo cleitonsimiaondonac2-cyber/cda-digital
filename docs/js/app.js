@@ -2,6 +2,18 @@
 (function () {
   "use strict";
 
+  // Parse JSON robusto: só faz .json() se o backend devolver JSON; senão lança
+  // um erro claro (evita "Unexpected token '<'" quando recebe HTML/erro de proxy).
+  function lerJson(r) {
+    var ct = (r.headers.get("Content-Type") || "").toLowerCase();
+    if (r.ok && ct.indexOf("application/json") === -1 && ct.indexOf("text/json") === -1) {
+      return r.text().then(function (t) { throw new Error("resposta inesperada do servidor (" + r.status + ")"); });
+    }
+    return r.json().catch(function () {
+      throw new Error("resposta inválida do servidor (" + r.status + ")");
+    });
+  }
+
   // ---- Menu móvel ----
   const menuBtn = document.getElementById("menu-btn");
   const nav = document.getElementById("nav");
@@ -120,7 +132,7 @@
       TIPOS.forEach((t) => fTipo.add(new Option(t, t)));
     }
     if (fAno) {
-      const anos = [...new Set(CDA.DOCUMENTOS.map((d) => d.ano))].sort((a, b) => b - a);
+      const anos = [...new Set(CDA.DOCUMENTOS.map((d) => d.ano).filter((a) => a != null && a !== ""))].sort((a, b) => b - a);
       anos.forEach((a) => fAno.add(new Option(String(a), String(a))));
     }
     if (fEnt) {
@@ -237,11 +249,13 @@
             ? document.getElementById("c-assunto").value : "",
           mensagem: document.getElementById("c-msg").value,
         }),
-      }).then((r) => r.json().then((d) => {
-        if (!r.ok) throw new Error(d.detail || "falha no envio");
-        if (aviso) aviso.style.display = "block";
-        fContato.reset();
-      })).catch((err) => {
+      }).then(function (r) {
+        return lerJson(r).then(function (d) {
+          if (!r.ok) throw new Error(d.detail || "falha no envio");
+          if (aviso) aviso.style.display = "block";
+          fContato.reset();
+        });
+      }).catch((err) => {
         if (avisoErro) { avisoErro.textContent = "Erro ao enviar: " + err.message; avisoErro.style.display = "block"; }
         else alert("Erro ao enviar: " + err.message);
       }).finally(() => { if (btn) btn.disabled = false; });
@@ -263,17 +277,19 @@
           email: document.getElementById("l-user").value.trim(),
           senha: document.getElementById("l-pass").value,
         }),
-      }).then((r) => r.json().then((d) => {
-        if (!r.ok) throw new Error(d.detail || "credenciais inválidas");
-        const loginView = document.getElementById("login-view");
-        const dash = document.getElementById("dash-view");
-        if (loginView) loginView.style.display = "none";
-        if (dash) {
-          const nome = document.getElementById("dash-nome");
-          if (nome) nome.textContent = d.nome || "Painel do membro";
-          dash.style.display = "block";
-        }
-      })).catch((err) => {
+      }).then(function (r) {
+        return lerJson(r).then(function (d) {
+          if (!r.ok) throw new Error(d.detail || "credenciais inválidas");
+          const loginView = document.getElementById("login-view");
+          const dash = document.getElementById("dash-view");
+          if (loginView) loginView.style.display = "none";
+          if (dash) {
+            const nome = document.getElementById("dash-nome");
+            if (nome) nome.textContent = d.nome || "Painel do membro";
+            dash.style.display = "block";
+          }
+        });
+      }).catch((err) => {
         if (aviso) aviso.textContent = err.message;
         else alert(err.message);
       });
@@ -302,11 +318,13 @@
             ? document.getElementById("r-telefone").value : "",
           senha: document.getElementById("r-senha").value,
         }),
-      }).then((r) => r.json().then((d) => {
-        if (!r.ok) throw new Error(d.detail || "falha no registo");
-        if (msg) { msg.textContent = d.mensagem || "Conta criada. Já pode iniciar sessão."; msg.style.color = "#1c7c2f"; }
-        fRegisto.reset();
-      })).catch((err) => {
+      }).then(function (r) {
+        return lerJson(r).then(function (d) {
+          if (!r.ok) throw new Error(d.detail || "falha no registo");
+          if (msg) { msg.textContent = d.mensagem || "Conta criada. Já pode iniciar sessão."; msg.style.color = "#1c7c2f"; }
+          fRegisto.reset();
+        });
+      }).catch((err) => {
         if (msg) msg.textContent = err.message;
         else alert(err.message);
       }).finally(() => { if (btn) btn.disabled = false; });
@@ -322,6 +340,17 @@
       fetch(base + "/api/auth/logout", { method: "POST" }).catch(function () {}).finally(function () {
         location.reload();
       });
+    });
+  }
+
+  // ---- Deslocar até ao formulário de registo ----
+  const abreRegisto = document.getElementById("abre-registo");
+  if (abreRegisto) {
+    abreRegisto.addEventListener("click", (e) => {
+      const alvo = document.getElementById("registo-box");
+      if (alvo && alvo.scrollIntoView) {
+        alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   }
 })();

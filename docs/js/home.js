@@ -24,7 +24,11 @@
   var timer = null;
   var DELAY = 6000;
 
-  function imgSrc(nome) { return "galeria/" + nome; }
+  // Versão HD (1400px) em galeria/hd/ — evita upscale da thumb 400px no hero
+  function imgSrc(nome) {
+    var base = String(nome).replace(/\.[a-z0-9]+$/i, "");
+    return "galeria/hd/" + base + ".jpg";
+  }
 
   function metaTexto(a) {
     var out = [];
@@ -104,4 +108,175 @@
 
   go();
   reiniciar();
+})();
+
+/* CDA Digital 2.0 — Portal institucional (inspiração cta.org.mz)
+   Bloco 2: Flash de notícias (ticker), Actualidade dinâmica e contadores.
+   Tudo alimentado por CDA.NOTICIAS / CDA.MEMBROS de js/dados.js. */
+(function () {
+  "use strict";
+
+  if (typeof CDA === "undefined") return;
+
+  // Ordena notícias por data (mais recente primeiro), excluindo conteúdo de teste
+  function noticiasOrdenadas() {
+    var lista = (CDA.NOTICIAS || []).filter(function (n) {
+      return !/teste/i.test(n.titulo || "");
+    });
+    return lista.sort(function (a, b) {
+      return String(b.data).localeCompare(String(a.data));
+    });
+  }
+
+  // Formata "2026-01-28" -> "28-01-2026"
+  function dataCurta(iso) {
+    var p = String(iso || "").split("-");
+    if (p.length !== 3) return iso || "";
+    return p[2] + "-" + p[1] + "-" + p[0];
+  }
+
+  // 1) FLASH CDA — barra de notícias contínua (marquee simples)
+  var flashEl = document.getElementById("flash-cda");
+  var track = document.getElementById("flash-track");
+  if (flashEl && track) {
+    var recentes = noticiasOrdenadas().slice(0, 6);
+    if (recentes.length > 0) {
+      // flex: 0 0 auto — impede o encolhimento flex dos itens (texto nunca comprimido,
+      // garantindo que o conteúdo excede a largura e o marquee pode correr).
+      recentes.forEach(function (n) {
+        var a = document.createElement("a");
+        a.href = "noticias.html";
+        a.style.flex = "0 0 auto";
+        a.textContent = n.titulo + "  ·  " + dataCurta(n.data);
+        track.appendChild(a);
+      });
+
+      // Largura real de um conjunto (medida antes de duplicar, com itens não encolhidos)
+      var largura = track.scrollWidth;
+
+      // Só anima se o conteúdo exceder a largura visível da pista
+      if (largura > track.clientWidth) {
+        // Duplica o conteúdo para um loop contínuo sem quebra visível
+        Array.prototype.slice.call(track.children).forEach(function (item) {
+          track.appendChild(item.cloneNode(true));
+        });
+
+        var delta = 0;
+        var ativo = true;
+        flashEl.addEventListener("mouseenter", function () { ativo = false; });
+        flashEl.addEventListener("mouseleave", function () { ativo = true; });
+        (function passo() {
+          if (ativo) {
+            delta += 1;
+            if (delta >= largura) delta = 0;
+            track.scrollLeft = delta;
+          }
+          window.requestAnimationFrame(passo);
+        })();
+      }
+    }
+  }
+
+  // 2) ACTUALIDADE — as 3 notícias mais recentes em #news-list
+  var newsList = document.getElementById("news-list");
+  if (newsList) {
+    var top3 = noticiasOrdenadas().slice(0, 3);
+    top3.forEach(function (n) {
+      var artigo = document.createElement("article");
+      artigo.className = "news-card";
+
+      var corpo = document.createElement("div");
+      corpo.className = "corpo";
+
+      var data = document.createElement("span");
+      data.className = "data";
+      data.textContent = n.data || "";
+
+      var cat = document.createElement("span");
+      cat.className = "cat";
+      cat.textContent = n.categoria || "";
+
+      var h3 = document.createElement("h3");
+      h3.textContent = n.titulo || "";
+
+      var p = document.createElement("p");
+      var texto = n.texto || "";
+      p.textContent = texto.length > 140 ? texto.slice(0, 137) + "…" : texto;
+
+      var ler = document.createElement("a");
+      ler.className = "ler";
+      ler.href = "noticias.html";
+      ler.textContent = "Ler mais";
+
+      corpo.appendChild(data);
+      corpo.appendChild(cat);
+      corpo.appendChild(h3);
+      corpo.appendChild(p);
+      corpo.appendChild(ler);
+      artigo.appendChild(corpo);
+      newsList.appendChild(artigo);
+    });
+  }
+
+  // 3) Contador de membros real
+  var membrosCount = document.getElementById("membros-count");
+  if (membrosCount && CDA.MEMBROS && CDA.MEMBROS.length) {
+    membrosCount.textContent = String(CDA.MEMBROS.length);
+  }
+
+  // 4) NEWSLETTER — subscrição simples (feedback local, sem backend)
+  var nlForm = document.getElementById("newsletter-form");
+  var nlOk = document.getElementById("newsletter-ok");
+  if (nlForm) {
+    nlForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var em = document.getElementById("newsletter-email");
+      var valor = (em && em.value || "").trim();
+      if (valor && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(valor)) {
+        em.value = "";
+        if (nlOk) nlOk.hidden = false;
+        try { localStorage.setItem("cda-newsletter", valor); } catch (_) {}
+      } else {
+        em.focus();
+        em.style.borderColor = "#ff6b6b";
+      }
+    });
+  }
+
+  // 5) PARCEIROS — carrossel contínuo de instituições parceiras
+  var parceirosTrack = document.querySelector(".parceiros-track");
+  if (parceirosTrack) {
+    var parceiros = [
+      "Autoridade Tributária de Moçambique",
+      "Alfândegas de Moçambique",
+      "Ministério da Economia e Finanças",
+      "Ministério da Indústria e Comércio",
+      "Confederação das Associações Económicas",
+      "Câmara de Comércio de Moçambique",
+      "Agência para a Promoção de Investimentos",
+      "Instituto de Gestão de Zonas Económicas Especiais",
+      "Organização Mundial das Alfândegas",
+      "Banco de Moçambique"
+    ];
+    parceiros.forEach(function (nome) {
+      var item = document.createElement("span");
+      item.className = "parceiros-item";
+      item.textContent = nome;
+      parceirosTrack.appendChild(item);
+    });
+    // Duplica para loop contínuo (animation translateX -50%)
+    Array.prototype.slice.call(parceirosTrack.children).forEach(function (item) {
+      parceirosTrack.appendChild(item.cloneNode(true));
+    });
+  }
+
+  // 6) CONTADOR DE VISITAS — persistência local simples
+  var visitEl = document.getElementById("visit-count");
+  if (visitEl) {
+    var n = 0;
+    try { n = parseInt(localStorage.getItem("cda-visitas") || "0", 10) || 0; } catch (_) {}
+    n += 1;
+    try { localStorage.setItem("cda-visitas", String(n)); } catch (_) {}
+    visitEl.textContent = String(n);
+  }
 })();
