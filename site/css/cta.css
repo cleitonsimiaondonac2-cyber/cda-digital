@@ -200,6 +200,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 .hero-foot-cap a > span { color: #ffd9da; font-size: .72rem; }
 
+/* Navegação: dots removidos, apenas setas discretas (sem fundo circular) */
+.hero-dots { display: none; }
+.hero-foot-nav { gap: 10px; }
+.hero-foot-nav button {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,.68);
+  width: 30px;
+  height: 30px;
+  font-size: 1.1rem;
+  opacity: .85;
+  transition: color .15s ease, opacity .15s ease;
+}
+.hero-foot-nav button:hover {
+  background: transparent;
+  color: #fff;
+  opacity: 1;
+}
+
 /* Imagens do hero em HD (galeria/hd/) com foco a 20% do topo —
    evita o corte das cabeças nas fotos de grupos/pessoas */
 .hero-slide {
