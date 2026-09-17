@@ -122,12 +122,7 @@
 
     <h2 id="orgaos">Órgãos sociais — Triénio 2024–2026</h2>
     <p>Eleitos na XXVI.ª Sessão da Assembleia Geral Ordinária, em Dezembro de 2023, e empossados para o triénio 2024–2026.</p>
-    <div class="tabela-wrap">
-      <table>
-        <thead><tr><th>Órgão</th><th>Cargo</th><th>Nome</th></tr></thead>
-        <tbody id="tabela-orgaos"></tbody>
-      </table>
-    </div>
+    <div id="orgaos-container"></div>
 
     <h2 id="historico">Histórico</h2>
     <p>O processo de criação da Câmara dos Despachantes Aduaneiros de Moçambique teve o seu início em <strong>Novembro de 1996</strong>, quando existiam apenas 10 despachantes oficiais em Moçambique. A falta de experiência sobre a forma de criar a CDA, conjugada com algumas preocupações encontradas pelo caminho, fez com que o processo fosse temporariamente paralisado até à criação da <strong>Autoridade Tributária de Moçambique, em 2006</strong>, período em que voltou a receber um impulso quando o Exmo. Sr. Presidente da AT nomeou uma <strong>"Comissão Ad-hoc"</strong> para se encarregar de apresentar o dossier com o projecto de criação da CDA à Autoridade Tributária, que por sua vez o encaminharia para as autoridades competentes, com vista à sua aprovação.</p>
@@ -192,14 +187,78 @@
 <script src="js/assistente.js"></script>
 <script>
   if (typeof CDA !== "undefined") {
-    const t = document.getElementById("tabela-orgaos");
-    CDA.ORGAOS.forEach((o) => {
-      const tr = document.createElement("tr");
-      tr.innerHTML = "<td>" + o.orgao + "</td><td>" + o.cargo + "</td><td><strong>" + o.nome + "</strong></td>";
-      t.appendChild(tr);
-    });
+    (function () {
+      var container = document.getElementById("orgaos-container");
+      if (!container) return;
+
+      // Agrupar por órgão
+      var groups = {};
+      var order = [];
+      (CDA.ORGAOS || []).forEach(function (o) {
+        if (!groups[o.orgao]) { groups[o.orgao] = []; order.push(o.orgao); }
+        groups[o.orgao].push(o);
+      });
+
+      // Numerais romanos por órgão
+      var roman = { "Direcção": "I", "Mesa da AG": "II", "Conselho Deontológico": "III", "Conselho Directivo": "IV" };
+
+      order.forEach(function (orgao) {
+        var section = document.createElement("div");
+        section.className = "orgao-section";
+
+        // Cabeçalho da secção
+        var header = document.createElement("div");
+        header.className = "orgao-header";
+        header.innerHTML = '<span class="orgao-numeral">' + (roman[orgao] || "") + '</span><h3>' + orgao + '</h3>';
+        section.appendChild(header);
+
+        // Grelha de cards
+        var grid = document.createElement("div");
+        grid.className = "orgao-grid";
+
+        groups[orgao].forEach(function (m) {
+          var card = document.createElement("div");
+          card.className = "orgao-card";
+
+          // Foto ou monograma
+          if (m.foto) {
+            var fotoDiv = document.createElement("div");
+            fotoDiv.className = "orgao-card-foto";
+            var img = document.createElement("img");
+            img.src = m.foto;
+            img.alt = m.nome;
+            img.loading = "lazy";
+            fotoDiv.appendChild(img);
+            card.appendChild(fotoDiv);
+          } else {
+            var parts = m.nome.split(" ");
+            var ini1 = parts[0] ? parts[0].charAt(0) : "";
+            var ini2 = parts.length > 1 ? parts[parts.length - 1].charAt(0) : "";
+            var monoDiv = document.createElement("div");
+            monoDiv.className = "orgao-card-mono";
+            monoDiv.textContent = (ini1 + ini2).toUpperCase();
+            card.appendChild(monoDiv);
+          }
+
+          // Info (nome + cargo)
+          var info = document.createElement("div");
+          info.className = "orgao-card-info";
+          var nomeEl = document.createElement("strong");
+          nomeEl.textContent = m.nome;
+          var cargoEl = document.createElement("span");
+          cargoEl.textContent = m.cargo;
+          info.appendChild(nomeEl);
+          info.appendChild(cargoEl);
+          card.appendChild(info);
+
+          grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
+        container.appendChild(section);
+      });
+    })();
   }
 </script>
-<a class="admin-corner" href="admin.html" title="Gestão de conteúdo">Gestão</a>
 </body>
 </html>

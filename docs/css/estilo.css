@@ -126,6 +126,19 @@ h3 { font-size: 1.1rem; margin-bottom: .4rem; }
 .doc-item .baixar:hover { background: var(--red); color: #fff; }
 .doc-item .ia-doc { background: none; border: 1px solid var(--navy-3); color: var(--navy-3); border-radius: var(--radius); padding: 7px 14px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; cursor: pointer; }
 .doc-item .ia-doc:hover { background: var(--navy-3); color: #fff; }
+/* Ícone do documento (anúncios/comunicados): fichário discreto à esquerda */
+.doc-item .doc-icon {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--red);
+}
 
 /* ---- Filtros ---- */
 .filtros { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; margin-bottom: 20px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr auto; gap: 12px; align-items: end; }
@@ -717,25 +730,6 @@ tr:hover td { background: var(--bg-alt); }
   .hero-foot-nav button { width: 34px; height: 34px; }
   .hero-foot-cap a span { line-height: 1.4; }
 }
-
-/* Link discreto para o painel de gestão de conteúdo (canto inferior direito) */
-.admin-corner {
-  position: fixed;
-  right: 12px;
-  bottom: 6px;
-  z-index: 140;
-  font-size: .66rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .6px;
-  color: rgba(22, 40, 62, .45);
-  background: rgba(255, 255, 255, .72);
-  padding: 2px 7px;
-  border-radius: 4px;
-  text-decoration: none;
-  transition: color .15s ease, background .15s ease;
-}
-.admin-corner:hover { color: var(--red); background: #fff; }
 
 /* ---- Secções new portal (CTA) ---- */
 

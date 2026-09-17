@@ -1390,23 +1390,26 @@ const CDA = {
 }
 ],
 "NOTICIAS": [
-  {"titulo": "Noticia Teste Admin", "categoria": "Institucional", "data": "2026-08-28", "texto": "Corpo da noticia criado pelo painel admin para teste."},
-  {"titulo": "Noticia Teste Admin", "categoria": "Institucional", "data": "2026-08-28", "texto": "Corpo da noticia criado pelo painel admin para teste."},
-  {"titulo": "Semana destacada para líderes femininas aduaneiras — ASAPRA", "categoria": "Internacional", "data": "2026-01-28", "texto": "Salmate Chuaibo, Presidente da CDA, destaca que a sua ascensão à presidência da Câmara dos Despachantes Aduaneiros de Moçambique reflete não apenas um compromisso pessoal com o setor do comércio, mas também o papel crescente das mulheres na liderança aduaneira regional e internacional."},
-  {"titulo": "Visita de cortesia do Tribunal Aduaneiro de Sofala aos escritórios da CDA Beira", "categoria": "Institucional", "data": "2025-10-27", "texto": "No dia 27 de outubro de 2025, a CDA Região Centro recebeu uma visita de cortesia do Tribunal Aduaneiro de Sofala nos seus escritórios na Beira, reforçando a cooperação entre as instituições."},
-  {"titulo": "LISTA ÚNICA — Candidatura à Presidência da CDA", "categoria": "Eleições", "data": "2023-12-01", "texto": "EDITAL — Por meio deste, nos termos do n.º 2 do artigo 9.º do Regulamento para Eleição dos Órgãos da Câmara dos Despachantes Aduaneiros de Moçambique, comunica-se a todos os membros da CDA a lista única de candidatura à Presidência."},
-  {"titulo": "Lista única de candidatura às eleições dos órgãos sociais da CDA — Triénio 2024-2026", "categoria": "Eleições", "data": "2023-11-20", "texto": "Publicado o edital da lista única de candidatura às eleições dos órgãos sociais da CDA para o triénio 2024-2026, nos termos do n.º 2 do artigo 9.º do Regulamento para Eleição dos Órgãos da Câmara dos Despachantes Aduaneiros de Moçambique."},
-  {"titulo": "Cabo Delgado Quer Paz", "categoria": "Institucional", "data": "2021-03-01", "texto": "A CDA associa-se ao movimento pela paz na província de Cabo Delgado, expressando solidariedade com as comunidades afetadas."},
-  {"titulo": "O Impacto da Covid-19 no Comércio Internacional", "categoria": "Análise", "data": "2020-06-01", "texto": "Dixon Chongo, Presidente da Câmara dos Despachantes Aduaneiros de Moçambique, analisa o impacto da pandemia de Covid-19 no comércio internacional e na atividade de despacho aduaneiro."},
-  {"titulo": "A CDA informa — Férias colectivas de fim de ano", "categoria": "Comunicado", "data": "2019-12-19", "texto": "A CDA informa todos os seus membros e o público em geral que os escritórios da CDA-Sede e as Delegações Regionais Centro e Norte estarão encerrados entre os dias 24 de dezembro de 2019 e 03 de janeiro de 2020, para férias colectivas."},
-  {"titulo": "Visão Geral da Economia, Política e Social de Moçambique — ano 2019", "categoria": "Análise", "data": "2019-12-01", "texto": "Visão geral da economia, política e sociedade de Moçambique até 2019, apresentada pelo Presidente da CDA, Dixon Chongo."},
-  {"titulo": "Dixon Chongo prepara a casa para transformar em Ordem dos Despachantes Aduaneiros de Moçambique", "categoria": "Institucional", "data": "2019-11-01", "texto": "O Presidente da Câmara dos Despachantes Aduaneiros de Moçambique, Dixon Chongo, informou que o ambiente no seio da classe dos despachantes aduaneiros em Moçambique é encorajador e que o país caminha para a transformação da Câmara em Ordem."}
+  {"titulo": "O Despachante regressa: Unidade, Modernização e Projecção Global", "categoria": "Editorial", "data": "2026-07-15", "imagem": "img/noticias/editorial-unidade.jpg", "texto": "Após um período fora de circulação, a revista oficial da CDA volta a chegar aos associados com um compromisso intransigente com a legalidade e o combate ao exercício ilegal da profissão, em sintonia com a modernização e a projecção global da instituição."},
+  {"titulo": "CDA assume Vice-Presidência da ASAPRA durante Fórum no Brasil", "categoria": "Internacional", "data": "2026-07-15", "imagem": "img/noticias/asapra-brasil.jpg", "texto": "A Câmara dos Despachantes Aduaneiros de Moçambique alcançou um marco histórico ao assumir a Vice-Presidência da ASAPRA, reforçando a sua presença nos principais fóruns de discussão e tomada de decisão do sector aduaneiro internacional."},
+  {"titulo": "Cooperação entre CDA e Autoridade Tributária fortalece o sector aduaneiro", "categoria": "Institucional", "data": "2026-07-15", "imagem": "img/noticias/cooperacao-at.jpg", "texto": "A relação de cooperação institucional entre a CDA e a Autoridade Tributária de Moçambique, através da Direcção-Geral das Alfândegas, continua a afirmar-se, com reconhecimento do papel da liderança na promoção de um diálogo produtivo para o sector."},
+  {"titulo": "Quadros da CDA assumem cargos de relevo na CTA e na CCM", "categoria": "Representação", "data": "2026-07-15", "imagem": "img/noticias/representacao-privado.jpg", "texto": "Enquanto membro da Confederação das Associações Económicas de Moçambique (CTA) e da Câmara de Comércio de Moçambique (CCM), a CDA vê os seus quadros reforçar a participação, com a Presidente Salmate Chuaibo a exercer funções de Vice-Presidente do Conselho Fiscal da CTA."},
+  {"titulo": "CDA contribui para a facilitação do comércio e a competitividade", "categoria": "Facilitação do Comércio", "data": "2026-07-15", "imagem": "img/noticias/facilitacao-comercio.jpg", "texto": "A CDA participa activamente na simplificação de procedimentos e na remoção de barreiras, integrando as reuniões da Comissão Técnica e da Comissão Directiva do Comité Nacional de Facilitação do Comércio."},
+  {"titulo": "CDA assina convénio com despachantes de São Paulo nos Emirados Árabes Unidos", "categoria": "Cooperação", "data": "2026-07-15", "imagem": "img/noticias/convenio-sao-paulo.jpg", "texto": "A CDA celebrou um Convénio de Parceria com o Sindicato dos Despachantes Aduaneiros de São Paulo, reforçando a estratégia de cooperação internacional e a aposta no desenvolvimento de competências técnicas para o exercício da profissão."},
+  {"titulo": "Capacitação sobre Regras de Origem reforça competências à escala nacional", "categoria": "Formação", "data": "2026-07-15", "imagem": "img/noticias/formacao-regras-origem.jpg", "texto": "Em parceria com a Autoridade Tributária e o programa PROMOVE Comércio, a CDA promoveu uma capacitação que contribui para a harmonização de procedimentos e o fortalecimento das capacidades técnicas dos profissionais do sector."},
+  {"titulo": "CDA participa na Conferência e Feira de Tecnologias da OMA nos Emirados Árabes Unidos", "categoria": "Internacional", "data": "2026-07-15", "imagem": "img/noticias/futuro-digital.jpg", "texto": "Na qualidade de membro da ASAPRA, a CDA marcou presença na Conferência e Feira de Tecnologias da Organização Mundial das Alfândegas, ao lado de administrações aduaneiras, especialistas e representantes de organizações internacionais."},
+  {"titulo": "Workshop sobre branqueamento de capitais e financiamento do terrorismo", "categoria": "Conformidade", "data": "2026-07-15", "imagem": "img/noticias/conformidade-integridade.jpg", "texto": "A CDA promoveu um workshop dedicado ao branqueamento de capitais, financiamento do terrorismo e da proliferação de armas, reunindo representantes de instituições públicas e privadas ligadas ao comércio externo e ao sistema financeiro nacional."},
+  {"titulo": "Na Cúpula Mundial dos Despachantes: CDA expande influência na IFCBA no Japão", "categoria": "Internacional", "data": "2026-07-15", "imagem": "img/noticias/cupula-mundial-japao.jpg", "texto": "Como membro da International Federation of Customs Brokers Associations (IFCBA), a CDA participou na conferência internacional da organização, um dos mais relevantes eventos do sector, reforçando o seu compromisso com a projecção global."},
+  {"titulo": "Intercâmbio de experiências com as Alfândegas de São Tomé e Príncipe", "categoria": "Lusofonia", "data": "2026-07-15", "imagem": "img/noticias/lusofonia.jpg", "texto": "A CDA manteve um encontro de trabalho com as Alfândegas de São Tomé e Príncipe, no âmbito da cooperação e intercâmbio de experiências entre instituições ligadas ao sector aduaneiro nos países de língua portuguesa."},
+  {"titulo": "Solidariedade em Acção: CDA apoia vítimas das cheias em Marracuene", "categoria": "Responsabilidade Social", "data": "2026-07-15", "imagem": "img/noticias/solidariedade-cheias.jpg", "texto": "Na sequência das cheias que afectaram o Muthini, no Município de Marracuene, a CDA promoveu acções de assistência que beneficiaram centenas de pessoas, reafirmando o seu compromisso com a responsabilidade social."},
+  {"titulo": "Entrevista: Sábito Romeu — \"Esta casa não é de quem a preside\"", "categoria": "Entrevista", "data": "2026-07-15", "imagem": "img/noticias/entrevista-sabito-romeu.jpg", "texto": "O Presidente da Mesa da Assembleia Geral da CDA fala sobre o papel colectivo dos órgãos sociais, a unidade da classe e os desafios do triénio 2024-2026."}
 ],
 "ORGAOS": [
 {
 "cargo": "Presidente da CDA",
 "nome": "Salmate Chuaibo Daud",
-"orgao": "Direcção"
+"orgao": "Direcção",
+"foto": "img/orgaos/salmate-chuaibo.jpg"
 },
 {
 "cargo": "Vice-Presidente da CDA para a Zona Norte",
@@ -1421,7 +1424,8 @@ const CDA = {
 {
 "cargo": "Presidente da Mesa da Assembleia Geral",
 "nome": "Sabito Joaquim Romeu",
-"orgao": "Mesa da AG"
+"orgao": "Mesa da AG",
+"foto": "img/orgaos/sabito-romeu.jpg"
 },
 {
 "cargo": "Vice-Presidente da Mesa da Assembleia Geral",

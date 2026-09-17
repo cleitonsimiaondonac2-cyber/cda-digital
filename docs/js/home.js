@@ -185,6 +185,16 @@
       var artigo = document.createElement("article");
       artigo.className = "news-card";
 
+      // Se a notícia tiver imagem, é colocada no topo/esquerda do card
+      if (n.imagem) {
+        var img = document.createElement("img");
+        img.className = "news-card-img";
+        img.src = n.imagem;
+        img.alt = n.titulo || "";
+        img.loading = "lazy";
+        artigo.appendChild(img);
+      }
+
       var corpo = document.createElement("div");
       corpo.className = "corpo";
 

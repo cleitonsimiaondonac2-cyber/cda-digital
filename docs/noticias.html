@@ -139,16 +139,23 @@
 <script src="js/assistente.js"></script>
 <script>
   if (typeof CDA !== "undefined") {
+    // Escape HTML em atributos (padrão de admin.js) — títulos com aspas não quebram a marcação
+    function esc(s) {
+      return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+      });
+    }
     const lista = document.getElementById("news-lista");
     CDA.NOTICIAS.forEach((n, i) => {
       const art = document.createElement("article");
       art.className = "news-card";
       art.innerHTML =
+        (n.imagem ? '<img class="news-card-img" src="' + esc(n.imagem) + '" alt="' + esc(n.titulo) + '" loading="lazy">' : '') +
         '<div class="corpo">' +
-        '<span class="data">' + n.data + '</span>' +
-        '<span class="cat">' + n.categoria + '</span>' +
-        '<h3>' + n.titulo + '</h3>' +
-        '<p>' + n.texto + '</p>' +
+        '<span class="data">' + esc(n.data) + '</span>' +
+        '<span class="cat">' + esc(n.categoria) + '</span>' +
+        '<h3>' + esc(n.titulo) + '</h3>' +
+        '<p>' + esc(n.texto) + '</p>' +
         '<button class="ler" style="background:none;border:none;text-align:left;cursor:pointer" data-noticia="' + i + '">Ler mais</button>' +
         '<div class="noticia-full" id="noticia-' + i + '"><p style="color:var(--text-soft);margin-top:8px">Texto completo disponível no portal em produção. A CDA publica os seus comunicados oficiais com datas e categorias originais.</p></div>' +
         "</div>";
@@ -156,6 +163,5 @@
     });
   }
 </script>
-<a class="admin-corner" href="admin.html" title="Gestão de conteúdo">Gestão</a>
 </body>
 </html>
