@@ -2,6 +2,7 @@
 // Ficheiro gerado automaticamente em 2026-08-28 16:17
 const CDA = {
 "DOCUMENTOS": [
+  {"tipo": "Boletins", "titulo": "O Despachante — Edição Julho 2026", "entidade": "CDA", "ano": 2026, "ficheiro": "revista-despachante-edicao-julho-2026.pdf", "url": "docs/revista-despachante-edicao-julho-2026.pdf"},
   {"tipo": "Relatórios", "titulo": "Amortizações da CDA — 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "amort-cda-2017.pdf", "url": "docs/amort-cda-2017.pdf"},
   {"tipo": "Relatórios", "titulo": "Balanço — Dezembro 2016", "entidade": "CDA", "ano": 2017, "ficheiro": "bal-dez-2016.pdf", "url": "docs/bal-dez-2016.pdf"},
   {"tipo": "Boletins", "titulo": "Boletim Informativo da CDA — Edição 04", "entidade": "CDA", "ano": 2015, "ficheiro": "boletim-informativo-da-cda-edicao-04.pdf", "url": "docs/boletim-informativo-da-cda-edicao-04.pdf"},

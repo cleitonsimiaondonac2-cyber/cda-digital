@@ -247,27 +247,21 @@
   var parceirosTrack = document.querySelector(".parceiros-track");
   if (parceirosTrack) {
     var parceiros = [
-      { nome: "Autoridade Tributária de Moçambique", logo: "img/parceiros/at.png" },
-      { nome: "CTA", logo: "img/parceiros/cta.png" },
-      { nome: "Câmara de Comércio de Moçambique", logo: "img/parceiros/ccm.png" },
-      { nome: "ASAPRA", logo: "img/parceiros/asapra.png" },
-      { nome: "FEADUANEIROS", logo: "img/parceiros/feaduaneiros.png" },
-      { nome: "CDOA — Angola", logo: "img/parceiros/cdoa.gif" },
-      { nome: "ODO — Portugal", logo: "img/parceiros/odo.png" },
-      { nome: "EduComex", logo: "img/parceiros/educomex.png" },
-      { nome: "IFCBA", logo: "img/parceiros/ifcba.png" }
+      "Autoridade Tributária de Moçambique",
+      "Alfândegas de Moçambique",
+      "Ministério da Economia e Finanças",
+      "Ministério da Indústria e Comércio",
+      "Confederação das Associações Económicas",
+      "Câmara de Comércio de Moçambique",
+      "Agência para a Promoção de Investimentos",
+      "Instituto de Gestão de Zonas Económicas Especiais",
+      "Organização Mundial das Alfândegas",
+      "Banco de Moçambique"
     ];
-    parceiros.forEach(function (p) {
+    parceiros.forEach(function (nome) {
       var item = document.createElement("span");
       item.className = "parceiros-item";
-      var img = document.createElement("img");
-      img.src = p.logo;
-      img.alt = p.nome;
-      item.appendChild(img);
-      var txt = document.createElement("span");
-      txt.className = "parceiros-item-nome";
-      txt.textContent = p.nome;
-      item.appendChild(txt);
+      item.textContent = nome;
       parceirosTrack.appendChild(item);
     });
     // Duplica para loop contínuo (animation translateX -50%)
