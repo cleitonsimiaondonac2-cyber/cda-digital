@@ -150,7 +150,7 @@
       const art = document.createElement("article");
       art.className = "news-card";
       art.innerHTML =
-        (n.imagem ? '<img class="news-card-img" src="' + esc(n.imagem) + '" alt="' + esc(n.titulo) + '" loading="lazy">' : '') +
+        (n.imagem ? '<img class="news-card-img" src="' + esc(n.imagem) + '" alt="' + esc(n.titulo) + '"' + (n.foco ? ' style="object-position:' + esc(n.foco) + '"' : '') + ' loading="lazy">' : '') +
         '<div class="corpo">' +
         '<span class="data">' + esc(n.data) + '</span>' +
         '<span class="cat">' + esc(n.categoria) + '</span>' +

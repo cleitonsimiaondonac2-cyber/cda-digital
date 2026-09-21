@@ -978,6 +978,19 @@ tr:hover td { background: var(--bg-alt); }
   padding: 14px 26px;
   letter-spacing: .3px;
 }
+.parceiros-item-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.parceiros-item-img {
+  display: block;
+  width: auto;
+  height: 40px;
+  max-width: 140px;
+  object-fit: contain;
+}
 @keyframes parceiros-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
 /* Responsivo — secções novas da homepage */

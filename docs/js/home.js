@@ -192,6 +192,9 @@
         img.src = n.imagem;
         img.alt = n.titulo || "";
         img.loading = "lazy";
+        // "foco" (opcional, por notícia) ajusta object-position quando a
+        // convenção global center 30% corta o assunto (ex.: retratos).
+        if (n.foco) { img.style.objectPosition = n.foco; }
         artigo.appendChild(img);
       }
 
@@ -256,22 +259,36 @@
   // 5) PARCEIROS — carrossel contínuo de instituições parceiras
   var parceirosTrack = document.querySelector(".parceiros-track");
   if (parceirosTrack) {
+    // Itens com logo real (img) e/ou nome de texto — os nomes são preservados
+    // no atributo alt para acessibilidade; instituições sem logo ficam como texto.
     var parceiros = [
-      "Autoridade Tributária de Moçambique",
-      "Alfândegas de Moçambique",
-      "Ministério da Economia e Finanças",
-      "Ministério da Indústria e Comércio",
-      "Confederação das Associações Económicas",
-      "Câmara de Comércio de Moçambique",
-      "Agência para a Promoção de Investimentos",
-      "Instituto de Gestão de Zonas Económicas Especiais",
-      "Organização Mundial das Alfândegas",
-      "Banco de Moçambique"
+      { tipo: "logo", src: "img/parceiros/at.png", alt: "Autoridade Tributária de Moçambique" },
+      { tipo: "texto", nome: "Alfândegas de Moçambique" },
+      { tipo: "texto", nome: "Ministério da Economia e Finanças" },
+      { tipo: "logo", src: "img/parceiros/mic.png", alt: "Ministério da Indústria e Comércio" },
+      { tipo: "texto", nome: "Confederação das Associações Económicas" },
+      { tipo: "texto", nome: "Câmara de Comércio de Moçambique" },
+      { tipo: "texto", nome: "Agência para a Promoção de Investimentos" },
+      { tipo: "texto", nome: "Instituto de Gestão de Zonas Económicas Especiais" },
+      { tipo: "logo", src: "img/parceiros/jue-fallback.svg", alt: "Janela Única Electrónica (JUE)" },
+      { tipo: "logo", src: "img/parceiros/asapra-fallback.svg", alt: "ASAPRA" },
+      { tipo: "logo", src: "img/parceiros/fiata.svg", alt: "FIATA" },
+      { tipo: "logo", src: "img/parceiros/wco.png", alt: "Organização Mundial das Alfândegas" },
+      { tipo: "texto", nome: "Banco de Moçambique" }
     ];
-    parceiros.forEach(function (nome) {
+    parceiros.forEach(function (p) {
       var item = document.createElement("span");
-      item.className = "parceiros-item";
-      item.textContent = nome;
+      item.className = p.tipo === "logo" ? "parceiros-item parceiros-item-logo" : "parceiros-item";
+      if (p.tipo === "logo") {
+        var img = document.createElement("img");
+        img.className = "parceiros-item-img";
+        img.src = p.src;
+        img.alt = p.alt;
+        img.loading = "lazy";
+        item.appendChild(img);
+      } else {
+        item.textContent = p.nome;
+      }
       parceirosTrack.appendChild(item);
     });
     // Duplica para loop contínuo (animation translateX -50%)
