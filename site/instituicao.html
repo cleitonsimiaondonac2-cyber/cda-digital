@@ -122,7 +122,52 @@
 
     <h2 id="orgaos">Órgãos sociais — Triénio 2024–2026</h2>
     <p>Eleitos na XXVI.ª Sessão da Assembleia Geral Ordinária, em Dezembro de 2023, e empossados para o triénio 2024–2026.</p>
-    <div id="orgaos-container"></div>
+
+    <figure class="cartaz-orgaos">
+      <a href="img/cartaz/cartaz-orgaos-sociais.jpg" target="_blank" rel="noopener" title="Ver o cartaz em tamanho grande" aria-label="Abrir o cartaz dos Órgãos Sociais em tamanho grande">
+        <img src="img/cartaz/cartaz-orgaos-sociais.jpg" alt="Cartaz dos Órgãos Sociais — Triénio 2024–2026" width="1692" height="2164" loading="lazy">
+      </a>
+      <figcaption class="cartaz-orgaos-figcap">Cartaz oficial dos Órgãos Sociais para o Triénio 2024–2026 <span class="cartaz-orgaos-zoom">— clique na imagem para ampliar.</span></figcaption>
+    </figure>
+
+    <div class="orgaos-lista">
+      <div class="orgao-grupo">
+        <h4>Mesa da Assembleia Geral</h4>
+        <ul>
+          <li><strong>Sábito Romeu</strong><span class="cargo">Presidente da MAG</span><span class="cprof">C. Prof. Nº 006700640912</span></li>
+          <li><strong>Júlia Carrilho</strong><span class="cargo">Vice-Presidente da MAG</span><span class="cprof">C. Prof. Nº 002400210912</span></li>
+          <li><strong>Nelson Rede</strong><span class="cargo">Secretário da MAG</span><span class="cprof">C. Prof. Nº 013801360313</span></li>
+        </ul>
+      </div>
+      <div class="orgao-grupo">
+        <h4>Presidente da CDA</h4>
+        <ul>
+          <li><strong>Salmate Chuaibo Daud</strong><span class="cargo">Presidente da CDA</span><span class="cprof">C. Prof. Nº 003203360921</span></li>
+        </ul>
+      </div>
+      <div class="orgao-grupo">
+        <h4>Conselho Directivo</h4>
+        <ul>
+          <li><strong>Nelson Coutinho</strong><span class="cargo">Vice-Presidente Centro – CD</span><span class="cprof">C. Prof. Nº 014201400313</span></li>
+          <li><strong>Zacarias M. Mabunda</strong><span class="cargo">Vogal Centro – CD</span><span class="cprof">C. Prof. Nº 018901850413</span></li>
+          <li><strong>Pedro A. S. Saulosse</strong><span class="cargo">Tesoureiro da CDA</span><span class="cprof">C. Prof. Nº 006900660912</span></li>
+          <li><strong>Madalena Chambule</strong><span class="cargo">Vogal Sul – CD</span><span class="cprof">C. Prof. Nº 0118011603130921</span></li>
+          <li><strong>José M. Manuel</strong><span class="cargo">Vogal Norte – CD</span><span class="cprof">C. Prof. Nº 005500520520</span></li>
+          <li><strong>Albino S. G. Dimene</strong><span class="cargo">Vice-Presidente Norte</span><span class="cprof">C. Prof. Nº 001200090912</span></li>
+        </ul>
+      </div>
+      <div class="orgao-grupo">
+        <h4>Conselho Deontológico e Fiscalizador</h4>
+        <ul>
+          <li><strong>Pedro Chissico</strong><span class="cargo">Presidente do CDF</span><span class="cprof">C. Prof. Nº 004300400912</span></li>
+          <li><strong>Deca Tito</strong><span class="cargo">Vogal Norte – CDF</span><span class="cprof">C. Prof. Nº 008903190319</span></li>
+          <li><strong>Joaquim Manguaiana</strong><span class="cargo">Vogal Centro – CDF</span><span class="cprof">C. Prof. Nº 013601340313</span></li>
+          <li><strong>Flora Macuvele</strong><span class="cargo">Vogal Sul – CDF</span><span class="cprof">C. Prof. Nº 004000370912</span></li>
+          <li><strong>Humberto Guibunda</strong><span class="cargo">Vogal Sul – CDF</span><span class="cprof">C. Prof. Nº 003700340912</span></li>
+        </ul>
+      </div>
+      <p class="cartaz-slogan">Por uma Câmara Coesa, Interventiva e Próspera</p>
+    </div>
 
     <h2 id="historico">Histórico</h2>
     <p>O processo de criação da Câmara dos Despachantes Aduaneiros de Moçambique teve o seu início em <strong>Novembro de 1996</strong>, quando existiam apenas 10 despachantes oficiais em Moçambique. A falta de experiência sobre a forma de criar a CDA, conjugada com algumas preocupações encontradas pelo caminho, fez com que o processo fosse temporariamente paralisado até à criação da <strong>Autoridade Tributária de Moçambique, em 2006</strong>, período em que voltou a receber um impulso quando o Exmo. Sr. Presidente da AT nomeou uma <strong>"Comissão Ad-hoc"</strong> para se encarregar de apresentar o dossier com o projecto de criação da CDA à Autoridade Tributária, que por sua vez o encaminharia para as autoridades competentes, com vista à sua aprovação.</p>
@@ -185,80 +230,5 @@
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
-<script>
-  if (typeof CDA !== "undefined") {
-    (function () {
-      var container = document.getElementById("orgaos-container");
-      if (!container) return;
-
-      // Agrupar por órgão
-      var groups = {};
-      var order = [];
-      (CDA.ORGAOS || []).forEach(function (o) {
-        if (!groups[o.orgao]) { groups[o.orgao] = []; order.push(o.orgao); }
-        groups[o.orgao].push(o);
-      });
-
-      // Numerais romanos por órgão
-      var roman = { "Direcção": "I", "Mesa da AG": "II", "Conselho Deontológico": "III", "Conselho Directivo": "IV" };
-
-      order.forEach(function (orgao) {
-        var section = document.createElement("div");
-        section.className = "orgao-section";
-
-        // Cabeçalho da secção
-        var header = document.createElement("div");
-        header.className = "orgao-header";
-        header.innerHTML = '<span class="orgao-numeral">' + (roman[orgao] || "") + '</span><h3>' + orgao + '</h3>';
-        section.appendChild(header);
-
-        // Grelha de cards
-        var grid = document.createElement("div");
-        grid.className = "orgao-grid";
-
-        groups[orgao].forEach(function (m) {
-          var card = document.createElement("div");
-          card.className = "orgao-card";
-
-          // Foto ou monograma
-          if (m.foto) {
-            var fotoDiv = document.createElement("div");
-            fotoDiv.className = "orgao-card-foto";
-            var img = document.createElement("img");
-            img.src = m.foto;
-            img.alt = m.nome;
-            img.loading = "lazy";
-            fotoDiv.appendChild(img);
-            card.appendChild(fotoDiv);
-          } else {
-            var parts = m.nome.split(" ");
-            var ini1 = parts[0] ? parts[0].charAt(0) : "";
-            var ini2 = parts.length > 1 ? parts[parts.length - 1].charAt(0) : "";
-            var monoDiv = document.createElement("div");
-            monoDiv.className = "orgao-card-mono";
-            monoDiv.textContent = (ini1 + ini2).toUpperCase();
-            card.appendChild(monoDiv);
-          }
-
-          // Info (nome + cargo)
-          var info = document.createElement("div");
-          info.className = "orgao-card-info";
-          var nomeEl = document.createElement("strong");
-          nomeEl.textContent = m.nome;
-          var cargoEl = document.createElement("span");
-          cargoEl.textContent = m.cargo;
-          info.appendChild(nomeEl);
-          info.appendChild(cargoEl);
-          card.appendChild(info);
-
-          grid.appendChild(card);
-        });
-
-        section.appendChild(grid);
-        container.appendChild(section);
-      });
-    })();
-  }
-</script>
 </body>
 </html>

@@ -398,6 +398,82 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.35;
 }
 
+/* ---------- Cartaz dos Órgãos Sociais (imagem oficial da revista) ---------- */
+.cartaz-orgaos {
+  max-width: 900px;
+  margin: 28px auto 0;
+  padding: 12px;
+  background: var(--cta-white);
+  border: 1px solid #e3e6ea;
+  box-shadow: 0 8px 28px rgba(0,0,0,.10);
+}
+.cartaz-orgaos a { display: block; }
+.cartaz-orgaos img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cartaz-orgaos-figcap {
+  margin: 10px 4px 2px;
+  font-family: var(--cta-font-list);
+  font-size: .85rem;
+  color: #555;
+  text-align: center;
+  line-height: 1.4;
+}
+.cartaz-orgaos-zoom { color: var(--cta-red); font-weight: 600; }
+
+/* ---------- Lista textual dos membros (acessibilidade/SEO) ---------- */
+.orgaos-lista {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+  padding-top: 26px;
+  border-top: 1px solid var(--cta-gray);
+}
+.orgaos-lista .orgao-grupo h4 {
+  font-family: var(--cta-font-head);
+  font-weight: 700;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  color: var(--cta-red);
+  border-bottom: 2px solid var(--cta-gray);
+  padding-bottom: 8px;
+  margin: 0 0 10px;
+}
+.orgaos-lista ul { list-style: none; margin: 0; padding: 0; }
+.orgaos-lista li {
+  font-family: var(--cta-font-list);
+  font-size: .8rem;
+  line-height: 1.35;
+  color: #444;
+  padding: 7px 0;
+  border-bottom: 1px dashed #eef0f3;
+}
+.orgaos-lista li:last-child { border-bottom: 0; }
+.orgaos-lista li strong {
+  display: block;
+  font-family: var(--cta-font-head);
+  font-weight: 600;
+  font-size: .78rem;
+  color: var(--cta-black);
+}
+.orgaos-lista li .cargo { display: block; color: #666; }
+.orgaos-lista li .cprof { display: block; font-size: .74rem; color: var(--cta-red); }
+.cartaz-slogan {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--cta-font-head);
+  font-style: italic;
+  font-weight: 600;
+  font-size: .92rem;
+  letter-spacing: .4px;
+  color: var(--cta-red);
+  margin: 8px 0 0;
+}
+
 /* ---------- Newsletter ---------- */
 .sec-newsletter { background: var(--cta-black); }
 .sec-newsletter h2 { color: #fff; }
@@ -407,6 +483,22 @@ h1, h2, h3, h4, h5, h6 {
 /* ---------- Parceiros ---------- */
 .sec-parceiros h2 { color: var(--cta-black); }
 .parceiros-marquee { border-top: 2px solid var(--cta-gray); border-bottom: 2px solid var(--cta-gray); }
+
+/* ---------- Logos dos parceiros (instituições) ---------- */
+.parceiro-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  margin-bottom: 6px;
+}
+.parceiro-logo img {
+  max-height: 48px;
+  max-width: 90%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
 
 /* ---------- Footer (estilo CTA: créditos + org + redes) ---------- */
 .footer { background: var(--cta-dark); color: #d7d7de; }
@@ -657,10 +749,15 @@ h1, h2, h3, h4, h5, h6 {
   .cta-name-row .nome { font-size: 17px; }
   .news-card { flex-direction: column; }
   .orgao-grid { grid-template-columns: repeat(2, 1fr); }
+  .orgaos-lista { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 900px) {
   .nav ul > li > a { font-size: 14px; padding: 14px 8px; }
   .logo img { height: 52px; }
+}
+@media (max-width: 620px) {
+  .orgaos-lista { grid-template-columns: 1fr; }
+  .cartaz-orgaos { margin-top: 20px; }
 }
 @media (max-width: 820px) {
   .menu-btn { background: var(--cta-red); color: #fff; font-family: var(--cta-font-head); font-weight: 600; }
