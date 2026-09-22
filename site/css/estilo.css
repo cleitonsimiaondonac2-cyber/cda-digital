@@ -980,9 +980,15 @@ tr:hover td { background: var(--bg-alt); }
 }
 .parceiros-item-logo {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4px;
   background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 18px;
+  min-height: 76px;
 }
 .parceiros-item-img {
   display: block;
@@ -990,6 +996,17 @@ tr:hover td { background: var(--bg-alt); }
   height: 40px;
   max-width: 140px;
   object-fit: contain;
+}
+.parceiros-item-nome {
+  font-size: .66rem;
+  font-weight: 700;
+  color: var(--navy-3);
+  text-align: center;
+  max-width: 150px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 @keyframes parceiros-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 

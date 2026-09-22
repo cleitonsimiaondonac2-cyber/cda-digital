@@ -259,36 +259,35 @@
   // 5) PARCEIROS — carrossel contínuo de instituições parceiras
   var parceirosTrack = document.querySelector(".parceiros-track");
   if (parceirosTrack) {
-    // Itens com logo real (img) e/ou nome de texto — os nomes são preservados
-    // no atributo alt para acessibilidade; instituições sem logo ficam como texto.
+    // Todos os itens mostram LOGO + NOME juntos (logo img com alt + span com o nome)
     var parceiros = [
-      { tipo: "logo", src: "img/parceiros/at.png", alt: "Autoridade Tributária de Moçambique" },
-      { tipo: "texto", nome: "Alfândegas de Moçambique" },
-      { tipo: "texto", nome: "Ministério da Economia e Finanças" },
-      { tipo: "logo", src: "img/parceiros/mic.png", alt: "Ministério da Indústria e Comércio" },
-      { tipo: "texto", nome: "Confederação das Associações Económicas" },
-      { tipo: "texto", nome: "Câmara de Comércio de Moçambique" },
-      { tipo: "texto", nome: "Agência para a Promoção de Investimentos" },
-      { tipo: "texto", nome: "Instituto de Gestão de Zonas Económicas Especiais" },
-      { tipo: "logo", src: "img/parceiros/jue-fallback.svg", alt: "Janela Única Electrónica (JUE)" },
-      { tipo: "logo", src: "img/parceiros/asapra-fallback.svg", alt: "ASAPRA" },
-      { tipo: "logo", src: "img/parceiros/fiata.svg", alt: "FIATA" },
-      { tipo: "logo", src: "img/parceiros/wco.png", alt: "Organização Mundial das Alfândegas" },
-      { tipo: "texto", nome: "Banco de Moçambique" }
+      { tipo: "logo", src: "img/parceiros/at.png", nome: "Autoridade Tributária de Moçambique" },
+      { tipo: "logo", src: "img/parceiros/alfandegas-fallback.svg", nome: "Alfândegas de Moçambique" },
+      { tipo: "logo", src: "img/parceiros/mef.png", nome: "Ministério da Economia e Finanças" },
+      { tipo: "logo", src: "img/parceiros/mic.png", nome: "Ministério da Indústria e Comércio" },
+      { tipo: "logo", src: "img/parceiros/cta.png", nome: "Confederação das Associações Económicas (CTA)" },
+      { tipo: "logo", src: "img/parceiros/ccm-fallback.svg", nome: "Câmara de Comércio de Moçambique" },
+      { tipo: "logo", src: "img/parceiros/apiex.png", nome: "Agência para a Promoção de Investimentos (APIEX)" },
+      { tipo: "logo", src: "img/parceiros/igeze-fallback.svg", nome: "Instituto de Gestão de Zonas Económicas Especiais (IGEZE)" },
+      { tipo: "logo", src: "img/parceiros/jue-fallback.svg", nome: "Janela Única Electrónica (JUE)" },
+      { tipo: "logo", src: "img/parceiros/asapra-fallback.svg", nome: "ASAPRA" },
+      { tipo: "logo", src: "img/parceiros/fiata.svg", nome: "FIATA" },
+      { tipo: "logo", src: "img/parceiros/wco.png", nome: "Organização Mundial das Alfândegas (OMA/WCO)" },
+      { tipo: "logo", src: "img/parceiros/bancomoc.png", nome: "Banco de Moçambique" }
     ];
     parceiros.forEach(function (p) {
       var item = document.createElement("span");
-      item.className = p.tipo === "logo" ? "parceiros-item parceiros-item-logo" : "parceiros-item";
-      if (p.tipo === "logo") {
-        var img = document.createElement("img");
-        img.className = "parceiros-item-img";
-        img.src = p.src;
-        img.alt = p.alt;
-        img.loading = "lazy";
-        item.appendChild(img);
-      } else {
-        item.textContent = p.nome;
-      }
+      item.className = "parceiros-item parceiros-item-logo";
+      var img = document.createElement("img");
+      img.className = "parceiros-item-img";
+      img.src = p.src;
+      img.alt = p.nome;
+      img.loading = "lazy";
+      var nome = document.createElement("span");
+      nome.className = "parceiros-item-nome";
+      nome.textContent = p.nome;
+      item.appendChild(img);
+      item.appendChild(nome);
       parceirosTrack.appendChild(item);
     });
     // Duplica para loop contínuo (animation translateX -50%)
