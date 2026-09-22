@@ -259,7 +259,7 @@
   // 5) PARCEIROS — carrossel contínuo de instituições parceiras
   var parceirosTrack = document.querySelector(".parceiros-track");
   if (parceirosTrack) {
-    // Todos os itens mostram LOGO + NOME juntos (logo img com alt + span com o nome)
+// Todos os itens mostram LOGO + NOME juntos (logo img com alt + span com o nome)
     var parceiros = [
       { tipo: "logo", src: "img/parceiros/at.png", nome: "Autoridade Tributária de Moçambique" },
       { tipo: "logo", src: "img/parceiros/alfandegas-fallback.svg", nome: "Alfândegas de Moçambique" },
@@ -267,7 +267,7 @@
       { tipo: "logo", src: "img/parceiros/mic.png", nome: "Ministério da Indústria e Comércio" },
       { tipo: "logo", src: "img/parceiros/cta.png", nome: "Confederação das Associações Económicas (CTA)" },
       { tipo: "logo", src: "img/parceiros/ccm-fallback.svg", nome: "Câmara de Comércio de Moçambique" },
-      { tipo: "logo", src: "img/parceiros/apiex.png", nome: "Agência para a Promoção de Investimentos (APIEX)" },
+      { tipo: "logo", src: "img/parceiros/apiex.png", nome: "Agência para a Promoção de Investimentos e Exportações (APIEX)" },
       { tipo: "logo", src: "img/parceiros/igeze-fallback.svg", nome: "Instituto de Gestão de Zonas Económicas Especiais (IGEZE)" },
       { tipo: "logo", src: "img/parceiros/jue-fallback.svg", nome: "Janela Única Electrónica (JUE)" },
       { tipo: "logo", src: "img/parceiros/asapra-fallback.svg", nome: "ASAPRA" },
