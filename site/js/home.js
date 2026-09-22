@@ -259,7 +259,7 @@
   // 5) PARCEIROS — carrossel contínuo de instituições parceiras
   var parceirosTrack = document.querySelector(".parceiros-track");
   if (parceirosTrack) {
-// Todos os itens mostram LOGO + NOME juntos (logo img com alt + span com o nome)
+    // Todos os itens mostram LOGO + NOME juntos (logo img com alt + span com o nome)
     var parceiros = [
       { tipo: "logo", src: "img/parceiros/at.png", nome: "Autoridade Tributária de Moçambique" },
       { tipo: "logo", src: "img/parceiros/alfandegas-fallback.svg", nome: "Alfândegas de Moçambique" },
