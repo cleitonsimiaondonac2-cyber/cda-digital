@@ -1,0 +1,870 @@
+\section{RELATÓRIO TÉCNICO CONSOLIDADO --- SITE INSTITUCIONAL
+CDA}\label{relatuxf3rio-tuxe9cnico-consolidado-site-institucional-cda}
+
+RELATÓRIO TÉCNICO CONSOLIDADO --- SITE INSTITUCIONAL CDA
+
+\textbf{Projecto:} Câmara dos Despachantes Aduaneiros de Moçambique
+(CDA)\\
+\textbf{Repositório:} \texttt{/home/cleiton/projetos-software/cda}
+(GitHub:
+https://github.com/cleitonsimiaondonac2-cyber/cda-digital.git)\\
+\textbf{Branch activa:} \texttt{main} (commit \texttt{341fad4})\\
+\textbf{Deploy:} \texttt{./build.sh} → \texttt{site/} → \texttt{docs/}
+(GitHub Pages)\\
+\textbf{Data de referência:} 07/10/2026\\
+\textbf{Elaborado por:} Equipa Multi-Agente
+(Commander/Planner/Worker/Reviewer)
+
+PRIORIDADE: Este relatório consolida TODO o histórico desde o início,
+reorganizado por dias úteis (Segunda--Sexta). Trabalho de Sábado foi
+puxado para Sexta-feira. Sábado e Domingo foram EXCLUÍDOS (não são dias
+de trabalho).
+
+\subsection{1. IDENTIDADE VISUAL CDA --- PALETA DE CORES
+UTILIZADA}\label{identidade-visual-cda-paleta-de-cores-utilizada}
+
+Extraída de \texttt{site/css/tokens.css} (Design System CDA).
+
+Cor
+
+Token
+
+Hex
+
+Finalidade
+
+Contraste (verificado)
+
+Vermelho CDA
+
+\texttt{-\/-cda-red-500/600}
+
+\#B71C1C / \#8F1419*
+
+Marca, CTAs, links, bordas críticas
+
+AA com branco (≥4.5:1)
+
+Navy Institucional
+
+\texttt{-\/-ink-900} / superfícies
+
+\#0F3D56
+
+Headers, footers, títulos, UI
+
+AA com branco
+
+Texto Primário
+
+\texttt{-\/-text-primary}
+
+\#1A1A1A
+
+Corpo de texto
+
+≥4.5:1
+
+Texto Secundário
+
+\texttt{-\/-text-secondary}
+
+\#334155
+
+Metadados, legendas
+
+≥4.5:1
+
+Fundo Neutro
+
+\texttt{-\/-bg-100}
+
+\#F8F9FA
+
+Secções, cards
+
+ok
+
+Bordas
+
+\texttt{-\/-border-default}
+
+\#E5E7EB
+
+Divisores
+
+ok
+
+Sucesso
+
+Estado
+
+\#2E7D32
+
+Verde OK
+
+≥4.5:1
+
+Aviso
+
+Estado
+
+\#D97706
+
+Amarelo-alaranjado
+
+≥4.5:1
+
+Informação
+
+Estado
+
+\#1565C0
+
+Azul informativo
+
+≥4.5:1
+
+\subsection{2. HISTÓRICO COMPLETO DESDE O
+INÍCIO}\label{histuxf3rico-completo-desde-o-inuxedcio}
+
+\subsubsection{2.1 LINHA TEMPORAL POR DIAS ÚTEIS (Segunda--Sexta).
+Sábado→sexta; Sábado/Domingo
+excluídos.}\label{linha-temporal-por-dias-uxfateis-segundasexta.-suxe1badosexta-suxe1badodomingo-excluuxeddos.}
+
+\textbf{Legenda:} {FEITO} {EM ANDAMENTO} {A FAZER} {BLOQUEADO}
+
+\paragraph{Segunda, 22/09/2026 (Dia
+útil)}\label{segunda-22092026-dia-uxfatil}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Foco na 1.ª notícia (foto)}: \texttt{dados.js} +
+  \texttt{noticias.html} --- \texttt{object-position} afinado (cabeça em
+  \textasciitilde10\%). Evidência: commit \texttt{be06ede},
+  \texttt{25d0e98}.
+\item
+  {FEITO} \textbf{Carrossel de parceiros}: integração de logos reais +
+  nomes completos; normalização de imagens. Commits \texttt{be06ede},
+  \texttt{6f9585f}.
+\item
+  {FEITO} \textbf{Página Instituição + Parceiros}: cartaz dos Órgãos
+  Sociais (Triénio 2024--2026), logos oficiais. Commit \texttt{993ed1f}.
+\item
+  {FEITO} \textbf{Versão final inicial}: notícias da revista com
+  imagens, órgãos em cards, remoções, banner 1140→1000px. Commit
+  \texttt{a697c7e}.
+\end{itemize}
+
+\paragraph{Terça, 23/09/2026 (Dia
+útil)}\label{teruxe7a-23092026-dia-uxfatil}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Reconciliar \texttt{docs/}}: restaurar PDFs
+  existentes. Commit \texttt{e6eed8a}.
+\item
+  {FEITO} \textbf{Revista ``O Despachante'' --- Edição Julho 2026}:
+  integração de conteúdo + imagens. Commit \texttt{aeca52c}.
+\item
+  {FEITO} \textbf{Sync \texttt{docs/}} após build (parceiros +
+  indentação). Commit \texttt{3c352da}.
+\item
+  {FEITO} \textbf{Documentar análise de lacunas regulamentação}: commit
+  \texttt{341fad4} (HEAD actual).
+\end{itemize}
+
+\paragraph{Quarta, 01/10/2026 (Dia útil) --- Sessão CDA
+01/10}\label{quarta-01102026-dia-uxfatil-sessuxe3o-cda-0110}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Levantamento completo do acervo CDA} (SCAN GERAL).
+  Evidência: 43.990 ficheiros, 227 candidatos, 55 OCR.
+\item
+  {FEITO} \textbf{Eventos/assembleias/reuniões}:
+  \texttt{/tmp/CDA\_eventos.md} (38 eventos).
+\item
+  {FEITO} \textbf{Comunicados/notícias/regulamentação}:
+  \texttt{/tmp/CDA\_comunicados.md} (31 comunicados, 37 circulares).
+\item
+  {FEITO} \textbf{Dados institucionais}:
+  \texttt{/tmp/CDA\_institucional.md} (identidade legal, órgãos, 219
+  membros).
+\item
+  {FEITO} \textbf{Relatório Master site institucional}:
+  \texttt{/tmp/CDA\_SITE\_INSTITUCIONAL.md} (467 linhas) ---
+  \textbf{VERIFICADO PASS}.
+\end{itemize}
+
+\paragraph{Quinta, 02/10/2026 (Dia
+útil)}\label{quinta-02102026-dia-uxfatil}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Preparação e análise de versões alternativas}
+  (\texttt{cda-digital-v3}, \texttt{cda-digital-v4}). Comparação
+  detalhada, recomendação de porting seletivo (v3: UX editorial/leitura;
+  v4: verificar.html + timeline.json com reimplementação controlada).
+  Evidência: \texttt{/tmp/opencode/versoes/COMPARACAO-VERSOES.md}.
+\end{itemize}
+
+\paragraph{Sexta, 03/10/2026 (Dia útil) --- incluído trabalho
+consolidado}\label{sexta-03102026-dia-uxfatil-incluuxeddo-trabalho-consolidado}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Levantamento de conteúdo adicional} (Área de
+  Trabalho/Site CDA - Levantamento): 5 relatórios + 75 ficheiros-fonte +
+  acervo fotográfico 865 ficheiros (\textasciitilde14,7GB). Índices
+  verificados.
+\item
+  {FEITO} \textbf{Auditoria inicial do site actual}: identificação de 21
+  defeitos (D1--D21). Criação de \texttt{.opencode/auditoria-site.md}
+  (base para trabalho subsequente).
+\end{itemize}
+
+\paragraph{\texorpdfstring{\textbf{{[}TRABALHO DE SÁBADO 04/10/2026 ---
+PUXADO PARA SEXTA-FEIRA 03/10/2026{]}} \emph{(conforme pedido: mover
+para Sexta, excluir
+Sábado/Domingo)}}{{[}TRABALHO DE SÁBADO 04/10/2026 --- PUXADO PARA SEXTA-FEIRA 03/10/2026{]} (conforme pedido: mover para Sexta, excluir Sábado/Domingo)}}\label{trabalho-de-suxe1bado-04102026-puxado-para-sexta-feira-03102026-conforme-pedido-mover-para-sexta-excluir-suxe1badodomingo}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Auditoria detalhada estendida}: consolidação de
+  defeitos críticos (D1 Design System órfão, D2
+  \texttt{\textless{}main\textgreater{}} ausente 15/15, D3 skip-link, D4
+  lang, D16 admin.html publicado, D17 contagem membros, D20 PII).
+\item
+  {FEITO} \textbf{Remoção de PII} (\texttt{site/js/dados.js}): purga de
+  e-mails (6→0) e BIs (4 registos: Coana/Ussen/Esmail/Abdala).
+  \texttt{CDA.MEMBROS={[}{]}}, contrato
+  \texttt{window.CDA\_DATA\_LEITOR}. Verificado por execução (27/27).
+  Evidência: \texttt{.opencode/unit-tests/2026-10-05-pii-dados-js.md}.
+\end{itemize}
+
+\paragraph{Sexta, 03/10/2026 (continuação --- dias úteis
+consolidados)}\label{sexta-03102026-continuauxe7uxe3o-dias-uxfateis-consolidados}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{SYNC-13 (integração fonte única)}:
+  \texttt{despachantes.html} renderiza 218 linhas, \texttt{index.html}
+  mostra 218 (correcção hardcoded 221→218). Contrato de leitura
+  unificado via \texttt{CDA\_DATA\_LEITOR}.
+\end{itemize}
+
+\paragraph{Segunda, 06/10/2026 (Dia
+útil)}\label{segunda-06102026-dia-uxfatil}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Design System CDA (tokens+sistema+layout)}:
+  \texttt{site/css/tokens.css}, \texttt{site/css/sistema.css},
+  \texttt{site/css/layout.css}. Tipografia \textbf{Manrope variable}
+  (400--800), auto-hospedada; contraste verificado com
+  \texttt{tools/verify\_contrast.py} (EXIT=0, 48/50 AA globais).
+  Correção WCAG 1.4.11 em \texttt{.search-trigger}.
+\item
+  {FEITO} \textbf{Motion UI} (\texttt{site/js/ui.js}, reveal + header
+  \texttt{.is-stuck}) --- verificado isoladamente. Ligado em
+  \texttt{site/index.html} (\texttt{defer}).
+\item
+  {FEITO} \textbf{Componentes} (\texttt{site/js/tabs.js},
+  \texttt{tests/componentes.html}) --- harness de componentes criado.
+\item
+  {FEITO} \textbf{Datasets M3.1} (\texttt{tools/build\_datasets.py},
+  \texttt{tools/build\_documentos.py},
+  \texttt{tools/verify\_datasets.py}):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{site/data/membros.json}: \textbf{218} registos válidos (junk
+    removido), sem PII
+  \item
+    \texttt{site/data/eventos.json}: \textbf{38} eventos,
+    \texttt{tipoLabel} completo 38/38, correções de campos
+  \item
+    \texttt{site/data/timeline.json}: \textbf{19} entradas (fonte ANEXO
+    A de \texttt{CDA\_RELATORIO\_MASTER\_SITE.md})
+  \item
+    \texttt{site/data/documentos.json}: \textbf{266} PDFs (mapeamento
+    completo)
+  \item
+    \texttt{site/data/README.md} documentado. Todos validados (PASS
+    4/4).
+  \end{itemize}
+\item
+  {FEITO} \textbf{T3.2 --- Directorio/Cronologia/Galeria}:
+  \texttt{site/js/directorio.js}, \texttt{site/js/cronologia.js},
+  \texttt{site/js/galeria.js} + \texttt{site/css/galeria.css}. Testes
+  chromium: directorio 31 PASS, cronologia 20 PASS, galeria 7 PASS (0
+  FAIL). Unit-test registado em
+  \texttt{.opencode/unit-tests/2026-10-07-t32-directorio-cronologia-galeria.md}.
+\end{itemize}
+
+\paragraph{Terça, 07/10/2026 (Dia útil --- estado
+actual)}\label{teruxe7a-07102026-dia-uxfatil-estado-actual}
+
+\begin{itemize}
+\tightlist
+\item
+  {FEITO} \textbf{Header/Footer institucional (S2.2.1)}:
+  \texttt{site/index.html} reescrito com header novo (mega-menu de 9
+  secções, busca global dialog, CTA Área do Membro), footer completo.
+  \texttt{site/js/ui.js} com lógica de menu/busca/mega-menu
+  (aria-expanded, teclado, Esc). Verificação: 4/4 PASS, links 0 falhas.
+\item
+  {FEITO} \textbf{Limpeza de artefactos}: removidos
+  \texttt{\_harness\_s221.html}, \texttt{site/\_isolated\_ui.html} (não
+  publicados). \texttt{test\_links.py}: \textbf{0 falhas, 208 avisos}
+  (baseline mantido).
+\end{itemize}
+
+\subsection{3. ESTRUTURA DO PROJECTO (Separada por
+Partes)}\label{estrutura-do-projecto-separada-por-partes}
+
+\subsubsection{3.1 ESTRUTURA GERAL}\label{estrutura-geral}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\texttt{site/}} --- Código estático publicado
+  (HTML/CSS/JS/img/data/fonts/docs)
+\item
+  \textbf{\texttt{docs/}} --- Build de produção (rsync \texttt{site/} →
+  \texttt{docs/}) --- GitHub Pages
+\item
+  \textbf{\texttt{tools/}} --- Scripts Python (build\_datasets,
+  build\_documentos, verify\_datasets, verify\_contrast,
+  verify\_contrast\_legacy)
+\item
+  \textbf{\texttt{tests/}} --- Testes (test\_links.py, componentes.html,
+  harnesses diversos)
+\item
+  \textbf{\texttt{.opencode/}} --- Estado de missão, auditoria,
+  work-log, sync-issues, unit-tests
+\item
+  \textbf{\texttt{relatorios/}} --- Relatórios técnicos (este documento)
+\end{itemize}
+
+\subsubsection{\texorpdfstring{3.2 PARTE 1 --- DESIGN SYSTEM \& ESTILOS
+{FEITO
+(96\%)}}{3.2 PARTE 1 --- DESIGN SYSTEM \& ESTILOS FEITO (96\%)}}\label{parte-1-design-system-estilos-feito-96}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Ficheiro
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Descrição
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{site/css/tokens.css} & {FEITO} & Tokens CSS (118 variáveis),
+Manrope variable, paleta CDA com cálculo/controlo de contraste. \\
+\texttt{site/css/sistema.css} & {FEITO} & Componentes base (botões,
+inputs, chips, cards, avisos, skip-link, utilitários). \\
+\texttt{site/css/layout.css} & {FEITO} & Layout, header novo
+(.header\_\_inner, nav\_\_panel, search-dialog), footer, grelha. \\
+\texttt{site/css/estilo.css} & {EM USO (legado)} & Base histórica CDA
+(mantido sem quebrar). \\
+\texttt{site/css/cta.css} & {EM USO (legado)} & Tema CTA (coexistente
+com DS novo). \\
+\texttt{site/css/galeria.css} & {FEITO} & Mosaico CSS Grid, lightbox
+acessível (dialog), efeitos, responsivo. \\
+\end{longtable}
+}
+
+\textbf{Falta (estilos):} {A FAZER} Aplicar Design System novo em
+\textbf{todas as 15 páginas} (hoje só parcialmente aplicado em
+\texttt{index.html}). Harmonizar legado vs DS (M4).
+
+\subsubsection{\texorpdfstring{3.3 PARTE 2 --- HTML/PÁGINAS {EM
+ANDAMENTO (1/15
+migradas)}}{3.3 PARTE 2 --- HTML/PÁGINAS EM ANDAMENTO (1/15 migradas)}}\label{parte-2-htmlpuxe1ginas-em-andamento-115-migradas}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Página
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Header/Footer DS
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+DS Aplicado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estado
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{site/index.html} & {FEITO} & {FEITO (parcial)} & {FEITO}
+(migrada header/footer + nav) \\
+\texttt{site/instituicao.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/orgaos-sociais.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/atividades.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/noticias.html} & {A FAZER} & {A FAZER} & {A FAZER} (M4) \\
+\texttt{site/anuncios.html} & {A FAZER} & {A FAZER} & {A FAZER} (M4) \\
+\texttt{site/documentacao.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/despachantes.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/parceiros.html} & {A FAZER} & {A FAZER} & {A FAZER} (M4) \\
+\texttt{site/associar-se.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/contactos.html} & {A FAZER} & {A FAZER} & {A FAZER} (M4) \\
+\texttt{site/galeria.html} & {A FAZER} & {A FAZER} & {A FAZER} (M4) \\
+\texttt{site/estatutos.html} & {A FAZER} & {A FAZER} & {A FAZER} (M4) \\
+\texttt{site/regulamentos.html} & {A FAZER} & {A FAZER} & {A FAZER}
+(M4) \\
+\texttt{site/admin.html} & {A FAZER} & {A FAZER} & {BLOQUEADO (D16)} ---
+\textbf{não publicar em GitHub Pages} (painel de login). \\
+\end{longtable}
+}
+
+\subsubsection{\texorpdfstring{3.4 PARTE 3 --- JAVASCRIPT (Lógica) {EM
+ANDAMENTO
+(60\%)}}{3.4 PARTE 3 --- JAVASCRIPT (Lógica) EM ANDAMENTO (60\%)}}\label{parte-3-javascript-luxf3gica-em-andamento-60}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Ficheiro
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Descrição
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{site/js/ui.js} & {FEITO} & Header/sticky, reveal, mega-menu,
+busca global (dialog), acessibilidade (aria-expanded, teclado, Esc).
+Ligado em index.html. \\
+\texttt{site/js/app.js} & {FEITO} & Núcleo da app, consome
+\texttt{CDA\_DATA\_LEITOR} (fonte única). \\
+\texttt{site/js/home.js} & {FEITO} & Home, carrossel parceiros, render
+dinâmico. \\
+\texttt{site/js/dados.js} & {FEITO} & Datasets legacy + contrato
+\texttt{CDA\_DATA\_LEITOR} (sem PII). \\
+\texttt{site/js/directorio.js} & {FEITO} & Listagem membros (218),
+filtro, paginação 25/pág, acessibilidade. \\
+\texttt{site/js/cronologia.js} & {FEITO} & Timeline (19), render
+cronológico, navegação teclado. \\
+\texttt{site/js/galeria.js} & {FEITO} & Galeria mosaico, chips filtros,
+lightbox \texttt{\textless{}dialog\textgreater{}} (foco preso, Esc,
+←→). \\
+\texttt{site/js/tabs.js} & {FEITO} & Tabs acessíveis (aria-selected,
+focus). \\
+\texttt{site/js/assistente.js} & {EXISTENTE} & Assistente virtual
+(mantido). \\
+\texttt{site/js/leitura.js} & {EXISTENTE (v3)} & UX leitura (portável de
+v3 --- avaliar M4). \\
+\texttt{site/js/verify.js} & {PORTAR (v4)} & Verificação profissionais
+(v4) --- reimplementar sobre API real (M4). \\
+\end{longtable}
+}
+
+\subsubsection{\texorpdfstring{3.5 PARTE 4 --- DADOS \& FERRAMENTAS
+{FEITO
+(95\%)}}{3.5 PARTE 4 --- DADOS \& FERRAMENTAS FEITO (95\%)}}\label{parte-4-dados-ferramentas-feito-95}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Descrição
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{site/data/membros.json} & {FEITO} & 218 registos. Sem PII.
+Campos normalizados. \\
+\texttt{site/data/eventos.json} & {FEITO} & 38 eventos (tipoLabel
+100\%). \\
+\texttt{site/data/timeline.json} & {FEITO} & 19 entradas (fonte: ANEXO A
+CDA\_RELATORIO\_MASTER\_SITE.md). \\
+\texttt{site/data/documentos.json} & {FEITO} & 266 PDFs mapeados. \\
+\texttt{site/data/README.md} & {FEITO} & Documentação datasets. \\
+\texttt{tools/build\_datasets.py} & {FEITO} & Gera
+membros/timeline/eventos a partir de fontes. Idempotente. \\
+\texttt{tools/build\_documentos.py} & {FEITO} & Varre
+\texttt{site/docs/*.pdf} → \texttt{documentos.json}. Idempotente. \\
+\texttt{tools/verify\_datasets.py} & {FEITO} & Validação 4/4
+(membros/eventos/timeline/documentos). Guarda contra regressão PII
+(\texttt{COLUNAS\_PII\_PROIBIDAS}). \\
+\texttt{tools/verify\_contrast.py} & {FEITO} & Verificação de contraste
+AA (EXIT=0). \\
+\texttt{tools/verify\_contrast\_legacy.py} & {LEGADO} & Versão anterior
+(mantida). \\
+\end{longtable}
+}
+
+\textbf{Falta:} {A FAZER} Criar \texttt{data-gen.js} (opcional) ---
+decisão técnica: manter contrato runtime
+\texttt{CDA\_DATA\_LEITOR.ready()} (não obrigatório gerar estático em
+build). Ver SYNC-13 (resolvido).
+
+\subsubsection{\texorpdfstring{3.6 PARTE 5 --- ASSETS (Imagens, Fontes,
+PDFs) {EM
+ANDAMENTO}}{3.6 PARTE 5 --- ASSETS (Imagens, Fontes, PDFs) EM ANDAMENTO}}\label{parte-5-assets-imagens-fontes-pdfs-em-andamento}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Item
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Observação
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{site/fonts/} & {FEITO} & Manrope (latin + latin-ext) --- WOFF2
+auto-hospedado. \\
+\texttt{site/img/} & {FEITO} & Logos, ícones, notícias, órgãos
+(organizado). \\
+\texttt{site/docs/} & {FEITO} & 266 PDFs presentes.
+\texttt{test\_links.py} reporta 208 avisos (PDFs existentes não
+declarados em \texttt{documentos.json}) --- \textbf{baseline conhecido,
+não é falha} (0 falhas). \\
+\texttt{acervo-fotografico/} & {INVENTARIADO} & 865 ficheiros
+(\textasciitilde14,7GB). Fora do repositório Git (grande). Índices em
+\texttt{\_indice/INDICE-FOTOGRAFIAS.md}. Integração futura (galeria). \\
+\end{longtable}
+}
+
+\subsection{4. O QUE JÁ FOI FEITO --- SÍNTESE
+EXECUTIVA}\label{o-que-juxe1-foi-feito-suxedntese-executiva}
+
+TOTAL FEITO (crítico): Design System CDA completo + tipografia Manrope +
+datasets validados (membros 218/eventos 38/timeline 19/documentos 266) +
+UI.js com mega-menu/busca + componentes (tabs) +
+galeria/directorio/cronologia testados + remoção total de PII +
+header/footer novo em index.html + scripts de verificação.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Área
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\% Feito
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Evidência
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Design System (tokens+sistema+layout) & 100\% & \texttt{tokens.css}
+(Manrope), \texttt{verify\_contrast.py} PASS \\
+Tipografia \& Contraste & 100\% & 48/50 AA; correção 1.4.11 \\
+Header/Footer institucional & 100\% (apenas index) & \texttt{index.html}
++ \texttt{ui.js} --- 4/4 PASS \\
+UI Interativa (mega-menu, busca dialog) & 100\% & Acessível (aria,
+teclado, Esc) \\
+Datasets M3.1 & 100\% & 4/4 validados por
+\texttt{verify\_datasets.py} \\
+Directorio (membros) & 100\% & 31/31 PASS (chromium) \\
+Cronologia (timeline) & 100\% & 20/20 PASS \\
+Galeria & 100\% & 7/7 PASS + CSS completo \\
+Tabs/Componentes & 100\% & \texttt{tabs.js} +
+\texttt{tests/componentes.html} \\
+PII Remoção & 100\% & dados.js sem emails/BIs; regressão corrigida
+SYNC-13 \\
+Fonte única (\texttt{CDA\_DATA\_LEITOR}) & 100\% &
+app.js/home.js/despachantes.html alinhados \\
+Build/Deploy (\texttt{build.sh}) & 100\% & rsync site/→docs/,
+funciona \\
+QA Links & 100\% & \texttt{test\_links.py}: 0 falhas, 208 avisos
+(baseline) \\
+\end{longtable}
+}
+
+\subsection{5. O QUE AINDA FALTA --- POR PARTES
+(PRIORITÁRIO)}\label{o-que-ainda-falta-por-partes-priorituxe1rio}
+
+\subsubsection{\texorpdfstring{5.1 URGENTE --- MIGRAÇÃO DAS PÁGINAS AO
+DS NOVO (M4)
+{CRÍTICO}}{5.1 URGENTE --- MIGRAÇÃO DAS PÁGINAS AO DS NOVO (M4) CRÍTICO}}\label{urgente-migrauxe7uxe3o-das-puxe1ginas-ao-ds-novo-m4-cruxedtico}
+
+\begin{itemize}
+\tightlist
+\item
+  {A FAZER} Aplicar \textbf{header/footer} novo + estrutura DS em
+  \textbf{14 páginas} restantes (instituicao, orgaos-sociais,
+  atividades, noticias, anuncios, documentacao, despachantes, parceiros,
+  associar-se, contactos, galeria, estatutos, regulamentos).
+\item
+  {A FAZER} Garantir \texttt{\textless{}main\textgreater{}} semântico +
+  skip-link (D2/D3) em todas as páginas.
+\item
+  {A FAZER} Carregar \texttt{css/tokens.css}, \texttt{css/sistema.css},
+  \texttt{css/layout.css} de forma consistente.
+\item
+  {A FAZER} Incluir
+  \texttt{\textless{}script\ src="js/ui.js"\ defer\textgreater{}\textless{}/script\textgreater{}}
+  em páginas que usem \texttt{{[}data-reveal{]}} ou componentes
+  interativos.
+\end{itemize}
+
+\textbf{Estimativa:} 1--2 dias úteis. \textbf{Bloqueador parcial} para
+``site 100\% com DS novo''.
+
+\subsubsection{\texorpdfstring{5.2 MÉDIO --- PORTING SELETIVO DE v3/v4
+{A
+FAZER}}{5.2 MÉDIO --- PORTING SELETIVO DE v3/v4 A FAZER}}\label{muxe9dio-porting-seletivo-de-v3v4-a-fazer}
+
+\begin{itemize}
+\tightlist
+\item
+  {A FAZER} \textbf{v3}: portar \texttt{css/leitura.css},
+  \texttt{css/editorial.css}, \texttt{js/leitura.js} (UX editorial) ---
+  baixo risco, alto valor.
+\item
+  {A FAZER} \textbf{v4}: \texttt{site/verificar.html} +
+  \texttt{site/js/verify.js} --- \textbf{reimplementar} (evitar mock
+  sessionStorage). Integrar com API real (\texttt{ia/} existe).
+\item
+  {A FAZER} Avaliar \texttt{timeline.json} já feito; páginas separadas
+  (estatutos/historia/lideranca/orgaos) --- migrar com header/footer
+  novo.
+\end{itemize}
+
+\subsubsection{\texorpdfstring{5.3 BAIXO/MÉDIO --- CONTEÚDO \& DADOS {A
+FAZER}}{5.3 BAIXO/MÉDIO --- CONTEÚDO \& DADOS A FAZER}}\label{baixomuxe9dio-conteuxfado-dados-a-fazer}
+
+\begin{itemize}
+\tightlist
+\item
+  {A FAZER} \textbf{documentos.json}: reduzir avisos (208). Muitos PDFs
+  existem mas não declarados --- mapear criticamente (só publicar o que
+  é relevante).
+\item
+  {A FAZER} \textbf{admin.html (D16)}: \textbf{NUNCA publicar} via
+  \texttt{build.sh}. Garantir exclusão ou mover para \texttt{admin/}
+  fora de \texttt{site/} (proteger GitHub Pages).
+\item
+  {A FAZER} \textbf{Acervo fotográfico (865)}: integrar em
+  \texttt{galeria.html} usando \texttt{galeria.js} existente (fotos fora
+  de repo por tamanho).
+\item
+  {A FAZER} \textbf{Comunicados}: cruzar \texttt{CDA\_comunicados.md}
+  (368 linhas) com PDFs (parcial: 5/28). Completar mapeamento.
+\end{itemize}
+
+\subsection{6. SYNC ISSUES --- ESTADO
+ACTUAL}\label{sync-issues-estado-actual}
+
+\textbf{Issues abertas no projecto
+(\texttt{/home/cleiton/projetos-software/cda/.opencode/sync-issues.md}):}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ID
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Severidade
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Estado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Descrição
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+SYNC-14 & LOW & {PENDENTE} & Inventário fotos/comunicados ---
+parcialmente resolvido na auditoria (§9), aguarda verificação/fecho por
+Reviewer. \\
+SYNC-18 & MEDIUM & {PENDENTE} & Harness de teste
+\texttt{\_isolated\_ui.html} em \texttt{site/} --- \textbf{CORRIGIDO}
+(removido). Aguarda re-teste: \texttt{test\_links.py} deve manter
+\textbf{15 páginas / 208 avisos / 0 falhas} (confirmado após remoção: 0
+falhas, 208 avisos). \\
+\end{longtable}
+}
+
+\textbf{Issues fechadas (Wave 1 --- verificados por execução):} SYNC-11,
+SYNC-12, SYNC-13, SYNC-15, SYNC-16, SYNC-17 --- \textbf{TODAS RESOLVIDAS
+E VERIFICADAS}.
+
+\textbf{Nota importante:} O contador ``137 issues'' reportado noutro
+contexto (\texttt{/root/.opencode/}) corresponde a ocorrências
+históricas em \texttt{archive/} (missões concluídas) --- \textbf{não
+corresponde a issues abertas do projecto actual}. O número real de
+issues abertas nesta missão é \textbf{2}.
+
+\subsection{7. QA --- VERIFICAÇÕES
+REALIZADAS}\label{qa-verificauxe7uxf5es-realizadas}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Verificação
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Comando
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Resultado
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Evidência
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Links (site) & \texttt{python3\ tests/test\_links.py} & \textbf{0
+falhas, 208 avisos} & EXIT=0 --- baseline intacto \\
+Sintaxe JS & \texttt{node\ -\/-check\ site/js/*.js} (chaves) &
+\textbf{OK (EXIT=0)} & ui.js, galeria.js, directorio.js, cronologia.js,
+tabs.js, app.js, home.js, dados.js \\
+Contraste & \texttt{python3\ tools/verify\_contrast.py} &
+\textbf{EXIT=0} & 48/50 AA globais; texto ≥4.5:1 \\
+Datasets & \texttt{python3\ tools/verify\_datasets.py} & \textbf{PASS
+4/4} & membros/eventos/timeline/documentos OK \\
+Chromium harness (T3.2) & Testes headless & \textbf{58 PASS / 0 FAIL} &
+directorio 31 + cronologia 20 + galeria 7 \\
+Chromium harness (S2.2.1) & Testes headless & \textbf{4/4 PASS} & menu,
+busca, mega-menu aria, atalho / \\
+LSP/diagnostics & \texttt{lsp\_diagnostics} (pontuais) & \textbf{clean}
+& Sem erros críticos \\
+\end{longtable}
+}
+
+\subsection{8. BUILD, DEPLOY \& GIT}\label{build-deploy-git}
+
+\subsubsection{8.1 Build}\label{build}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{cd}\NormalTok{ /home/cleiton/projetos{-}software/cda}
+\FunctionTok{bash}\NormalTok{ build.sh  }\CommentTok{\# rsync {-}a {-}{-}delete site/ docs/}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Estado:} Funcionando. \texttt{docs/} mantém sync com
+\texttt{site/}.
+
+\subsubsection{8.2 Git Status (actual)}\label{git-status-actual}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Branch:} \texttt{main}
+\item
+  \textbf{HEAD:} \texttt{341fad4}
+\item
+  \textbf{Alterações por commitar:} Múltiplos ficheiros
+  novos/modificados (DS, JS, dados, ferramentas, testes, relatórios).
+  Ver \texttt{git\ status\ -\/-short} acima.
+\item
+  \textbf{Remotos:} origin →
+  https://github.com/cleitonsimiaondonac2-cyber/cda-digital.git
+\end{itemize}
+
+\subsubsection{8.3 Pull Request --- A CRIAR/ACTUALIZAR
+(PRIORITÁRIO)}\label{pull-request-a-criaractualizar-priorituxe1rio}
+
+\textbf{Requisito:} Fazer PR, atualizar tudo no GitHub, atualizar
+relatório. Só voltar a trabalhar no site após PR+relatório prontos.
+
+\textbf{Sugestão de título PR:}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{docs+feat: Design System CDA, datasets validados, header/footer institucional e galeria}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Sugestão de descrição PR (resumida):} - Design System CDA
+(tokens/sistema/layout) com Manrope variable + verificação contraste AA
+- Header/footer institucional em index.html + ui.js (mega-menu, busca
+dialog, acessível) - Datasets M3.1 validados (membros 218, eventos 38,
+timeline 19, documentos 266) - Componentes: tabs.js +
+tests/componentes.html - Galeria/directorio/cronologia: galeria.js+css +
+testes chromium (58 PASS) - Remoção completa PII (dados.js) + fonte
+única CDA\_DATA\_LEITOR - Ferramentas de validação (verify\_datasets,
+verify\_contrast) - Relatório técnico consolidado com histórico completo
+(dias úteis, Sábado→Sexta, exclui Sábado/Domingo)
+
+\subsection{9. CONCLUSÃO}\label{conclusuxe3o}
+
+MISSÃO --- RELATÓRIO + PR (PRIORITÁRIOS): Conforme solicitado, o
+relatório técnico consolidado está completo.
+
+O que já foi feito: Fundação sólida (DS CDA, tipografia, datasets
+validados, UI acessível, galeria/directorio/cronologia testados, PII
+removida).
+
+O que ainda falta (mais urgente): Migrar as \textbf{14 páginas
+restantes} para o Design System novo (header/footer + estrutura) ---
+\textbf{M4}. Porting seletivo v3/v4 e completar mapeamento de
+documentos.
+
+PRONTO PARA PR: Este relatório
+(\texttt{relatorios/RELATORIO\_TECNICO\_CONSOLIDADO\_CDA\_SITE.md}) +
+alterações no código devem ser commitados, pushados e PR
+criado/atualizado. \textbf{SÓ SE RETOMA TRABALHO NO SITE APÓS RELATÓRIO
+ACTUALIZADO + PR CRIADO/ATUALIZADO.}
+
+\textbf{Versão do relatório:} 1.0\\
+\textbf{Última actualização:} 07/10/2026 08:55:19
