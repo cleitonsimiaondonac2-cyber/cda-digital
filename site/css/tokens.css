@@ -1,0 +1,216 @@
+/* ==========================================================================
+   CDA — Design System: tokens
+   Câmara dos Despachantes Aduaneiros de Moçambique
+   --------------------------------------------------------------------------
+   Baseado em GOV.UK Design System (paleta oficial + contraste AA),
+   USWDS e gov.br (Design System for Government).
+
+As razões de contraste NÃO são afirmadas aqui: são CALCULADAS por
+   `tools/verify_contrast.py`, que extrai os tokens deste ficheiro, resolve as
+   referências `var(--x)`, separa os valores por omissão dos valores dentro de
+   `@media`, e imprime a tabela de rácios com PASS/FAIL por par semântico.
+   Execute `python3 tools/verify_contrast.py` para reproduzir a evidência.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. TIPOGRAFIA — Manrope variable (400-800), títulos E corpo de texto
+   Auto-hospedada em /fonts — sem pedido a terceiros (RGPD-friendly, rápido)
+
+   Uma só família, duas variáveis. Manrope é variable com eixo de peso real:
+   não há faux-bold nem sintese de itálico, e o mesmo ficheiro serve titulos e
+   texto corrido.
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/manrope-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+                 U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+                 U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/manrope-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF,
+                 U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+:root {
+  --font-display: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Escala fluida — clamp() sobe com o viewport, sem media queries por tipo */
+  --fs-xs:   0.8125rem;                                   /* 13px — metadados */
+  --fs-sm:   0.875rem;                                    /* 14px — UI        */
+  --fs-base: clamp(1rem, 0.97rem + 0.15vw, 1.0625rem);    /* 16→17px — corpo  */
+  --fs-md:   clamp(1.0625rem, 1.02rem + 0.22vw, 1.1875rem);
+  --fs-lg:   clamp(1.25rem, 1.17rem + 0.4vw, 1.5rem);     /* 20→24px         */
+  --fs-xl:   clamp(1.5rem, 1.36rem + 0.7vw, 2rem);        /* 24→32px         */
+  --fs-2xl:  clamp(1.875rem, 1.66rem + 1.05vw, 2.75rem);  /* 30→44px         */
+  --fs-3xl:  clamp(2.25rem, 1.9rem + 1.75vw, 3.75rem);   /* 36→60px — hero  */
+
+  --lh-tight: 1.12;
+  --lh-snug:  1.3;
+  --lh-normal: 1.55;
+  --lh-relaxed: 1.72;
+
+  --tracking-tight: -0.022em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.06em;
+  --tracking-wider: 0.14em;
+
+  /* ------------------------------------------------------------------------
+     2. CORES — primária: vermelho institucional CDA (heritage preservado)
+     Neutros: escala GOV.UK (gray/black tints) + navy para superfícies frias
+     ---------------------------------------------------------------------- */
+  --cda-red-50:  #fdf2f3;
+  --cda-red-100: #fbe3e5;
+  --cda-red-200: #f6c8cc;
+  --cda-red-300: #ee9ba2;
+  --cda-red-400: #e2646e;
+  --cda-red-500: #d8232a;   /* --cta-red actual, para continuidade de marca */
+  --cda-red-600: #b01b21;   /* AA com branco — CTAs, links (medido pelo script) */
+  --cda-red-700: #8f1419;
+  --cda-red-800: #6e0f13;
+  --cda-red-900: #4d0a0d;
+
+  --cda-navy-50:  #f2f6fa;
+  --cda-navy-100: #e3ebf3;
+  --cda-navy-200: #c4d3e2;
+  --cda-navy-300: #9ab0c8;
+  --cda-navy-400: #6a869f;
+  --cda-navy-500: #47637e;
+  --cda-navy-600: #334b63;
+  --cda-navy-700: #25384c;
+  --cda-navy-800: #18273a;
+  --cda-navy-900: #0f1c2b;
+
+  --cda-ink-900: #0b0c0c;   /* títulos e corpo de texto                   */
+  --cda-ink-800: #16202b;
+  --cda-ink-700: #243447;
+  --cda-ink-600: #5c6773;   /* texto secundário                           */
+  --cda-ink-500: #6b7480;   /* 4.74:1 em branco — usado em ::placeholder (AA) */
+  --cda-ink-400: #9aa3ad;   /* apenas decorativo (separadores) — não é texto  */
+
+  --cda-green-600: #0f7a52;  /* sucesso (GOV.UK)  */
+  --cda-green-100: #e4f2ec;
+  --cda-amber-600: #b45309;
+  --cda-amber-100: #fdf3e3;
+
+  /* Semânticos */
+  --surface-page:    #ffffff;
+  --surface-subtle:  var(--cda-navy-50);
+  --surface-muted:   var(--cda-navy-100);
+  --surface-inverse: var(--cda-navy-900);
+  --surface-inverse-2: var(--cda-navy-800);
+
+  --text-primary:    var(--cda-ink-900);
+  --text-secondary:  var(--cda-ink-600);
+  --text-inverse:    #ffffff;
+  --text-on-red:     #ffffff;   /* sobre --cda-red-600                        */
+
+  --border-subtle:  var(--cda-navy-200);   /* divisores decorativos                     */
+  --border-default: var(--cda-navy-400);   /* 3.80:1 — fronteira de controlos (WCAG 1.4.11) */
+  --border-strong:  var(--cda-ink-700);
+
+  --accent:        var(--cda-red-600);
+  --accent-hover:  var(--cda-red-700);
+  --link:          #1a65a6;    /* GOV.UK link — medido pelo script            */
+  --link-hover:    #0f385c;
+  --focus:         #ffdd00;    /* GOV.UK focus — visível em qualquer fundo */
+  --focus-text:    var(--cda-ink-900);
+
+  /* ------------------------------------------------------------------------
+     3. ESPAÇAMENTO — escala 4px (multiplos de 8 para ritmo consistente)
+     ---------------------------------------------------------------------- */
+  --sp-0: 0;
+  --sp-1: 0.25rem;   /*  4px */
+  --sp-2: 0.5rem;    /*  8px */
+  --sp-3: 0.75rem;   /* 12px */
+  --sp-4: 1rem;      /* 16px */
+  --sp-5: 1.5rem;    /* 24px */
+  --sp-6: 2rem;      /* 32px */
+  --sp-7: 3rem;      /* 48px */
+  --sp-8: 4rem;      /* 64px */
+  --sp-9: 6rem;      /* 96px */
+  --sp-10: 8rem;     /* 128px */
+
+  --section-y: clamp(3.5rem, 2.4rem + 5vw, 7rem);
+
+  /* ------------------------------------------------------------------------
+     4. GRID E LAYOUT
+     ---------------------------------------------------------------------- */
+  --container: 1240px;
+  --container-narrow: 820px;
+  --container-wide: 1440px;
+  --gutter: clamp(1.25rem, 0.9rem + 1.7vw, 2.5rem);
+  --grid-gap: clamp(1.25rem, 0.95rem + 1.5vw, 2rem);
+
+  --bp-sm: 480px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
+
+  --header-h: 72px;
+
+  /* ------------------------------------------------------------------------
+     5. RAIOS, SOMBRAS E MOVIMENTO
+     ---------------------------------------------------------------------- */
+  --r-xs: 3px;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 20px;
+  --r-2xl: 28px;
+  --r-full: 999px;
+
+  --shadow-xs: 0 1px 2px rgba(11, 12, 12, 0.06);
+  --shadow-sm: 0 2px 6px rgba(11, 12, 12, 0.07), 0 1px 2px rgba(11, 12, 12, 0.05);
+  --shadow-md: 0 6px 16px rgba(11, 12, 12, 0.08), 0 2px 5px rgba(11, 12, 12, 0.05);
+  --shadow-lg: 0 16px 36px rgba(11, 12, 12, 0.11), 0 4px 10px rgba(11, 12, 12, 0.05);
+  --shadow-xl: 0 28px 64px rgba(11, 12, 12, 0.15), 0 8px 18px rgba(11, 12, 12, 0.06);
+  --shadow-focus: 0 0 0 3px var(--focus);
+
+  --dur-fast: 120ms;
+  --dur-base: 200ms;
+  --dur-slow: 340ms;
+  --dur-reveal: 620ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  --focus-ring: 0 0 0 3px var(--focus), 0 0 0 6px var(--cda-ink-900);
+}
+
+/* Reduzir movimento — WCAG 2.2 (2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
+/* Contraste alto — respeitar preferência do utilizador */
+@media (prefers-contrast: more) {
+  :root {
+    --text-secondary: var(--cda-ink-900);
+    --border-subtle: var(--cda-ink-600);
+    --border-default: var(--cda-ink-700);
+    --link: #0f385c;
+  }
+}

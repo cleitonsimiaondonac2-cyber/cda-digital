@@ -231,10 +231,16 @@
     });
   }
 
-  // 3) Contador de membros real
+  // 3) Contador de membros real — fonte única (site/data/membros.json).
+  //    O `CDA.MEMBROS` foi esvaziado (publicava PII) e já não é lido; a carga é
+  //    publicada em window.CDA_MEMBROS pelo app.js, que é carregado antes.
   var membrosCount = document.getElementById("membros-count");
-  if (membrosCount && CDA.MEMBROS && CDA.MEMBROS.length) {
-    membrosCount.textContent = String(CDA.MEMBROS.length);
+  if (membrosCount && window.CDA_MEMBROS) {
+    window.CDA_MEMBROS.carregar().then(function (lista) {
+      // Só escreve havendo dados: um "0" seria pior do que o traço de
+      // "a carregar" que fica no HTML enquanto a fonte não responde.
+      if (lista.length) membrosCount.textContent = String(lista.length);
+    }).catch(function () { /* sem fonte: fica o placeholder do HTML */ });
   }
 
   // 4) NEWSLETTER — subscrição simples (feedback local, sem backend)

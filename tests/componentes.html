@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Componentes S2.2.2 — demonstração (CDA)</title>
+<meta name="description" content="Banco de ensaio dos componentes do design system CDA (subtask S2.2.2). Vive em tests/, fora de site/ — não é publicado.">
+<link rel="stylesheet" href="../site/css/tokens.css">
+<link rel="stylesheet" href="../site/css/sistema.css">
+<style>
+  /* Esta página é um banco de ensaio (tests/) e não faz parte do site publicado.
+     Todo o visual vem de sistema.css + tokens.css; este bloco só espaça e
+     encadrea as secções de demonstração. */
+  .demo-bloco { max-width: 26rem; }
+  .demo-faixa {
+    padding: var(--sp-6);
+    border-radius: var(--r-lg);
+    background: var(--surface-inverse);
+    margin-block: var(--sp-5);
+  }
+  .demo-faixa h3 { color: #fff; }
+  .demo-faixa p { color: rgba(255, 255, 255, 0.78); }
+  .demo-grelha { display: grid; gap: var(--sp-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+</style>
+</head>
+<body data-page="componentes">
+
+<div class="container">
+
+  <header class="section--tight">
+    <p class="eyebrow">S2.2.2 · Design system CDA</p>
+    <h1>Demonstração de componentes</h1>
+    <div class="callout">
+      <span class="callout__icon" aria-hidden="true">ℹ</span>
+      <div>
+        <p class="callout__title">Nota de âmbito</p>
+        <p><strong>lightbox: ver S3.2.2 (galeria)</strong> — fica de fora desta página por
+        contrato de propriedade (o CSS vive em <code>site/css/galeria.css</code> e o JS em
+        <code>site/js/galeria.js</code>, tarefa S3.2.2). Este ficheiro
+        <code>tests/componentes.html</code> está fora de <code>site/</code> e não é publicado.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================ BREADCRUMB -->
+  <section class="section--tight" aria-labelledby="c-breadcrumb">
+    <h2 id="c-breadcrumb">Breadcrumbs <span class="badge">3 níveis</span></h2>
+    <nav class="breadcrumb" aria-label="Migalhas de pão">
+      <ol>
+        <li><a href="#c-breadcrumb">Início</a></li>
+        <li><a href="#c-breadcrumb">Documentação</a></li>
+        <li><span aria-current="page">Legislação aduaneira</span></li>
+      </ol>
+    </nav>
+  </section>
+
+  <!-- ============================================================== BOTÕES -->
+  <section class="section--tight" aria-labelledby="c-botoes">
+    <h2 id="c-botoes">Botões <span class="badge">primary · dark · outline · ghost-light · lg · sm · block</span></h2>
+    <div class="flex flex-wrap gap-3 items-center">
+      <button type="button" class="btn btn--primary">Primário</button>
+      <button type="button" class="btn btn--dark">Escuro</button>
+      <button type="button" class="btn btn--outline">Contorno</button>
+      <a class="btn btn--primary btn--lg" href="#c-botoes">Grande</a>
+      <button type="button" class="btn btn--outline btn--sm">Pequeno</button>
+    </div>
+    <div class="demo-bloco mt-5">
+      <button type="button" class="btn btn--primary btn--block">Bloco (largura total)</button>
+    </div>
+    <div class="demo-faixa">
+      <h3>Sobre fundo escuro</h3>
+      <p>Variantes para superfícies inversas (hero, footer, faixas).</p>
+      <div class="flex flex-wrap gap-3 mt-4">
+        <button type="button" class="btn btn--ghost-light">Fantasma claro</button>
+        <a class="btn btn--ghost-light" href="#c-botoes">Link fantasma</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================================== CARDS -->
+  <section class="section--tight" aria-labelledby="c-cards">
+    <h2 id="c-cards">Cards <span class="badge">documento · membro · evento</span></h2>
+    <div class="demo-grelha">
+      <article class="card card--hover">
+        <div class="card__body">
+          <span class="badge badge--red">Documento</span>
+          <h3 class="card__title"><a href="#c-cards">Decreto n.º 90/2023</a></h3>
+          <p>Regime jurídico dos despachantes aduaneiros — PDF, 12 páginas, consulta pública.</p>
+          <div class="card__foot"><span class="text-xs text-muted">PDF · 2023 · 1,2 MB</span></div>
+        </div>
+      </article>
+      <article class="card card--hover">
+        <div class="card__body">
+          <span class="badge badge--green">Membro</span>
+          <h3 class="card__title"><a href="#c-cards">Delegação de Maputo</a></h3>
+          <p>162 despachantes activos · carteira válida · formação continuada em dia.</p>
+          <div class="card__foot"><span class="text-xs text-muted">Directório · 218 membros no total</span></div>
+        </div>
+      </article>
+      <article class="card card--hover">
+        <div class="card__body">
+          <span class="badge badge--amber">Evento</span>
+          <h3 class="card__title"><a href="#c-cards">42.ª Assembleia Geral</a></h3>
+          <p>Acta aprovada, mandatos renovados e relatório de actividades apresentado.</p>
+          <div class="card__foot"><span class="text-xs text-muted">Assembleia · 2025</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========================================================== STAT TILES -->
+  <section class="section--tight" aria-labelledby="c-stats">
+    <h2 id="c-stats">Stat tiles <span class="badge">normal + inverse</span></h2>
+    <div class="demo-grelha">
+      <div class="stat"><span class="stat__value">218</span><span class="stat__label">membros no directório</span></div>
+      <div class="stat"><span class="stat__value">266</span><span class="stat__label">documentos publicados</span></div>
+    </div>
+    <div class="demo-faixa">
+      <div class="demo-grelha">
+        <div class="stat stat--inverse"><span class="stat__value">38</span><span class="stat__label">eventos registados</span></div>
+        <div class="stat stat--inverse"><span class="stat__value">19</span><span class="stat__label">marcos da cronologia</span></div>
+        <div class="stat stat--inverse"><span class="stat__value">865</span><span class="stat__label">fotografias no acervo</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TIMELINE -->
+  <section class="section--tight" aria-labelledby="c-timeline">
+    <h2 id="c-timeline">Timeline <span class="badge">4 marcos</span></h2>
+    <ol class="timeline">
+      <li class="timeline__item">
+        <p class="timeline__date">2016</p>
+        <h3 class="timeline__title">Primeira assembleia sob o novo estatuto</h3>
+        <p class="timeline__body">Reorganização da representação provincial e criação das delegações.</p>
+      </li>
+      <li class="timeline__item">
+        <p class="timeline__date">2021</p>
+        <h3 class="timeline__title">Formação continuada obrigatória</h3>
+        <p class="timeline__body">Programa anual de actualização para despachantes aduaneiros.</p>
+      </li>
+      <li class="timeline__item">
+        <p class="timeline__date">2023</p>
+        <h3 class="timeline__title">Decreto n.º 90/2023</h3>
+        <p class="timeline__body">Novo regime jurídico da profissão, publicado em Diário da República.</p>
+      </li>
+      <li class="timeline__item">
+        <p class="timeline__date">2026</p>
+        <h3 class="timeline__title">Portal institucional renovado</h3>
+        <p class="timeline__body">Design system próprio, acessibilidade WCAG 2.2 AA e conteúdo verificado.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ======================================================== TABELA DADOS -->
+  <section class="section--tight" aria-labelledby="c-tabela">
+    <h2 id="c-tabela">Tabela de dados <span class="badge">caption + th scope</span></h2>
+    <div class="table-wrap">
+      <table class="table">
+        <caption>Documentos mais consultados (dados de demonstração)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Documento</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Ano</th>
+            <th scope="col">Consultas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Decreto n.º 90/2023</th><td>Legislação</td><td>2023</td><td>1 284</td></tr>
+          <tr><th scope="row">Estatutos da CDA</th><td>Estatuto</td><td>2021</td><td>967</td></tr>
+          <tr><th scope="row">Tabela de taxas 2026</th><td>Tabela</td><td>2026</td><td>845</td></tr>
+          <tr><th scope="row">Circular AT/DGA n.º 12</th><td>Circular</td><td>2026</td><td>612</td></tr>
+          <tr><th scope="row">Acta da 42.ª Assembleia</th><td>Acta</td><td>2025</td><td>533</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- =========================================================== ACCORDION -->
+  <section class="section--tight" aria-labelledby="c-accordion">
+    <h2 id="c-accordion">Accordion / FAQ <span class="badge">3 itens · details nativo</span></h2>
+    <div class="accordion">
+      <details class="accordion__item" open>
+        <summary>Como me torno despachante aduaneiro?</summary>
+        <div class="accordion__content">
+          <p>Candidatura junto da CDA, aprovação dos requisitos do Decreto n.º 90/2023 e
+          inscrição no directório público de despachantes.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary>Quais são as quotas anuais?</summary>
+        <div class="accordion__content">
+          <p>A tabela em vigor está publicada na página de Serviços, com isenções previstas
+          para membros em formação continuada.</p>
+        </div>
+      </details>
+      <details class="accordion__item">
+        <summary>O directório de membros é público?</summary>
+        <div class="accordion__content">
+          <p>Sim: nome, delegação, província e situação. Dados pessoais sensíveis não são
+          publicados.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ================================================================ TABS -->
+  <section class="section--tight" aria-labelledby="c-tabs">
+    <h2 id="c-tabs">Tabs <span class="badge">WAI-ARIA · 3 painéis</span></h2>
+    <div class="tabs" data-tabs>
+      <div class="tabs__list" role="tablist" aria-label="Secções de demonstração das tabs">
+        <button type="button" class="tabs__btn" role="tab" id="tab-visao"
+                aria-controls="painel-visao" aria-selected="true">Visão geral</button>
+        <button type="button" class="tabs__btn" role="tab" id="tab-uso"
+                aria-controls="painel-uso" aria-selected="false" tabindex="-1">Como usar</button>
+        <button type="button" class="tabs__btn" role="tab" id="tab-acess"
+                aria-controls="painel-acess" aria-selected="false" tabindex="-1">Acessibilidade</button>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="painel-visao" aria-labelledby="tab-visao" tabindex="0">
+        <h3>Visão geral</h3>
+        <p>Componente de navegação entre painéis irmãos sem sair da página. Uma só
+        <code>div.tabs</code> por grupo; os painéis são irmãos da lista, ligados por
+        <code>aria-controls</code> e <code>aria-labelledby</code>.</p>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="painel-uso" aria-labelledby="tab-uso" tabindex="0" hidden>
+        <h3>Como usar</h3>
+        <p>Marque a tab inicial com <code>aria-selected="true"</code> (as restantes com
+        <code>tabindex="-1"</code>) e carregue <code>js/tabs.js</code>. O script cuida do
+        roving tabindex, das teclas ← → (com volta ao início), Home/End e do click.</p>
+      </div>
+
+      <div class="tabs__panel" role="tabpanel" id="painel-acess" aria-labelledby="tab-acess" tabindex="0" hidden>
+        <h3>Acessibilidade</h3>
+        <p>Activação automática: mover o foco activa a tab e mostra o painel (padrão APG
+        quando a troca de painel é instantânea). Alvo de toque de 44 px, foco visível
+        herdado do anel global e <code>[hidden]</code> a esconder os painéis inactivos.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section--tight text-sm text-muted">
+    <p>Banco de ensaio S2.2.2 · <code>tests/componentes.html</code> ·
+    estilos de <code>site/css/tokens.css</code> + <code>site/css/sistema.css</code> ·
+    comportamento das tabs de <code>site/js/tabs.js</code>.</p>
+  </footer>
+
+</div>
+
+<script src="../site/js/tabs.js" defer></script>
+</body>
+</html>
