@@ -162,36 +162,121 @@
     });
   }
 
+  // ---- Fonte única de membros -------------------------------------------------
+  // Os membros vivem em `site/data/membros.json`, publicado em linha por
+  // `js/data-gen.js` (window.CDA_DATA) e exposto por CDA_DATA_LEITOR.
+  // O antigo `CDA.MEMBROS` foi esvaziado de propósito: era uma segunda fonte de
+  // verdade que publicava dados pessoais, e já não volta a ser lido.
+  //
+  // A carga é memoizada e publicada em `window.CDA_MEMBROS` para que o home.js
+  // (que é carregado a seguir) partilhe a mesma promessa em vez de repetir o
+  // pedido do mesmo ficheiro.
+  const LEITOR_MEMBROS = window.CDA_DATA_LEITOR;
+  const FONTE_MEMBROS = "data/membros.json";
+  let dadosMembros = [];
+  let membrosCarregados = false;
+  let promessaMembros = null;
+
+  function carregarMembros() {
+    // Só se memoiza uma carga bem-sucedida: uma promessa rejeitada ficaria
+    // envenenada para sempre e nenhum consumidor voltaria a tentar.
+    if (dadosMembros.length) return Promise.resolve(dadosMembros);
+    if (!promessaMembros) {
+      promessaMembros = Promise.resolve()
+        .then(() => {
+          if (LEITOR_MEMBROS && typeof LEITOR_MEMBROS.ready === "function") {
+            return LEITOR_MEMBROS.ready();
+          }
+          return null;
+        })
+        .then(() => {
+          // A fonte em linha (data-gen.js) manda; o fetch é o plano B para
+          // quando a página ainda não a carregou. Sobre `file://` o fetch
+          // falha por CORS — daí os dados serem gerados em linha.
+          const prontos = (LEITOR_MEMBROS && typeof LEITOR_MEMBROS.membros === "function"
+            && LEITOR_MEMBROS.membros()) || [];
+          return prontos.length ? prontos : fetch(FONTE_MEMBROS).then(lerJson);
+        })
+        .then((carga) => {
+          dadosMembros = Array.isArray(carga) ? carga : [];
+          membrosCarregados = true;
+          return dadosMembros;
+        })
+        .catch((err) => {
+          promessaMembros = null;          // allows retry
+          throw err;
+        });
+    }
+    return promessaMembros;
+  }
+
+  // Contrato partilhado com o home.js: `carregar()` dá a lista, `dados()` dá
+  // o que já foi carregado (array vazia enquanto não houver resposta).
+  window.CDA_MEMBROS = {
+    carregar: carregarMembros,
+    dados: () => dadosMembros,
+    fonte: FONTE_MEMBROS,
+  };
+
   // ---- Lista de membros ----
   const bMembros = document.getElementById("busca-membros");
   const tMembros = document.getElementById("tabela-membros");
   const cMembros = document.getElementById("membros-cont");
-  if (bMembros && tMembros && CDA.MEMBROS) {
-    const corpo = tMembros.querySelector("tbody");
+  const corpoMembros = tMembros && tMembros.querySelector("tbody");
+  if (bMembros && corpoMembros) {
+    // Campos que membros.json publica. `carteira` passou a chamar-se `nCarta`
+    // e `cedula` deixou de existir: era o bilhete de identidade, retirado
+    // por ser PII. A pesquisa cobre o que a fonte permite — nada inventado.
+    const CAMPOS_BUSCA = ["nome", "nCarta", "empresa", "situacao", "provincia", "delegacao"];
+    // Cabeçalho em despachantes.html: "Carteira profissional" · "Nome do
+    // despachante" · "Cédula". A fonte única não publica cédulas, por isso a
+    // terceira coluna fica com um traço em vez de um campo inventado.
+    const SEM_VALOR = "—";
+
+    function celula(valor) {
+      return esc(valor) || SEM_VALOR;
+    }
+
+    function textoPesquisavel(m) {
+      return CAMPOS_BUSCA.map((c) => m[c])
+        .filter((v) => v != null && v !== "")
+        .join(" ");
+    }
+
     function renderMembros() {
-      const q = normaliza(bMembros.value);
-      const res = CDA.MEMBROS.filter((m) => {
+      if (!membrosCarregados) {
+        if (cMembros) cMembros.textContent = "A carregar a lista de membros…";
+        return;
+      }
+      const q = normaliza(bMembros.value || "");
+      const res = dadosMembros.filter((m) => {
         if (!q) return true;
-        return normaliza(m.nome + " " + m.carteira + " " + m.cedula).includes(q);
+        return normaliza(textoPesquisavel(m)).includes(q);
       });
-      if (cMembros) cMembros.textContent = res.length + " de " + CDA.MEMBROS.length + " membros";
-      corpo.textContent = "";
+      if (cMembros) cMembros.textContent = res.length + " de " + dadosMembros.length + " membros";
+      corpoMembros.textContent = "";
       res.forEach((m) => {
         const tr = document.createElement("tr");
         const td1 = document.createElement("td");
-        td1.textContent = esc(m.carteira);
+        td1.textContent = celula(m.nCarta);
         const td2 = document.createElement("td");
-        td2.textContent = esc(m.nome);
+        td2.textContent = celula(m.nome);
         const td3 = document.createElement("td");
-        td3.textContent = esc(m.cedula);
+        td3.textContent = SEM_VALOR;
         tr.appendChild(td1);
         tr.appendChild(td2);
         tr.appendChild(td3);
-        corpo.appendChild(tr);
+        corpoMembros.appendChild(tr);
       });
     }
+
     bMembros.addEventListener("input", renderMembros);
     renderMembros();
+    carregarMembros()
+      .then(renderMembros)
+      .catch(() => {
+        if (cMembros) cMembros.textContent = "Não foi possível carregar a lista de membros.";
+      });
   }
 
   // ---- Notícias: expandir ----
