@@ -554,7 +554,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #777;
   font-weight: 500;
 }
-.news-card .data::after { content: " /// "; color: var(--cta-red); font-weight: 700; }
+/* separador decorativo junto às datas removido a pedido */
 .news-card .cat {
   font-family: var(--cta-font-head);
   font-size: 11.5px;
@@ -768,3 +768,47 @@ h1, h2, h3, h4, h5, h6 {
   .nav ul > li > a::after { display: none; }
   .nav .sub { box-shadow: none; border-left: 4px solid var(--cta-red); }
 }
+
+/* ============================================================
+   AJUSTE — Header/barra de menu compacta (ao mínimo), logos
+   inteiros (sem corte) e pequenos polimentos. Carregado por
+   último para sobrepor o tema base sem alterar o layout global.
+   ============================================================ */
+:root { --header-h: 56px; }
+
+/* Logos: altura fixa e largura automática => nunca são cortados nem
+   distorcidos (o ficheiro é 400x83, ~4.8:1). */
+.brand__logo { height: 40px; width: auto; display: block; }
+.footer__logo { height: 52px; width: auto; display: block; }
+.footer__brand { margin-bottom: 12px; }
+
+/* Faixa superior mínima */
+.topbar { border-bottom-width: 3px; }
+.topbar__inner { min-height: 30px; padding-block: 4px; }
+.topbar .tb-item, .topbar a { font-size: 12px; letter-spacing: .4px; }
+
+/* Linha principal: menos altura */
+.header { border-bottom-width: 1px; }
+.header__inner { min-height: 56px; gap: 14px; }
+.brand { gap: 10px; }
+.brand__name { font-size: 1rem; }
+.brand__sub { font-size: 0.62rem; }
+
+/* Navegação: itens mais baixos e texto mais compacto (só nível superior) */
+.nav > ul > li > a { padding: 8px 9px; font-size: 13.5px; }
+.nav > ul > li > a::after { left: 9px; right: 9px; bottom: 4px; height: 3px; }
+
+/* Submenus (mega-panel): espaçamento próprio e sem sublinhado animado */
+.nav .nav__panel ul > li > a { padding: 9px 13px; font-size: 13px; }
+.nav .nav__panel ul > li > a::after { display: none; }
+
+/* Ações do header mais discretas */
+.header__actions { gap: 8px; }
+.search-trigger { min-height: 36px; padding: 0 10px; font-size: 12.5px; }
+.nav-toggle { width: 40px; height: 40px; }
+.header__actions .btn { min-height: 36px; padding: 0 12px; font-size: 12.5px; }
+
+/* Polimento: sublinhado ativo mais estável e hover suave */
+.nav__link { border-radius: 6px; }
+.nav > ul > li > a.activo::after,
+.nav > ul > li > a[aria-current="page"]::after { transform: scaleX(1); }
