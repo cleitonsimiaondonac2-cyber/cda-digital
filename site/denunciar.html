@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-titulo="Centro Documental">Centro Documental — Câmara dos Despachantes Aduaneiros de Moçambique</title>
-<meta name="description" content="Centro documental da Câmara dos Despachantes Aduaneiros de Moçambique: legislação, regulamentos, circulares, convocatórias, ordens de serviço, exortações, relatórios, boletins e fichas. Pesquisa com filtros e assistente de IA.">
+<title data-titulo="Denúncia de Fraude">Denúncia de Fraude — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Reporte irregularidades de forma segura e confidencial à Câmara dos Despachantes Aduaneiros.">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/sistema.css">
 <link rel="stylesheet" href="css/layout.css">
@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
-<body data-page="documentacao">
+<body data-page="contactos">
 
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
@@ -110,7 +110,7 @@
         </li>
 
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="documentacao.html" data-pagina="documentacao" aria-current="page">Documentos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="documentacao.html" data-pagina="documentacao">Documentos<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="documentacao.html">Legislação e regulamentos</a></li>
@@ -135,7 +135,7 @@
         </li>
 
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="contactos.html" data-pagina="contactos">Contactos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="contactos.html" data-pagina="contactos" aria-current="page">Contactos<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="contactos.html">Sede e escritórios</a></li>
@@ -180,38 +180,118 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>Centro Documental</h1>
-    <p>Todo o acervo oficial da CDA — legislação, regulamentos, convocatórias, circulares, ordens de serviço, exortações, relatórios, boletins e fichas — pesquisável por tipo, ano, entidade e palavra-chave.</p>
+    <h1>Denúncia de Fraude</h1>
+    <p>Reporte irregularidades de forma segura e confidencial.</p>
   </div>
 </section>
 
-<div class="breadcrumb"><div class="container">Centro Documental</div></div>
+<div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Início</a></li><li><a href="contactos.html">Contactos</a></li><li><span aria-current="page">Denúncia de fraude</span></li></ol></div></div>
 
 <section class="section">
   <div class="container">
-    <div class="filtros">
+    <div class="grid grid--2">
       <div>
-        <label for="q">Pesquisar</label>
-        <input id="q" type="search" placeholder="Palavra-chave, número, assunto…" aria-label="Pesquisar documentos">
+        <div class="card"><div class="card__body">
+          <span class="badge">Confidencial</span>
+          <h2>Denúncia segura e confidencial</h2>
+          <p>O sistema de denúncias da CDA garante o anonimato e a confidencialidade das informações fornecidas. A sua identidade é protegida e todas as denúncias são tratadas com a máxima seriedade.</p>
+          <ul class="stack text-muted">
+            <li>Protecção total da identidade</li>
+            <li>Investigação rápida e eficiente</li>
+            <li>Feedback sobre o andamento, sempre que possível</li>
+          </ul>
+          <div class="callout callout--warn mt-4">
+            <span class="callout__icon" aria-hidden="true">⚠️</span>
+            <div>
+              <p class="callout__title">Aviso</p>
+              <p>Esta é uma demonstração: os dados da denúncia são guardados apenas no seu navegador (localStorage) e não são enviados para nenhum servidor.</p>
+            </div>
+          </div>
+          <p class="mt-4">Comissão de Ética: <a href="mailto:etica@cda-mz.org">etica@cda-mz.org</a> · <a href="tel:+25821305504">+258 21 305 504</a></p>
+        </div></div>
       </div>
       <div>
-        <label for="f-tipo">Tipo</label>
-        <select id="f-tipo"><option value="Todos">Todos</option></select>
-      </div>
-      <div>
-        <label for="f-ano">Ano</label>
-        <select id="f-ano"><option value="Todos">Todos</option></select>
-      </div>
-      <div>
-        <label for="f-ent">Entidade</label>
-        <select id="f-ent"><option value="Todas">Todas</option></select>
-      </div>
-      <div>
-        <button class="btn btn-red" id="f-limpar">Limpar</button>
+        <form id="report-form" class="stack" novalidate>
+          <h2>Formulário de denúncia</h2>
+          <div class="field">
+            <label class="label" for="report-tipo">Tipo de denúncia *</label>
+            <select class="select" id="report-tipo" name="tipo" required>
+              <option value="" disabled selected>Selecione o tipo</option>
+              <option value="fraude-documental">Fraude documental</option>
+              <option value="despacho-ilegal">Despacho ilegal</option>
+              <option value="suborno">Suborno</option>
+              <option value="falsificacao">Falsificação de documentos</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="report-urgencia">Nível de urgência *</label>
+            <select class="select" id="report-urgencia" name="urgencia" required>
+              <option value="" disabled selected>Selecione a urgência</option>
+              <option value="baixa">Baixa</option>
+              <option value="media">Média</option>
+              <option value="alta">Alta</option>
+              <option value="critica">Crítica</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="report-titulo">Título da denúncia *</label>
+            <input class="input" id="report-titulo" name="titulo" type="text" placeholder="Resuma a denúncia em poucas palavras" required>
+          </div>
+          <div class="field">
+            <label class="label" for="report-descricao">Descrição detalhada *</label>
+            <textarea class="textarea" id="report-descricao" name="descricao" rows="6" placeholder="Descreva a situação, incluindo datas, locais, pessoas envolvidas e outras informações relevantes…" required></textarea>
+          </div>
+          <div class="field">
+            <label class="label" for="report-data">Data do incidente</label>
+            <input class="input" id="report-data" name="data" type="date">
+          </div>
+          <div class="field">
+            <label class="label" for="report-local">Local do incidente</label>
+            <input class="input" id="report-local" name="local" type="text" placeholder="Local, cidade ou província">
+          </div>
+          <div class="field">
+            <label class="label">Documentos ou provas (opcional)</label>
+            <input class="input" id="report-doc" name="documentos" type="file" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" multiple>
+            <p class="hint">Máximo 5 ficheiros, até 10MB cada.</p>
+          </div>
+          <div class="field">
+            <label class="label" for="report-contato-email">Informações de contacto (opcional)</label>
+            <input class="input mb-4" id="report-contato-email" name="contatoEmail" type="email" placeholder="Email">
+            <input class="input" id="report-contato-telefone" name="contatoTelefone" type="tel" placeholder="Telefone">
+          </div>
+          <div class="field">
+            <label class="label" for="report-anonimato" style="display:flex;gap:.5rem;align-items:center">
+              <input type="checkbox" id="report-anonimato" name="anonimato" checked>
+              Desejo manter-me anónimo
+            </label>
+            <p class="hint">Se seleccionar esta opção, as informações de contacto não serão associadas à denúncia.</p>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <button class="btn btn--outline btn--lg" type="reset">Limpar</button>
+            <button class="btn btn--primary btn--lg" type="submit">Submeter denúncia</button>
+          </div>
+          <div id="report-resultado" aria-live="polite"></div>
+        </form>
       </div>
     </div>
-    <p class="resultado-cont" id="doc-cont"></p>
-    <div class="doc-list" id="doc-lista"></div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="grid grid--3">
+      <article class="card"><div class="card__body"><h3>Protecção de dados</h3><p>Todas as informações são tratadas com a máxima confidencialidade e protegidas pela legislação de protecção de dados de Moçambique.</p></div></article>
+      <article class="card"><div class="card__body"><h3>Investigação</h3><p>As denúncias são investigadas pela Comissão de Ética da CDA, em colaboração com as autoridades competentes quando necessário.</p></div></article>
+      <article class="card"><div class="card__body"><h3>Transparência</h3><p>A CDA compromete-se a manter os denunciantes informados sobre o resultado das investigações, sempre que possível.</p></div></article>
+    </div>
+    <div class="callout mt-6">
+      <span class="callout__icon" aria-hidden="true">§</span>
+      <div>
+        <p class="callout__title">Enquadramento legal</p>
+        <p>Lei n.º 4/2011 (criação da CDA) · Regulamento Interno da CDA · Código de Ética e Deontologia dos Despachantes Aduaneiros · Lei de Combate à Corrupção e demais legislação aplicável.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -280,12 +360,7 @@
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
-<script>
-  document.getElementById("f-limpar").addEventListener("click", () => {
-    ["q", "f-tipo", "f-ano", "f-ent"].forEach((id) => { document.getElementById(id).value = id === "f-ano" ? "Todos" : id === "f-ent" ? "Todas" : id === "f-tipo" ? "Todos" : ""; });
-    document.getElementById("q").dispatchEvent(new Event("input"));
-  });
-</script>
+<script src="js/denunciar.js"></script>
 <script src="js/ui.js" defer></script>
 </body>
 </html>

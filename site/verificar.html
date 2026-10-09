@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-titulo="Centro Documental">Centro Documental — Câmara dos Despachantes Aduaneiros de Moçambique</title>
-<meta name="description" content="Centro documental da Câmara dos Despachantes Aduaneiros de Moçambique: legislação, regulamentos, circulares, convocatórias, ordens de serviço, exortações, relatórios, boletins e fichas. Pesquisa com filtros e assistente de IA.">
+<title data-titulo="Verificar Despachante">Verificar Despachante — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Confirme se um despachante aduaneiro está registado na Câmara dos Despachantes Aduaneiros.">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/sistema.css">
 <link rel="stylesheet" href="css/layout.css">
@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
-<body data-page="documentacao">
+<body data-page="servicos">
 
 <a class="skip-link" href="#conteudo">Saltar para o conteúdo</a>
 
@@ -96,7 +96,7 @@
         </li>
 
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="servicos.html" data-pagina="servicos">Serviços<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="servicos.html" data-pagina="servicos" aria-current="page">Serviços<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="servicos.html">Carteira profissional</a></li>
@@ -110,7 +110,7 @@
         </li>
 
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="documentacao.html" data-pagina="documentacao" aria-current="page">Documentos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="documentacao.html" data-pagina="documentacao">Documentos<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="documentacao.html">Legislação e regulamentos</a></li>
@@ -180,38 +180,64 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>Centro Documental</h1>
-    <p>Todo o acervo oficial da CDA — legislação, regulamentos, convocatórias, circulares, ordens de serviço, exortações, relatórios, boletins e fichas — pesquisável por tipo, ano, entidade e palavra-chave.</p>
+    <h1>Verificar Despachante</h1>
+    <p>Confirme se um profissional está registado na CDA.</p>
   </div>
 </section>
 
-<div class="breadcrumb"><div class="container">Centro Documental</div></div>
+<div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Início</a></li><li><a href="servicos.html">Serviços</a></li><li><span aria-current="page">Verificar despachante</span></li></ol></div></div>
 
 <section class="section">
   <div class="container">
-    <div class="filtros">
+    <div class="grid grid--2">
       <div>
-        <label for="q">Pesquisar</label>
-        <input id="q" type="search" placeholder="Palavra-chave, número, assunto…" aria-label="Pesquisar documentos">
+        <form id="verify-form" class="stack" novalidate>
+          <div class="field">
+            <label class="label" for="verify-code">Código, nome ou número da cédula</label>
+            <input class="input" id="verify-code" name="code" type="search" placeholder="Ex.: DESP / 001 / DGA / 03" autocomplete="off" required>
+          </div>
+          <div class="field">
+            <label class="label" for="verify-type">Tipo de verificação</label>
+            <select class="select" id="verify-type" name="type">
+              <option value="professional">Despachante aduaneiro</option>
+              <option value="company">Empresa / sociedade</option>
+              <option value="document">Documento oficial</option>
+            </select>
+          </div>
+          <button class="btn btn--primary btn--lg" type="submit">Verificar</button>
+        </form>
+        <div class="callout mt-6">
+          <span class="callout__icon" aria-hidden="true">🔒</span>
+          <div>
+            <p class="callout__title">Privacidade</p>
+            <p>Apenas dados públicos são apresentados: nome, código profissional, cédula, estado do registo e delegação. Informações pessoais e confidenciais não são exibidas.</p>
+          </div>
+        </div>
       </div>
       <div>
-        <label for="f-tipo">Tipo</label>
-        <select id="f-tipo"><option value="Todos">Todos</option></select>
-      </div>
-      <div>
-        <label for="f-ano">Ano</label>
-        <select id="f-ano"><option value="Todos">Todos</option></select>
-      </div>
-      <div>
-        <label for="f-ent">Entidade</label>
-        <select id="f-ent"><option value="Todas">Todas</option></select>
-      </div>
-      <div>
-        <button class="btn btn-red" id="f-limpar">Limpar</button>
+        <div id="verify-resultado" aria-live="polite">
+          <div class="empty-state">
+            <div class="empty-state__icon" aria-hidden="true">⌕</div>
+            <h3>Resultado da verificação</h3>
+            <p>Introduza o código, o nome ou o número da cédula e clique em <strong>Verificar</strong>.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="resultado-cont" id="doc-cont"></p>
-    <div class="doc-list" id="doc-lista"></div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Como funciona a verificação</h2>
+    </div>
+    <div class="grid grid--3">
+      <article class="card"><div class="card__body"><span class="badge">Passo 1</span><h3>Introduza os dados</h3><p>Escreva o código profissional, o nome ou o número da cédula do despachante.</p></div></article>
+      <article class="card"><div class="card__body"><span class="badge">Passo 2</span><h3>Verifique</h3><p>Clique em «Verificar» e consulte o estado do registo na base de dados da CDA.</p></div></article>
+      <article class="card"><div class="card__body"><span class="badge">Passo 3</span><h3>Confirme</h3><p>Valide sempre a data de validade do registo antes de contratar serviços.</p></div></article>
+    </div>
   </div>
 </section>
 
@@ -280,12 +306,7 @@
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
-<script>
-  document.getElementById("f-limpar").addEventListener("click", () => {
-    ["q", "f-tipo", "f-ano", "f-ent"].forEach((id) => { document.getElementById(id).value = id === "f-ano" ? "Todos" : id === "f-ent" ? "Todas" : id === "f-tipo" ? "Todos" : ""; });
-    document.getElementById("q").dispatchEvent(new Event("input"));
-  });
-</script>
+<script src="js/verificar.js"></script>
 <script src="js/ui.js" defer></script>
 </body>
 </html>

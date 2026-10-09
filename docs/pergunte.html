@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-titulo="Centro Documental">Centro Documental — Câmara dos Despachantes Aduaneiros de Moçambique</title>
-<meta name="description" content="Centro documental da Câmara dos Despachantes Aduaneiros de Moçambique: legislação, regulamentos, circulares, convocatórias, ordens de serviço, exortações, relatórios, boletins e fichas. Pesquisa com filtros e assistente de IA.">
+<title data-titulo="Pergunte à CDA">Pergunte à CDA — Câmara dos Despachantes Aduaneiros de Moçambique</title>
+<meta name="description" content="Perguntas frequentes e contacto sobre despacho aduaneiro, legislação e procedimentos da CDA.">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/sistema.css">
 <link rel="stylesheet" href="css/layout.css">
@@ -180,38 +180,84 @@
 
 <section class="page-hero">
   <div class="container">
-    <h1>Centro Documental</h1>
-    <p>Todo o acervo oficial da CDA — legislação, regulamentos, convocatórias, circulares, ordens de serviço, exortações, relatórios, boletins e fichas — pesquisável por tipo, ano, entidade e palavra-chave.</p>
+    <h1>Pergunte à CDA</h1>
+    <p>Respostas rápidas sobre despacho aduaneiro, legislação e procedimentos.</p>
   </div>
 </section>
 
-<div class="breadcrumb"><div class="container">Centro Documental</div></div>
+<div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Início</a></li><li><a href="documentacao.html">Documentos</a></li><li><span aria-current="page">Pergunte à CDA</span></li></ol></div></div>
 
 <section class="section">
   <div class="container">
-    <div class="filtros">
+    <div class="section-head">
+      <span class="eyebrow">Perguntas frequentes</span>
+      <h2>Perguntas frequentes</h2>
+      <p>Selecione uma pergunta para ver a resposta. Para dúvidas específicas, use o Assistente CDA no canto inferior direito ou envie-nos uma mensagem.</p>
+    </div>
+    <div class="accordion">
+      <details class="accordion__item" open>
+        <summary>Como posso verificar se um despachante está registado na CDA?</summary>
+        <div class="accordion__content"><p>Pode verificar o registo de um despachante na página <a href="verificar.html">Verificar despachante</a>. Basta introduzir o código profissional, o nome ou o número da cédula para obter o estado do registo.</p><p>Alternativamente, pode consultar a lista de membros na página <a href="despachantes.html">Despachantes</a>.</p></div>
+      </details>
+      <details class="accordion__item">
+        <summary>Quais são os requisitos para ser despachante aduaneiro?</summary>
+        <div class="accordion__content"><p>Para ser despachante aduaneiro em Moçambique, é necessário:</p><ol class="stack"><li>Ser cidadão moçambicano ou residente legal;</li><li>Ter o 12.º ano de escolaridade ou equivalente;</li><li>Concluir com aproveitamento o Curso de Formação de Despachantes Aduaneiros;</li><li>Aprovação no exame de certificação;</li><li>Registo na Câmara dos Despachantes Aduaneiros (CDA);</li><li>Pagamento das quotas anuais.</li></ol><p>Mais informações na página <a href="despachantes.html">Despachantes</a>.</p></div>
+      </details>
+      <details class="accordion__item">
+        <summary>Onde posso encontrar a legislação aduaneira actualizada?</summary>
+        <div class="accordion__content"><p>Toda a legislação aduaneira está disponível no <a href="documentacao.html">Centro Documental</a>: leis e regulamentos, circulares e despachos, acordos internacionais, tarifas aduaneiras e outros documentos relevantes.</p></div>
+      </details>
+      <details class="accordion__item">
+        <summary>Como posso tornar-me membro da CDA?</summary>
+        <div class="accordion__content"><p>Para se tornar membro da CDA, é necessário: ser despachante aduaneiro devidamente registado, preencher o formulário de adesão, pagar a quota de adesão e a anuidade, e obter aprovação do Conselho de Administração. Pode iniciar o processo na <a href="area-membro.html">Área do Membro</a> ou contactando a sede.</p></div>
+      </details>
+      <details class="accordion__item">
+        <summary>Quais são os benefícios de ser membro da CDA?</summary>
+        <div class="accordion__content"><p>Os membros usufruem de representação e defesa dos interesses junto das autoridades, formação contínua, informação privilegiada sobre alterações legislativas, participação em eventos, acesso a conteúdo exclusivo e networking com outros profissionais do sector.</p></div>
+      </details>
+      <details class="accordion__item">
+        <summary>Como posso denunciar uma fraude ou irregularidade?</summary>
+        <div class="accordion__content"><p>Pode denunciar através do <a href="denunciar.html">sistema de denúncias</a>, tratado com a máxima confidencialidade. Pode também contactar a Comissão de Ética por email: <a href="mailto:etica@cda-mz.org">etica@cda-mz.org</a>.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section section--subtle">
+  <div class="container">
+    <div class="grid grid--2">
       <div>
-        <label for="q">Pesquisar</label>
-        <input id="q" type="search" placeholder="Palavra-chave, número, assunto…" aria-label="Pesquisar documentos">
+        <h2>Não encontrou a resposta?</h2>
+        <p class="text-muted">Envie-nos a sua pergunta e responderemos o mais breve possível.</p>
+        <ul class="stack text-muted mt-4">
+          <li>Email: <a href="mailto:pergunte@cda-mz.org">pergunte@cda-mz.org</a></li>
+          <li>Telefone: <a href="tel:+25821305504">+258 21 305 504 · 506</a></li>
+          <li>Atendimento: segunda a sexta, 8h00–17h00</li>
+        </ul>
       </div>
       <div>
-        <label for="f-tipo">Tipo</label>
-        <select id="f-tipo"><option value="Todos">Todos</option></select>
-      </div>
-      <div>
-        <label for="f-ano">Ano</label>
-        <select id="f-ano"><option value="Todos">Todos</option></select>
-      </div>
-      <div>
-        <label for="f-ent">Entidade</label>
-        <select id="f-ent"><option value="Todas">Todas</option></select>
-      </div>
-      <div>
-        <button class="btn btn-red" id="f-limpar">Limpar</button>
+        <form id="faq-contact-form" class="stack" novalidate>
+          <div class="field">
+            <label class="label" for="faq-nome">Nome completo *</label>
+            <input class="input" id="faq-nome" name="nome" type="text" required>
+          </div>
+          <div class="field">
+            <label class="label" for="faq-email">Email *</label>
+            <input class="input" id="faq-email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label class="label" for="faq-assunto">Assunto *</label>
+            <input class="input" id="faq-assunto" name="assunto" type="text" required>
+          </div>
+          <div class="field">
+            <label class="label" for="faq-mensagem">Mensagem *</label>
+            <textarea class="textarea" id="faq-mensagem" name="mensagem" rows="5" required></textarea>
+          </div>
+          <button class="btn btn--primary btn--lg" type="submit">Enviar pergunta</button>
+          <div id="faq-resultado" aria-live="polite"></div>
+        </form>
       </div>
     </div>
-    <p class="resultado-cont" id="doc-cont"></p>
-    <div class="doc-list" id="doc-lista"></div>
   </div>
 </section>
 
@@ -280,12 +326,7 @@
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
-<script>
-  document.getElementById("f-limpar").addEventListener("click", () => {
-    ["q", "f-tipo", "f-ano", "f-ent"].forEach((id) => { document.getElementById(id).value = id === "f-ano" ? "Todos" : id === "f-ent" ? "Todas" : id === "f-tipo" ? "Todos" : ""; });
-    document.getElementById("q").dispatchEvent(new Event("input"));
-  });
-</script>
+<script src="js/pergunte.js"></script>
 <script src="js/ui.js" defer></script>
 </body>
 </html>
