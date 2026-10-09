@@ -170,7 +170,7 @@ tr:hover td { background: var(--bg-alt); }
 
 /* ---- Galeria ---- */
 .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.galeria img { width: 100%; height: 190px; object-fit: cover; border-radius: 0; cursor: pointer; display: block; }
+.galeria img { width: 100%; height: 190px; object-fit: contain; object-position: center; border-radius: 0; cursor: pointer; display: block; }
 .galeria img:hover { opacity: .88; }
 
 /* ---- Assistente IA ---- */
@@ -624,7 +624,7 @@ tr:hover td { background: var(--bg-alt); }
 /* Destaque editorial */
 .act-destaque { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0; background: var(--navy); color: #fff; border-radius: 14px; overflow: hidden; margin-bottom: 40px; }
 .act-destaque-media { position: relative; min-height: 320px; }
-.act-destaque-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.act-destaque-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .act-destaque-corpo { padding: 34px; display: flex; flex-direction: column; gap: 14px; }
 .act-titulo-linha { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .act-cat { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--red-soft); }
