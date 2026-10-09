@@ -18,7 +18,9 @@
   if (!slidesEl || ACT.length < 1) return;
 
   var ord = ACT.slice().sort(function (a, b) {
-    return b.data.localeCompare(a.data);
+    var ra = a.relevancia || 0, rb = b.relevancia || 0;
+    if (ra !== rb) return rb - ra;
+    return String(b.data).localeCompare(String(a.data));
   });
   var cur = 0;
   var timer = null;
@@ -124,6 +126,8 @@
       return !/teste/i.test(n.titulo || "");
     });
     return lista.sort(function (a, b) {
+      var ra = a.relevancia || 0, rb = b.relevancia || 0;
+      if (ra !== rb) return rb - ra;
       return String(b.data).localeCompare(String(a.data));
     });
   }
