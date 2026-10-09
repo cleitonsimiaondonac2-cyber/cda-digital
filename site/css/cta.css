@@ -812,3 +812,32 @@ h1, h2, h3, h4, h5, h6 {
 .nav__link { border-radius: 6px; }
 .nav > ul > li > a.activo::after,
 .nav > ul > li > a[aria-current="page"]::after { transform: scaleX(1); }
+/* ============================================================
+   AJUSTE v2 — Barra de navegação em linha própria (largura total),
+   ao estilo das versões V3/V4. Corrige a barra da V1 que quebrava
+   em 3 linhas porque marca + navegação + ações disputavam a mesma
+   linha. Aplica-se apenas em desktop (>1080px), mantendo intacto o
+   drawer mobile definido em layout.css (<=1080px).
+   ============================================================ */
+@media (min-width: 1081px) {
+  .header__inner { flex-wrap: wrap; row-gap: 4px; }
+  .header .brand { order: 1; }
+  .header .header__actions { order: 2; margin-left: auto; }
+  .header .nav { order: 3; flex-basis: 100%; width: 100%; margin: 0; }
+  .header .nav > ul.nav__list { flex-wrap: nowrap; justify-content: flex-start; gap: 2px; }
+  .header .nav .nav__link { white-space: nowrap; }
+}
+
+/* ============================================================
+   AJUSTE v2 — Foco vertical das imagens (rostos). Coloca o
+   object-position ligeiramente acima do centro para não cortar
+   rostos em imagens em modo "cover". Não afeta logos/ícones
+   (object-fit: contain).
+   ============================================================ */
+.card__media img,
+.galeria-mosaico__img,
+.galeria img,
+.act-destaque-media img,
+.act-card-media img,
+.act-det-galeria img,
+.cdaact-media img { object-position: center 28%; }
