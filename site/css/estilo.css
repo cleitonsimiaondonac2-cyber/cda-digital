@@ -170,7 +170,7 @@ tr:hover td { background: var(--bg-alt); }
 
 /* ---- Galeria ---- */
 .galeria { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.galeria img { width: 100%; height: 190px; object-fit: cover; border-radius: 0; cursor: pointer; display: block; }
+.galeria img { width: 100%; height: 190px; object-fit: contain; object-position: center; border-radius: 0; cursor: pointer; display: block; }
 .galeria img:hover { opacity: .88; }
 
 /* ---- Assistente IA ---- */
@@ -624,7 +624,7 @@ tr:hover td { background: var(--bg-alt); }
 /* Destaque editorial */
 .act-destaque { display: grid; grid-template-columns: 1.5fr 1fr; gap: 0; background: var(--navy); color: #fff; border-radius: 14px; overflow: hidden; margin-bottom: 40px; }
 .act-destaque-media { position: relative; min-height: 320px; }
-.act-destaque-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.act-destaque-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .act-destaque-corpo { padding: 34px; display: flex; flex-direction: column; gap: 14px; }
 .act-titulo-linha { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .act-cat { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--red-soft); }
@@ -638,7 +638,7 @@ tr:hover td { background: var(--bg-alt); }
 .act-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: transform .15s ease, box-shadow .15s ease; }
 .act-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(29,43,58,.10); }
 .act-card-media { position: relative; aspect-ratio: 16 / 10; background: var(--bg-alt); }
-.act-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.act-card-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 28%; display: block; }
 .act-contagem { position: absolute; right: 10px; bottom: 10px; background: rgba(13,20,28,.78); color: #fff; font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
 .act-card-corpo { padding: 16px 16px 18px; display: flex; flex-direction: column; gap: 7px; }
 .act-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
@@ -659,7 +659,7 @@ tr:hover td { background: var(--bg-alt); }
 .act-det-meta { color: var(--red); font-weight: 700; }
 .act-det-desc { color: var(--text-soft); margin-top: 8px; max-width: 70ch; }
 .act-det-galeria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-.act-det-galeria img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; cursor: pointer; display: block; }
+.act-det-galeria img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 28%; border-radius: 8px; cursor: pointer; display: block; }
 .act-det-galeria img:hover { opacity: .88; }
 .act-det-contexto { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
 .act-ctx-bloco { background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 18px; }
@@ -686,7 +686,7 @@ tr:hover td { background: var(--bg-alt); }
 
 /* ===== Hero fotográfico editorial (homepage) ===== */
 .hero-slides { position: absolute; inset: 0; z-index: 0; }
-.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1s ease; will-change: opacity, transform; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center 28%; opacity: 0; transition: opacity 1s ease; will-change: opacity, transform; }
 .hero-slide.active { opacity: 1; }
 .hero-slide.zoom { animation: hero-kenburns 8s ease-out forwards; }
 @keyframes hero-kenburns { from { transform: scale(1); } to { transform: scale(1.04); } }
@@ -993,9 +993,10 @@ tr:hover td { background: var(--bg-alt); }
 .parceiros-item-img {
   display: block;
   width: auto;
-  height: 40px;
-  max-width: 140px;
+  height: 48px;
+  max-width: 160px;
   object-fit: contain;
+  object-position: center;
 }
 .parceiros-item-nome {
   font-size: .66rem;
