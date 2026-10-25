@@ -1,19 +1,12 @@
-/* CDA Digital — homepage
-   ---------------------------------------------------------------------------
-   1. Hero editorial — fotografia inteira (object-fit: contain), pausa e
-      respeito por prefers-reduced-motion
-   2. Faixa de destaques estática (3 notícias, sem marquee)
-   3. Últimas notícias (3 cartões)
-   4. CDA em Actividade (3 actividades reais)
-   5. Contagens do Centro Documental (data/documentos.json)
-   6. Contador de membros (site/data/membros.json)
-   7. Newsletter (feedback local, sem backend)
-   8. Parceiros (marquee com pausa)
+/* CDA Digital — homepage institucional
+   Carrossel editorial de notícias, grelha Flash de Notícias, acessos laterais,
+   actividades e carrossel de parceiros. Conteúdo sempre proveniente de dados.js.
    --------------------------------------------------------------------------- */
 (function () {
   "use strict";
 
-  var ACT = (typeof CDA !== "undefined" && CDA.ACTIVIDADES) || [];
+  var ACT = (typeof CDA !== "undefined" && Array.isArray(CDA.ACTIVIDADES)) ? CDA.ACTIVIDADES : [];
+  var ALL_NEWS = (typeof CDA !== "undefined" && Array.isArray(CDA.NOTICIAS)) ? CDA.NOTICIAS : [];
   var reduzido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function imgSrc(nome) {
@@ -28,6 +21,21 @@
     return p.length === 3 ? p[2] + "-" + p[1] + "-" + p[0] : String(iso || "");
   }
 
+  function noticiasOrdenadas() {
+    return ALL_NEWS.filter(function (n) {
+      return !/teste/i.test(n.titulo || "");
+    }).slice().sort(function (a, b) {
+      var ra = a.relevancia || 0, rb = b.relevancia || 0;
+      if (ra !== rb) return rb - ra;
+      return String(b.data).localeCompare(String(a.data));
+    });
+  }
+
+  function noticiasHref(n) {
+    var i = ALL_NEWS.indexOf(n);
+    return i >= 0 ? "noticias.html#noticia-" + i : "noticias.html";
+  }
+
   function actividadesOrdenadas() {
     return ACT.slice().sort(function (a, b) {
       var ra = a.relevancia || 0, rb = b.relevancia || 0;
@@ -36,46 +44,46 @@
     });
   }
 
-  /* ---- 1. Hero ---------------------------------------------------------- */
+  var noticias = noticiasOrdenadas();
+
+  /* ---- 1. Carrossel editorial de notícias ------------------------------ */
   var slidesEl = document.getElementById("hero-slides");
   var dotsEl = document.getElementById("hero-dots");
   var capTit = document.getElementById("hero-foot-tit");
   var capMeta = document.getElementById("hero-foot-meta");
   var capLink = document.getElementById("hero-foot-link");
+  var imageLink = document.getElementById("hero-image-link");
+  var capCategory = document.getElementById("hero-category");
   var prevBtn = document.getElementById("hero-prev");
   var nextBtn = document.getElementById("hero-next");
   var pauseBtn = document.getElementById("hero-pause");
   var heroSec = document.querySelector(".home-hero");
 
-  if (slidesEl && ACT.length) {
-    var ord = actividadesOrdenadas().filter(function (a) {
-      return a.capas && a.capas[0];
-    }).slice(0, 5);
-
+  var destaqueNews = noticias.filter(function (n) { return !!n.imagem; }).slice(0, 5);
+  if (slidesEl && dotsEl && destaqueNews.length) {
     var cur = 0;
     var timer = null;
     var pausadoUtilizador = false;
     var pausadoHover = false;
     var DELAY = 6500;
 
-    ord.forEach(function (a, i) {
+    destaqueNews.forEach(function (n, i) {
       var img = document.createElement("img");
-      img.src = imgSrc(a.capas[0]);
-      img.alt = "";
+      img.src = n.imagem;
+      img.alt = ""; // O título visível da notícia identifica o mesmo conteúdo.
       img.decoding = "async";
       img.loading = i === 0 ? "eager" : "lazy";
       img.id = "hero-slide-" + i;
       img.className = i === 0 ? "is-active" : "";
+      img.setAttribute("aria-hidden", i === 0 ? "false" : "true");
       slidesEl.appendChild(img);
 
       var d = document.createElement("button");
       d.type = "button";
       d.className = "hero-dot" + (i === 0 ? " active" : "");
-      d.setAttribute("role", "tab");
-      d.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      d.setAttribute("aria-pressed", i === 0 ? "true" : "false");
       d.setAttribute("aria-controls", img.id);
-      d.setAttribute("aria-label", "Ver: " + (a.titulo || "actividade"));
-      d.tabIndex = i === 0 ? 0 : -1;
+      d.setAttribute("aria-label", "Ver notícia: " + (n.titulo || "destaque"));
       d.addEventListener("click", function () { irPara(i); });
       dotsEl.appendChild(d);
     });
@@ -87,24 +95,31 @@
       for (var i = 0; i < slides.length; i++) {
         var ativo = i === cur;
         slides[i].classList.toggle("is-active", ativo);
+        slides[i].setAttribute("aria-hidden", ativo ? "false" : "true");
         dots[i].classList.toggle("active", ativo);
-        dots[i].setAttribute("aria-selected", ativo ? "true" : "false");
-        dots[i].tabIndex = ativo ? 0 : -1;
+        dots[i].setAttribute("aria-pressed", ativo ? "true" : "false");
       }
-      var a = ord[cur];
-      if (capTit) capTit.textContent = a.titulo || "";
-      if (capMeta) capMeta.textContent = [a.categoria, a.local, dataPT(a.data)].filter(Boolean).join(" · ");
-      if (capLink) capLink.href = "actividades.html";
+      var n = destaqueNews[cur];
+      var href = noticiasHref(n);
+      var titulo = n.titulo || "Notícia da CDA";
+      if (capTit) capTit.textContent = titulo;
+      if (capMeta) capMeta.textContent = dataPT(n.data);
+      if (capCategory) capCategory.textContent = n.categoria || "Em destaque";
+      if (capLink) capLink.href = href;
+      if (imageLink) {
+        imageLink.href = href;
+        imageLink.setAttribute("aria-label", "Abrir notícia: " + titulo);
+      }
     }
 
     function agendar() {
       if (timer) clearTimeout(timer);
-      if (pausadoUtilizador || pausadoHover || reduzido) return;
+      if (pausadoUtilizador || pausadoHover || reduzido || destaqueNews.length < 2) return;
       timer = setTimeout(function () { irPara(cur + 1); }, DELAY);
     }
 
     function irPara(i) {
-      cur = (i + ord.length) % ord.length;
+      cur = (i + destaqueNews.length) % destaqueNews.length;
       pintar();
       agendar();
     }
@@ -120,7 +135,7 @@
     if (nextBtn) nextBtn.addEventListener("click", function () { irPara(cur + 1); });
 
     if (pauseBtn) {
-      if (reduzido) {
+      if (reduzido || destaqueNews.length < 2) {
         pauseBtn.hidden = true;
       } else {
         pauseBtn.addEventListener("click", function () {
@@ -139,7 +154,6 @@
       media.addEventListener("focusout", function () { pausadoHover = false; agendar(); });
     }
 
-    // Setas só quando o foco está no hero — não sequestram o scroll da página.
     if (heroSec) {
       heroSec.addEventListener("keydown", function (e) {
         if (e.key === "ArrowRight") { e.preventDefault(); irPara(cur + 1); }
@@ -147,59 +161,24 @@
       });
     }
 
-    // Tablist: setas movem o foco entre indicadores (padrão ARIA).
-    if (dotsEl) {
-      dotsEl.addEventListener("keydown", function (e) {
-        if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
-        e.preventDefault();
-        var passo = e.key === "ArrowRight" ? 1 : -1;
-        var alvo = (cur + passo + ord.length) % ord.length;
-        irPara(alvo);
-        dots[alvo].focus();
-      });
-    }
+    dotsEl.addEventListener("keydown", function (e) {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      e.preventDefault();
+      var passo = e.key === "ArrowRight" ? 1 : -1;
+      var alvo = (cur + passo + destaqueNews.length) % destaqueNews.length;
+      irPara(alvo);
+      dots[alvo].focus();
+    });
 
     pintar();
     agendar();
   }
 
-  /* ---- 2. Notícias ------------------------------------------------------ */
-  function noticiasOrdenadas() {
-    var lista = ((typeof CDA !== "undefined" && CDA.NOTICIAS) || []).filter(function (n) {
-      return !/teste/i.test(n.titulo || "");
-    });
-    return lista.sort(function (a, b) {
-      var ra = a.relevancia || 0, rb = b.relevancia || 0;
-      if (ra !== rb) return rb - ra;
-      return String(b.data).localeCompare(String(a.data));
-    });
-  }
-
-  var noticias = noticiasOrdenadas();
-
-  // Faixa de destaques: 3 títulos com data, estática (o ticker animado foi retirado).
-  var track = document.getElementById("flash-track");
-  if (track) {
-    noticias.slice(0, 3).forEach(function (n) {
-      var a = document.createElement("a");
-      a.href = "noticias.html";
-
-      var dia = document.createElement("span");
-      dia.className = "home-strip__date";
-      dia.textContent = dataPT(n.data);
-
-      var titulo = document.createElement("span");
-      titulo.textContent = n.titulo;
-
-      a.appendChild(dia);
-      a.appendChild(titulo);
-      track.appendChild(a);
-    });
-  }
-
+  /* ---- 2. Flash de Notícias -------------------------------------------- */
   var newsList = document.getElementById("news-list");
   if (newsList) {
-    noticias.slice(0, 3).forEach(function (n) {
+    noticias.slice(0, 6).forEach(function (n) {
+      var href = noticiasHref(n);
       var artigo = document.createElement("article");
       artigo.className = "news-card";
 
@@ -207,7 +186,7 @@
         var img = document.createElement("img");
         img.className = "news-card-img";
         img.src = n.imagem;
-        img.alt = n.titulo || "";
+        img.alt = "";
         img.loading = "lazy";
         img.decoding = "async";
         if (n.foco) img.style.objectPosition = n.foco;
@@ -226,25 +205,27 @@
       cat.textContent = n.categoria || "";
 
       var h3 = document.createElement("h3");
-      h3.textContent = n.titulo || "";
+      var titulo = document.createElement("a");
+      titulo.href = href;
+      titulo.textContent = n.titulo || "Notícia da CDA";
+      h3.appendChild(titulo);
 
       var p = document.createElement("p");
       var texto = n.texto || "";
-      if (texto.length > 140) {
-        var corte = texto.slice(0, 140).replace(/\s+\S*$/, "");
-        texto = corte + "…";
+      if (texto.length > 150) {
+        texto = texto.slice(0, 150).replace(/\s+\S*$/, "") + "…";
       }
       p.textContent = texto;
 
       var ler = document.createElement("a");
       ler.className = "ler";
-      ler.href = "noticias.html";
-      ler.textContent = "Ler mais";
+      ler.href = href;
+      ler.textContent = "Ler notícia →";
 
       corpo.appendChild(data);
-      corpo.appendChild(cat);
+      if (cat.textContent) corpo.appendChild(cat);
       corpo.appendChild(h3);
-      corpo.appendChild(p);
+      if (texto) corpo.appendChild(p);
       corpo.appendChild(ler);
       artigo.appendChild(corpo);
       newsList.appendChild(artigo);
@@ -343,7 +324,7 @@
         try { localStorage.setItem("cda-newsletter", valor); } catch (_) {}
       } else {
         em.focus();
-        em.style.borderColor = "#ff6b6b";
+        em.style.borderColor = "var(--cda-primary)";
       }
     });
   }
@@ -441,7 +422,10 @@
           var flex = document.createElement("div");
           var data = document.createElement("div");
           data.className = "side-event__data";
-          data.innerHTML = "<strong>" + (parts[2] || "—") + "</strong>" + (parts[1] || "");
+          var dia = document.createElement("strong");
+          dia.textContent = parts[2] || "—";
+          data.appendChild(dia);
+          data.appendChild(document.createTextNode(parts[1] || ""));
           flex.appendChild(data);
           var p = document.createElement("p");
           var title = document.createElement("b");

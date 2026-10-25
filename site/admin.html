@@ -6,39 +6,33 @@
 <title data-titulo="Painel Admin">Painel Admin — CDA Digital 2.0</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="css/estilo.css">
-<link rel="stylesheet" href="css/cta.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap"></noscript>
 <style>
   body { background: var(--bg-alt); }
   .admin-wrap { display: flex; gap: 24px; align-items: flex-start; margin: 24px 0; }
-  .admin-nav { flex: 0 0 220px; background: var(--navy); color: #fff; border-radius: 6px; padding: 12px 0; }
-  .admin-nav button { display: block; width: 100%; text-align: left; background: none; border: 0; color: #cbd5e1;
+  .admin-nav { flex: 0 0 220px; background: var(--navy); color: #ffffff; border-radius: 6px; padding: 12px 0; }
+  .admin-nav button { display: block; width: 100%; text-align: left; background: none; border: 0; color: #d4d4d4;
     padding: 11px 20px; font: inherit; font-size: .92rem; cursor: pointer; border-left: 3px solid transparent; }
-  .admin-nav button:hover { background: rgba(255,255,255,.07); color: #fff; }
-  .admin-nav button.ativo { background: rgba(255,255,255,.12); border-left-color: var(--red); color: #fff; font-weight: 600; }
-  .admin-nav button.logout { border-top: 1px solid rgba(255,255,255,.15); margin-top: 10px; color: #f0b3ad; }
+  .admin-nav button:hover { background: rgba(255, 255, 255, .07); color: #ffffff; }
+  .admin-nav button.ativo { background: rgba(255, 255, 255, .12); border-left-color: var(--red); color: #ffffff; font-weight: 600; }
+  .admin-nav button.logout { border-top: 1px solid rgba(255, 255, 255, .15); margin-top: 10px; color: #f0c3c4; }
   .admin-main { flex: 1; min-width: 0; }
-  .painel-painel { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 22px; }
+  .painel-painel { background: #ffffff; border: 1px solid var(--line); border-radius: 6px; padding: 22px; }
   .painel-painel h2 { margin: 0 0 14px; font-size: 1.25rem; }
   table { width: 100%; border-collapse: collapse; font-size: .9rem; }
   th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   th { background: var(--bg-alt); color: var(--text-soft); font-weight: 600; }
-  tr.nao-lida { background: #fff6ec; font-weight: 600; }
-  .btn-mini { background: var(--navy); color: #fff; border: 0; border-radius: 3px; padding: 5px 9px; cursor: pointer; font-size: .8rem; margin: 2px; }
+  tr.nao-lida { background: #f7f7f7; font-weight: 600; }
+  .btn-mini { background: var(--navy); color: #ffffff; border: 0; border-radius: 3px; padding: 5px 9px; cursor: pointer; font-size: .8rem; margin: 2px; }
   .btn-mini.perigo { background: var(--red); }
-  .estado { display: inline-block; padding: 2px 7px; border-radius: 10px; background: #eceff3; color: var(--text-soft); font-size: .75rem; font-weight: 600; }
-  .estado.estado-ok { background: #e4f3e6; color: #1e7b34; }
+  .estado { display: inline-block; padding: 2px 7px; border-radius: 10px; background: #efefef; color: var(--text-soft); font-size: .75rem; font-weight: 600; }
+  .estado.estado-ok { background: #efefef; color: #626262; }
   .stat-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px; margin-bottom: 18px; }
-  .stat-card { background: #fff; border: 1px solid var(--line); border-radius: 6px; padding: 16px; text-align: center; }
+  .stat-card { background: #ffffff; border: 1px solid var(--line); border-radius: 6px; padding: 16px; text-align: center; }
   .stat-card b { display: block; font-size: 1.7rem; color: var(--navy); }
   .stat-card span { color: var(--text-soft); font-size: .82rem; }
-  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); align-items: flex-start; justify-content: center;
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, .5); align-items: flex-start; justify-content: center;
     padding: 40px 16px; z-index: 90; overflow: auto; }
-  .modal-caixa { background: #fff; border-radius: 8px; max-width: 720px; width: 100%; padding: 22px; }
+  .modal-caixa { background: #ffffff; border-radius: 8px; max-width: 720px; width: 100%; padding: 22px; }
   .modal-caixa h3 { margin-top: 0; }
   .modal-caixa label { display: block; margin: 10px 0 3px; font-size: .85rem; font-weight: 600; color: var(--text-soft); }
   .modal-caixa input, .modal-caixa select, .modal-caixa textarea { width: 100%; padding: 8px 10px; border: 1px solid var(--line);

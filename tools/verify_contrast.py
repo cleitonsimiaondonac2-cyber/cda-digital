@@ -214,16 +214,16 @@ PARES = [
 
     # --- Foco (WCAG 2.2 1.4.11 -> 3:1) --------------------------------------
     # O indicador de foco é um anel DUPLO (implementado em sistema.css:66-76):
-    #   · fundo claro  -> anel EXTERIOR --cda-ink-900 (5px) + interior amarelo
-    #   · fundo escuro (.on-dark / .hero / .footer) -> anel EXTERIOR amarelo (3px) + interior preto
+    #   · fundo claro  -> anel EXTERIOR --cda-ink-900 (5px) + interior branco
+    #   · fundo escuro (.on-dark / .hero / .footer) -> anel EXTERIOR branco (3px) + interior preto
     # Cada anel é medido contra o fundo a que está realmente adjacente — medir o
     # anel exterior contra um fundo onde ele não existe daria um falso negativo.
     ("anel exterior ink-900 sobre fundo claro (branco)", "--cda-ink-900", "--surface-page", "ui"),
     ("anel exterior ink-900 sobre fundo claro (secção)", "--cda-ink-900", "--surface-subtle", "ui"),
-    ("anel exterior amarelo sobre fundo escuro (navy-900)", "--focus", "--cda-navy-900", "ui"),
-    ("anel exterior amarelo sobre fundo escuro (navy-800)", "--focus", "--cda-navy-800", "ui"),
-    ("fronteira entre os dois anéis (amarelo vs ink-900)", "--focus", "--cda-ink-900", "ui"),
-    ("focus-text ink-900 sobre foco amarelo", "--focus-text", "--focus", "normal"),
+    ("anel exterior branco sobre fundo escuro (navy-900)", "--focus", "--cda-navy-900", "ui"),
+    ("anel exterior branco sobre fundo escuro (navy-800)", "--focus", "--cda-navy-800", "ui"),
+    ("fronteira entre os dois anéis (branco vs ink-900)", "--focus", "--cda-ink-900", "ui"),
+    ("focus-text ink-900 sobre foco branco", "--focus-text", "--focus", "normal"),
 
     # --- Bordas / componentes de interface (3:1) ----------------------------
     ("border-strong ink-700 sobre branco", "--border-strong", "--surface-page", "ui"),

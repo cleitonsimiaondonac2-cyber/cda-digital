@@ -280,7 +280,7 @@
       }).then(function (r) {
         return lerJson(r).then(function (d) {
           if (!r.ok) throw new Error(d.detail || "falha no registo");
-          if (msg) { msg.textContent = d.mensagem || "Conta criada. Já pode iniciar sessão."; msg.style.color = "#1c7c2f"; }
+          if (msg) { msg.textContent = d.mensagem || "Conta criada. Já pode iniciar sessão."; msg.style.color = "#626262"; }
           fRegisto.reset();
         });
       }).catch((err) => {

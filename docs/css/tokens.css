@@ -64,65 +64,67 @@ As razões de contraste NÃO são afirmadas aqui: são CALCULADAS por
   --tracking-wider: 0.14em;
 
   /* ------------------------------------------------------------------------
-     2. CORES — primária: vermelho institucional CDA (heritage preservado)
-     Neutros: escala GOV.UK (gray/black tints) + navy para superfícies frias
+     2. CORES — identidade CDA: vermelho oficial do logótipo, preto e neutros
+     Vermelho amostrado do logótipo oficial (logo-site.png): #C81F25.
      ---------------------------------------------------------------------- */
-  --cda-red-50:  #fdf2f3;
-  --cda-red-100: #fbe3e5;
-  --cda-red-200: #f6c8cc;
-  --cda-red-300: #ee9ba2;
-  --cda-red-400: #e2646e;
-  --cda-red-500: #d8232a;   /* --cta-red actual, para continuidade de marca */
-  --cda-red-600: #b01b21;   /* AA com branco — CTAs, links (medido pelo script) */
-  --cda-red-700: #8f1419;
-  --cda-red-800: #6e0f13;
-  --cda-red-900: #4d0a0d;
+  --cda-red-50:  #fff5f5;
+  --cda-red-100: #f9e2e2;
+  --cda-red-200: #f0c3c4;
+  --cda-red-300: #e59a9d;
+  --cda-red-400: #d86c70;
+  --cda-red-500: #c81f25;   /* vermelho oficial da CDA */
+  --cda-red-600: #a3191e;   /* contraste elevado para links/hover */
+  --cda-red-700: #861419;
+  --cda-red-800: #681014;
+  --cda-red-900: #4d0c0f;
 
-  --cda-navy-50:  #f2f6fa;
-  --cda-navy-100: #e3ebf3;
-  --cda-navy-200: #c4d3e2;
-  --cda-navy-300: #9ab0c8;
-  --cda-navy-400: #6a869f;
-  --cda-navy-500: #47637e;
-  --cda-navy-600: #334b63;
-  --cda-navy-700: #25384c;
-  --cda-navy-800: #18273a;
-  --cda-navy-900: #0f1c2b;
+  /* Compatibilidade com componentes existentes: antiga escala navy passa a neutros. */
+  --cda-navy-50:  #f7f7f7;
+  --cda-navy-100: #eeeeee;
+  --cda-navy-200: #dddddd;
+  --cda-navy-300: #c4c4c4;
+  --cda-navy-400: #9a9a9a;
+  --cda-navy-500: #737373;
+  --cda-navy-600: #555555;
+  --cda-navy-700: #333333;
+  --cda-navy-800: #1f1f1f;
+  --cda-navy-900: #111111;
 
-  --cda-ink-900: #0b0c0c;   /* títulos e corpo de texto                   */
-  --cda-ink-800: #16202b;
-  --cda-ink-700: #243447;
-  --cda-ink-600: #5c6773;   /* texto secundário                           */
-  --cda-ink-500: #6b7480;   /* 4.74:1 em branco — usado em ::placeholder (AA) */
-  --cda-ink-400: #9aa3ad;   /* apenas decorativo (separadores) — não é texto  */
+  --cda-ink-900: #111111;
+  --cda-ink-800: #222222;
+  --cda-ink-700: #333333;
+  --cda-ink-600: #555555;
+  --cda-ink-500: #666666;   /* 5.74:1 em branco */
+  --cda-ink-400: #888888;   /* apenas decoração/separadores */
 
-  --cda-green-600: #0f7a52;  /* sucesso (GOV.UK)  */
-  --cda-green-100: #e4f2ec;
-  --cda-amber-600: #b45309;
-  --cda-amber-100: #fdf3e3;
+  /* Estados sem cores extra de interface: expressos por vermelho/neutros. */
+  --cda-green-600: #333333;
+  --cda-green-100: #eeeeee;
+  --cda-amber-600: #555555;
+  --cda-amber-100: #f4f4f4;
 
   /* Semânticos */
-  --surface-page:    #ffffff;
-  --surface-subtle:  var(--cda-navy-50);
-  --surface-muted:   var(--cda-navy-100);
-  --surface-inverse: var(--cda-navy-900);
-  --surface-inverse-2: var(--cda-navy-800);
+  --surface-page:      #ffffff;
+  --surface-subtle:    #f7f7f7;
+  --surface-muted:     #eeeeee;
+  --surface-inverse:   #111111;
+  --surface-inverse-2: #222222;
 
-  --text-primary:    var(--cda-ink-900);
-  --text-secondary:  var(--cda-ink-600);
-  --text-inverse:    #ffffff;
-  --text-on-red:     #ffffff;   /* sobre --cda-red-600                        */
+  --text-primary:   #111111;
+  --text-secondary: #555555;
+  --text-inverse:   #ffffff;
+  --text-on-red:    #ffffff;
 
-  --border-subtle:  var(--cda-navy-200);   /* divisores decorativos                     */
-  --border-default: var(--cda-navy-400);   /* 3.80:1 — fronteira de controlos (WCAG 1.4.11) */
-  --border-strong:  var(--cda-ink-700);
+  --border-subtle:  #888888;
+  --border-default: #888888;
+  --border-strong:  #333333;
 
-  --accent:        var(--cda-red-600);
-  --accent-hover:  var(--cda-red-700);
-  --link:          #1a65a6;    /* GOV.UK link — medido pelo script            */
-  --link-hover:    #0f385c;
-  --focus:         #ffdd00;    /* GOV.UK focus — visível em qualquer fundo */
-  --focus-text:    var(--cda-ink-900);
+  --accent:       var(--cda-red-500);
+  --accent-hover: var(--cda-red-600);
+  --link:         var(--cda-red-600);
+  --link-hover:   var(--cda-red-800);
+  --focus:        #ffffff;
+  --focus-text:   #111111;
 
   /* ------------------------------------------------------------------------
      3. ESPAÇAMENTO — escala 4px (multiplos de 8 para ritmo consistente)
@@ -211,6 +213,6 @@ As razões de contraste NÃO são afirmadas aqui: são CALCULADAS por
     --text-secondary: var(--cda-ink-900);
     --border-subtle: var(--cda-ink-600);
     --border-default: var(--cda-ink-700);
-    --link: #0f385c;
+    --link: var(--cda-red-900);
   }
 }

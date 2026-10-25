@@ -10,13 +10,8 @@
 <link rel="stylesheet" href="css/sistema.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/estilo.css">
-<link rel="stylesheet" href="css/cta.css">
 <link rel="stylesheet" href="css/refino.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap"></noscript>
-
+<link rel="stylesheet" href="css/portal-cda.css">
 </head>
 <body data-page="inicio">
 
@@ -166,90 +161,74 @@
 
 <main id="conteudo" tabindex="-1">
 
-<!-- HERO — texto à esquerda, fotografia inteira à direita -->
-<section class="home-hero">
-  <div class="container home-hero__grid">
-    <div class="home-hero__copy">
-      <span class="pill">Portal CDA Digital</span>
-      <h1>A informação aduaneira da <em>CDA</em>, num só lugar.</h1>
-      <p class="home-hero__lead">Legislação, circulares, serviços e a vida da classe reunidos num portal que representa os despachantes aduaneiros de Moçambique.</p>
-      <div class="home-hero__actions">
-        <a class="home-btn--primary" href="documentacao.html">Centro Documental</a>
-        <a class="home-btn--ghost" href="servicos.html">Serviços ao despachante</a>
-      </div>
-    </div>
-    <div class="home-hero__media">
-      <div class="home-hero__frame" id="hero-slides" aria-hidden="true"></div>
-      <div class="home-hero__cap">
-        <span class="home-hero__label">CDA em Actividade</span>
-        <a id="hero-foot-link" href="actividades.html"><b id="hero-foot-tit"></b><span id="hero-foot-meta"></span></a>
-        <div class="home-hero__nav">
-          <button type="button" id="hero-prev" aria-label="Actividade anterior">←</button>
-          <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Actividades em destaque"></div>
-          <button type="button" id="hero-next" aria-label="Próxima actividade">→</button>
-          <button type="button" id="hero-pause" aria-label="Pausar rotação" aria-pressed="false">❚❚</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DESTAQUES — faixa estática (sem marquee) -->
-<div class="home-strip" id="flash-cda" role="region" aria-label="Destaques">
-  <div class="container home-strip__inner">
-    <span class="home-strip__label">Em destaque</span>
-    <div class="home-strip__links" id="flash-track"></div>
-    <a class="home-strip__more" href="noticias.html">Todas as notícias ›</a>
-  </div>
-</div>
-
-<!-- ESTRUTURA EDITORIAL — duas colunas, como portal institucional -->
-<section class="home-portal">
+<!-- PORTAL EDITORIAL — carrossel e notícias à esquerda, acessos rápidos à direita -->
+<section class="home-portal" aria-label="Actualidade e informação institucional">
   <div class="container home-portal__grid">
     <div class="home-portal__main">
 
-<!-- ACTUALIDADE -->
-<section class="home-sec">
-  <div class="container">
-    <div class="section-head">
-      <div><span class="sub">Actualidade</span><h2>Últimas notícias</h2></div>
-      <a class="more" href="noticias.html">Todas as notícias ›</a>
-    </div>
-    <div id="news-list" class="home-news"></div>
-  </div>
-</section>
+      <section class="home-hero" aria-label="Notícias em destaque">
+        <div class="home-hero__media" role="region" aria-roledescription="carrossel" aria-label="Destaques da CDA">
+          <div class="home-hero__frame" id="hero-slides" aria-hidden="true"></div>
+          <a class="home-hero__image-link" id="hero-image-link" href="noticias.html#noticia-0" aria-label="Abrir notícia em destaque"></a>
+          <div class="home-hero__cap">
+            <span class="home-hero__label" id="hero-category">Em destaque</span>
+            <a id="hero-foot-link" href="noticias.html#noticia-0">
+              <h1 id="hero-foot-tit">Dia do Despachante Aduaneiro 2026 celebrado com unidade e reconhecimento da classe</h1>
+              <span id="hero-foot-meta">14-09-2026</span>
+            </a>
+            <div class="home-hero__nav" aria-label="Controlos do carrossel">
+              <button type="button" id="hero-prev" aria-label="Notícia anterior">←</button>
+              <div class="hero-dots" id="hero-dots" role="group" aria-label="Escolher notícia em destaque"></div>
+              <button type="button" id="hero-next" aria-label="Próxima notícia">→</button>
+              <button type="button" id="hero-pause" aria-label="Pausar rotação" aria-pressed="false">❚❚</button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-<!-- CDA EM ACTIVIDADE -->
-<section class="home-sec">
-  <div class="container">
-    <div class="section-head">
-      <div><span class="sub">CDA em Actividade</span><h2>Onde a classe se encontra</h2></div>
-      <a class="more" href="actividades.html">Ver todas as actividades ›</a>
-    </div>
-    <div class="home-actividades" id="home-actividades"></div>
-  </div>
-</section>
+      <section class="home-sec" aria-labelledby="flash-title">
+        <div class="section-head">
+          <div>
+            <span class="sub">Actualidade</span>
+            <h2 id="flash-title">Flash de Notícias</h2>
+          </div>
+          <a class="more" href="noticias.html">Todas as notícias ›</a>
+        </div>
+        <div id="news-list" class="home-news" aria-live="polite"></div>
+      </section>
+
+      <section class="home-sec" aria-labelledby="activity-title">
+        <div class="section-head">
+          <div>
+            <span class="sub">CDA em Actividade</span>
+            <h2 id="activity-title">Onde a classe se encontra</h2>
+          </div>
+          <a class="more" href="actividades.html">Ver todas as actividades ›</a>
+        </div>
+        <div class="home-actividades" id="home-actividades"></div>
+      </section>
 
     </div>
-    <aside class="home-portal__side">
-      <div class="side-block">
-        <h3 class="side-block__title">Publicações recentes</h3>
+
+    <aside class="home-portal__side" aria-label="Publicações, documentos e eventos">
+      <section class="side-block" aria-labelledby="side-pubs-title">
+        <h2 class="side-block__title" id="side-pubs-title">Publicações recentes</h2>
         <div id="side-pubs"></div>
-      </div>
-      <div class="side-block">
-        <h3 class="side-block__title">Documentos</h3>
+      </section>
+      <section class="side-block" aria-labelledby="side-docs-title">
+        <h2 class="side-block__title" id="side-docs-title">Documentos</h2>
         <ul class="side-list">
-          <li><a href="documentacao.html?cat=legislacao">Legislação</a> <b>4</b></li>
-          <li><a href="documentacao.html?cat=circulares">Circulares</a> <b>141</b></li>
-          <li><a href="documentacao.html?cat=regulamentos">Regulamentos</a> <b>68</b></li>
-          <li><a href="documentacao.html?cat=publicacoes">Publicações</a> <b>53</b></li>
+          <li><a href="documentacao.html?cat=legislacao">Legislação</a><b>4</b></li>
+          <li><a href="documentacao.html?cat=circulares">Circulares</a><b>141</b></li>
+          <li><a href="documentacao.html?cat=regulamentos">Regulamentos</a><b>68</b></li>
+          <li><a href="documentacao.html?cat=publicacoes">Publicações</a><b>53</b></li>
           <li><a href="documentacao.html"><strong>Centro Documental completo →</strong></a></li>
         </ul>
-      </div>
-      <div class="side-block">
-        <h3 class="side-block__title">Eventos</h3>
+      </section>
+      <section class="side-block" aria-labelledby="side-events-title">
+        <h2 class="side-block__title" id="side-events-title">Eventos</h2>
         <div id="side-events"></div>
-      </div>
+      </section>
     </aside>
   </div>
 </section>
@@ -402,7 +381,7 @@
     </div>
 
     <div class="footer__bottom">
-      <span class="cta-org">© 2026 CDA — Câmara dos Despachantes Aduaneiros de Moçambique</span>
+      <span class="footer__copyright">© 2026 CDA — Câmara dos Despachantes Aduaneiros de Moçambique</span>
       <span class="footer__access">Este site procura seguir as diretrizes WCAG 2.1 (nível AA); se encontrar uma barreira de acessibilidade, use o formulário de contacto para nos avisar.</span>
       <div class="footer-social">
         <a href="https://www.facebook.com/cdamoz/" target="_blank" rel="noopener noreferrer" aria-label="CDA no Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
