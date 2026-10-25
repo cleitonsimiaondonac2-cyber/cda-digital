@@ -395,4 +395,73 @@
       });
     }
   }
+
+  // ---------- Sidebar da homepage: publicações e eventos ----------
+  (function () {
+    var sidePubs = document.getElementById("side-pubs");
+    var sideEvents = document.getElementById("side-events");
+
+    if (sidePubs && typeof CDA !== "undefined" && Array.isArray(CDA.DOCUMENTOS)) {
+      var recRecent = CDA.DOCUMENTOS.slice().sort(function (a, b) {
+        var ay = parseInt(a.ano, 10) || 0;
+        var by = parseInt(b.ano, 10) || 0;
+        if (by !== ay) return by - ay;
+        return String(a.titulo).localeCompare(String(b.titulo));
+      }).slice(0, 8);
+      recRecent.forEach(function (d) {
+        var a = document.createElement("a");
+        a.className = "side-pub";
+        a.href = d.ficheiro ? ("docs/" + d.ficheiro) : "documentacao.html";
+        if (d.ficheiro) { a.target = "_blank"; a.rel = "noopener"; }
+        var bEl = document.createElement("b");
+        bEl.textContent = d.titulo;
+        var sp = document.createElement("span");
+        sp.textContent = [d.tipo, d.ano, d.emissor].filter(Boolean).join(" · ") || "Documento institucional";
+        a.appendChild(bEl);
+        a.appendChild(sp);
+        sidePubs.appendChild(a);
+      });
+      if (!sidePubs.children.length) {
+        var v = document.createElement("p");
+        v.style.cssText = "font-size:12px;color:var(--cda-ink-500);margin:0";
+        v.textContent = "O acervo completo está no Centro Documental.";
+        sidePubs.appendChild(v);
+      }
+    }
+
+    if (sideEvents && typeof CDA !== "undefined" && Array.isArray(CDA.ACTIVIDADES)) {
+      CDA.ACTIVIDADES.slice()
+        .sort(function (a, b) { return String(b.data).localeCompare(String(a.data)); })
+        .slice(0, 5)
+        .forEach(function (a) {
+          var item = document.createElement("div");
+          item.className = "side-event";
+          var parts = String(a.data).split("-");
+          var itemLink = document.createElement("a");
+          var flex = document.createElement("div");
+          var data = document.createElement("div");
+          data.className = "side-event__data";
+          data.innerHTML = "<strong>" + (parts[2] || "—") + "</strong>" + (parts[1] || "");
+          flex.appendChild(data);
+          var p = document.createElement("p");
+          var title = document.createElement("b");
+          title.style.display = "block";
+          title.textContent = a.titulo;
+          p.appendChild(title);
+          p.appendChild(document.createTextNode(a.local ? " · " + a.local : ""));
+          flex.appendChild(p);
+          itemLink.href = "actividades.html";
+          itemLink.appendChild(flex);
+          item.appendChild(itemLink);
+          sideEvents.appendChild(item);
+        });
+      if (!sideEvents.children.length) {
+        var v2 = document.createElement("p");
+        v2.style.cssText = "font-size:12px;color:var(--cda-ink-500);margin:0";
+        v2.textContent = "Actividades em breve.";
+        sideEvents.appendChild(v2);
+      }
+    }
+  })();
 })();
+
