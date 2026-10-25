@@ -43,6 +43,9 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 .topbar a:hover { color: #ffd9da; }
+/* O span "Maputo · Moçambique" não é <a>: herdava #b9c4d0 do estilo antigo
+   (pensado para fundo navy) e ficava a 2,83:1 sobre o vermelho. */
+.topbar .hide-md { color: #fff; }
 
 /* ---------- Header: linha logo + nome (estilo CTA) ---------- */
 .header {
@@ -104,6 +107,19 @@ h1, h2, h3, h4, h5, h6 {
 .btn:hover, .newsletter-btn:hover, .doc-consultar:hover { background: #a9151b; }
 .btn-navy { background: var(--cta-black); }
 .btn-navy:hover { background: var(--cta-red); }
+
+/* A regra .btn acima carrega depois de sistema.css e, com a mesma especificidade,
+   anulava o .btn--outline (fundo transparente + texto navy). Resultado medido:
+   texto navy sobre vermelho a 2,87–3,43:1. Mantém-se o preenchimento da skin,
+   mas com texto branco (5,01:1). A especificidade .btn.btn--outline garante que
+   isto não volta a depender da ordem dos ficheiros. */
+.btn.btn--outline,
+.btn.btn--outline:hover {
+  background: var(--cta-red);
+  color: #fff;
+  border-color: transparent;
+}
+.btn.btn--outline:hover { background: #a9151b; }
 
 /* ---------- Cabeçalhos de secção — estilo CTA (subtítulo vermelho + divisor) ---------- */
 .sub {
@@ -554,7 +570,7 @@ h1, h2, h3, h4, h5, h6 {
 .news-card .data {
   font-family: var(--cta-font-list);
   font-size: 13px;
-  color: #777;
+  color: #666; /* era #777: 4,47:1 no branco, abaixo do mínimo AA */
   font-weight: 500;
 }
 /* separador decorativo junto às datas removido a pedido */
@@ -646,12 +662,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--cta-font-list);
   font-size: 14px;
   font-weight: 500;
-  color: var(--cta-red-2);
+  color: var(--cta-red); /* #d64141 dava 4,48:1; --cta-red dá 5,01:1 */
   line-height: 1.4;
   display: block;
 }
 .cta-widget li a:hover { color: var(--cta-black); }
-.cta-widget li a small { display: block; color: #888; font-size: 12px; }
+.cta-widget li a small { display: block; color: #666; font-size: 12px; }
 
 /* Widget newsletter */
 .cta-widget input[type="email"] {
@@ -843,4 +859,17 @@ h1, h2, h3, h4, h5, h6 {
 .act-destaque-media img,
 .act-card-media img,
 .act-det-galeria img,
-.cdaact-media img { object-position: center 28%; } # já OK, mantido
+.cdaact-media img { object-position: center 28%; } /* já OK, mantido */
+
+/* ============================================================
+   ACESSIBILIDADE — ajustes de contraste e distinção de links
+   ============================================================ */
+
+/* WCAG 1.4.1: links em texto corrido não podem distinguir-se só pela cor.
+   Só nestes contextos — os botões de acção mantêm-se sem sublinhado. */
+.aviso a,
+.accordion__content p a,
+.link-prose a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

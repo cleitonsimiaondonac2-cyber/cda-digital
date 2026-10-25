@@ -627,7 +627,10 @@ tr:hover td { background: var(--bg-alt); }
 .act-destaque-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; object-position: center; }
 .act-destaque-corpo { padding: 34px; display: flex; flex-direction: column; gap: 14px; }
 .act-titulo-linha { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
-.act-cat { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--red-soft); }
+.act-cat { font-size: .68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--red-dark); }
+/* Sobre o fundo navy do destaque o vermelho escuro não serve (2,8:1):
+   aí mantém-se o tom claro, que dá 6,6:1. */
+.act-destaque .act-cat { color: var(--red-soft); }
 .act-data { font-size: .78rem; color: #c7d0da; font-weight: 600; }
 .act-destaque .act-destaque-corpo h2 { color: #fff; font-size: 1.6rem; margin: 0; line-height: 1.25; }
 .act-desc { color: #c7d0da; line-height: 1.6; }
@@ -967,6 +970,27 @@ tr:hover td { background: var(--bg-alt); }
   padding: 8px 0;
 }
 .parceiros-marquee:hover .parceiros-track { animation-play-state: paused; }
+/* WCAG 2.2.2: movimento superior a 5 s tem de poder ser parado pelo utilizador. */
+.parceiros-track.is-pausado { animation-play-state: paused; }
+.parceiros-controlo { display: flex; justify-content: center; margin-top: 12px; }
+.parceiros-pausa {
+  min-height: 32px;
+  padding: 6px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--navy-3);
+  font-family: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .3px;
+  cursor: pointer;
+}
+.parceiros-pausa:hover { border-color: var(--red); color: var(--red); }
+@media (prefers-reduced-motion: reduce) {
+  .parceiros-track { animation: none; }
+  .parceiros-controlo { display: none; } /* sem animação não há nada para parar */
+}
 .parceiros-item {
   flex: 0 0 auto;
   white-space: nowrap;

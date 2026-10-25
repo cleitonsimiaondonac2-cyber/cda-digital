@@ -28,7 +28,9 @@
     return parseInt(p[2], 10) + " " + meses[parseInt(p[1], 10) - 1] + " " + p[0];
   }
 
-  function imgSrc(nome) { return "galeria/" + nome; }
+  // Capas antigas vivem em galeria/; as mais recentes trazem o caminho completo
+  // (ex.: "img/noticias/ev-2026-...jpg"), porque foram publicadas fora daquela pasta.
+  function imgSrc(nome) { return nome.indexOf("/") !== -1 ? nome : "galeria/" + nome; }
 
   function abrirLightbox(src) {
     lightboxImg.src = src;

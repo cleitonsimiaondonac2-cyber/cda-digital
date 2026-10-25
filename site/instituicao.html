@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-titulo="Instituição">Instituição — Câmara dos Despachantes Aduaneiros de Moçambique</title>
 <meta name="description" content="A Câmara dos Despachantes Aduaneiros de Moçambique (CDA): quem somos, missão, visão, valores, órgãos sociais e histórico institucional.">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/sistema.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/estilo.css">
 <link rel="stylesheet" href="css/cta.css">
+<link rel="stylesheet" href="css/refino.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,15 +49,13 @@
       <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
     </button>
 
-    <nav class="nav" id="nav" aria-label="Navegação principal" tabindex="-1">
+        <nav class="nav" id="nav" aria-label="Navegação principal" tabindex="-1">
       <ul class="nav__list">
-
         <li class="nav__item">
-          <a class="nav__link" href="index.html" data-pagina="inicio">Início</a>
+          <a class="nav__link" href="index.html">Início</a>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="instituicao.html" data-pagina="instituicao" aria-current="page">A CDA<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="instituicao.html" aria-current="page">A CDA<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="instituicao.html#quem-somos">Quem somos</a></li>
@@ -65,92 +65,76 @@
               <li><a href="orgaos.html">Órgãos sociais</a></li>
               <li><a href="estatutos.html">Estatutos</a></li>
               <li><a href="instituicao.html#delegacoes">Delegações</a></li>
-              <li><a href="contactos.html">Como funciona o despacho</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="noticias.html" data-pagina="noticias">Notícias e Comunicados<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="noticias.html">Notícias<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="noticias.html">Notícias</a></li>
-              <li><a href="anuncios.html" data-pagina="anuncios">Comunicados e anúncios</a></li>
-              <li><a href="documentacao.html">Circulares CDA</a></li>
-              <li><a href="documentacao.html">Circulares AT/DGA</a></li>
-              <li><a href="noticias.html">Notas de imprensa</a></li>
+              <li><a href="anuncios.html">Comunicados e anúncios</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="actividades.html" data-pagina="actividades">Assembleia Geral<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="actividades.html">CDA em Actividade<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="actividades.html">Convocatórias</a></li>
-              <li><a href="actividades.html">Actas</a></li>
-              <li><a href="actividades.html">Programas</a></li>
-              <li><a href="actividades.html">Deliberações</a></li>
+              <li><a href="actividades.html">Arquivo de actividades</a></li>
+              <li><a href="documentacao.html?tipo=Convocat%C3%B3ria">Convocatórias</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="servicos.html" data-pagina="servicos">Serviços<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="servicos.html">Serviços<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="servicos.html">Carteira profissional</a></li>
-              <li><a href="servicos.html">Jóia, quotas e taxas</a></li>
-              <li><a href="servicos.html">Formação</a></li>
+              <li><a href="servicos.html">Serviços ao despachante</a></li>
+              <li><a href="despachantes.html#fichas">Adesão e fichas</a></li>
               <li><a href="verificar.html">Verificar despachante</a></li>
-              <li><a href="despachantes.html#tabela-membros" data-pagina="despachantes">Directório de despachantes</a></li>
-              <li><a href="despachantes.html#busca-membros">Busca de membros</a></li>
+              <li><a href="despachantes.html#tabela-membros">Directório de membros</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="documentacao.html" data-pagina="documentacao">Documentos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="documentacao.html">Centro Documental<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="documentacao.html">Legislação e regulamentos</a></li>
-              <li><a href="documentacao.html">Circulares e notas</a></li>
-              <li><a href="documentacao.html">Ordens de serviço</a></li>
-              <li><a href="documentacao.html">Relatórios e contas</a></li>
-              <li><a href="pergunte.html">Pergunte à CDA</a></li>
+              <li><a href="documentacao.html?cat=legislacao">Legislação</a></li>
+              <li><a href="documentacao.html?cat=circulares">Circulares</a></li>
+              <li><a href="documentacao.html?cat=regulamentos">Regulamentos</a></li>
+              <li><a href="documentacao.html?cat=publicacoes">Publicações</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="galeria.html" data-pagina="galeria">Vida Associativa<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="galeria.html">Vida Associativa<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="galeria.html#galeria">Fotogalerias</a></li>
-              <li><a href="publicacoes.html" data-pagina="publicacoes">Publicações</a></li>
-              <li><a href="revista.html#capa">Revista O Despachante</a></li>
+              <li><a href="galeria.html">Galeria</a></li>
+              <li><a href="revista.html">Revista O Despachante</a></li>
               <li><a href="parceiros.html">Parceiros e representação</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="contactos.html" data-pagina="contactos">Contactos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="contactos.html">Contactos<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="contactos.html">Sede e escritórios</a></li>
+              <li><a href="contactos.html">Sede e contactos</a></li>
               <li><a href="contactos.html#form-contacto">Formulário de contacto</a></li>
+              <li><a href="pergunte.html">Perguntas frequentes</a></li>
               <li><a href="denunciar.html">Denúncia de fraude</a></li>
             </ul>
           </div>
         </li>
-
       </ul>
     </nav>
 
     <div class="header__actions">
       <button class="search-trigger" id="search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="Pesquisar no site">
-        <span aria-hidden="true">⌕</span>
+        <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4.3-4.3"></path></svg></span>
         <span class="search-trigger__label">Pesquisar</span>
         <span class="search-trigger__key" aria-hidden="true">/</span>
       </button>
@@ -185,7 +169,7 @@
   </div>
 </section>
 
-<div class="breadcrumb"><div class="container">Instituição</div></div>
+<div class="breadcrumb"><div class="container"><ol><li><a href="index.html">Início</a></li><li><a href="instituicao.html">A CDA</a></li><li><span aria-current="page">Instituição</span></li></ol></div></div>
 
 <section class="section">
   <div class="container conteudo">
@@ -224,7 +208,7 @@
     </ul>
 
     <h2 id="orgaos">Órgãos sociais — Triénio 2024–2026</h2>
-    <p>Eleitos na XXVI.ª Sessão da Assembleia Geral Ordinária, em Dezembro de 2023, e empossados para o triénio 2024–2026.</p>
+    <p>Eleitos na XXVI.ª Sessão da Assembleia Geral Ordinária, em Dezembro de 2023, e empossados para o triénio 2024–2026. A composição nominal consta desta página; a descrição das competências de cada órgão está em <a href="orgaos.html">Órgãos sociais</a>.</p>
 
     <figure class="cartaz-orgaos">
       <a href="img/cartaz/cartaz-orgaos-sociais.jpg" target="_blank" rel="noopener" title="Ver o cartaz em tamanho grande" aria-label="Abrir o cartaz dos Órgãos Sociais em tamanho grande">
@@ -276,6 +260,7 @@
     <p>O processo de criação da Câmara dos Despachantes Aduaneiros de Moçambique teve o seu início em <strong>Novembro de 1996</strong>, quando existiam apenas 10 despachantes oficiais em Moçambique. A falta de experiência sobre a forma de criar a CDA, conjugada com algumas preocupações encontradas pelo caminho, fez com que o processo fosse temporariamente paralisado até à criação da <strong>Autoridade Tributária de Moçambique, em 2006</strong>, período em que voltou a receber um impulso quando o Exmo. Sr. Presidente da AT nomeou uma <strong>"Comissão Ad-hoc"</strong> para se encarregar de apresentar o dossier com o projecto de criação da CDA à Autoridade Tributária, que por sua vez o encaminharia para as autoridades competentes, com vista à sua aprovação.</p>
     <p>Depois da 2.ª Sessão do Conselho da Fiscalidade, em 2007, o projecto foi aprovado e recomendado o aprofundamento do seu conteúdo. Em Setembro de 2010, numa reunião para a divulgação da Janela Única Electrónica (JUE), a Comissão Ad-hoc deu a conhecer aos despachantes aduaneiros os desenvolvimentos do processo de criação da CDA, tendo sido nomeados despachantes das zonas Centro e Norte para estabelecer mecanismos de coesão com os despachantes aduaneiros residentes nessas regiões.</p>
     <p>A CDA foi criada pela <strong>Lei n.º 4/2011, de 11 de Janeiro</strong>, e os seus primeiros órgãos sociais foram eleitos em <strong>Setembro de 2011</strong>. Desde então, a instituição tem representado a classe, promovido o aperfeiçoamento profissional e participado activamente nas estruturas internacionais, nomeadamente no âmbito da ASAPRA (Associação Internacional de Agentes Profissionais de Alfândega) e da FIATA.</p>
+    <p><a class="btn btn--outline btn--sm" href="historia.html">Ver a cronologia completa →</a></p>
 
     <h2 id="delegacoes">Delegações regionais</h2>
     <div class="delegacoes" style="margin-top:12px">
@@ -305,9 +290,11 @@
         <ul>
           <li><a href="index.html">Início</a></li>
           <li><a href="instituicao.html">A CDA</a></li>
-          <li><a href="noticias.html">Notícias e Comunicados</a></li>
-          <li><a href="actividades.html">Assembleia Geral</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="actividades.html">CDA em Actividade</a></li>
           <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="documentacao.html">Centro Documental</a></li>
+          <li><a href="galeria.html">Vida Associativa</a></li>
           <li><a href="contactos.html">Contactos</a></li>
         </ul>
       </div>
@@ -320,7 +307,7 @@
           <li><a href="orgaos.html">Órgãos sociais</a></li>
           <li><a href="estatutos.html">Estatutos</a></li>
           <li><a href="verificar.html">Verificar despachante</a></li>
-          <li><a href="pergunte.html">Pergunte à CDA</a></li>
+          <li><a href="pergunte.html">Perguntas frequentes</a></li>
         </ul>
       </div>
 

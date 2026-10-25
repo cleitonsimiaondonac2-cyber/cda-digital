@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CDA — Câmara dos Despachantes Aduaneiros de Moçambique</title>
 <meta name="description" content="Portal oficial da Câmara dos Despachantes Aduaneiros de Moçambique — legislação, documentação, membros e serviços. Representação, regulação, formação e desenvolvimento da profissão.">
+<link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/sistema.css">
 <link rel="stylesheet" href="css/layout.css">
 <link rel="stylesheet" href="css/estilo.css">
 <link rel="stylesheet" href="css/cta.css">
+<link rel="stylesheet" href="css/refino.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Maven+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -50,15 +52,13 @@
       <span class="nav-toggle__bars" aria-hidden="true"><span></span></span>
     </button>
 
-    <nav class="nav" id="nav" aria-label="Navegação principal" tabindex="-1">
+        <nav class="nav" id="nav" aria-label="Navegação principal" tabindex="-1">
       <ul class="nav__list">
-
         <li class="nav__item">
-          <a class="nav__link" href="index.html" data-pagina="inicio" aria-current="page">Início</a>
+          <a class="nav__link is-active" href="index.html">Início</a>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="instituicao.html" data-pagina="instituicao">A CDA<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="instituicao.html">A CDA<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="instituicao.html#quem-somos">Quem somos</a></li>
@@ -68,92 +68,76 @@
               <li><a href="orgaos.html">Órgãos sociais</a></li>
               <li><a href="estatutos.html">Estatutos</a></li>
               <li><a href="instituicao.html#delegacoes">Delegações</a></li>
-              <li><a href="contactos.html">Como funciona o despacho</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="noticias.html" data-pagina="noticias">Notícias e Comunicados<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="noticias.html">Notícias<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
               <li><a href="noticias.html">Notícias</a></li>
-              <li><a href="anuncios.html" data-pagina="anuncios">Comunicados e anúncios</a></li>
-              <li><a href="documentacao.html">Circulares CDA</a></li>
-              <li><a href="documentacao.html">Circulares AT/DGA</a></li>
-              <li><a href="noticias.html">Notas de imprensa</a></li>
+              <li><a href="anuncios.html">Comunicados e anúncios</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="actividades.html" data-pagina="actividades">Assembleia Geral<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="actividades.html">CDA em Actividade<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="actividades.html">Convocatórias</a></li>
-              <li><a href="actividades.html">Actas</a></li>
-              <li><a href="actividades.html">Programas</a></li>
-              <li><a href="actividades.html">Deliberações</a></li>
+              <li><a href="actividades.html">Arquivo de actividades</a></li>
+              <li><a href="documentacao.html?tipo=Convocat%C3%B3ria">Convocatórias</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="servicos.html" data-pagina="servicos">Serviços<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="servicos.html">Serviços<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="servicos.html">Carteira profissional</a></li>
-              <li><a href="servicos.html">Jóia, quotas e taxas</a></li>
-              <li><a href="servicos.html">Formação</a></li>
+              <li><a href="servicos.html">Serviços ao despachante</a></li>
+              <li><a href="despachantes.html#fichas">Adesão e fichas</a></li>
               <li><a href="verificar.html">Verificar despachante</a></li>
-              <li><a href="despachantes.html#tabela-membros" data-pagina="despachantes">Directório de despachantes</a></li>
-              <li><a href="despachantes.html#busca-membros">Busca de membros</a></li>
+              <li><a href="despachantes.html#tabela-membros">Directório de membros</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="documentacao.html" data-pagina="documentacao">Documentos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="documentacao.html">Centro Documental<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="documentacao.html">Legislação e regulamentos</a></li>
-              <li><a href="documentacao.html">Circulares e notas</a></li>
-              <li><a href="documentacao.html">Ordens de serviço</a></li>
-              <li><a href="documentacao.html">Relatórios e contas</a></li>
-              <li><a href="pergunte.html">Pergunte à CDA</a></li>
+              <li><a href="documentacao.html?cat=legislacao">Legislação</a></li>
+              <li><a href="documentacao.html?cat=circulares">Circulares</a></li>
+              <li><a href="documentacao.html?cat=regulamentos">Regulamentos</a></li>
+              <li><a href="documentacao.html?cat=publicacoes">Publicações</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="galeria.html" data-pagina="galeria">Vida Associativa<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="galeria.html">Vida Associativa<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="galeria.html#galeria">Fotogalerias</a></li>
-              <li><a href="publicacoes.html" data-pagina="publicacoes">Publicações</a></li>
-              <li><a href="revista.html#capa">Revista O Despachante</a></li>
+              <li><a href="galeria.html">Galeria</a></li>
+              <li><a href="revista.html">Revista O Despachante</a></li>
               <li><a href="parceiros.html">Parceiros e representação</a></li>
             </ul>
           </div>
         </li>
-
         <li class="nav__item" data-mega>
-          <a class="nav__link" href="contactos.html" data-pagina="contactos">Contactos<span class="nav__caret" aria-hidden="true"></span></a>
+          <a class="nav__link" href="contactos.html">Contactos<span class="nav__caret" aria-hidden="true"></span></a>
           <div class="nav__panel">
             <ul>
-              <li><a href="contactos.html">Sede e escritórios</a></li>
+              <li><a href="contactos.html">Sede e contactos</a></li>
               <li><a href="contactos.html#form-contacto">Formulário de contacto</a></li>
+              <li><a href="pergunte.html">Perguntas frequentes</a></li>
               <li><a href="denunciar.html">Denúncia de fraude</a></li>
             </ul>
           </div>
         </li>
-
       </ul>
     </nav>
 
     <div class="header__actions">
       <button class="search-trigger" id="search-trigger" type="button" aria-haspopup="dialog" aria-controls="search-dialog" aria-label="Pesquisar no site">
-        <span aria-hidden="true">⌕</span>
+        <span aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" focusable="false"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4.3-4.3"></path></svg></span>
         <span class="search-trigger__label">Pesquisar</span>
         <span class="search-trigger__key" aria-hidden="true">/</span>
       </button>
@@ -181,129 +165,132 @@
 
 <main id="conteudo" tabindex="-1">
 
-<!-- HERO — SLIDER DE NOTÍCIAS (estilo CTA) -->
-<section class="hero" id="hero">
-  <div class="hero-slides" id="hero-slides" aria-hidden="true"></div>
-  <div class="hero-overlay" aria-hidden="true"></div>
-  <div class="container hero-inner">
-    <div class="hero-copy">
+<!-- HERO — texto à esquerda, fotografia inteira à direita -->
+<section class="home-hero">
+  <div class="container home-hero__grid">
+    <div class="home-hero__copy">
       <span class="pill">Portal CDA Digital</span>
-      <h1>A informação aduaneira da<br><em>CDA, num só lugar.</em></h1>
+      <h1>A informação aduaneira da <em>CDA</em>, num só lugar.</h1>
+      <p class="home-hero__lead">Legislação, circulares, serviços e a vida da classe reunidos num portal que representa os despachantes aduaneiros de Moçambique.</p>
+      <div class="home-hero__actions">
+        <a class="home-btn--primary" href="documentacao.html">Centro Documental</a>
+        <a class="home-btn--ghost" href="servicos.html">Serviços ao despachante</a>
+      </div>
     </div>
-  </div>
-  <div class="hero-foot">
-    <div class="hero-foot-cap" id="hero-foot-cap">
-      <span class="hero-foot-label">CDA em Actividade</span>
-      <a id="hero-foot-link" href="actividades.html"><b id="hero-foot-tit"></b><span id="hero-foot-meta"></span>Ver cobertura →</a>
-    </div>
-    <div class="hero-foot-nav">
-      <button type="button" id="hero-prev" aria-label="Actividade anterior">←</button>
-      <div class="hero-dots" id="hero-dots" role="tablist"></div>
-      <button type="button" id="hero-next" aria-label="Próxima actividade">→</button>
+    <div class="home-hero__media">
+      <div class="home-hero__frame" id="hero-slides" aria-hidden="true"></div>
+      <div class="home-hero__cap">
+        <span class="home-hero__label">CDA em Actividade</span>
+        <a id="hero-foot-link" href="actividades.html"><b id="hero-foot-tit"></b><span id="hero-foot-meta"></span></a>
+        <div class="home-hero__nav">
+          <button type="button" id="hero-prev" aria-label="Actividade anterior">←</button>
+          <div class="hero-dots" id="hero-dots" role="tablist" aria-label="Actividades em destaque"></div>
+          <button type="button" id="hero-next" aria-label="Próxima actividade">→</button>
+          <button type="button" id="hero-pause" aria-label="Pausar rotação" aria-pressed="false">❚❚</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- FLASH DE NOTÍCIAS (estilo CTA) -->
-<div class="flash-cda" id="flash-cda" role="region" aria-label="Flash de notícias CDA">
-  <div class="container flash-inner">
-    <span class="flash-label">Flash CDA</span>
-    <div class="flash-track" id="flash-track" aria-live="off"></div>
+<!-- DESTAQUES — faixa estática (sem marquee) -->
+<div class="home-strip" id="flash-cda" role="region" aria-label="Destaques">
+  <div class="container home-strip__inner">
+    <span class="home-strip__label">Em destaque</span>
+    <div class="home-strip__links" id="flash-track"></div>
+    <a class="home-strip__more" href="noticias.html">Todas as notícias ›</a>
   </div>
 </div>
 
-<!-- CONTEÚDO PRINCIPAL — coluna 74.66% + sidebar 25% (layout CTA) -->
-<div class="layout-cta container" style="padding-top:44px;">
-  <div class="col-main">
-    <div class="section-head" style="margin-bottom:26px;">
-      <div>
-        <span class="sub">Actualidade</span>
-        <h2 style="font-size:28px;margin-top:4px;">Últimas notícias</h2>
-      </div>
+<!-- ACTUALIDADE -->
+<section class="home-sec">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="sub">Actualidade</span><h2>Últimas notícias</h2></div>
       <a class="more" href="noticias.html">Todas as notícias ›</a>
     </div>
-    <div id="news-list"></div>
+    <div id="news-list" class="home-news"></div>
   </div>
-  <aside class="col-side">
-  <div class="cta-widget">
-    <div class="cta-widget-h">Newsletter</div>
-    <div class="cta-widget-b">
+</section>
+
+<!-- CDA EM ACTIVIDADE -->
+<section class="home-sec">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="sub">CDA em Actividade</span><h2>Onde a classe se encontra</h2></div>
+      <a class="more" href="actividades.html">Ver todas as actividades ›</a>
+    </div>
+    <div class="home-actividades" id="home-actividades"></div>
+  </div>
+</section>
+
+<!-- CENTRO DOCUMENTAL -->
+<section class="home-doc">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="sub">Centro Documental</span><h2>O acervo da CDA</h2></div>
+      <a class="more" href="documentacao.html">Pesquisar no acervo ›</a>
+    </div>
+    <div class="home-doc__grid">
+      <a class="home-doc__card" href="documentacao.html?cat=legislacao">
+        <span class="home-doc__num" data-doc-cat="legislacao">4</span>
+        <b>Legislação</b>
+        <small>Leis, decretos e estatutos</small>
+      </a>
+      <a class="home-doc__card" href="documentacao.html?cat=circulares">
+        <span class="home-doc__num" data-doc-cat="circulares">141</span>
+        <b>Circulares</b>
+        <small>Circulares da CDA, AT e DGA</small>
+      </a>
+      <a class="home-doc__card" href="documentacao.html?cat=regulamentos">
+        <span class="home-doc__num" data-doc-cat="regulamentos">68</span>
+        <b>Regulamentos</b>
+        <small>Regulamentos e ordens de serviço</small>
+      </a>
+      <a class="home-doc__card" href="documentacao.html?cat=publicacoes">
+        <span class="home-doc__num" data-doc-cat="publicacoes">53</span>
+        <b>Publicações</b>
+        <small>Boletins, relatórios e outros registos</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="home-serv">
+  <div class="container">
+    <div class="section-head">
+      <div><span class="sub">Serviços</span><h2>O que precisa, num clique</h2></div>
+      <a class="more" href="servicos.html">Ver todos os serviços ›</a>
+    </div>
+    <div class="home-serv__grid">
+      <a class="home-serv__card" href="despachantes.html#fichas"><b>Adesão e fichas</b><span>Registo de membros e documentação de adesão.</span></a>
+      <a class="home-serv__card" href="verificar.html"><b>Verificar despachante</b><span>Confirme o registo e a validade da cédula.</span></a>
+      <a class="home-serv__card" href="despachantes.html#tabela-membros"><b>Directório de membros</b><span>Procure um despachante registado na CDA.</span></a>
+      <a class="home-serv__card" href="area-membro.html"><b>Área do Membro</b><span>Acesso reservado aos membros da Câmara.</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER + INDICADORES -->
+<section class="home-info">
+  <div class="container home-info__grid">
+    <div>
+      <h2>Receba as novidades da CDA</h2>
+      <p>Subscreva a newsletter para acompanhar notícias, circulares e actividades.</p>
       <form id="newsletter-form" novalidate>
         <input type="email" id="newsletter-email" placeholder="O seu email" required aria-label="Email">
         <button class="w-btn" type="submit">Subscrever</button>
       </form>
-      <p class="newsletter-ok" id="newsletter-ok" hidden style="color:#0a7d3c;font-size:13px;">✔ Obrigado! A sua subscrição foi registada.</p>
+      <p class="newsletter-ok" id="newsletter-ok" hidden>✔ Obrigado! O seu e-mail ficou guardado neste dispositivo. O envio de novidades ainda não está activo.</p>
+    </div>
+    <div class="home-info__stats">
+      <div><strong id="membros-count">—</strong><span>membros</span></div>
+      <div><strong id="doc-count">266</strong><span>documentos</span></div>
+      <div><strong>3</strong><span>regiões</span></div>
     </div>
   </div>
-
-  <div class="cta-widget">
-    <div class="cta-widget-h">Documentos</div>
-    <div class="cta-widget-b">
-      <ul>
-        <li><a href="documentacao.html">Lei n.º 4/2011 — Cria a CDA<small>Legislação · 2011</small></a></li>
-        <li><a href="documentacao.html">Regulamento Interno da CDA<small>Regulamento · 2017</small></a></li>
-        <li><a href="documentacao.html">19.ª Sessão da Assembleia Geral<small>Convocatória · 2023</small></a></li>
-        <li><a href="documentacao.html">Circular n.º 005/CDA/2014<small>Circular · 2014</small></a></li>
-        <li><a href="documentacao.html">Boletim Informativo da CDA — Ed. 04<small>Boletim · 2015</small></a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="cta-widget">
-    <div class="cta-widget-h">Eventos</div>
-    <div class="cta-widget-b">
-      <ul>
-        <li><a href="actividades.html">Assembleia Geral Ordinária<small>Reuniões · Maputo</small></a></li>
-        <li><a href="actividades.html">Formação do Despachante<small>Formação · Nampula</small></a></li>
-        <li><a href="actividades.html">Conferência Aduaneira<small>Conferências · Beira</small></a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="cta-widget">
-    <div class="cta-widget-b" style="padding:0;">
-      <div class="cta-ad">
-        <b>CDA Digital</b>
-        <span>O acervo da classe, num só lugar — legislação, circulares e serviços.</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="cta-widget">
-    <div class="cta-widget-h">Indicadores do Sector</div>
-    <div class="cta-widget-b">
-      <div class="cta-stats">
-        <div><strong id="membros-count">—</strong><span>membros</span></div>
-        <div><strong>3</strong><span>regiões</span></div>
-        <div><strong>+57</strong><span>documentos</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cta-widget">
-    <div class="cta-widget-h">Visitas</div>
-    <div class="cta-widget-b">
-      <p style="font-family:'Maven Pro',sans-serif;font-size:14px;color:#555;margin:0;">Esta página foi visitada <strong id="visit-count">0</strong> vezes.</p>
-    </div>
-  </div>
-
-  <div class="cta-widget">
-    <div class="cta-widget-h">Órgãos da CDA</div>
-    <div class="cta-widget-b">
-      <ul>
-        <li><a href="instituicao.html">Direcção — Secretariado-Geral<small>Sede · Maputo</small></a></li>
-        <li><a href="instituicao.html">Vice-Presidência Zona Norte<small>Nampula</small></a></li>
-        <li><a href="instituicao.html">Vice-Presidência Zona Centro<small>Beira</small></a></li>
-        <li><a href="instituicao.html">Vice-Presidência Zona Sul<small>Maputo</small></a></li>
-      </ul>
-    </div>
-  </div>
-</aside></div>
-
-<!-- FAIXA PUBLICIDADE (154px estilo CTA) -->
-<a class="banner-ads" href="despachantes.html">
-  <div><b>Tornar-se membro</b><span>Registo e certificação de despachantes aduaneiros em Moçambique</span></div>
-</a>
+</section>
 
 <!-- PARCEIROS -->
 <section class="sec-parceiros">
@@ -313,15 +300,11 @@
         <span class="sub">Parceiros e instituições</span>
         <h2>O sector, em conjunto</h2>
       </div>
+      <a class="more" href="parceiros.html">Ver parceiros ›</a>
     </div>
-  </div>
-  <div class="parceiros-marquee" id="parceiros-marquee">
-    <div class="parceiros-track"></div>
+    <div class="home-partners" id="parceiros-grid"></div>
   </div>
 </section>
-
-<!-- ACERVO (resumo — link directo ao centro documental) -->
-<section class="section section-alt" style="display:none;" aria-hidden="true"></section>
 
 </main>
 
@@ -346,9 +329,11 @@
         <ul>
           <li><a href="index.html">Início</a></li>
           <li><a href="instituicao.html">A CDA</a></li>
-          <li><a href="noticias.html">Notícias e Comunicados</a></li>
-          <li><a href="actividades.html">Assembleia Geral</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="actividades.html">CDA em Actividade</a></li>
           <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="documentacao.html">Centro Documental</a></li>
+          <li><a href="galeria.html">Vida Associativa</a></li>
           <li><a href="contactos.html">Contactos</a></li>
         </ul>
       </div>
@@ -361,7 +346,7 @@
           <li><a href="orgaos.html">Órgãos sociais</a></li>
           <li><a href="estatutos.html">Estatutos</a></li>
           <li><a href="verificar.html">Verificar despachante</a></li>
-          <li><a href="pergunte.html">Pergunte à CDA</a></li>
+          <li><a href="pergunte.html">Perguntas frequentes</a></li>
         </ul>
       </div>
 

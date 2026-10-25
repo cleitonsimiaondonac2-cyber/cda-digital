@@ -150,7 +150,21 @@
       nav.classList.toggle("is-open", abrir);
       btn.setAttribute("aria-expanded", abrir ? "true" : "false");
       btn.setAttribute("aria-label", abrir ? "Fechar menu de navegação" : "Abrir menu de navegação");
+      ajustarAltura();
     }
+
+    // O drawer é absolute dentro do header sticky: a altura útil depende da
+    // posição do header (41px do topbar no topo da página, 0 depois de rolar).
+    // O CSS deixa um fallback; aqui fecha-se a conta ao pixel.
+    function ajustarAltura() {
+      if (!nav.classList.contains("is-open")) { nav.style.maxHeight = ""; return; }
+      var header = nav.closest(".header");
+      var fundo = header ? header.getBoundingClientRect().bottom : 0;
+      nav.style.maxHeight = Math.max(200, Math.round(window.innerHeight - fundo)) + "px";
+    }
+
+    window.addEventListener("resize", ajustarAltura);
+    window.addEventListener("orientationchange", ajustarAltura);
 
     btn.addEventListener("click", function () {
       definir(!nav.classList.contains("is-open"));

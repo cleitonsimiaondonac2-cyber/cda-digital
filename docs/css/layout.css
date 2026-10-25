@@ -94,7 +94,7 @@
   text-transform: uppercase;
   color: var(--text-secondary);
 }
-@media (max-width: 420px) {
+@media (max-width: 540px) {
   .brand__text { display: none; }
 }
 
@@ -248,19 +248,30 @@
 @media (max-width: 1080px) {
   .nav-toggle { display: inline-flex; }
   .nav {
-    position: fixed;
-    inset: calc(var(--header-h) + 40px) 0 0 0;
+    /* O header é sticky e tem backdrop-filter, que cria um containing block
+       para descendentes fixed: o drawer resolvia contra o header e encolhia
+       para 89px. Com absolute nasce sempre colado ao fundo do header. */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    bottom: auto;
+    max-height: calc(100vh - 100%);
+    max-height: calc(100dvh - 100%);
     margin: 0;
     background: var(--surface-page);
     overflow-y: auto;
     padding: var(--sp-5) var(--gutter) var(--sp-8);
     opacity: 0;
     visibility: hidden;
-    transform: translateX(100%);
+    transform: translateY(-8px);
     transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), visibility var(--dur-base);
     z-index: var(--z-drawer);
   }
   .nav.is-open { opacity: 1; visibility: visible; transform: none; }
+  /* a classe legada .aberto (app.js) trazia margem e borda de quando o menu
+     era um bloco no fluxo; no drawer não têm função. */
+  .header .nav.aberto { margin-top: 0; border-top: 0; }
   .nav__list { flex-direction: column; align-items: stretch; gap: var(--sp-1); }
   .nav__link { min-height: 52px; font-size: var(--fs-md); border-bottom: 1px solid var(--border-subtle); border-radius: 0; }
   .nav__panel {
