@@ -349,8 +349,8 @@
   }
 
   /* ---- 7. Parceiros (grelha estática: nenhum logo cortado) ------------- */
-  var parceirosGrid = document.getElementById("parceiros-grid");
-  if (parceirosGrid) {
+  var parceirosTrack = document.getElementById("parceiros-track");
+  if (parceirosTrack) {
     var parceiros = [
       { src: "img/parceiros/at.png", nome: "Autoridade Tributária de Moçambique" },
       { src: "img/parceiros/alfandegas-fallback.svg", nome: "Alfândegas de Moçambique" },
@@ -366,7 +366,7 @@
       { src: "img/parceiros/wco.png", nome: "Organização Mundial das Alfândegas (OMA/WCO)" },
       { src: "img/parceiros/bancomoc.png", nome: "Banco de Moçambique" }
     ];
-    parceiros.forEach(function (p) {
+    function criarParceiro(p) {
       var item = document.createElement("span");
       item.className = "parceiros-item parceiros-item-logo";
       var img = document.createElement("img");
@@ -380,7 +380,19 @@
       nome.textContent = p.nome;
       item.appendChild(img);
       item.appendChild(nome);
-      parceirosGrid.appendChild(item);
-    });
+      return item;
+    }
+    // Lista duplicada para um ciclo contínuo e sem falhas.
+    parceiros.forEach(function (p) { parceirosTrack.appendChild(criarParceiro(p)); });
+    parceiros.forEach(function (p) { parceirosTrack.appendChild(criarParceiro(p)); });
+
+    var pausa = document.getElementById("parceiros-pausa");
+    if (pausa) {
+      pausa.addEventListener("click", function () {
+        var parado = parceirosTrack.classList.toggle("is-pausado");
+        pausa.textContent = parado ? "Retomar animação" : "Pausar animação";
+        pausa.setAttribute("aria-pressed", parado ? "true" : "false");
+      });
+    }
   }
 })();

@@ -299,11 +299,19 @@
     <div class="section-head">
       <div>
         <span class="sub">Parceiros e instituições</span>
-        <h2>O sector, em conjunto</h2>
+        <h2 id="parceiros-titulo">O sector, em conjunto</h2>
       </div>
       <a class="more" href="parceiros.html">Ver parceiros ›</a>
     </div>
-    <div class="home-partners" id="parceiros-grid"></div>
+    <div class="parceiros-marquee" id="parceiros-marquee" role="region" aria-labelledby="parceiros-titulo">
+      <div class="parceiros-track" id="parceiros-track" aria-hidden="true"></div>
+    </div>
+    <div class="parceiros-controlo">
+      <button type="button" class="parceiros-pausa" id="parceiros-pausa" aria-pressed="false">Pausar animação</button>
+    </div>
+    <div class="home-parceiros__notas">
+      <a class="more" href="parceiros.html">Conhecer todos os parceiros e ligações relevantes ›</a>
+    </div>
   </div>
 </section>
 
