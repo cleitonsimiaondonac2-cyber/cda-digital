@@ -19,19 +19,8 @@
 
 <!-- ============================================================
      HEADER INSTITUCIONAL (design system — contrato em css/layout.css)
-     Faixa superior + marca + mega-menu de 2.º nível + busca global + CTA
+     Navegação + identidade institucional + mega-menu + busca global
      ============================================================ -->
-<div class="topbar">
-  <div class="container topbar__inner">
-    <div class="topbar__links">
-      <a href="tel:+25821305504">Tel. +258 21 305 504 · 506</a>
-      <span class="hide-md">Maputo · Moçambique</span>
-    </div>
-    <div class="topbar__links">
-      <a href="area-membro.html">Área do Membro</a>
-    </div>
-  </div>
-</div>
 
 <header class="header">
   <div class="container header__inner">
@@ -93,6 +82,7 @@
               <li><a href="despachantes.html#fichas">Adesão e fichas</a></li>
               <li><a href="verificar.html">Verificar despachante</a></li>
               <li><a href="despachantes.html#tabela-membros">Directório de membros</a></li>
+              <li><a href="area-membro.html">Área do Membro</a></li>
             </ul>
           </div>
         </li>
@@ -137,7 +127,7 @@
         <span class="search-trigger__label">Pesquisar</span>
         <span class="search-trigger__key" aria-hidden="true">/</span>
       </button>
-      <a class="btn btn--primary" href="area-membro.html">Área do Membro</a>
+
     </div>
 
   </div>
@@ -311,11 +301,9 @@
       </div>
       <a class="more" href="parceiros.html">Ver parceiros ›</a>
     </div>
-    <div class="parceiros-marquee" id="parceiros-marquee" role="region" aria-labelledby="parceiros-titulo">
+    <span class="sr-only" id="parceiros-motion-help">O movimento pausa quando o cursor passa sobre o carrossel ou quando a faixa recebe foco. A animação é desactivada para quem prefere movimento reduzido.</span>
+    <div class="parceiros-marquee" id="parceiros-marquee" role="region" aria-labelledby="parceiros-titulo" aria-describedby="parceiros-motion-help" tabindex="0">
       <div class="parceiros-track" id="parceiros-track" aria-hidden="true"></div>
-    </div>
-    <div class="parceiros-controlo">
-      <button type="button" class="parceiros-pausa" id="parceiros-pausa" aria-pressed="false">Pausar animação</button>
     </div>
     <div class="home-parceiros__notas">
       <a class="more" href="parceiros.html">Conhecer todos os parceiros e ligações relevantes ›</a>

@@ -673,7 +673,7 @@
   position: absolute; right: -120px; top: -120px;
   width: 420px; height: 420px; border-radius: 50%;
   background: radial-gradient(circle, rgba(200, 31, 37, 0.15), transparent 70%);
-  filter: blur(6px);
+  filter: none;
   pointer-events: none; z-index: 0;
 }
 .home-hero .container > * { position: relative; z-index: 1; }
@@ -726,7 +726,7 @@
 .home-hero__actions .home-btn--primary:hover { background: linear-gradient(135deg, var(--cda-red-700), var(--cda-red-600)); box-shadow: 0 14px 32px rgba(200, 31, 37, 0.42); }
 .home-hero__actions .home-btn--ghost {
   background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.45);
-  color: #ffffff; backdrop-filter: blur(8px);
+  color: #ffffff; backdrop-filter: none; -webkit-backdrop-filter: none;
 }
 .home-hero__actions .home-btn--ghost:hover { background: rgba(255, 255, 255, 0.18); }
 
@@ -757,7 +757,7 @@
   margin-top: 10px;
   border-radius: var(--r-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(6px);
+  backdrop-filter: none; -webkit-backdrop-filter: none;
 }
 .home-hero__label {
   grid-column: 1 / -1;
@@ -820,14 +820,6 @@
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
   overflow: hidden; max-width: 180px;
 }
-.parceiros-controlo { display: flex; justify-content: center; margin-top: 14px; }
-.parceiros-pausa {
-  padding: 6px 14px; border-radius: var(--r-full);
-  border: 1px solid var(--cda-navy-200); background: #ffffff;
-  color: var(--cda-ink-600); font: 700 11px/1 var(--font-display); cursor: pointer;
-  transition: border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
-}
-.parceiros-pausa:hover { border-color: var(--cda-red-600); color: var(--cda-red-600); }
 .home-parceiros__notas { margin-top: 14px; text-align: right; }
 
 /* ---------- Página dedicada de Parceiros ---------- */
@@ -929,7 +921,7 @@
   box-shadow: none;
 }
 .home-portal .news-card img.news-card-img {
-  width: 130px; height: 85px; object-fit: cover; flex: 0 0 130px; border-radius: var(--r-sm);
+  width: 130px; height: 85px; object-fit: contain; flex: 0 0 130px; border-radius: var(--r-sm);
 }
 .home-portal .news-card .corpo { padding: 0; min-width: 0; }
 .home-portal .news-card .data { display: block; font: 600 10.5px/1 var(--font-display); color: var(--cda-ink-500); letter-spacing: 0.02em; margin-bottom: 3px; }

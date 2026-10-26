@@ -329,7 +329,7 @@
     });
   }
 
-  /* ---- 7. Parceiros (grelha estática: nenhum logo cortado) ------------- */
+  /* ---- 7. Carrossel de parceiros (logos completos) -------------------- */
   var parceirosTrack = document.getElementById("parceiros-track");
   if (parceirosTrack) {
     var parceiros = [
@@ -366,15 +366,6 @@
     // Lista duplicada para um ciclo contínuo e sem falhas.
     parceiros.forEach(function (p) { parceirosTrack.appendChild(criarParceiro(p)); });
     parceiros.forEach(function (p) { parceirosTrack.appendChild(criarParceiro(p)); });
-
-    var pausa = document.getElementById("parceiros-pausa");
-    if (pausa) {
-      pausa.addEventListener("click", function () {
-        var parado = parceirosTrack.classList.toggle("is-pausado");
-        pausa.textContent = parado ? "Retomar animação" : "Pausar animação";
-        pausa.setAttribute("aria-pressed", parado ? "true" : "false");
-      });
-    }
   }
 
   // ---------- Sidebar da homepage: publicações e eventos ----------

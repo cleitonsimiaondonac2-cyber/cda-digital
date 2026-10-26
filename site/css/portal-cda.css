@@ -322,7 +322,7 @@ th { color: var(--cda-gray-900); background: var(--cda-gray-50); }
 }
 .home-hero__frame { position: absolute; inset: 0; aspect-ratio: auto; background: #222222; border: 0; }
 .home-hero__frame img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center 34%;
+  width: 100%; height: 100%; object-fit: contain; object-position: center 34%;
   transition: opacity 460ms ease;
 }
 .home-hero__media::after {
@@ -429,7 +429,7 @@ th { color: var(--cda-gray-900); background: var(--cda-gray-50); }
   flex: 0 0 128px;
   width: 128px;
   height: 84px;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 2px;
   background: var(--cda-gray-100);
 }
@@ -488,7 +488,7 @@ th { color: var(--cda-gray-900); background: var(--cda-gray-50); }
 .home-actividades { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .home-act { display: flex; flex-direction: column; min-width: 0; color: inherit; background: #ffffff; border: 1px solid var(--cda-gray-200); border-radius: 3px; text-decoration: none; }
 .home-act:hover { border-color: var(--cda-primary); }
-.home-act img { width: 100%; height: 160px; object-fit: cover; background: var(--cda-gray-100); }
+.home-act img { width: 100%; height: 160px; object-fit: contain; background: var(--cda-gray-100); }
 .home-act__body { padding: 12px 14px 14px; }
 .home-act__cat { color: var(--cda-primary-dark); font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 .home-act h3 { margin: 6px 0 0; color: var(--cda-ink); font-size: 0.95rem; line-height: 1.35; }
@@ -498,13 +498,11 @@ th { color: var(--cda-gray-900); background: var(--cda-gray-50); }
 .sec-parceiros { padding: 36px 0; background: #ffffff; border-top: 1px solid var(--cda-gray-200); }
 .parceiros-marquee { overflow: hidden; border-top: 1px solid var(--cda-gray-200); border-bottom: 1px solid var(--cda-gray-200); }
 .parceiros-track { display: flex; width: max-content; align-items: stretch; gap: 12px; padding: 14px 0; animation: cda-partners-scroll 52s linear infinite; }
-.parceiros-track.is-pausado, .parceiros-marquee:hover .parceiros-track { animation-play-state: paused; }
+.parceiros-marquee:hover .parceiros-track, .parceiros-marquee:focus-within .parceiros-track { animation-play-state: paused; }
 .parceiros-item { flex: 0 0 190px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; min-height: 100px; padding: 12px; background: #ffffff; border: 1px solid var(--cda-gray-200); }
 .parceiros-item-img { max-width: 148px; max-height: 50px; object-fit: contain; }
 .parceiros-item-nome { max-width: 170px; color: var(--cda-gray-700); text-align: center; font-size: 0.68rem; line-height: 1.3; }
 @keyframes cda-partners-scroll { to { transform: translateX(-50%); } }
-.parceiros-pausa { padding: 7px 12px; color: var(--cda-gray-700); background: #ffffff; border: 1px solid var(--cda-gray-300); border-radius: 3px; font-size: 0.72rem; font-weight: 700; cursor: pointer; }
-.parceiros-pausa:hover { color: var(--cda-primary-dark); border-color: var(--cda-primary); }
 .home-parceiros__notas { margin-top: 12px; text-align: right; }
 .partner-grelha { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px; }
 .partner-card {
@@ -587,4 +585,105 @@ th { color: var(--cda-gray-900); background: var(--cda-gray-50); }
   .parceiros-track { animation: none; }
   .home-hero__frame img { transition: none; }
   .home-hero__nav .hero-dot.active { transform: none; }
+}
+
+/* Ajustes finais do portal: navegação compacta e imagens sempre completas. */
+.topbar { display: none !important; }
+
+/* Todas as imagens editoriais são apresentadas por inteiro, sem recortes. */
+img {
+  object-fit: contain !important;
+  object-position: center !important;
+}
+.hero-slide {
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+/* A faixa institucional é a segunda linha do cabeçalho, como na referência. */
+.header .brand__name {
+  color: var(--cda-primary-dark);
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.header .brand__sub {
+  color: var(--cda-primary-dark);
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+.header .search-trigger {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  padding: 0;
+  color: var(--cda-ink);
+  background: #ffffff;
+  border: 1px solid var(--cda-gray-300);
+  border-radius: 3px;
+}
+.header .search-trigger:hover {
+  color: var(--cda-primary-dark);
+  background: var(--cda-gray-50);
+  border-color: var(--cda-primary);
+}
+.header .search-trigger__label,
+.header .search-trigger__key { display: none !important; }
+.header .search-trigger > span[aria-hidden="true"] { display: grid !important; place-items: center; }
+
+/* Contêineres de carrossel e miniaturas usam barras neutras, sem esconder fotos verticais. */
+.home-hero__frame,
+.home-hero__media,
+.home-portal .news-card img.news-card-img,
+.home-act img,
+.card__media,
+.act-card-media,
+.act-det-galeria img,
+.cdaact-media,
+.galeria-mosaico__item {
+  background-color: var(--cda-gray-100);
+}
+
+
+/* Sem botão de pausa: foco ou cursor param o movimento, e o foco é visível. */
+.parceiros-marquee:hover .parceiros-track,
+.parceiros-marquee:focus-within .parceiros-track { animation-play-state: paused; }
+.parceiros-marquee:focus-visible { outline: 2px solid var(--cda-primary); outline-offset: 3px; }
+
+/* Banner principal: tipografia mais contida e imagem sem qualquer efeito de blur. */
+.home-hero__cap h1,
+.home-hero__cap b {
+  font-size: clamp(1.05rem, 1.5vw, 1.5rem);
+  line-height: 1.2;
+}
+.home-hero__label { font-size: 0.66rem; letter-spacing: 0.1em; }
+.home-hero__cap a span { font-size: 0.72rem; }
+
+.home-hero,
+.home-hero *,
+.home-hero::before,
+.home-hero::after,
+.home-hero *::before,
+.home-hero *::after {
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+@media (max-width: 760px) {
+  .home-hero__cap h1,
+  .home-hero__cap b { font-size: 1.1rem; }
+}
+@media (max-width: 520px) {
+  .home-hero__cap h1,
+  .home-hero__cap b { font-size: 1.05rem; }
 }
