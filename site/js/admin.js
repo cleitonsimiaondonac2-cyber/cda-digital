@@ -50,6 +50,7 @@
 
   function logout() {
     api("/api/auth/logout", { method: "POST" }).catch(function () {});
+    try { sessionStorage.removeItem("cda_admin"); } catch (e) {}
     mostraLogin();
   }
 
@@ -79,6 +80,7 @@
       api("/api/admin/noticias").then(function (d) { return d.noticias.length; }).catch(function () { return "-"; }),
       api("/api/admin/actividades").then(function (d) { return d.actividades.length; }).catch(function () { return "-"; }),
       api("/api/admin/mensagens").then(function (d) { return d.mensagens.length; }).catch(function () { return "-"; }),
+      api("/api/admin/membros").then(function (d) { return d.membros.length; }).catch(function () { return "-"; }),
       api("/api/status").catch(function () { return {}; })
     ]);
     contas.then(function (v) {
@@ -86,7 +88,8 @@
       el("stat-noticias").textContent = v[1];
       el("stat-actividades").textContent = v[2];
       el("stat-msg").textContent = v[3];
-      el("stat-servico").textContent = (v[4] && v[4].servico) ? v[4].servico : "backend";
+      el("stat-membros").textContent = v[4];
+      el("stat-servico").textContent = (v[5] && v[5].servico) ? v[5].servico : "backend";
     });
   }
 
@@ -136,9 +139,10 @@
   }
 
   function fecharModais() {
-    ["doc-modal", "not-modal", "act-modal"].forEach(function (id) {
+    ["doc-modal", "not-modal", "act-modal", "membro-modal"].forEach(function (id) {
       var m = el(id); if (m) m.style.display = "none";
     });
+    membroAberto = null;
   }
 
   function guardarDoc(ev) {
@@ -323,17 +327,72 @@
 
   // ------------------------------------------------------------- membros
 
+  var membroAberto = null;
+
   function carregarMembros() {
     api("/api/admin/membros").then(function (d) {
       var h = "";
       d.membros.forEach(function (x) {
-        h += "<tr><td>" + esc(x.nome) + "</td><td>" + esc(x.email) + "</td><td>" + esc(x.telefone) +
-          "</td><td>" + (x.is_admin ? "Admin" : "Membro") + "</td>" +
-          "<td><span class=\"estado " + (x.ativo ? "estado-ok" : "") + "\">" + (x.ativo ? "activo" : "inactivo") + "</span></td>" +
-          "<td><button class=\"btn-mini\" data-accao=\"toggle-membro\" data-id=\"" + x.id + "\">" + (x.ativo ? "Desactivar" : "Activar") + "</button></td></tr>";
+        var acao = x.is_admin ? "" : (x.ativo
+          ? "<button class=\"btn-mini perigo\" data-accao=\"rejeitar-membro\" data-id=\"" + x.id + "\">Desactivar</button>"
+          : "<button class=\"btn-mini\" data-accao=\"aprovar-membro\" data-id=\"" + x.id + "\">Aprovar</button>");
+        h += "<tr><td>" + esc(x.nome) + "</td><td>" + esc(x.carteira || "—") + "</td><td>" + esc(x.email) +
+          "</td><td>" + esc(x.telefone || "—") + "</td><td>" + (x.is_admin ? "Admin" : "Membro") +
+          "</td><td><span class=\"estado " + (x.ativo ? "estado-ok" : "") + "\">" + (x.ativo ? "activo" : "pendente") + "</span></td>" +
+          "<td><button class=\"btn-mini\" data-accao=\"ver-membro\" data-id=\"" + x.id + "\">Ver</button> " + acao + "</td></tr>";
       });
-      el("lista-membros").innerHTML = h || "<tr><td colspan=\"6\">Sem membros.</td></tr>";
-    }).catch(function (e) { el("lista-membros").innerHTML = "<tr><td colspan=\"6\">" + esc(e.message) + "</td></tr>"; });
+      el("lista-membros").innerHTML = h || "<tr><td colspan=\"7\">Sem contas de membro.</td></tr>";
+    }).catch(function (e) { el("lista-membros").innerHTML = "<tr><td colspan=\"7\">" + esc(e.message) + "</td></tr>"; });
+  }
+
+  function verMembro(id) {
+    membroAberto = id;
+    api("/api/admin/membros/" + id).then(function (d) {
+      var m = d.membro || {};
+      var p = d.registo_publico || {};
+      var h = "<p><strong>" + esc(m.nome) + "</strong><br>" + esc(m.email) +
+        "<br>Carteira: " + esc(m.carteira || "—") +
+        "<br>Telefone: " + esc(m.telefone || "—") +
+        "<br>Entidade: " + esc(m.entidade || "—") + "</p>";
+      if (p.nome) {
+        h += "<p style=\"font-size:.9rem\">Lista pública: " + esc(p.nome) +
+          " · " + esc(p.situacao || "—") + " · " + esc(p.provincia || "—") +
+          " · " + esc(p.delegacao || "—") + "</p>";
+      }
+      h += "<p>Estado: <span class=\"estado " + (m.ativo ? "estado-ok" : "") + "\">" +
+        (m.ativo ? "activo" : "pendente") + "</span></p>";
+      if (!m.ativo) {
+        h += "<button class=\"btn-mini\" data-accao=\"aprovar-membro\" data-id=\"" + m.id + "\">Aprovar conta</button>";
+      } else if (!m.is_admin) {
+        h += "<button class=\"btn-mini perigo\" data-accao=\"rejeitar-membro\" data-id=\"" + m.id + "\">Desactivar conta</button>";
+      }
+      el("membro-detalhe").innerHTML = h;
+
+      var q = "";
+      (d.quotas || []).forEach(function (x) {
+        q += "<p>Quota " + esc(x.ano) + " · " + esc(x.estado) + " · " +
+          (x.valor ? esc(x.valor) + " MZN" : "valor a definir") +
+          (x.data_pagamento ? " · paga em " + esc(x.data_pagamento) : "") + " ";
+        if (x.estado !== "paga") {
+          q += "<button class=\"btn-mini\" data-accao=\"pagar-quota\" data-id=\"" + x.id + "\">Marcar paga</button>";
+        }
+        q += "</p>";
+      });
+      el("membro-quotas").innerHTML = q || "<p>Sem quotas registadas.</p>";
+
+      var r = "";
+      (d.requerimentos || []).forEach(function (x) {
+        r += "<p>" + esc(x.tipo) + " · " + esc(x.estado) + " · " + esc((x.criado_em || "").slice(0, 10)) + " ";
+        if (x.estado === "em_analise") {
+          r += "<button class=\"btn-mini\" data-accao=\"req-estado\" data-id=\"" + x.id + "\" data-estado=\"aprovado\">Aprovar</button> " +
+            "<button class=\"btn-mini perigo\" data-accao=\"req-estado\" data-id=\"" + x.id + "\" data-estado=\"rejeitado\">Rejeitar</button>";
+        }
+        if (x.resposta) r += "<br><span style=\"color:var(--text-soft)\">" + esc(x.resposta) + "</span>";
+        r += "</p>";
+      });
+      el("membro-reqs").innerHTML = r || "<p>Sem requerimentos.</p>";
+      el("membro-modal").style.display = "flex";
+    }).catch(function (e) { alert(e.message); });
   }
 
   // --------------------------------------------------- carregar galeria
@@ -379,7 +438,38 @@
     else if (accao === "apagar-act") { apagar("/api/admin/actividades/" + id, "actividade"); }
     else if (accao === "ver-msg") { verMsg(id); }
     else if (accao === "apagar-msg") { apagar("/api/admin/mensagens/" + id, "mensagem"); }
-    else if (accao === "toggle-membro") { apagar("/api/admin/membros/" + id + "/toggle", "membro"); }
+    else if (accao === "ver-membro") { verMembro(id); }
+    else if (accao === "aprovar-membro") {
+      api("/api/admin/membros/" + id + "/aprovar", { method: "POST" }).then(function () {
+        alert("Conta aprovada."); carregarMembros(); carregarDashboard();
+        if (String(membroAberto) === String(id)) verMembro(id);
+      }).catch(function (e) { alert("Erro: " + e.message); });
+    }
+    else if (accao === "rejeitar-membro") {
+      if (!confirm("Desactivar esta conta de membro?")) return;
+      api("/api/admin/membros/" + id + "/rejeitar", { method: "POST" }).then(function () {
+        alert("Conta desactivada."); carregarMembros(); carregarDashboard();
+        if (String(membroAberto) === String(id)) verMembro(id);
+      }).catch(function (e) { alert("Erro: " + e.message); });
+    }
+    else if (accao === "pagar-quota") {
+      if (!confirm("Marcar esta quota como paga?")) return;
+      api("/api/admin/quotas/" + id + "/pagar", { method: "POST" }).then(function () {
+        alert("Quota marcada como paga.");
+        if (membroAberto) verMembro(membroAberto);
+      }).catch(function (e) { alert("Erro: " + e.message); });
+    }
+    else if (accao === "req-estado") {
+      var estado = alvo.getAttribute("data-estado");
+      var resposta = prompt("Resposta ao membro (opcional):", "");
+      if (resposta === null) return;
+      api("/api/admin/requerimentos/" + id + "/estado", {
+        method: "POST", body: { estado: estado, resposta: resposta }
+      }).then(function () {
+        alert("Requerimento actualizado.");
+        if (membroAberto) verMembro(membroAberto);
+      }).catch(function (e) { alert("Erro: " + e.message); });
+    }
     else if (accao === "publicar") { publicar(); }
     else if (accao === "logout") { logout(); }
     else if (accao === "fechar-modal") { fecharModais(); }
@@ -401,7 +491,15 @@
       });
     var m = el("login-msg"); if (m) m.textContent = "";
 
-    if (sessionStorage.getItem("cda_admin") === "1") { entrar(); return; }
+    if (sessionStorage.getItem("cda_admin") === "1") {
+      // A marca em sessionStorage só evita o flash do login; a sessão real é
+      // sempre confirmada no backend (o cookie pode ter expirado ou sido apagado).
+      api("/api/auth/me").then(function (me) {
+        if (me && me.is_admin) { entrar(); }
+        else { sessionStorage.removeItem("cda_admin"); mostraLogin(); }
+      }).catch(function () { sessionStorage.removeItem("cda_admin"); mostraLogin(); });
+      return;
+    }
     // tenta sessão existente
     api("/api/auth/me").then(function (me) {
       if (me.is_admin) { entrar(); } else { mostraLogin(); }

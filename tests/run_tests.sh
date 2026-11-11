@@ -17,6 +17,7 @@ run "Links e ficheiros (site)"        python3 "$RAIZ/tests/test_links.py"
 run "Integridade do índice da IA"      python3 "$RAIZ/tests/test_indice.py"
 run "Lógica da IA (sem rede)"          "$RAIZ/ia/venv/bin/python" "$RAIZ/tests/test_ia_logic.py"
 run "API (testclient)"                 "$RAIZ/ia/venv/bin/python" "$RAIZ/tests/test_api.py"
+run "Área de membro + admin"           "$RAIZ/ia/venv/bin/python" "$RAIZ/tests/test_membros.py"
 
 echo "======================================"
 if [ "$ok" = "1" ]; then echo "Suíte completa: OK"; else echo "Suíte completa: houve falhas"; fi

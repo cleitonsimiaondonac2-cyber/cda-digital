@@ -158,43 +158,47 @@
 
 <section class="section">
   <div class="container">
-    <div class="callout callout--warn" role="note" style="margin-bottom:22px">
+    <div class="callout callout--warn" role="note" id="servico-aviso" style="margin-bottom:22px">
       <span class="callout__icon" aria-hidden="true">⚠️</span>
       <div>
-        <p class="callout__title">Área em preparação</p>
-        <p>O acesso do membro ainda não está activo neste site. Os formulários de sessão e de registo estão prontos, mas não existe servidor de autenticação ligado — nenhuma conta é criada e nenhum dado é guardado. Para carteira, quotas ou requerimentos, contacte a CDA por telefone ou pelo <a href="contactos.html">formulário de contacto</a>.</p>
+        <p class="callout__title">Serviço de membros</p>
+        <p>Esta área usa o backend da CDA. Se o serviço estiver indisponível, contacte a CDA por telefone ou pelo <a href="contactos.html">formulário de contacto</a>.</p>
       </div>
     </div>
+    <div id="membro-msg" class="callout" role="status" aria-live="polite" hidden></div>
     <div id="login-view">
       <div class="login-box">
         <h2 style="text-align:center">Iniciar sessão</h2>
         <p style="color:var(--text-soft);font-size:.9rem;text-align:center">Acesso reservado aos membros da CDA.</p>
         <form id="form-login">
           <label for="l-user">Número de carteira ou e-mail</label>
-          <input id="l-user" type="text" required placeholder="ex.: 000100010912">
+          <input id="l-user" type="text" required autocomplete="username" placeholder="ex.: 000100010912">
           <label for="l-pass">Senha</label>
-          <input id="l-pass" type="password" required placeholder="••••••••">
-          <p id="login-aviso" style="color:var(--red);font-size:.85rem;margin-top:6px"></p>
+          <input id="l-pass" type="password" required autocomplete="current-password" placeholder="••••••••">
+          <p id="login-aviso" style="color:var(--red);font-size:.85rem;margin-top:6px" role="alert"></p>
           <button class="btn btn-red" type="submit">Entrar</button>
         </form>
-        <p class="aviso">Quando a área estiver activa, o acesso será feito com o número de carteira ou e-mail e uma senha pessoal.<br>Até lá, este formulário não estabelece sessão.</p>
+        <p class="aviso">O acesso é feito com o número de carteira ou e-mail e a senha pessoal. As contas novas aguardam aprovação da CDA.</p>
         <a href="index.html" style="display:block;text-align:center;margin-top:12px;font-size:.88rem">Voltar ao portal</a>
       </div>
       <div class="login-box" id="registo-box" style="margin-top:18px">
         <h2 style="text-align:center">Criar conta de acesso</h2>
         <p style="color:var(--text-soft);font-size:.9rem;text-align:center">Para aceder ao painel do membro.</p>
         <form id="form-registo">
-          <label for="r-nome">Nome completo</label>
-          <input id="r-nome" type="text" required placeholder="Nome Apelido">
+          <label for="r-nome">Nome completo (como consta na lista pública)</label>
+          <input id="r-nome" type="text" required autocomplete="name" placeholder="Nome Apelido">
+          <label for="r-carteira">Número de carteira profissional</label>
+          <input id="r-carteira" type="text" required inputmode="numeric" autocomplete="off" placeholder="ex.: 000100010912">
+          <p class="aviso" style="margin:4px 0 0">A carteira é validada na lista pública de membros da CDA.</p>
           <label for="r-email">E-mail</label>
-          <input id="r-email" type="email" required placeholder="membro@exemplo.com">
+          <input id="r-email" type="email" required autocomplete="email" placeholder="membro@exemplo.com">
           <label for="r-entidade">Entidade / empresa (opcional)</label>
-          <input id="r-entidade" type="text" placeholder="Firma X, Lda.">
+          <input id="r-entidade" type="text" autocomplete="organization" placeholder="Firma X, Lda.">
           <label for="r-telefone">Telefone (opcional)</label>
-          <input id="r-telefone" type="text" placeholder="+258 82 000 0000">
+          <input id="r-telefone" type="tel" autocomplete="tel" placeholder="+258 82 000 0000">
           <label for="r-senha">Senha (mín. 8 caracteres)</label>
-          <input id="r-senha" type="password" required minlength="8">
-          <p id="registo-msg" style="font-size:.85rem;margin-top:6px"></p>
+          <input id="r-senha" type="password" required minlength="8" autocomplete="new-password">
+          <p id="registo-msg" style="font-size:.85rem;margin-top:6px" role="status"></p>
           <button class="btn btn-navy" type="submit">Registar</button>
         </form>
       </div>
@@ -205,23 +209,37 @@
         <div>
           <span class="sub">Bem-vindo</span>
           <h2 id="dash-nome">Painel do membro</h2>
+          <p id="dash-sub" style="color:var(--text-soft);font-size:.9rem"></p>
         </div>
       </div>
       <div class="dash">
         <div class="dash-card">
-          <h4>Carteira profissional <span class="estado estado-ok">Activa</span></h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">N.º 000100010912 · Cédula DESP/001/DGA/03<br>Validade: 2026</p>
-          <p style="margin-top:10px"><button class="btn btn-navy" type="button" onclick="alert('Em produção: emissão do PDF da carteira.')">Emitir PDF</button></p>
+          <h4>Carteira profissional <span id="dash-estado" class="estado">—</span></h4>
+          <p id="dash-carteira" style="color:var(--text-soft);font-size:.9rem;margin-top:8px">—</p>
+          <p id="dash-publico" style="color:var(--text-soft);font-size:.9rem;margin-top:8px"></p>
         </div>
         <div class="dash-card">
-          <h4>Quotas <span class="estado estado-atrasado">1 em atraso</span></h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Quota 2026: <strong>em atraso</strong><br>Quota 2025: <strong>paga</strong></p>
-          <p style="margin-top:10px"><button class="btn btn-navy" type="button" onclick="alert('Em produção: pagamento/registo de quotas (M-Pesa ou referência bancária).')">Regularizar quota</button></p>
+          <h4>Quotas <span id="dash-quota-estado" class="estado">—</span></h4>
+          <div id="dash-quotas" style="font-size:.9rem;margin-top:8px">—</div>
+          <p style="margin-top:10px"><button class="btn btn-navy" id="btn-quota-ajuda" type="button">Como regularizar</button></p>
         </div>
         <div class="dash-card">
-          <h4>Requerimentos <span class="estado estado-ok">1 em análise</span></h4>
-          <p style="color:var(--text-soft);font-size:.9rem;margin-top:8px">Renovação de carteira — submetido em 02/08/2026<br>Estado: <strong>em análise</strong></p>
-          <p style="margin-top:10px"><button class="btn btn-navy" type="button" onclick="alert('Em produção: novos requerimentos com acompanhamento de estado.')">Novo requerimento</button></p>
+          <h4>Requerimentos <span id="dash-req-estado" class="estado">—</span></h4>
+          <div id="dash-reqs" style="font-size:.9rem;margin-top:8px">—</div>
+          <form id="form-requerimento" style="margin-top:14px">
+            <label for="req-tipo" style="font-size:.85rem;font-weight:600">Novo requerimento</label>
+            <select id="req-tipo" class="select" required style="margin-top:4px">
+              <option value="">Seleccione o tipo…</option>
+              <option>Renovação de carteira</option>
+              <option>Segunda via de carteira</option>
+              <option>Alteração de dados</option>
+              <option>Declaração de exercício</option>
+              <option>Outro</option>
+            </select>
+            <label for="req-desc" style="display:block;margin-top:8px;font-size:.85rem;font-weight:600">Descrição (opcional)</label>
+            <textarea id="req-desc" class="input" rows="3" maxlength="2000" style="margin-top:4px;width:100%"></textarea>
+            <button class="btn btn-navy" type="submit" style="margin-top:8px">Submeter requerimento</button>
+          </form>
         </div>
         <div class="dash-card">
           <h4>Comunicados e documentos</h4>
@@ -239,7 +257,7 @@
           <p style="margin-top:10px"><a class="btn btn-navy" href="documentacao.html">Perguntar à CDA ✦</a></p>
         </div>
       </div>
-      <p style="margin-top:16px"><a href="area-membro.html" id="terminar-sessao">Terminar sessão</a></p>
+      <p style="margin-top:16px"><button class="btn btn--outline" type="button" id="btn-logout">Terminar sessão</button></p>
     </div>
   </div>
 </section>
@@ -311,6 +329,7 @@
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
 <script src="js/assistente.js"></script>
+<script src="js/membro.js"></script>
 <script src="js/ui.js" defer></script>
 </body>
 </html>

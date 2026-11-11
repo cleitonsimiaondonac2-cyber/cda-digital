@@ -40,12 +40,17 @@
       '<div class="assist-topo">' +
       '<h4>Assistente CDA</h4>' +
       '<div class="assist-topo-acoes">' +
-      '<button type="button" class="assist-novo" title="Nova conversa">Novo</button>' +
+      '<button type="button" class="assist-novo" title="Nova conversa" aria-label="Nova conversa">Novo</button>' +
       '<button type="button" class="assist-fechar" aria-label="Fechar">&#10005;</button>' +
       "</div></div>" +
-      '<div class="assist-msgs" id="assist-msgs"></div>' +
+      '<div class="assist-msgs" id="assist-msgs" role="log" aria-live="polite" aria-relevant="additions"></div>' +
+      '<div class="assist-sugestoes" id="assist-sugestoes">' +
+      '<button type="button">Como me tornar membro?</button>' +
+      '<button type="button">Contactos da CDA</button>' +
+      '<button type="button">Última circular</button>' +
+      "</div>" +
       '<div class="assist-entrada">' +
-      '<input id="assist-input" type="text" placeholder="Escreva a sua dúvida…" autocomplete="off" aria-label="Escreva a sua dúvida">' +
+      '<input id="assist-input" type="text" maxlength="2000" placeholder="Escreva a sua dúvida…" autocomplete="off" aria-label="Escreva a sua dúvida">' +
       '<button type="button" id="assist-enviar">Enviar</button>' +
       "</div>";
     document.body.appendChild(box);
@@ -53,6 +58,7 @@
     const msgs = box.querySelector("#assist-msgs");
     const input = box.querySelector("#assist-input");
     const enviar = box.querySelector("#assist-enviar");
+    const sugestoes = box.querySelector("#assist-sugestoes");
     const novo = box.querySelector(".assist-novo");
     const fechar = box.querySelector(".assist-fechar");
 
@@ -79,7 +85,12 @@
       msgs.innerHTML = "";
       historico = [];
       docFoco = null;
+      sugestoes.hidden = false;
       abrir();
+    });
+    sugestoes.addEventListener("click", (e) => {
+      const alvo = e.target.closest("button");
+      if (alvo) enviarMensagem(alvo.textContent);
     });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && aberto) fecharBox();
@@ -97,7 +108,10 @@
         f.className = "assist-fontes";
         const links = fontes.map((x) => {
           const url = String(x.url || "");
-          if (!/^https?:|^\/|^docs\//i.test(url) || url.indexOf("javascript:") === 0) return "";
+          // Aceita URLs absolutas, caminhos internos e páginas .html relativas.
+          const seguro = /^(https?:\/\/|\/|docs\/|[A-Za-z0-9._-]+\.html(?:#[A-Za-z0-9._-]+)?$)/i.test(url)
+            && !/^\s*javascript:/i.test(url);
+          if (!seguro) return "";
           const rotulo = x.titulo + (x.ano ? " (" + x.ano + ")" : " · " + x.tipo);
           return '<a href="' + esc(url) + '" target="_blank" rel="noopener">' + esc(rotulo) + "</a>";
         }).filter(Boolean).join(" · ");
@@ -110,6 +124,11 @@
         const n = document.createElement("div");
         n.className = "assist-status";
         n.textContent = "Nota: assistente em modo de pesquisa local (sem modelo de linguagem).";
+        bot.appendChild(n);
+      } else if (modo === "rag") {
+        const n = document.createElement("div");
+        n.className = "assist-status";
+        n.textContent = "Resposta gerada com IA a partir das fontes indicadas. Confirme sempre nos documentos oficiais.";
         bot.appendChild(n);
       }
       msgs.appendChild(bot);
@@ -158,8 +177,13 @@
       if (!texto) return;
       mostrarUsuario(texto);
       input.value = "";
+      sugestoes.hidden = true;
+      input.disabled = true;
+      enviar.disabled = true;
+      box.setAttribute("aria-busy", "true");
       const ind = document.createElement("div");
       ind.className = "assist-msg bot";
+      ind.setAttribute("role", "status");
       ind.textContent = "A pesquisar no site e na base documental…";
       msgs.appendChild(ind);
       msgs.scrollTop = msgs.scrollHeight;
@@ -188,6 +212,10 @@
         historico.push({ papel: "user", conteudo: texto });
         historico.push({ papel: "assistant", conteudo: local.txt });
       }
+      input.disabled = false;
+      enviar.disabled = false;
+      box.removeAttribute("aria-busy");
+      input.focus();
       if (historico.length > HIST_MAX * 2) historico = historico.slice(-HIST_MAX * 2);
       docFoco = null;
     }

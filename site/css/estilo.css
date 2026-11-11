@@ -412,6 +412,19 @@ tr:hover td { background: var(--bg-alt); }
 .assist-fontes { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--line); font-size: .78rem; }
 .assist-fontes a { color: var(--red); font-weight: 700; }
 .assist-status { margin-top: 6px; font-size: .72rem; font-style: italic; color: var(--slate); }
+.assist-sugestoes { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 10px; }
+.assist-sugestoes[hidden] { display: none; }
+.assist-sugestoes button {
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--navy);
+  border-radius: 14px;
+  padding: 5px 10px;
+  font-size: .75rem;
+  cursor: pointer;
+}
+.assist-sugestoes button:hover { border-color: var(--red); color: var(--red); }
+.assist-entrada button:disabled { opacity: .55; cursor: wait; }
 
 .assist-docfoco {
   font-size: .74rem;

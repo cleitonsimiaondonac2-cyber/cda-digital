@@ -124,6 +124,52 @@ def fonte(chunk: dict) -> dict:
             "url": chunk["url"], "excerto": chunk["texto"][:260]}
 
 
+_REGRAS_FACTOS: tuple[tuple[tuple[str, ...], tuple[str, ...]], ...] = (
+    (("morada", "endereco", "onde fica", "localizacao"),
+     ("morada:",)),
+    (("contacto", "contactos", "telefone", "telefonar", "email", "e-mail"),
+     ("morada:", "telefones:")),
+    (("horario", "abertura", "aberto", "funciona"),
+     ("horario:",)),
+    (("presidente", "presidencia"),
+     ("presidente da cda",)),
+    (("delegacao", "delegacoes"),
+     ("delegacoes:",)),
+    (("tornar despachante", "ser despachante", "requisitos"),
+     ("para ser despachante",)),
+)
+
+
+def resposta_factos(pergunta: str) -> dict | None:
+    """Resposta directa a perguntas factuais, a partir dos factos curados.
+
+    Usada sobretudo no modo local (sem LLM) para perguntas simples de morada,
+    contactos, horário ou órgãos sociais. Não substitui o RAG nem inventa: apenas
+    devolve a linha oficial correspondente.
+    """
+    q = normaliza(pergunta)
+    linhas = [l.strip()[2:] for l in FACTOS_INSTITUCIONAIS.splitlines()
+              if l.strip().startswith("- ")]
+    for gatilhos, marcadores in _REGRAS_FACTOS:
+        if not any(re.search(r"\b" + re.escape(g) + r"\b", q) for g in gatilhos):
+            continue
+        achadas = [l for l in linhas
+                   if any(m in normaliza(l) for m in marcadores)]
+        if not achadas:
+            continue
+        texto = ("Segundo os factos institucionais oficiais da CDA "
+                 "(modo local, sem modelo de linguagem):\n\n"
+                 + "\n".join("• " + l for l in achadas)
+                 + "\n\nConfirme sempre nos canais oficiais ou na página de Contactos.")
+        return {
+            "resposta": texto,
+            "fontes": [{"titulo": "Contactos", "tipo": "Página", "entidade": "CDA",
+                        "ano": None, "url": "contactos.html", "excerto": achadas[0]}],
+            "modo": "local", "modelo": "factos-oficiais",
+        }
+    return None
+
+
 def resposta_local(chunks: list[dict], razao: str = "") -> dict:
     """Resposta por extratos (sem LLM) — usada como fallback honesto.
 
@@ -213,6 +259,8 @@ app.add_middleware(
         "https://cleitonsimiaondonac2-cyber.github.io",
         *_ORIGENS_EXTRA,
     ],
+    # Servidores estáticos locais em qualquer porta (ex.: 8124, 5500).
+    allow_origin_regex=r"http://(localhost|127\.0\.0\.1)(:\d+)?",
     allow_methods=["*"],
     allow_headers=["*"],
     allow_credentials=True,
@@ -255,6 +303,9 @@ def perguntar(p: Pergunta, req: Request) -> dict:
         raise HTTPException(400, "pergunta vazia")
     chunks = busca(p.pergunta, p.ficheiro)
     if not chunks:
+        fact = resposta_factos(p.pergunta)
+        if fact:
+            return fact
         return {"resposta": "Não encontrei informação suficiente no site e nos "
                             "documentos oficiais disponíveis para responder com "
                             "segurança. Contacte a CDA (tel. +258 21 305 504 / "
@@ -263,12 +314,12 @@ def perguntar(p: Pergunta, req: Request) -> dict:
     historico = [{"papel": m.papel, "conteudo": m.conteudo}
                  for m in (p.historico or []) if m.papel in ("user", "assistant")]
     if not IA_CHAVE:
-        return resposta_local(chunks)
+        return resposta_factos(p.pergunta) or resposta_local(chunks)
     try:
         return resposta_rag(p.pergunta, chunks, historico)
     except Exception as e:  # noqa: BLE001
         print("ERRO LLM:", e, file=sys.stderr)
-        return resposta_local(chunks, razao=str(e))
+        return resposta_factos(p.pergunta) or resposta_local(chunks, razao=str(e))
 
 
 @app.get("/health")

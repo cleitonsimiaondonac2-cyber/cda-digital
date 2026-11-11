@@ -8,7 +8,8 @@ import json
 import os
 import re
 import shutil
-from datetime import datetime
+import unicodedata
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from fastapi import APIRouter, Depends, File, Form, HTTPException, Request, UploadFile
@@ -18,7 +19,8 @@ from sqlalchemy import or_
 from sqlalchemy.orm import Session
 
 from . import auth
-from .db import Actividade, ContactoMsg, DocumentoMeta, Membro, Noticia, criar_tabelas, sessao as _sessao
+from .db import (Actividade, ContactoMsg, DocumentoMeta, Membro, Noticia, Quota,
+                 Requerimento, criar_tabelas, sessao as _sessao)
 from .publicar import gerar_dados_js, regenerar_indice
 
 RAIZ = Path(__file__).resolve().parent.parent
@@ -63,6 +65,61 @@ def _real_path(p: Path) -> Path:
     return p.resolve()
 
 
+# ------------------------------------------------------ lista pública membros -
+
+LISTA_MEMBROS = SITE / "data" / "membros.json"
+
+
+def _so_digitos(valor: str) -> str:
+    return re.sub(r"\D", "", valor or "")
+
+
+def _normaliza_nome(valor: str) -> str:
+    texto = unicodedata.normalize("NFKD", valor or "")
+    texto = texto.encode("ascii", "ignore").decode("ascii")
+    return re.sub(r"\s+", " ", texto).strip().lower()
+
+
+def _lista_publica() -> list[dict]:
+    try:
+        dados = json.loads(LISTA_MEMBROS.read_text(encoding="utf-8"))
+        return dados if isinstance(dados, list) else []
+    except (OSError, ValueError):
+        return []
+
+
+def _registo_publico(carteira: str | None) -> dict | None:
+    alvo = _so_digitos(carteira or "")
+    if not alvo:
+        return None
+    for registo in _lista_publica():
+        if _so_digitos(str(registo.get("nCarta", ""))) == alvo:
+            return registo
+    return None
+
+
+def _ativar_membro(db: Session, membro: Membro) -> None:
+    """Activa a conta e garante a quota do ano corrente."""
+    membro.ativo = True
+    membro.aprovado_em = datetime.now(timezone.utc)
+    ano = datetime.now().year
+    if not db.query(Quota).filter(
+            Quota.membro_id == membro.id, Quota.ano == ano).first():
+        db.add(Quota(membro_id=membro.id, ano=ano, valor=0, estado="pendente"))
+
+
+def _serial_quota(q: Quota) -> dict:
+    return {"id": q.id, "ano": q.ano, "valor": q.valor, "estado": q.estado,
+            "referencia": q.referencia, "data_pagamento": q.data_pagamento}
+
+
+def _serial_requerimento(r: Requerimento) -> dict:
+    return {"id": r.id, "tipo": r.tipo, "descricao": r.descricao,
+            "estado": r.estado, "resposta": r.resposta,
+            "criado_em": r.criado_em.isoformat() if r.criado_em else None,
+            "atualizado_em": r.atualizado_em.isoformat() if r.atualizado_em else None}
+
+
 # ----------------------------------------------------------- saúde / status -
 
 @router.get("/api/status")
@@ -75,6 +132,7 @@ def status_pub() -> dict:
 
 class RegistoIn(BaseModel):
     nome: str = Field(min_length=2, max_length=160)
+    carteira: str = Field(min_length=6, max_length=40)
     email: EmailStr
     senha: str = Field(min_length=8, max_length=128)
     telefone: str = Field(default="", max_length=40)
@@ -90,28 +148,46 @@ class LoginIn(BaseModel):
 def registar(r: RegistoIn, request: Request, db: Session = Depends(get_db)) -> JSONResponse:
     if not re.match(r"^[a-zA-ZÀ-ÿ' .-]+$", r.nome):
         raise HTTPException(400, "nome inválido")
+    carteira = _so_digitos(r.carteira)
+    publico = _registo_publico(carteira)
+    if not publico:
+        raise HTTPException(400, "número de carteira não encontrado na lista pública da CDA")
+    if not publico.get("activo", True):
+        raise HTTPException(403, "a carteira indicada não está activa")
+    if _normaliza_nome(r.nome) != _normaliza_nome(publico.get("nome", "")):
+        raise HTTPException(400, "o nome não corresponde ao titular da carteira indicada")
     if db.query(Membro).filter(Membro.email == r.email.lower().strip()).first():
         raise HTTPException(409, "já existe uma conta com este email")
+    if db.query(Membro).filter(Membro.carteira == carteira).first():
+        raise HTTPException(409, "já existe uma conta associada a esta carteira")
     db.add(Membro(
-        nome=r.nome.strip(), email=r.email.lower().strip(),
+        nome=publico.get("nome", r.nome).strip(), carteira=carteira,
+        email=r.email.lower().strip(),
         hash_senha=auth.gerar_hash_senha(r.senha),
         telefone=r.telefone.strip(), entidade=r.entidade.strip(),
+        ativo=False,
     ))
     db.commit()
-    return JSONResponse({"ok": True, "mensagem": "conta criada. Já pode iniciar sessão."})
+    return JSONResponse({"ok": True, "estado": "pendente",
+                         "mensagem": "Conta criada. Aguarda aprovação do administrador da CDA."})
 
 
 @router.post("/api/auth/login")
 def login(l: LoginIn, request: Request, db: Session = Depends(get_db)) -> JSONResponse:
-    m = db.query(Membro).filter(Membro.email == l.email.lower().strip()).first()
+    identificador = l.email.strip()
+    if re.fullmatch(r"[\d\s.\-/]+", identificador):
+        m = db.query(Membro).filter(Membro.carteira == _so_digitos(identificador)).first()
+    else:
+        m = db.query(Membro).filter(Membro.email == identificador.lower()).first()
     if not m or not auth.verificar_senha(l.senha, m.hash_senha):
-        raise HTTPException(401, "email ou senha incorrectos")
+        raise HTTPException(401, "email/carteira ou senha incorrectos")
     if not m.ativo:
-        raise HTTPException(403, "conta desactivada")
+        raise HTTPException(403, "conta pendente de aprovação. Contacte a CDA.")
     token = auth.criar_token(m.id)
-    m.ultimo_login = datetime.now()
+    m.ultimo_login = datetime.now(timezone.utc)
     db.commit()
-    resp = JSONResponse({"ok": True, "nome": m.nome, "is_admin": m.is_admin})
+    resp = JSONResponse({"ok": True, "nome": m.nome, "is_admin": m.is_admin,
+                         "carteira": m.carteira, "ativo": m.ativo})
     resp.set_cookie("cda_sessao", token, httponly=True, samesite="lax",
                     max_age=auth.TOKEN_VALIDADE, secure=os.getenv("COOKIE_SECURE", "0") == "1")
     return resp
@@ -129,7 +205,8 @@ def me(request: Request, db: Session = Depends(get_db)) -> dict:
     m = auth.obter_membro(request, db)
     if not m:
         raise HTTPException(401, "sem sessão")
-    return {"nome": m.nome, "email": m.email, "is_admin": m.is_admin,
+    return {"id": m.id, "nome": m.nome, "email": m.email, "is_admin": m.is_admin,
+            "ativo": m.ativo, "carteira": m.carteira,
             "telefone": m.telefone, "entidade": m.entidade,
             "ultimo_login": m.ultimo_login.isoformat() if m.ultimo_login else None}
 
@@ -150,6 +227,43 @@ def contacto(c: ContactoIn, request: Request, db: Session = Depends(get_db)) -> 
                        ip=request.client.host if request.client else ""))
     db.commit()
     return JSONResponse({"ok": True, "mensagem": "Mensagem enviada. A CDA responderá em breve."})
+
+
+# ------------------------------------------------------------- área de membro
+
+@router.get("/api/membro/resumo")
+def membro_resumo(m: Membro = Depends(membro_obrigatorio),
+                  db: Session = Depends(get_db)) -> dict:
+    quotas = db.query(Quota).filter(Quota.membro_id == m.id).order_by(Quota.ano.desc()).all()
+    reqs = db.query(Requerimento).filter(Requerimento.membro_id == m.id) \
+        .order_by(Requerimento.criado_em.desc()).all()
+    return {
+        "membro": {
+            "id": m.id, "nome": m.nome, "email": m.email, "telefone": m.telefone,
+            "entidade": m.entidade, "carteira": m.carteira, "is_admin": m.is_admin,
+            "criado_em": m.criado_em.isoformat() if m.criado_em else None,
+            "ultimo_login": m.ultimo_login.isoformat() if m.ultimo_login else None,
+        },
+        "registo_publico": _registo_publico(m.carteira),
+        "quotas": [_serial_quota(q) for q in quotas],
+        "requerimentos": [_serial_requerimento(r) for r in reqs],
+    }
+
+
+class RequerimentoIn(BaseModel):
+    tipo: str = Field(min_length=2, max_length=80)
+    descricao: str = Field(default="", max_length=2000)
+
+
+@router.post("/api/membro/requerimentos")
+def criar_requerimento(r: RequerimentoIn,
+                       m: Membro = Depends(membro_obrigatorio),
+                       db: Session = Depends(get_db)) -> dict:
+    req = Requerimento(membro_id=m.id, tipo=r.tipo.strip(),
+                       descricao=r.descricao.strip(), estado="em_analise")
+    db.add(req)
+    db.commit()
+    return {"ok": True, "requerimento": _serial_requerimento(req)}
 
 
 # ------------------------------------------------------------------ painel admin
@@ -399,19 +513,96 @@ def apagar_msg(msg_id: int, _: Membro = Depends(admin_obrigatorio), db: Session 
 
 @router.get("/api/admin/membros")
 def admin_membros(_: Membro = Depends(admin_obrigatorio), db: Session = Depends(get_db)) -> dict:
-    ms = db.query(Membro).order_by(Membro.nome).all()
-    return {"membros": [{"id": m.id, "nome": m.nome, "email": m.email,
-                         "telefone": m.telefone, "is_admin": m.is_admin, "ativo": m.ativo} for m in ms]}
+    ms = db.query(Membro).order_by(Membro.ativo, Membro.nome).all()
+    return {"membros": [{
+        "id": m.id, "nome": m.nome, "email": m.email, "carteira": m.carteira,
+        "telefone": m.telefone, "entidade": m.entidade, "is_admin": m.is_admin,
+        "ativo": m.ativo,
+        "criado_em": m.criado_em.isoformat() if m.criado_em else None,
+        "ultimo_login": m.ultimo_login.isoformat() if m.ultimo_login else None,
+    } for m in ms]}
 
 
-@router.post("/api/admin/membros/{membro_id}/toggle")
-def toggle_membro(membro_id: int, _: Membro = Depends(admin_obrigatorio), db: Session = Depends(get_db)) -> dict:
+@router.get("/api/admin/membros/{membro_id}")
+def admin_membro_detalhe(membro_id: int, _: Membro = Depends(admin_obrigatorio),
+                         db: Session = Depends(get_db)) -> dict:
+    m = db.get(Membro, membro_id) or _raise404("membro")
+    quotas = db.query(Quota).filter(Quota.membro_id == m.id).order_by(Quota.ano.desc()).all()
+    reqs = db.query(Requerimento).filter(Requerimento.membro_id == m.id) \
+        .order_by(Requerimento.criado_em.desc()).all()
+    return {
+        "membro": {
+            "id": m.id, "nome": m.nome, "email": m.email, "carteira": m.carteira,
+            "telefone": m.telefone, "entidade": m.entidade, "is_admin": m.is_admin,
+            "ativo": m.ativo,
+            "criado_em": m.criado_em.isoformat() if m.criado_em else None,
+            "aprovado_em": m.aprovado_em.isoformat() if m.aprovado_em else None,
+            "ultimo_login": m.ultimo_login.isoformat() if m.ultimo_login else None,
+        },
+        "registo_publico": _registo_publico(m.carteira),
+        "quotas": [_serial_quota(q) for q in quotas],
+        "requerimentos": [_serial_requerimento(r) for r in reqs],
+    }
+
+
+@router.post("/api/admin/membros/{membro_id}/aprovar")
+def aprovar_membro(membro_id: int, _: Membro = Depends(admin_obrigatorio),
+                   db: Session = Depends(get_db)) -> dict:
+    m = db.get(Membro, membro_id) or _raise404("membro")
+    _ativar_membro(db, m)
+    db.commit()
+    return {"ok": True, "ativo": True}
+
+
+@router.post("/api/admin/membros/{membro_id}/rejeitar")
+def rejeitar_membro(membro_id: int, _: Membro = Depends(admin_obrigatorio),
+                    db: Session = Depends(get_db)) -> dict:
     m = db.get(Membro, membro_id) or _raise404("membro")
     if m.id == _.id:
         raise HTTPException(400, "não pode desactivar a própria conta")
-    m.ativo = not m.ativo
+    m.ativo = False
+    db.commit()
+    return {"ok": True, "ativo": False}
+
+
+@router.post("/api/admin/membros/{membro_id}/toggle")
+def toggle_membro(membro_id: int, admin: Membro = Depends(admin_obrigatorio),
+                  db: Session = Depends(get_db)) -> dict:
+    m = db.get(Membro, membro_id) or _raise404("membro")
+    if m.id == admin.id:
+        raise HTTPException(400, "não pode desactivar a própria conta")
+    if m.ativo:
+        m.ativo = False
+    else:
+        _ativar_membro(db, m)
     db.commit()
     return {"ok": True, "ativo": m.ativo}
+
+
+@router.post("/api/admin/quotas/{quota_id}/pagar")
+def pagar_quota(quota_id: int, _: Membro = Depends(admin_obrigatorio),
+                db: Session = Depends(get_db)) -> dict:
+    q = db.get(Quota, quota_id) or _raise404("quota")
+    q.estado = "paga"
+    q.data_pagamento = date.today().isoformat()
+    db.commit()
+    return {"ok": True, "quota": _serial_quota(q)}
+
+
+class EstadoRequerimentoIn(BaseModel):
+    estado: str = Field(pattern="^(em_analise|aprovado|rejeitado)$")
+    resposta: str = Field(default="", max_length=2000)
+
+
+@router.post("/api/admin/requerimentos/{req_id}/estado")
+def estado_requerimento(req_id: int, dados: EstadoRequerimentoIn,
+                        _: Membro = Depends(admin_obrigatorio),
+                        db: Session = Depends(get_db)) -> dict:
+    req = db.get(Requerimento, req_id) or _raise404("requerimento")
+    req.estado = dados.estado
+    req.resposta = dados.resposta.strip()
+    db.commit()
+    return {"ok": True, "requerimento": _serial_requerimento(req)}
 
 
 # ---------------------------------------------------------------- publicação

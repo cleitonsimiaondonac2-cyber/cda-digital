@@ -22,7 +22,7 @@
   th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   th { background: var(--bg-alt); color: var(--text-soft); font-weight: 600; }
   tr.nao-lida { background: #f7f7f7; font-weight: 600; }
-  .btn-mini { background: var(--navy); color: #ffffff; border: 0; border-radius: 3px; padding: 5px 9px; cursor: pointer; font-size: .8rem; margin: 2px; }
+  .btn-mini { background: var(--navy); color: #ffffff; border: 0; border-radius: 3px; padding: 5px 9px; cursor: pointer; font-size: .8rem; margin: 2px; white-space: nowrap; }
   .btn-mini.perigo { background: var(--red); }
   .estado { display: inline-block; padding: 2px 7px; border-radius: 10px; background: #efefef; color: var(--text-soft); font-size: .75rem; font-weight: 600; }
   .estado.estado-ok { background: #efefef; color: #626262; }
@@ -48,7 +48,7 @@
     .admin-nav button { width: auto; flex: 1 1 33%; border-left: 0; border-bottom: 3px solid transparent; text-align: center; }
     .modal-caixa .linha { flex-direction: column; } }
 </style>
-<script src="js/config.js" defer></script>
+<script src="js/config.js"></script>
 </head>
 <body data-page="admin">
 
@@ -122,6 +122,7 @@
               <div class="stat-card"><b id="stat-noticias">-</b><span>Notícias</span></div>
               <div class="stat-card"><b id="stat-actividades">-</b><span>Actividades</span></div>
               <div class="stat-card"><b id="stat-msg">-</b><span>Mensagens</span></div>
+              <div class="stat-card"><b id="stat-membros">-</b><span>Contas de membro</span></div>
             </div>
             <p><strong id="stat-servico">backend</strong></p>
             <p style="color:var(--text-soft);font-size:.9rem">Depois de editar conteúdo, use <strong>Publicar</strong> para regenerar os dados do portal e o índice de IA.</p>
@@ -162,7 +163,8 @@
 
           <div id="v-membros" class="painel-painel" style="display:none">
             <h2>Membros (contas)</h2>
-            <table><thead><tr><th>Nome</th><th>Email</th><th>Telefone</th><th>Tipo</th><th>Estado</th><th></th></tr></thead>
+            <p style="color:var(--text-soft);font-size:.85rem">Contas criadas na Área do Membro. Aprove as contas pendentes e acompanhe quotas e requerimentos.</p>
+            <table><thead><tr><th>Nome</th><th>Carteira</th><th>Email</th><th>Telefone</th><th>Tipo</th><th>Estado</th><th></th></tr></thead>
             <tbody id="lista-membros"></tbody></table>
           </div>
 
@@ -263,6 +265,21 @@
         <button type="submit" class="btn btn-red">Guardar</button>
       </div>
     </form>
+  </div>
+</div>
+
+<!-- MODAL MEMBRO -->
+<div id="membro-modal" class="modal" style="display:none">
+  <div class="modal-caixa">
+    <h3>Conta de membro</h3>
+    <div id="membro-detalhe"></div>
+    <h4>Quotas</h4>
+    <div id="membro-quotas" style="font-size:.9rem"></div>
+    <h4>Requerimentos</h4>
+    <div id="membro-reqs" style="font-size:.9rem"></div>
+    <div class="modal-acoes">
+      <button type="button" class="btn" data-accao="fechar-modal">Fechar</button>
+    </div>
   </div>
 </div>
 

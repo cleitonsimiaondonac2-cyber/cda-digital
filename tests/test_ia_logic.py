@@ -26,6 +26,16 @@ def main():
     check("normaliza remove acentos", api.normaliza("CRIAÇÃO") == "criacao")
     check("stem_frase devolve termos", len(api.stem_frase("despachantes aduaneiros")) > 0)
 
+    # factos institucionais curados (modo local)
+    morada = api.resposta_factos("Qual é a morada da CDA?")
+    check("factos: morada oficial", bool(morada) and "Rua João Carlos" in morada["resposta"])
+    check("factos: modo local", bool(morada) and morada["modo"] == "local")
+    contactos = api.resposta_factos("Contactos da CDA")
+    check("factos: contactos inclui telefone",
+          bool(contactos) and "+258 21 305 504" in contactos["resposta"])
+    check("factos: pergunta não factual → None",
+          api.resposta_factos("O que é um despachante aduaneiro?") is None)
+
     # k é limitado a 20
     check("clamp k: negativo → 1", api.busca("despachante", k=-5) is not None)
     r = api.busca("despachante aduaneiro", k=1000)

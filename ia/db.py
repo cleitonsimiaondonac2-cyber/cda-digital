@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from dotenv import load_dotenv
-from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, create_engine
+from sqlalchemy import Boolean, DateTime, ForeignKey, Integer, String, Text, create_engine, text
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column, relationship, sessionmaker
 
 ENV = Path(__file__).resolve().parent / ".env"
@@ -49,6 +49,8 @@ class Membro(Base):
     entidade: Mapped[str] = mapped_column(String(160), default="")
     is_admin: Mapped[bool] = mapped_column(Boolean, default=False)
     ativo: Mapped[bool] = mapped_column(Boolean, default=True)
+    carteira: Mapped[str | None] = mapped_column(String(40), unique=True, index=True, nullable=True)
+    aprovado_em: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
     criado_em: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=agora)
     ultimo_login: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
 
@@ -113,8 +115,49 @@ class ContactoMsg(Base):
     lida: Mapped[bool] = mapped_column(Boolean, default=False)
 
 
+class Quota(Base):
+    __tablename__ = "quotas"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    membro_id: Mapped[int] = mapped_column(ForeignKey("membros.id"), index=True, nullable=False)
+    ano: Mapped[int] = mapped_column(Integer, nullable=False)
+    valor: Mapped[int] = mapped_column(Integer, default=0)  # Meticais, sem centavos
+    estado: Mapped[str] = mapped_column(String(30), default="pendente")  # pendente/paga/em_atraso/isenta
+    referencia: Mapped[str] = mapped_column(String(120), default="")
+    data_pagamento: Mapped[str] = mapped_column(String(20), default="")
+    criado_em: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=agora)
+
+
+class Requerimento(Base):
+    __tablename__ = "requerimentos"
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    membro_id: Mapped[int] = mapped_column(ForeignKey("membros.id"), index=True, nullable=False)
+    tipo: Mapped[str] = mapped_column(String(80), nullable=False)
+    descricao: Mapped[str] = mapped_column(Text, default="")
+    estado: Mapped[str] = mapped_column(String(30), default="em_analise")  # em_analise/aprovado/rejeitado
+    resposta: Mapped[str] = mapped_column(Text, default="")
+    criado_em: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=agora)
+    atualizado_em: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=agora, onupdate=agora)
+
+
+def _migrar_colunas() -> None:
+    """Migração leve para BD SQLite já existente (create_all não altera colunas)."""
+    if not (DATABASE_URL or "").startswith("sqlite"):
+        return
+    with engine.begin() as conn:
+        colunas = {linha[1] for linha in conn.execute(text("PRAGMA table_info(membros)"))}
+        if "carteira" not in colunas:
+            conn.execute(text("ALTER TABLE membros ADD COLUMN carteira VARCHAR(40)"))
+        if "aprovado_em" not in colunas:
+            conn.execute(text("ALTER TABLE membros ADD COLUMN aprovado_em DATETIME"))
+        conn.execute(text(
+            "CREATE UNIQUE INDEX IF NOT EXISTS ix_membros_carteira ON membros (carteira)"))
+
+
 def criar_tabelas() -> None:
     Base.metadata.create_all(engine)
+    _migrar_colunas()
 
 
 def sessao() -> Session:

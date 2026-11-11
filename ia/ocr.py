@@ -10,6 +10,7 @@ Saída: ia/texto/{ficheiro}.txt  +  ia/ocr_relatorio.json
 import concurrent.futures as cf
 import json
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -38,7 +39,10 @@ def extrai_um(nome: str) -> dict:
             txt.write_text(texto[:LIMITE_TAMANHO], encoding="utf-8")
             return {"ficheiro": nome, "metodo": "pdftotext",
                     "chars": len(texto.strip()), "ok": True}
-        # 2. OCR
+        # 2. OCR — sem tesseract instalado, não vale a pena rasterizar o PDF.
+        if not shutil.which("tesseract"):
+            return {"ficheiro": nome, "metodo": "ocr", "chars": 0,
+                    "ok": False, "erro": "tesseract não instalado"}
         base = TMP / nome.replace(".pdf", "")
         subprocess.run(["pdftoppm", "-r", "300", "-png", str(pdf), str(base)],
                        capture_output=True, timeout=300)

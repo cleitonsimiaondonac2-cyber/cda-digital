@@ -13,8 +13,10 @@ var CDA_API_BASE = (function () {
   }
   var local = location.hostname === "localhost" || location.hostname === "127.0.0.1";
   // Servido pelo próprio backend (mesma origem): vazio → chamadas relativas funcionam.
-  // Servido noutra origem SEM override: deixamos vazio para as chamadas irem para a
-  // mesma origem (será o caso do GitHub Pages, onde o backend ainda não está exposto).
+  if (local && location.port !== "8765") return "http://127.0.0.1:8765";
+  if (location.protocol === "file:") return "http://127.0.0.1:8765";
+  // Servido noutra origem SEM override: vazio. No GitHub Pages o backend ainda
+  // não está exposto; o assistente cai no modo de pesquisa local.
   return "";
 })();
 
