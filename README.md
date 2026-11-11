@@ -112,9 +112,4 @@ Suíte:
 - `tests/test_ia_logic.py` — normalização, busca, fallback honesto e prompt (sem rede).
 - `tests/test_api.py` — smoke da API via TestClient (health, validação, rate-limit, clamp).
 
-## 📄 Documentos
 
-- `01-auditoria-cda.{md,pdf}` — auditoria do site antigo
-- `02-proposta-portal-cda.{md,pdf}` — proposta (referência histórica)
-- `03-resumo-apresentacao.{md,pdf}` — resumo de apresentação
-- `04-ia-retrieval.md` — relatório da fase IA/assistente
