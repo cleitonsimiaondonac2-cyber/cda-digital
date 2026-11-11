@@ -43,11 +43,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   HEADER PRINCIPAL — sticky, com mega-menu
+   HEADER PRINCIPAL — no fluxo normal, com mega-menu
    -------------------------------------------------------------------------- */
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: var(--z-header);
   background: rgba(255, 255, 255, 0.94);
   backdrop-filter: saturate(180%) blur(14px);
@@ -248,9 +247,8 @@
 @media (max-width: 1080px) {
   .nav-toggle { display: inline-flex; }
   .nav {
-    /* O header é sticky e tem backdrop-filter, que cria um containing block
-       para descendentes fixed: o drawer resolvia contra o header e encolhia
-       para 89px. Com absolute nasce sempre colado ao fundo do header. */
+    /* O backdrop-filter do header cria um containing block para descendentes
+       fixed. Com absolute, o drawer fica colado ao fundo do header. */
     position: absolute;
     top: 100%;
     left: 0;

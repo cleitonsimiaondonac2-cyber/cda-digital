@@ -319,8 +319,10 @@ strong, b { font-weight: 700; }
    STATS STRIP (faixa de contadores)
    -------------------------------------------------------------------------- */
 .stats-strip {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
   gap: 1px;
   background: var(--border-subtle);
   border: 1px solid var(--border-subtle);
@@ -328,6 +330,9 @@ strong, b { font-weight: 700; }
   overflow: hidden;
 }
 .stats-strip__item {
+  flex: 1 1 10rem;
+  min-width: min(100%, 10rem);
+  max-width: 22rem;
   background: var(--surface-page);
   padding: var(--sp-5) var(--sp-4);
   text-align: center;

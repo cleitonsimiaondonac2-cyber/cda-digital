@@ -264,8 +264,8 @@
 
 /* Notícias em grelha de três colunas (eram faixas de 864px) */
 .home-news {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 22px;
   align-items: stretch;
 }
@@ -274,8 +274,8 @@
 
 /* Actividades reais (o arquivo tem 8; a home mostra 3) */
 .home-actividades {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 22px;
 }
 .home-act {
@@ -316,8 +316,8 @@
   border-bottom: 1px solid #e8e8e8;
 }
 .home-doc__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 .home-doc__card {
@@ -357,8 +357,8 @@
 /* Serviços — quatro atalhos */
 .home-serv { padding-top: 44px; }
 .home-serv__grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 }
 .home-serv__card {
@@ -439,16 +439,12 @@
 /* ---- Responsivo ---- */
 @media (max-width: 1000px) {
   .home-hero__grid { grid-template-columns: 1fr; gap: 30px; }
-  .home-news { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-actividades { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-doc__grid, .home-serv__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-info__grid { grid-template-columns: 1fr; gap: 24px; }
   .home-info__stats { justify-content: flex-start; }
 }
 @media (max-width: 620px) {
   .home-hero { padding: 32px 0 28px; }
   .home-hero h1 { font-size: 1.55rem; }
-  .home-news, .home-actividades, .home-doc__grid, .home-serv__grid { grid-template-columns: 1fr; }
   .home-hero__cap { grid-template-columns: 1fr; }
   .home-hero__cap b { white-space: normal; }
   .home-hero__nav { margin-top: 8px; justify-content: space-between; }
@@ -536,8 +532,9 @@
 
 /* Parceiros na homepage: grelha estática (cada logo inteiro) */
 .home-partners {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 12px;
   margin-top: 6px;
 }
@@ -548,8 +545,6 @@
 }
 .home-partners .parceiros-item-img { height: 44px; max-width: 100%; }
 .home-partners .parceiros-item-nome { font-size: 10.5px; line-height: 1.3; -webkit-line-clamp: 4; }
-@media (max-width: 1000px) { .home-partners { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-@media (max-width: 560px) { .home-partners { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
 /* Botão de pesquisa no header estreito: quadrado de 40 px com o ícone,
    em vez da caixa vazia que resultava de esconder todos os spans. */
@@ -824,7 +819,10 @@
 
 /* ---------- Página dedicada de Parceiros ---------- */
 .partner-grelha {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
   gap: 16px;
 }
 .partner-card {
@@ -913,7 +911,7 @@
 .side-event a:hover { color: var(--cda-red-600); }
 
 /* Flash de Notícias — grelha de 2 colunas com thumbnail 130x85 */
-.home-portal .home-news { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 24px; }
+.home-portal .home-news { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .home-portal .news-card {
   display: flex; gap: 12px; align-items: flex-start;
   background: transparent; border: none; border-bottom: 1px solid var(--cda-navy-100);
@@ -934,9 +932,7 @@
 @media (max-width: 1024px) {
   .home-portal__grid { grid-template-columns: 1fr; }
   .home-portal__side { position: static; }
-  .home-portal .home-news { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px) {
-  .home-portal .home-news { grid-template-columns: 1fr; }
   .home-portal .news-card img.news-card-img { width: 100px; height: 70px; flex: 0 0 100px; }
 }

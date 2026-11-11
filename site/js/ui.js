@@ -153,9 +153,8 @@
       ajustarAltura();
     }
 
-    // O drawer é absolute dentro do header sticky: a altura útil depende da
-    // posição do header (41px do topbar no topo da página, 0 depois de rolar).
-    // O CSS deixa um fallback; aqui fecha-se a conta ao pixel.
+    // O drawer é absolute dentro do header; mede-se a posição real do fundo
+    // do header no viewport para limitar a altura útil. O CSS mantém fallback.
     function ajustarAltura() {
       if (!nav.classList.contains("is-open")) { nav.style.maxHeight = ""; return; }
       var header = nav.closest(".header");
