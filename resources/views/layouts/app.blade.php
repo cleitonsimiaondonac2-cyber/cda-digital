@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-zinc-50 text-zinc-800 antialiased min-h-screen flex flex-col">
-<header class="bg-cda-preto text-white border-b-4 border-cda-vermelho relative z-40">
+<header id="topo" class="bg-cda-preto text-white border-b-4 border-cda-vermelho relative z-40">
     <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
         <a href="{{ route('inicio') }}" class="flex items-center gap-3 font-bold text-lg tracking-wide">
             <img src="{{ asset('img/cda-logo.jpg') }}" alt="CDA" class="h-12 w-12 rounded-full bg-white object-cover">
@@ -47,11 +47,6 @@
     @yield('conteudo')
 </main>
 
-<footer class="bg-cda-preto text-zinc-200 text-sm border-t-4 border-cda-vermelho">
-    <div class="max-w-6xl mx-auto px-4 py-6 flex flex-wrap justify-between gap-2">
-        <span>Camara dos Despachantes Aduaneiros de Mocambique</span>
-        <span>Tel. +258 21 305 504 / 305 506</span>
-    </div>
-</footer>
+@include('layouts._rodape')
 </body>
 </html>
