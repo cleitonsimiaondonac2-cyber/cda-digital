@@ -145,3 +145,16 @@ textarea:focus-visible {
 .rodape-botao:hover { background: #fff; color: #111; }
 .rodape-base { background: #000; color: #a1a1aa; font-size: .95rem; }
 html { scroll-behavior: smooth; }
+
+/* Rodape compacto: colunas agrupadas em grelha. Autor: Leonardo (leonardoaderito-cmyk) */
+.mega-rodape > div:nth-child(2) { display: grid; grid-template-columns: 1fr; gap: 1.5rem 2rem; padding-top: 1.75rem; padding-bottom: 1.5rem; }
+.mega-rodape .rodape-col { flex: none; min-width: 0; font-size: .95rem; }
+.mega-rodape .rodape-col h3 { font-size: .85rem; margin-bottom: .4rem; }
+.mega-rodape .rodape-col li a { padding: .1rem 0; }
+.mega-rodape .rodape-marca img { height: 2.75rem; width: 2.75rem; }
+.mega-rodape .rodape-marca strong { font-size: 1rem; }
+.mega-rodape .rodape-botao { margin-top: .6rem; padding: .35rem .9rem; }
+.rodape-topo > div { padding-top: .6rem; padding-bottom: .6rem; }
+.rodape-base > div { padding-top: .6rem; padding-bottom: .6rem; }
+@media (min-width: 560px) { .mega-rodape > div:nth-child(2) { grid-template-columns: repeat(2, 1fr); } .mega-rodape .rodape-marca { grid-column: 1 / -1; } }
+@media (min-width: 992px) { .mega-rodape > div:nth-child(2) { grid-template-columns: 2.2fr 1fr 1fr 1fr 1.8fr; } .mega-rodape .rodape-marca { grid-column: auto; } }
