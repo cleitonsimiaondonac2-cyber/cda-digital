@@ -15,7 +15,7 @@ class PublicoController extends Controller
     public function inicio()
     {
         return view('publico.inicio', [
-            'noticias' => Noticia::where('publicada', true)->orderByDesc('data')->limit(3)->get(),
+            'noticias' => Noticia::where('publicada', true)->orderByDesc('data')->limit(9)->get(),
             'actividades' => Actividade::orderByDesc('data')->limit(4)->get(),
             'totais' => [
                 'membros' => MembroPublico::where('activo', true)->count(),

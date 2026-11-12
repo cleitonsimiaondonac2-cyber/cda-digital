@@ -86,3 +86,22 @@ textarea:focus-visible {
 .conteudo-texto ol { list-style: decimal; padding-left: 1.5rem; }
 .conteudo-texto a { color: #9b0d24; text-decoration: underline; }
 .conteudo-texto article { background: #fff; border: 1px solid #d4d4d8; border-left: 5px solid #c8102e; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
+
+/* Animacoes da pagina inicial. Autor: Leonardo (leonardoaderito-cmyk) */
+.carrossel { position: relative; min-height: 22rem; background: linear-gradient(120deg, #111 55%, #3a0a12); }
+.carrossel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; pointer-events: none; }
+.carrossel .slide-activo { position: relative; opacity: 1; pointer-events: auto; }
+.carrossel .slide-activo h1 { animation: subir .7s ease both; }
+.ponto { width: 0.9rem; height: 0.9rem; border-radius: 9999px; background: #71717a; transition: all .3s; }
+.ponto-activo { background: #c8102e; width: 2.2rem; }
+.seta { width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgba(255,255,255,.15); font-size: 1.6rem; line-height: 1; }
+.seta:hover { background: #c8102e; }
+.acesso, .cartao { transition: transform .25s ease, box-shadow .25s ease; }
+.acesso:hover, .cartao:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+[data-revelar] { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+[data-revelar].revelado { opacity: 1; transform: none; }
+@keyframes subir { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+    .carrossel .slide, [data-revelar], .acesso, .cartao { transition: none; animation: none; }
+    [data-revelar] { opacity: 1; transform: none; }
+}
