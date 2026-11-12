@@ -1,7 +1,26 @@
-# Migração CDA Digital 2.0 → Plataforma de Gestão Institucional
+# CDA Digital 3.0 — Plataforma de Gestão Institucional
+
+Documentação interna da migração a partir do CDA Digital 2.0. O destino é uma
+única plataforma integrada, não duas versões independentes. Ver
+[`ADR-0001`](ADR-0001-cda-digital-3.0.md).
 
 Esta pasta contém a documentação interna da migração. **Não faz parte do site
 publicado** e não deve ser copiada para `docs/`, que é gerado por `build.sh`.
+
+## Decisão arquitectónica
+
+- **Destino:** CDA Digital 3.0 — Plataforma de Gestão Institucional.
+- **Núcleo:** Laravel 13 (website, CMS, membros, administração, documentos,
+  autenticação, permissões, auditoria e APIs).
+- **Dados:** PostgreSQL como fonte de verdade; ficheiros em armazenamento gerido.
+- **IA:** Python/FastAPI independente, integrado por APIs autenticadas.
+- **Website:** módulo da plataforma, construído directamente em Laravel/Blade.
+- **Proibido:** website provisório e segunda reconstrução do website.
+- **Baseline:** o CDA Digital 2.0 permanece preservado até o 3.0 ser validado e
+  assumir a produção.
+
+A ordem é deliberada: primeiro arquitectura e modelação; depois fundação Laravel;
+só então CMS, website, membros e IA.
 
 ## Estado actual
 
@@ -10,7 +29,7 @@ publicado** e não deve ser copiada para `docs/`, que é gerado por `build.sh`.
 | 0 — Auditoria e preparação | **Em revisão técnica** | Baseline verificado; matriz v1.0 pronta para aprovação; falta cópia externa do bundle |
 | 1 — Arquitectura e modelação | Não iniciada | Depende da aprovação da Fase 0 |
 | 2 — Fundação Laravel | Não iniciada | — |
-| 3 — CMS e website | Não iniciada | — |
+| 3 — CMS e website | Não iniciada | Website oficial como módulo Laravel, sem site provisório |
 | 4 — CRM e membros | Não iniciada | — |
 | 5 — IA | Não iniciada | — |
 | 6 — Testes e publicação | Não iniciada | — |
@@ -30,6 +49,7 @@ A versão estável em `main` não foi alterada.
 
 | Documento | Estado | Conteúdo |
 |---|---|---|
+| [`ADR-0001-cda-digital-3.0.md`](ADR-0001-cda-digital-3.0.md) | Aceite | Destino definitivo, identidade do produto e proibição de website provisório |
 | [`00-matriz-migracao.md`](00-matriz-migracao.md) | v1.0, em revisão | Inventário de páginas, funcionalidades, APIs, dados, IA, infraestrutura, dívida técnica e critérios de validação |
 
 Documentos previstos para a Fase 1:
@@ -113,12 +133,17 @@ python3 tools/verify_datasets.py # PASS (4/4)
 9. Membro institucional, utilizador, operador e administrador são entidades
    distintas; permissões vêm de papéis, não do registo de membro.
 10. A IA recebe apenas o corpus e as operações autorizadas pelo Laravel.
+11. O website é um módulo do CDA Digital 3.0; não existe versão provisória nem
+    segunda reconstrução.
+12. O CDA Digital 2.0 permanece como baseline e rollback até o 3.0 ser validado.
 
 ## Revisão da Fase 0 — checklist
 
 Antes de iniciar a Fase 1, confirmar:
 
 - [ ] A matriz cobre todas as 23 páginas e todas as funcionalidades conhecidas.
+- [ ] O destino CDA Digital 3.0 e a proibição de website provisório estão
+      registados no ADR-0001 e reflectidos na Fase 3.
 - [ ] Os 266 PDFs (58 curados como subconjunto), 218 registos de membros (217
       carteiras únicas), 18 notícias, 8 actividades, 15 pessoas nos órgãos, 19
       entradas de cronologia e 3 presidentes estão contabilizados.

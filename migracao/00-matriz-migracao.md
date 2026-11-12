@@ -1,8 +1,9 @@
-# Fase 0 — Matriz de Migração
+# Fase 0 — Matriz de Migração para o CDA Digital 3.0
 
 > **Versão:** 1.0 — revista e consolidada após revisão técnica.
 > **Estado:** aprovação técnica **pendente**; decisões institucionais **pendentes**; Fase 0 **não encerrada**.
 > **Âmbito:** mantém integralmente o inventário da versão 0.9 e incorpora as correcções da revisão. Não inicia Laravel.
+> **Destino:** CDA Digital 3.0 — Plataforma de Gestão Institucional. Decisão registada em [`ADR-0001`](ADR-0001-cda-digital-3.0.md); não haverá website provisório nem segunda reconstrução.
 > **Referência estável:** `main` em `a102920` — “Ativar área de membro, painel admin e chat IA”.
 > **Branch de trabalho:** `refatoracao/laravel-13`.
 > **Data da revisão:** 12 de Novembro de 2026.
@@ -10,9 +11,11 @@
 
 ## 1. Objetivo
 
-Inventariar o que existe no CDA Digital 2.0 antes de iniciar a migração para Laravel 13,
-para que a nova plataforma preserve funcionalidades, conteúdos e dados, e para que a
-reconstrução seja feita com critérios de aceitação verificáveis.
+Inventariar o que existe no CDA Digital 2.0 antes de o substituir pelo **CDA
+Digital 3.0**, para que a nova plataforma preserve funcionalidades, conteúdos e
+dados, e para que a reconstrução seja feita com critérios de aceitação
+verificáveis. O 2.0 não é uma segunda entrega: é o baseline e a referência de
+recuperação até o 3.0 assumir a produção.
 
 Esta matriz responde a quatro perguntas por cada elemento do sistema:
 
@@ -39,6 +42,34 @@ responsável próprio e devem ficar registadas antes da fase em que produzem efe
 decididos alojamento, domínio e âmbito institucional; a política de privacidade é
 necessária antes de tratar dados de membros na Fase 4; a Fase 5 não fecha sem
 autorização de OCR e cobertura documental completa.
+
+### 1.2 Destino definitivo: CDA Digital 3.0
+
+A decisão arquitectónica da CDA é vinculativa e está registada em
+[`ADR-0001`](ADR-0001-cda-digital-3.0.md):
+
+| Elemento | Decisão |
+|---|---|
+| Produto | **CDA Digital 3.0 — Plataforma de Gestão Institucional** |
+| Núcleo | Laravel 13: website, CMS, membros, administração, documentos, autenticação, permissões, auditoria e APIs |
+| Website | Módulo da plataforma, construído directamente em Laravel/Blade |
+| Dados | PostgreSQL como fonte de verdade; ficheiros em armazenamento gerido |
+| IA | Python/FastAPI independente, integrado por APIs autenticadas |
+| Baseline | CDA Digital 2.0 preservado até o 3.0 ser validado e assumir a produção |
+| Sequência | Fase 0 a Fase 6, começando pela arquitectura e não pelas páginas |
+
+**Não-objectivos explícitos:**
+
+- construir um website provisório fora do Laravel;
+- reconstruir o website uma segunda vez depois da migração;
+- começar pelas páginas antes de decidir membros, documentos, autenticação,
+  permissões e modelo de dados;
+- tratar o Laravel como simples backend de um site estático paralelo;
+- manter o 2.0 como produto paralelo depois da entrada em produção do 3.0.
+
+A Fase 3 implementa o website oficial dentro do Laravel. O inventário desta matriz
+é a lista de paridade funcional e editorial; nenhuma funcionalidade é descartada
+sem decisão registada.
 
 ## 2. Baseline verificado
 
@@ -724,7 +755,7 @@ replicado para armazenamento externo.
 | 0 | Auditoria e matriz | Matriz v1.0 + baseline + tag + bundle externo |
 | 1 | Arquitectura e modelação | Sete documentos: arquitectura, dados, API, RBAC, armazenamento, migração e testes |
 | 2 | Fundação Laravel | Projecto Laravel 13, auth, RBAC, auditoria, logs, testes base |
-| 3 | CMS e website | Páginas, notícias, documentos, media e painel Filament |
+| 3 | Website oficial + CMS | Módulo Laravel: páginas, notícias, documentos, media e painel Filament |
 | 4 | CRM e membros | Registo/aprovação, perfis, quotas, requerimentos, notificações |
 | 5 | IA | Serviço Python integrado, OCR completo, RAG com fontes e controlo de acesso |
 | 6 | Testes e publicação | Segurança, migração de dados, desempenho, backups, go-live |
@@ -761,6 +792,7 @@ Critérios adicionais:
 - Política de armazenamento documental definida (object storage, retenção, backups).
 - Nenhuma funcionalidade da matriz fica sem destino.
 - O ciclo financeiro de quotas está modelado, mesmo que o gateway fique fora de âmbito.
+- A arquitectura do website está definida como módulo Laravel, sem solução provisória.
 
 **Fase 2**
 
@@ -772,6 +804,7 @@ Critérios adicionais:
 
 **Fase 3**
 
+- Website oficial construído directamente no Laravel, como módulo da plataforma.
 - 23 páginas equivalentes ou superior, com conteúdo migrado.
 - 18 notícias, 8 actividades, 19 entradas de cronologia, 3 presidentes e 15
   pessoas nos órgãos, com fonte canónica confirmada.
@@ -779,6 +812,7 @@ Critérios adicionais:
   duplicados.
 - CMS permite publicar sem alterar código.
 - Upload de PDF aparece no Centro Documental após publicação.
+- Não existe site provisório nem segunda reconstrução.
 
 **Fase 4**
 
