@@ -25,7 +25,7 @@
 
 <section class="flex flex-wrap gap-4 mb-12" data-revelar>
     @foreach ([['Documentos','Legislacao, circulares e formularios','documentos','M6 2h9l5 5v15H6z'],['Directorio de membros','Despachantes aduaneiros registados','directorio','M16 11a4 4 0 1 0-8 0 4 4 0 0 0 8 0zM4 21a8 8 0 0 1 16 0'],['Area do membro','Quotas e requerimentos','login','M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4'],['Contactos','Fale com a CDA','contactos','M4 4h16v13H8l-4 4z']] as [$t,$d,$rota,$icone])
-        <a href="{{ route($rota) }}" class="acesso flex-[1_1_14rem] flex items-center gap-4 bg-white border border-zinc-200 border-b-4 border-b-cda-vermelho rounded-lg p-5">
+        <a href="{{ route($rota) }}" class="acesso flex-[1_1_14rem] flex items-center gap-4 bg-white border border-zinc-200 rounded-lg p-5">
             <svg viewBox="0 0 24 24" class="h-10 w-10 shrink-0 text-cda-vermelho" fill="none" stroke="currentColor" stroke-width="1.8"><path d="{{ $icone }}"/></svg>
             <span><strong class="block text-lg">{{ $t }}</strong><span class="text-zinc-600">{{ $d }}</span></span>
         </a>
@@ -34,7 +34,7 @@
 
 <section class="flex flex-wrap gap-4 mb-12 text-center" data-revelar>
     @foreach ([['Membros activos', $totais['membros']], ['Documentos publicados', $totais['documentos']], ['Noticias', $totais['noticias']]] as [$r, $n])
-        <div class="flex-[1_1_12rem] bg-cda-preto text-white rounded-lg py-6 border-t-4 border-cda-vermelho">
+        <div class="flex-[1_1_12rem] bg-cda-preto text-white rounded-lg py-6">
             <div class="text-4xl font-bold" data-contador="{{ $n }}">0</div>
             <div class="text-zinc-300">{{ $r }}</div>
         </div>
