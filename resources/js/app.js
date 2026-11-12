@@ -55,3 +55,29 @@ if (revelar.length) {
     }, { threshold: 0.1 });
     revelar.forEach((r) => obs.observe(r));
 }
+
+// Mega menu: abre com clique/teclado (e com hover via CSS no ecra grande)
+const megaLista = document.getElementById('mega-lista');
+const megaToggle = document.querySelector('[data-mega-toggle]');
+megaToggle?.addEventListener('click', () => {
+    const aberto = megaLista.classList.toggle('aberto');
+    megaToggle.setAttribute('aria-expanded', aberto);
+});
+document.querySelectorAll('[data-mega-item]').forEach((item) => {
+    const botao = item.querySelector('.mega-botao');
+    botao.addEventListener('click', () => {
+        const abrir = !item.classList.contains('aberto');
+        document.querySelectorAll('[data-mega-item]').forEach((i) => {
+            i.classList.remove('aberto');
+            i.querySelector('.mega-botao').setAttribute('aria-expanded', 'false');
+        });
+        item.classList.toggle('aberto', abrir);
+        botao.setAttribute('aria-expanded', abrir);
+    });
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') document.querySelectorAll('[data-mega-item].aberto').forEach((i) => i.classList.remove('aberto'));
+});
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('[data-mega-item]')) document.querySelectorAll('[data-mega-item].aberto').forEach((i) => i.classList.remove('aberto'));
+});

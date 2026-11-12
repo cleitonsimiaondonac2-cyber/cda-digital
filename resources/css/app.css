@@ -105,3 +105,30 @@ textarea:focus-visible {
     .carrossel .slide, [data-revelar], .acesso, .cartao { transition: none; animation: none; }
     [data-revelar] { opacity: 1; transform: none; }
 }
+
+/* Mega menu. Autor: Leonardo (leonardoaderito-cmyk) */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.mega-barra { background: #1b1b1b; }
+.mega { position: static; }
+.mega-toggle { display: none; font-size: 1.6rem; padding: .5rem 0; color: #fff; }
+.mega-lista { display: flex; flex-wrap: wrap; }
+.mega-botao { display: inline-block; padding: .85rem 1.1rem; font-weight: 600; color: #fff; border-bottom: 3px solid transparent; transition: background .2s, border-color .2s; }
+.mega-item:hover > .mega-botao, .mega-item.aberto > .mega-botao, .mega-botao:hover { background: #000; border-bottom-color: #c8102e; }
+.mega-painel { display: none; position: absolute; left: 0; right: 0; background: #fff; color: #1c1c1c; border-top: 3px solid #c8102e; box-shadow: 0 18px 32px rgba(0,0,0,.25); }
+.mega-item:hover > .mega-painel, .mega-item.aberto > .mega-painel { display: block; animation: subir .25s ease both; }
+.mega-conteudo { max-width: 72rem; margin: 0 auto; padding: 1.75rem 1rem; display: flex; flex-wrap: wrap; gap: 2rem; }
+.mega-intro { flex: 1 1 14rem; padding-right: 1.5rem; border-right: 1px solid #e4e4e7; }
+.mega-intro strong { display: block; font-size: 1.4rem; margin-bottom: .4rem; color: #c8102e; }
+.mega-coluna { flex: 1 1 11rem; }
+.mega-coluna h3 { font-size: .95rem; text-transform: uppercase; letter-spacing: .05em; color: #52525b; margin-bottom: .6rem; padding-bottom: .35rem; border-bottom: 2px solid #c8102e; }
+.mega-coluna li a { display: block; padding: .3rem 0; transition: color .15s, padding-left .15s; }
+.mega-coluna li a:hover { color: #c8102e; padding-left: .4rem; }
+@media (max-width: 860px) {
+    .mega-toggle { display: block; }
+    .mega-lista { display: none; flex-direction: column; flex-wrap: nowrap; padding-bottom: .75rem; }
+    .mega-lista.aberto { display: flex; }
+    .mega-botao { width: 100%; text-align: left; }
+    .mega-item:hover > .mega-painel { display: none; }
+    .mega-item.aberto > .mega-painel { display: block; position: static; box-shadow: none; }
+    .mega-intro { border-right: 0; padding-right: 0; }
+}

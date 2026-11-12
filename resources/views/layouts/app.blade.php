@@ -7,28 +7,16 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-zinc-50 text-zinc-800 antialiased min-h-screen flex flex-col">
-<header class="bg-cda-preto text-white border-b-4 border-cda-vermelho">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center gap-x-6 gap-y-2">
+<header class="bg-cda-preto text-white border-b-4 border-cda-vermelho relative z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
         <a href="{{ route('inicio') }}" class="flex items-center gap-3 font-bold text-lg tracking-wide">
-            <img src="{{ asset('img/cda-logo.jpg') }}" alt="CDA" class="h-11 w-11 rounded-full bg-white object-cover">
-            CDA Digital
+            <img src="{{ asset('img/cda-logo.jpg') }}" alt="CDA" class="h-12 w-12 rounded-full bg-white object-cover">
+            <span>CDA Digital<small class="block text-sm font-normal text-zinc-300">Câmara dos Despachantes Aduaneiros de Moçambique</small></span>
         </a>
-        <nav class="flex flex-wrap gap-x-4 gap-y-1 text-sm flex-1">
-            <a href="{{ route('instituicao') }}" class="hover:underline">A CDA</a>
-            <a href="{{ route('historia') }}" class="hover:underline">Historia</a>
-            <a href="{{ route('orgaos') }}" class="hover:underline">Orgaos</a>
-            <a href="{{ route('estatutos') }}" class="hover:underline">Estatutos</a>
-            <a href="{{ route('parceiros') }}" class="hover:underline">Parceiros</a>
-            <a href="{{ route('noticias') }}" class="hover:underline">Noticias</a>
-            <a href="{{ route('actividades') }}" class="hover:underline">Actividades</a>
-            <a href="{{ route('documentos') }}" class="hover:underline">Documentos</a>
-            <a href="{{ route('directorio') }}" class="hover:underline">Membros</a>
-            <a href="{{ route('contactos') }}" class="hover:underline">Contactos</a>
-        </nav>
         <div class="flex items-center gap-3 text-sm">
             @auth
                 @if (auth()->user()->is_admin)
-                    <a href="{{ route('admin.painel') }}" class="hover:underline">Administracao</a>
+                    <a href="{{ route('admin.painel') }}" class="hover:underline">Administração</a>
                 @endif
                 <a href="{{ route('membro.area') }}" class="hover:underline">{{ auth()->user()->name }}</a>
                 <form method="POST" action="{{ route('logout') }}">@csrf
@@ -38,6 +26,11 @@
                 <a href="{{ route('login') }}" class="hover:underline">Entrar</a>
                 <a href="{{ route('registo') }}" class="bg-cda-vermelho text-white rounded px-3 py-1 font-semibold">Registar</a>
             @endauth
+        </div>
+    </div>
+    <div class="mega-barra border-t border-white/15">
+        <div class="max-w-6xl mx-auto px-4">
+            @include('layouts._mega')
         </div>
     </div>
 </header>
