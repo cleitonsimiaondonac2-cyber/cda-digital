@@ -26,10 +26,10 @@ só então CMS, website, membros e IA.
 
 | Fase | Estado | Resultado |
 |---|---|---|
-| 0 — Auditoria e preparação | **Em revisão técnica** | Baseline verificado; matriz v1.0 pronta para aprovação; falta cópia externa do bundle |
-| 1 — Arquitectura e modelação | Não iniciada | Depende da aprovação da Fase 0 |
-| 2 — Fundação Laravel | Não iniciada | — |
-| 3 — CMS e website | Não iniciada | Website oficial como módulo Laravel, sem site provisório |
+| 0 — Auditoria e preparação | **Aprovada tecnicamente** | Matriz v1.0 aprovada e congelada; falta cópia externa do bundle |
+| 1 — Arquitectura e modelação | **Aberta** | `01-arquitectura.md` em produção; documentos 02–07 pendentes |
+| 2 — Fundação Laravel | Não iniciada | Depende da conclusão da Fase 1 |
+| 3 — Website + CMS | Não iniciada | Website oficial como módulo Laravel, sem site provisório |
 | 4 — CRM e membros | Não iniciada | — |
 | 5 — IA | Não iniciada | — |
 | 6 — Testes e publicação | Não iniciada | — |
@@ -50,19 +50,21 @@ A versão estável em `main` não foi alterada.
 | Documento | Estado | Conteúdo |
 |---|---|---|
 | [`ADR-0001-cda-digital-3.0.md`](ADR-0001-cda-digital-3.0.md) | Aceite | Destino definitivo, identidade do produto e proibição de website provisório |
-| [`00-matriz-migracao.md`](00-matriz-migracao.md) | v1.0, em revisão | Inventário de páginas, funcionalidades, APIs, dados, IA, infraestrutura, dívida técnica e critérios de validação |
+| [`APROVACAO-FASE-0.md`](APROVACAO-FASE-0.md) | Aprovado | Registo formal da aprovação técnica, ressalvas e gates |
+| [`00-matriz-migracao.md`](00-matriz-migracao.md) | v1.0, aprovada | Inventário de páginas, funcionalidades, APIs, dados, IA, infraestrutura, dívida técnica e critérios de validação |
+| [`01-arquitectura.md`](01-arquitectura.md) | Rascunho | Arquitectura geral, módulos, fronteiras e comunicação entre serviços |
 
 Documentos previstos para a Fase 1:
 
-| Documento | Finalidade |
-|---|---|
-| `01-arquitectura.md` | Arquitectura geral, módulos e comunicação entre serviços |
-| `02-modelo-dados.md` | ERD, entidades, relações, integridade e índices PostgreSQL |
-| `03-contratos-api.md` | Laravel ↔ Python: autenticação, payloads, erros, quotas e escopos |
-| `04-seguranca-rbac.md` | Papéis, permissões, sessões, auditoria e segregação de funções |
-| `05-armazenamento-documental.md` | Object storage, OCR, retenção, backups e restauro |
-| `06-plano-migracao-dados.md` | Importação, checksums, ensaios, contagens e rollback |
-| `07-testes-aceitacao.md` | Matriz de testes e critérios de aprovação por fase |
+| Documento | Finalidade | Estado |
+|---|---|---|
+| `01-arquitectura.md` | Arquitectura geral, módulos e comunicação entre serviços | Rascunho |
+| `02-modelo-dados.md` | ERD, entidades, relações, integridade e índices PostgreSQL | Pendente |
+| `03-contratos-api.md` | Laravel ↔ Python: autenticação, payloads, erros, quotas e escopos | Pendente |
+| `04-seguranca-rbac.md` | Papéis, permissões, sessões, auditoria e segregação de funções | Pendente |
+| `05-armazenamento-documental.md` | Object storage, OCR, retenção, backups e restauro | Pendente |
+| `06-plano-migracao-dados.md` | Importação, checksums, ensaios, contagens e rollback | Pendente |
+| `07-testes-aceitacao.md` | Matriz de testes e critérios de aprovação por fase | Pendente |
 
 ## Aprovação técnica vs. institucional
 
@@ -70,10 +72,10 @@ São duas aprovações distintas:
 
 | Aprovação | O que valida | Estado |
 |---|---|---|
-| **Técnica** | Inventário, âmbito, lacunas e critérios de migração | Pendente sobre a v1.0 |
+| **Técnica** | Inventário, âmbito, lacunas e critérios de migração | **Aprovada em 12/11/2026** — ver `APROVACAO-FASE-0.md` |
 | **Institucional** | Privacidade, CDA Verify, denúncias, OCR, domínio, alojamento e retenção | Pendente; ver secção 13 da matriz |
 
-A aprovação técnica permite fechar a auditoria e iniciar a Fase 1. Não autoriza
+A aprovação técnica permitiu fechar a auditoria e abrir a Fase 1. Não autoriza
 tratar dados de membros, activar o CDA Verify, publicar denúncias, executar OCR
 em massa nem contratar alojamento.
 
@@ -139,20 +141,20 @@ python3 tools/verify_datasets.py # PASS (4/4)
 
 ## Revisão da Fase 0 — checklist
 
-Antes de iniciar a Fase 1, confirmar:
+Estado após aprovação técnica de 12/11/2026:
 
-- [ ] A matriz cobre todas as 23 páginas e todas as funcionalidades conhecidas.
-- [ ] O destino CDA Digital 3.0 e a proibição de website provisório estão
+- [x] A matriz cobre todas as 23 páginas e todas as funcionalidades conhecidas.
+- [x] O destino CDA Digital 3.0 e a proibição de website provisório estão
       registados no ADR-0001 e reflectidos na Fase 3.
-- [ ] Os 266 PDFs (58 curados como subconjunto), 218 registos de membros (217
+- [x] Os 266 PDFs (58 curados como subconjunto), 218 registos de membros (217
       carteiras únicas), 18 notícias, 8 actividades, 15 pessoas nos órgãos, 19
       entradas de cronologia e 3 presidentes estão contabilizados.
-- [ ] As lacunas P0 (upload invisível, RAG incompleto, auth duplicada, autorização
+- [x] As lacunas P0 (upload invisível, RAG incompleto, auth duplicada, autorização
       binária, upload pouco validado, privacidade, sessões, força bruta, auditoria,
       backups, carteira duplicada, membro/utilizador, duplicação documental) estão
       aceites como âmbito.
-- [ ] As decisões pendentes da secção 13 da matriz têm responsável e fase-limite.
-- [ ] A aprovação técnica está registada e separada das decisões institucionais.
+- [x] As decisões pendentes da secção 13 da matriz têm responsável e fase-limite.
+- [x] A aprovação técnica está registada e separada das decisões institucionais.
 - [ ] O alojamento suporta PHP 8.3+, PostgreSQL, filas e armazenamento.
 - [ ] A política de privacidade do directório e do CDA Verify está definida.
 - [ ] O OCR dos 232 PDFs em falta está autorizado e calendarizado.
@@ -160,13 +162,14 @@ Antes de iniciar a Fase 1, confirmar:
 
 ## Próximos passos
 
-1. **Aprovar tecnicamente** a matriz v1.0 e congelá-la com tag própria.
-2. **Copiar o bundle** `~/backups/cda-digital-a102920.bundle` para armazenamento
-   externo e verificar a integridade (a tag `baseline-2.0` já existe localmente e
-   em `origin`).
-3. **Iniciar a Fase 1** com os sete documentos: arquitectura, modelo de dados,
-   contratos API, segurança/RBAC, armazenamento, migração de dados e testes.
-4. **Só depois** criar o projecto Laravel 13 e a fundação da Fase 2, com
+1. [x] **Aprovar tecnicamente** a matriz v1.0 e congelá-la com a tag
+   `fase-0-aprovada` (commit de aprovação).
+2. [ ] **Copiar o bundle** `~/backups/cda-digital-a102920.bundle` para
+   armazenamento externo e verificar a integridade. Bloqueado: não há
+   armazenamento externo montado no ambiente actual.
+3. [x] **Abrir a Fase 1** com os sete documentos. `01-arquitectura.md` está em
+   rascunho; `02`–`07` seguem por ordem de dependência.
+4. [ ] **Só depois** criar o projecto Laravel 13 e a fundação da Fase 2, com
    alojamento, domínio e âmbito institucional decididos.
 
 ## Notas

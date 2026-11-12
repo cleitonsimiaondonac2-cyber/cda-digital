@@ -1,7 +1,7 @@
 # Fase 0 — Matriz de Migração para o CDA Digital 3.0
 
-> **Versão:** 1.0 — revista e consolidada após revisão técnica.
-> **Estado:** aprovação técnica **pendente**; decisões institucionais **pendentes**; Fase 0 **não encerrada**.
+> **Versão:** 1.0 — aprovada tecnicamente em 12 de Novembro de 2026.
+> **Estado:** aprovação técnica **concedida**; decisões institucionais **pendentes**; Fase 0 **em encerramento** (falta cópia externa do bundle).
 > **Âmbito:** mantém integralmente o inventário da versão 0.9 e incorpora as correcções da revisão. Não inicia Laravel.
 > **Destino:** CDA Digital 3.0 — Plataforma de Gestão Institucional. Decisão registada em [`ADR-0001`](ADR-0001-cda-digital-3.0.md); não haverá website provisório nem segunda reconstrução.
 > **Referência estável:** `main` em `a102920` — “Ativar área de membro, painel admin e chat IA”.
@@ -30,10 +30,10 @@ Há duas aprovações distintas, que não devem ser confundidas:
 
 | Aprovação | O que valida | Quem decide | Estado |
 |---|---|---|---|
-| **Técnica** | Inventário, âmbito, lacunas e critérios de migração | Equipa técnica + revisão da CDA | Pendente sobre esta v1.0 |
+| **Técnica** | Inventário, âmbito, lacunas e critérios de migração | Equipa técnica + revisão da CDA | **Aprovada em 12/11/2026**; registo em [`APROVACAO-FASE-0.md`](APROVACAO-FASE-0.md) |
 | **Institucional** | Privacidade, CDA Verify, denúncias, OCR, domínio, alojamento e retenção | CDA e GigaSystems | Pendente; ver secção 13 |
 
-A aprovação técnica permite **fechar a auditoria e iniciar o desenho da Fase 1**.
+A aprovação técnica foi concedida e permite **fechar a auditoria e abrir a Fase 1**.
 Não autoriza, por si só, tratar dados de membros, ativar o CDA Verify, publicar
 denúncias, executar OCR em massa nem contratar alojamento. Essas decisões têm
 responsável próprio e devem ficar registadas antes da fase em que produzem efeitos.
