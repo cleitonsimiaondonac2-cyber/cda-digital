@@ -7,7 +7,7 @@ publicado** e não deve ser copiada para `docs/`, que é gerado por `build.sh`.
 
 | Fase | Estado | Resultado |
 |---|---|---|
-| 0 — Auditoria e preparação | **Em revisão** | Baseline verificado; matriz de migração pronta para aprovação |
+| 0 — Auditoria e preparação | **Em revisão técnica** | Baseline verificado; matriz v1.0 pronta para aprovação; falta cópia externa do bundle |
 | 1 — Arquitectura e modelação | Não iniciada | Depende da aprovação da Fase 0 |
 | 2 — Fundação Laravel | Não iniciada | — |
 | 3 — CMS e website | Não iniciada | — |
@@ -30,15 +30,32 @@ A versão estável em `main` não foi alterada.
 
 | Documento | Estado | Conteúdo |
 |---|---|---|
-| [`00-matriz-migracao.md`](00-matriz-migracao.md) | Em revisão | Inventário de páginas, funcionalidades, APIs, dados, IA, infraestrutura, dívida técnica e critérios de validação |
+| [`00-matriz-migracao.md`](00-matriz-migracao.md) | v1.0, em revisão | Inventário de páginas, funcionalidades, APIs, dados, IA, infraestrutura, dívida técnica e critérios de validação |
 
-Documentos previstos para as fases seguintes:
+Documentos previstos para a Fase 1:
 
-- `01-arquitectura.md` — módulos, contextos, ERD PostgreSQL, papéis/permissões.
-- `02-contratos-api.md` — contratos Laravel ↔ Python.
-- `03-armazenamento-documental.md` — object storage, retenção, backups.
-- `04-plano-migracao-dados.md` — importação, checksums, ensaios e rollback.
-- `05-testes-aceitacao.md` — matriz de testes por fase.
+| Documento | Finalidade |
+|---|---|
+| `01-arquitectura.md` | Arquitectura geral, módulos e comunicação entre serviços |
+| `02-modelo-dados.md` | ERD, entidades, relações, integridade e índices PostgreSQL |
+| `03-contratos-api.md` | Laravel ↔ Python: autenticação, payloads, erros, quotas e escopos |
+| `04-seguranca-rbac.md` | Papéis, permissões, sessões, auditoria e segregação de funções |
+| `05-armazenamento-documental.md` | Object storage, OCR, retenção, backups e restauro |
+| `06-plano-migracao-dados.md` | Importação, checksums, ensaios, contagens e rollback |
+| `07-testes-aceitacao.md` | Matriz de testes e critérios de aprovação por fase |
+
+## Aprovação técnica vs. institucional
+
+São duas aprovações distintas:
+
+| Aprovação | O que valida | Estado |
+|---|---|---|
+| **Técnica** | Inventário, âmbito, lacunas e critérios de migração | Pendente sobre a v1.0 |
+| **Institucional** | Privacidade, CDA Verify, denúncias, OCR, domínio, alojamento e retenção | Pendente; ver secção 13 da matriz |
+
+A aprovação técnica permite fechar a auditoria e iniciar a Fase 1. Não autoriza
+tratar dados de membros, activar o CDA Verify, publicar denúncias, executar OCR
+em massa nem contratar alojamento.
 
 ## Baseline verificado
 
@@ -55,15 +72,19 @@ python3 tools/verify_datasets.py # PASS (4/4)
 | Páginas HTML | 23 |
 | Ficheiros JS | 18 |
 | PDFs | 266 |
-| Documentos curados | 58 |
-| Membros | 218 |
+| Documentos curados | 58 (subconjunto dos 266; não somar) |
+| Registos de membros | 218 |
+| Carteiras únicas | 217 |
 | Notícias | 18 |
 | Actividades | 8 |
-| Órgãos | 15 |
+| Órgãos | 15 pessoas (fonte canónica a confirmar) |
 | Cronologia | 19 |
 | Presidentes | 3 |
 | PDFs com texto extraído | 34/266 |
 | Chunks BM25 | 1031 |
+
+> Os 218 são registos profissionais do directório, não 218 contas de utilizador.
+> O universo documental a importar é **266**, não 324.
 
 ## Decisões já tomadas
 
@@ -87,30 +108,41 @@ python3 tools/verify_datasets.py # PASS (4/4)
 5. Não publicar sem testes, backup e plano de rollback.
 6. Cada fase termina com um resultado verificável e aprovado.
 7. A versão estável em `main` permanece intacta durante a migração.
+8. PostgreSQL é a fonte de verdade dos metadados; JSON/JS antigos são fontes de
+   importação, não destinos.
+9. Membro institucional, utilizador, operador e administrador são entidades
+   distintas; permissões vêm de papéis, não do registo de membro.
+10. A IA recebe apenas o corpus e as operações autorizadas pelo Laravel.
 
 ## Revisão da Fase 0 — checklist
 
 Antes de iniciar a Fase 1, confirmar:
 
 - [ ] A matriz cobre todas as 23 páginas e todas as funcionalidades conhecidas.
-- [ ] Os 266 PDFs, 218 membros, 18 notícias, 8 actividades, 15 órgãos, 19 entradas
-      de cronologia e 3 presidentes estão contabilizados.
+- [ ] Os 266 PDFs (58 curados como subconjunto), 218 registos de membros (217
+      carteiras únicas), 18 notícias, 8 actividades, 15 pessoas nos órgãos, 19
+      entradas de cronologia e 3 presidentes estão contabilizados.
 - [ ] As lacunas P0 (upload invisível, RAG incompleto, auth duplicada, autorização
       binária, upload pouco validado, privacidade, sessões, força bruta, auditoria,
-      backups) estão aceites como âmbito.
-- [ ] As decisões pendentes da secção 13 da matriz têm responsável e prazo.
+      backups, carteira duplicada, membro/utilizador, duplicação documental) estão
+      aceites como âmbito.
+- [ ] As decisões pendentes da secção 13 da matriz têm responsável e fase-limite.
+- [ ] A aprovação técnica está registada e separada das decisões institucionais.
 - [ ] O alojamento suporta PHP 8.3+, PostgreSQL, filas e armazenamento.
 - [ ] A política de privacidade do directório e do CDA Verify está definida.
 - [ ] O OCR dos 232 PDFs em falta está autorizado e calendarizado.
+- [ ] O bundle foi copiado para armazenamento externo e a cópia foi verificada.
 
 ## Próximos passos
 
-1. **Rever e aprovar** `00-matriz-migracao.md`.
+1. **Aprovar tecnicamente** a matriz v1.0 e congelá-la com tag própria.
 2. **Copiar o bundle** `~/backups/cda-digital-a102920.bundle` para armazenamento
-   externo (a tag `baseline-2.0` já existe localmente e em `origin`).
-3. **Iniciar a Fase 1**: arquitectura, modelo de dados PostgreSQL, papéis e
-   permissões, contratos Laravel ↔ Python e estratégia de armazenamento.
-4. **Só depois** criar o projecto Laravel 13 e a fundação da Fase 2.
+   externo e verificar a integridade (a tag `baseline-2.0` já existe localmente e
+   em `origin`).
+3. **Iniciar a Fase 1** com os sete documentos: arquitectura, modelo de dados,
+   contratos API, segurança/RBAC, armazenamento, migração de dados e testes.
+4. **Só depois** criar o projecto Laravel 13 e a fundação da Fase 2, com
+   alojamento, domínio e âmbito institucional decididos.
 
 ## Notas
 
