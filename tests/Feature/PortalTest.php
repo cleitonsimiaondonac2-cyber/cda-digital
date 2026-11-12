@@ -27,6 +27,16 @@ class PortalTest extends TestCase
         $this->actingAs($membro)->get('/admin')->assertForbidden();
     }
 
+    public function test_cabecalhos_e_auditoria(): void
+    {
+        $this->get('/')->assertHeader('X-Frame-Options', 'DENY');
+
+        $admin = User::factory()->create();
+        $admin->forceFill(['is_admin' => true, 'ativo' => true])->save();
+        $this->actingAs($admin)->post('/admin/noticias', ['titulo' => 'T', 'texto' => 'X', 'data' => '2026-01-01']);
+        $this->assertDatabaseHas('auditoria', ['accao' => 'admin.noticias.guardar', 'user_id' => $admin->id]);
+    }
+
     public function test_conta_inactiva_nao_entra(): void
     {
         $user = User::factory()->create(['email' => 'a@b.mz', 'password' => 'segredo123']);

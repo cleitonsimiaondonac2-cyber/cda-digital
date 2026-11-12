@@ -12,10 +12,14 @@ php artisan serve
 
 ## Estado da migração
 - [x] Fase 1: estrutura Laravel, modelos, migrações, importação de membros
-- [ ] Fase 2: autenticação, aprovação de contas, quotas e requerimentos
-- [ ] Fase 3: painel admin e centro documental
-- [ ] Fase 4: páginas públicas em Blade
+- [x] Fase 2: autenticação, aprovação de contas, quotas e requerimentos
+- [x] Fase 3: painel admin e centro documental
+- [x] Fase 4: páginas públicas em Blade (núcleo; faltam páginas institucionais)
+- [x] Segurança: cabeçalhos HTTP, auditoria de acções de admin e logins, sessão cifrada
+- [ ] Segurança: 2FA para administradores, cópias de segurança
 - [ ] Fase 5: assistente de IA, CI e deploy
+
+Em produção: `APP_ENV=production`, `APP_DEBUG=false`, `SESSION_SECURE_COOKIE=true` e HTTPS.
 
 O código anterior (site estático + API Python) está em `legado/` como referência e fonte de dados.
 

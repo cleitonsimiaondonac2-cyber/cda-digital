@@ -14,6 +14,16 @@ class ApenasAdmin
 
         abort_unless($utilizador && $utilizador->is_admin && $utilizador->ativo, 403);
 
-        return $next($request);
+        $resposta = $next($request);
+
+        // Autor: Leonardo (leonardoaderito-cmyk) - regista toda a accao de escrita feita por administradores
+        if (! $request->isMethodSafe()) {
+            $alvos = collect($request->route()->parameters())
+                ->map(fn ($p) => is_object($p) ? class_basename($p).'#'.$p->getKey() : $p)
+                ->implode(',');
+            \App\Models\Auditoria::registar($request->route()->getName(), $alvos ?: null);
+        }
+
+        return $resposta;
     }
 }
