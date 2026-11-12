@@ -18,3 +18,7 @@ php artisan serve
 - [ ] Fase 5: assistente de IA, CI e deploy
 
 O código anterior (site estático + API Python) está em `legado/` como referência e fonte de dados.
+
+## Convenções
+- Tabelas: usar flexbox (`.tabela`, `.tabela-linha`, `.tabela-celula` em `resources/css/app.css`), nunca `<table>`.
+- Comentários no código: só quando necessários e sempre assinados, p. ex. `// Leonardo (leonardoaderito-cmyk): motivo`.

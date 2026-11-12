@@ -7,3 +7,39 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Tabelas em flexbox (div + role). Autor: Leonardo (leonardoaderito-cmyk) */
+.tabela {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #d4d4d8;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.tabela-linha {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+.tabela-linha:last-child {
+    border-bottom: 0;
+}
+
+.tabela-cabecalho {
+    background: #f4f4f5;
+    font-weight: 600;
+}
+
+.tabela-celula {
+    flex: 1 1 0;
+    min-width: 8rem;
+    padding: 0.625rem 0.875rem;
+}
+
+.tabela-celula-estreita {
+    flex: 0 0 6rem;
+}
