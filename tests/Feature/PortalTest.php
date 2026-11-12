@@ -14,7 +14,7 @@ class PortalTest extends TestCase
 
     public function test_paginas_publicas_respondem(): void
     {
-        foreach (['/', '/noticias', '/actividades', '/documentos', '/membros', '/contactos', '/entrar', '/registar'] as $url) {
+        foreach (['/', '/noticias', '/actividades', '/documentos', '/membros', '/contactos', '/entrar', '/registar', '/instituicao', '/historia', '/orgaos', '/estatutos', '/parceiros'] as $url) {
             $this->get($url)->assertOk();
         }
     }

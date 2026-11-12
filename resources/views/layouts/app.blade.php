@@ -14,6 +14,11 @@
             CDA Digital
         </a>
         <nav class="flex flex-wrap gap-x-4 gap-y-1 text-sm flex-1">
+            <a href="{{ route('instituicao') }}" class="hover:underline">A CDA</a>
+            <a href="{{ route('historia') }}" class="hover:underline">Historia</a>
+            <a href="{{ route('orgaos') }}" class="hover:underline">Orgaos</a>
+            <a href="{{ route('estatutos') }}" class="hover:underline">Estatutos</a>
+            <a href="{{ route('parceiros') }}" class="hover:underline">Parceiros</a>
             <a href="{{ route('noticias') }}" class="hover:underline">Noticias</a>
             <a href="{{ route('actividades') }}" class="hover:underline">Actividades</a>
             <a href="{{ route('documentos') }}" class="hover:underline">Documentos</a>

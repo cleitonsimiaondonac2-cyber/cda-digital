@@ -7,6 +7,10 @@ use App\Http\Controllers\MembroController;
 use App\Http\Controllers\PublicoController;
 use Illuminate\Support\Facades\Route;
 
+foreach (['instituicao', 'historia', 'orgaos', 'estatutos', 'parceiros'] as $pagina) {
+    Route::view('/'.$pagina, 'institucional.'.$pagina)->name($pagina);
+}
+
 Route::controller(PublicoController::class)->group(function () {
     Route::get('/', 'inicio')->name('inicio');
     Route::get('/noticias', 'noticias')->name('noticias');
