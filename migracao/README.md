@@ -18,7 +18,7 @@ publicado** e não deve ser copiada para `docs/`, que é gerado por `build.sh`.
 **Referência estável:** `main` em `a102920` — “Ativar área de membro, painel admin
 e chat IA”.
 
-**Referência adicional:** tag local `baseline-2.0` e bundle Git
+**Referência adicional:** tag `baseline-2.0` (local e `origin`) e bundle Git
 `~/backups/cda-digital-a102920.bundle` (220 MB, verificado com
 `git bundle verify`). O bundle é local; deve ser copiado para armazenamento
 externo antes do início da Fase 2.
@@ -107,7 +107,7 @@ Antes de iniciar a Fase 1, confirmar:
 
 1. **Rever e aprovar** `00-matriz-migracao.md`.
 2. **Copiar o bundle** `~/backups/cda-digital-a102920.bundle` para armazenamento
-   externo (a tag `baseline-2.0` já existe localmente).
+   externo (a tag `baseline-2.0` já existe localmente e em `origin`).
 3. **Iniciar a Fase 1**: arquitectura, modelo de dados PostgreSQL, papéis e
    permissões, contratos Laravel ↔ Python e estratégia de armazenamento.
 4. **Só depois** criar o projecto Laravel 13 e a fundação da Fase 2.

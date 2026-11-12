@@ -314,10 +314,10 @@ Isto é um bloqueio conhecido, não um defeito da migração Laravel.
 | INF-09 | Logs e monitorização | — | Em falta | Plataforma | Reconstruir |
 | INF-10 | Backups | — | Em falta | Plataforma | Reconstruir |
 
-**Referência de backup da Fase 0:** tag local `baseline-2.0` em `a102920` e bundle
-`~/backups/cda-digital-a102920.bundle` (220 MB, verificado). O bundle contém o
-histórico completo, mas está apenas no disco local; deve ser replicado para
-armazenamento externo.
+**Referência de backup da Fase 0:** tag `baseline-2.0` em `a102920` (local e
+`origin`) e bundle `~/backups/cda-digital-a102920.bundle` (220 MB, verificado).
+O bundle contém o histórico completo, mas está apenas no disco local; deve ser
+replicado para armazenamento externo.
 
 ## 10. Dívida técnica e lacunas
 
@@ -485,7 +485,7 @@ Estas decisões devem ser tomadas antes da Fase 1 ou no início dela:
 
 1. Rever esta matriz com a CDA e obter aprovação explícita.
 2. Copiar o bundle `~/backups/cda-digital-a102920.bundle` para armazenamento
-   externo (a tag `baseline-2.0` já foi criada localmente).
+   externo (a tag `baseline-2.0` já foi criada e enviada para `origin`).
 3. Abrir a Fase 1: arquitectura, ERD PostgreSQL, papéis/permissões, contratos de
    API e política de armazenamento.
 4. Só depois criar o projecto Laravel 13 e iniciar a Fase 2.
