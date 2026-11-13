@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+/* Identidade visual da CDA: preto, vermelho, cinzento e branco. Autor: Leonardo (leonardoaderito-cmyk) */
+@theme {
+    --font-sans: 'Segoe UI', Arial, Helvetica, sans-serif;
+    --color-cda-preto: #111111;
+    --color-cda-vermelho: #c8102e;
+    --color-cda-vermelho-escuro: #9b0d24;
+
+    /* Os tons "blue" usados nas vistas passam a ser o vermelho da CDA */
+    --color-blue-950: #c8102e;
+    --color-blue-900: #c8102e;
+    --color-blue-800: #9b0d24;
+    --color-blue-100: #e4e4e7;
+
+    /* Tipografia maior para legibilidade em portais publicos */
+    --text-xs: 0.9375rem;
+    --text-sm: 1rem;
+    --text-base: 1.125rem;
+}
+
+html {
+    font-size: 17px;
+}
+
+body {
+    line-height: 1.65;
+    color: #1c1c1c;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #c8102e;
+    outline-offset: 2px;
+}
+
+/* Tabelas em flexbox (div + role). Autor: Leonardo (leonardoaderito-cmyk) */
+.tabela {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #d4d4d8;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.tabela-linha {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+.tabela-linha:last-child {
+    border-bottom: 0;
+}
+
+.tabela-cabecalho {
+    background: #e4e4e7;
+    font-weight: 700;
+}
+
+.tabela-celula {
+    flex: 1 1 0;
+    min-width: 8rem;
+    padding: 0.625rem 0.875rem;
+}
+
+.tabela-celula-estreita {
+    flex: 0 0 6rem;
+}
+
+/* Texto institucional importado do site antigo. Autor: Leonardo (leonardoaderito-cmyk) */
+.conteudo-texto { max-width: 60rem; }
+.conteudo-texto h2 { font-size: 1.6rem; font-weight: 700; margin: 2rem 0 0.75rem; padding-left: 0.75rem; border-left: 5px solid #c8102e; }
+.conteudo-texto h3 { font-size: 1.25rem; font-weight: 700; margin: 1.25rem 0 0.5rem; }
+.conteudo-texto p, .conteudo-texto li { margin-bottom: 0.75rem; }
+.conteudo-texto ul { list-style: disc; padding-left: 1.5rem; }
+.conteudo-texto ol { list-style: decimal; padding-left: 1.5rem; }
+.conteudo-texto a { color: #9b0d24; text-decoration: underline; }
+.conteudo-texto article { background: #fff; border: 1px solid #d4d4d8; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; }
+
+/* Animacoes da pagina inicial. Autor: Leonardo (leonardoaderito-cmyk) */
+.carrossel { position: relative; min-height: 22rem; background: linear-gradient(120deg, #111 55%, #3a0a12); }
+.carrossel .slide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; pointer-events: none; }
+.carrossel .slide-activo { position: relative; opacity: 1; pointer-events: auto; }
+.carrossel .slide-activo h1 { animation: subir .7s ease both; }
+.ponto { width: 0.9rem; height: 0.9rem; border-radius: 9999px; background: #71717a; transition: all .3s; }
+.ponto-activo { background: #c8102e; width: 2.2rem; }
+.seta { width: 2.5rem; height: 2.5rem; border-radius: 9999px; background: rgba(255,255,255,.15); font-size: 1.6rem; line-height: 1; }
+.seta:hover { background: #c8102e; }
+.acesso, .cartao { transition: transform .25s ease, box-shadow .25s ease; }
+.acesso:hover, .cartao:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.12); }
+[data-revelar] { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
+[data-revelar].revelado { opacity: 1; transform: none; }
+@keyframes subir { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+    .carrossel .slide, [data-revelar], .acesso, .cartao { transition: none; animation: none; }
+    [data-revelar] { opacity: 1; transform: none; }
+}
+
+/* Mega menu. Autor: Leonardo (leonardoaderito-cmyk) */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.mega-barra { background: #1b1b1b; }
+.mega { position: static; }
+.mega-toggle { display: none; font-size: 1.6rem; padding: .5rem 0; color: #fff; }
+.mega-lista { display: flex; flex-wrap: wrap; }
+.mega-botao { display: inline-block; padding: .85rem 1.1rem; font-weight: 600; color: #fff; border-bottom: 3px solid transparent; transition: background .2s, border-color .2s; }
+.mega-item:hover > .mega-botao, .mega-item.aberto > .mega-botao, .mega-botao:hover { background: #000; border-bottom-color: #c8102e; }
+.mega-painel { display: none; position: absolute; left: 0; right: 0; background: #fff; color: #1c1c1c; border-top: 3px solid #c8102e; box-shadow: 0 18px 32px rgba(0,0,0,.25); }
+.mega-item:hover > .mega-painel, .mega-item.aberto > .mega-painel { display: block; animation: subir .25s ease both; }
+.mega-conteudo { max-width: 72rem; margin: 0 auto; padding: 1.75rem 1rem; display: flex; flex-wrap: wrap; gap: 2rem; }
+.mega-intro { flex: 1 1 14rem; padding-right: 1.5rem; border-right: 1px solid #e4e4e7; }
+.mega-intro strong { display: block; font-size: 1.4rem; margin-bottom: .4rem; color: #c8102e; }
+.mega-coluna { flex: 1 1 11rem; }
+.mega-coluna h3 { font-size: .95rem; text-transform: uppercase; letter-spacing: .05em; color: #52525b; margin-bottom: .6rem; padding-bottom: .35rem; border-bottom: 2px solid #c8102e; }
+.mega-coluna li a { display: block; padding: .3rem 0; transition: color .15s, padding-left .15s; }
+.mega-coluna li a:hover { color: #c8102e; padding-left: .4rem; }
+@media (max-width: 860px) {
+    .mega-toggle { display: block; }
+    .mega-lista { display: none; flex-direction: column; flex-wrap: nowrap; padding-bottom: .75rem; }
+    .mega-lista.aberto { display: flex; }
+    .mega-botao { width: 100%; text-align: left; }
+    .mega-item:hover > .mega-painel { display: none; }
+    .mega-item.aberto > .mega-painel { display: block; position: static; box-shadow: none; }
+    .mega-intro { border-right: 0; padding-right: 0; }
+}
+
+/* Mega rodape. Autor: Leonardo (leonardoaderito-cmyk) */
+.mega-rodape { background: #111; color: #e4e4e7; border-top: 4px solid #c8102e; margin-top: 2rem; }
+.rodape-topo { background: #c8102e; color: #fff; }
+.rodape-subir { font-weight: 600; text-decoration: underline; }
+.rodape-col { flex: 1 1 11rem; }
+.rodape-marca { flex: 2 1 18rem; }
+.rodape-col h3 { font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: #fff; margin-bottom: .75rem; padding-bottom: .4rem; border-bottom: 2px solid #c8102e; display: inline-block; }
+.rodape-col li a, .rodape-contacto a:not(.rodape-botao) { display: inline-block; padding: .2rem 0; transition: color .15s, padding-left .15s; }
+.rodape-col li a:hover, .rodape-contacto a:not(.rodape-botao):hover { color: #fff; padding-left: .35rem; text-decoration: underline; }
+.rodape-botao { display: inline-block; margin-top: 1rem; background: #c8102e; color: #fff; padding: .5rem 1.1rem; border-radius: .25rem; font-weight: 600; transition: background .2s; }
+.rodape-botao:hover { background: #fff; color: #111; }
+.rodape-base { background: #000; color: #a1a1aa; font-size: .95rem; }
+html { scroll-behavior: smooth; }
+
+/* Rodape compacto: colunas agrupadas em grelha. Autor: Leonardo (leonardoaderito-cmyk) */
+.mega-rodape > div:nth-child(2) { display: grid; grid-template-columns: 1fr; gap: 1.5rem 2rem; padding-top: 1.75rem; padding-bottom: 1.5rem; }
+.mega-rodape .rodape-col { flex: none; min-width: 0; font-size: .95rem; }
+.mega-rodape .rodape-col h3 { font-size: .85rem; margin-bottom: .4rem; }
+.mega-rodape .rodape-col li a { padding: .1rem 0; }
+.mega-rodape .rodape-marca img { height: 2.75rem; width: 2.75rem; }
+.mega-rodape .rodape-marca strong { font-size: 1rem; }
+.mega-rodape .rodape-botao { margin-top: .6rem; padding: .35rem .9rem; }
+.rodape-topo > div { padding-top: .6rem; padding-bottom: .6rem; }
+.rodape-base > div { padding-top: .6rem; padding-bottom: .6rem; }
+@media (min-width: 560px) { .mega-rodape > div:nth-child(2) { grid-template-columns: repeat(2, 1fr); } .mega-rodape .rodape-marca { grid-column: 1 / -1; } }
+@media (min-width: 992px) { .mega-rodape > div:nth-child(2) { grid-template-columns: 2.2fr 1fr 1fr 1fr 1.8fr; } .mega-rodape .rodape-marca { grid-column: auto; } }
